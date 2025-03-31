@@ -1,0 +1,12 @@
+{
+  "emeraldwalk.runonsave": {
+    "commands": [
+      {
+        "match": ".*\\.(js|ts|tsx|jsx)$",
+        "cmd": "npm run format && npm run lint"
+      }
+    ]
+  },
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 1000
+}
