@@ -2,11 +2,12 @@
   "name": "pokemon-game",
   "version": "0.0.1",
   "description": "pokemon game as discord bot.",
-  "main": "src/bot.js",
+  "type": "module",
   "scripts": {
     "format": "prettier --write .",
     "lint": "eslint . ",
-    "lint:fix": "eslint . --fix "
+    "lint:fix": "eslint . --fix ",
+    "battle-test": "node src/pokemon/battle-testing.js"
   },
   "keywords": [],
   "author": "",
@@ -16,5 +17,8 @@
     "eslint": "^9.23.0",
     "globals": "^16.0.0",
     "prettier": "^3.5.3"
+  },
+  "dependencies": {
+    "pokemon-showdown": "^0.11.10"
   }
 }
