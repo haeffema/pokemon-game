@@ -26,6 +26,8 @@ battle.setPlayer('p2', {
   team: packed,
 });
 
+console.log(battle.p1.getChoice());
+
 battle.choose('p1', 'team 1');
 battle.choose('p2', 'team 1');
 
