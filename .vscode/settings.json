@@ -7,7 +7,7 @@
       }
     ]
   },
-  "files.autoSave": "afterDelay",
+  "files.autoSave": "onFocusChange",
   "files.autoSaveDelay": 1000,
   "IDX.aI.enableInlineCompletion": true,
   "IDX.aI.enableCodebaseIndexing": true
