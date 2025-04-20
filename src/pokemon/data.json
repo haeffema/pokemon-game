@@ -1,0 +1,7644 @@
+{
+  "venusaur": {
+    "id": 3,
+    "name": "Venusaur",
+    "types": [
+      "Grass",
+      "Poison"
+    ],
+    "abilities": [
+      "Overgrow",
+      "Chlorophyll"
+    ],
+    "tier": "RU"
+  },
+  "venusaurmega": {
+    "id": 3,
+    "name": "Venusaur-Mega",
+    "types": [
+      "Grass",
+      "Poison"
+    ],
+    "abilities": [
+      "Thick Fat"
+    ],
+    "tier": "UUBL"
+  },
+  "charizard": {
+    "id": 6,
+    "name": "Charizard",
+    "types": [
+      "Fire",
+      "Flying"
+    ],
+    "abilities": [
+      "Blaze",
+      "Solar Power"
+    ],
+    "tier": "PUBL"
+  },
+  "charizardmegax": {
+    "id": 6,
+    "name": "Charizard-Mega-X",
+    "types": [
+      "Fire",
+      "Dragon"
+    ],
+    "abilities": [
+      "Tough Claws"
+    ],
+    "tier": "OU"
+  },
+  "charizardmegay": {
+    "id": 6,
+    "name": "Charizard-Mega-Y",
+    "types": [
+      "Fire",
+      "Flying"
+    ],
+    "abilities": [
+      "Drought"
+    ],
+    "tier": "OU"
+  },
+  "blastoise": {
+    "id": 9,
+    "name": "Blastoise",
+    "types": [
+      "Water"
+    ],
+    "abilities": [
+      "Torrent",
+      "Rain Dish"
+    ],
+    "tier": "NU"
+  },
+  "blastoisemega": {
+    "id": 9,
+    "name": "Blastoise-Mega",
+    "types": [
+      "Water"
+    ],
+    "abilities": [
+      "Mega Launcher"
+    ],
+    "tier": "RU"
+  },
+  "butterfree": {
+    "id": 12,
+    "name": "Butterfree",
+    "types": [
+      "Bug",
+      "Flying"
+    ],
+    "abilities": [
+      "Compound Eyes",
+      "Tinted Lens"
+    ],
+    "tier": "ZU"
+  },
+  "beedrill": {
+    "id": 15,
+    "name": "Beedrill",
+    "types": [
+      "Bug",
+      "Poison"
+    ],
+    "abilities": [
+      "Swarm",
+      "Sniper"
+    ],
+    "tier": "ZU"
+  },
+  "beedrillmega": {
+    "id": 15,
+    "name": "Beedrill-Mega",
+    "types": [
+      "Bug",
+      "Poison"
+    ],
+    "abilities": [
+      "Adaptability"
+    ],
+    "tier": "UU"
+  },
+  "pidgeot": {
+    "id": 18,
+    "name": "Pidgeot",
+    "types": [
+      "Normal",
+      "Flying"
+    ],
+    "abilities": [
+      "Keen Eye",
+      "Tangled Feet",
+      "Big Pecks"
+    ],
+    "tier": "ZU"
+  },
+  "pidgeotmega": {
+    "id": 18,
+    "name": "Pidgeot-Mega",
+    "types": [
+      "Normal",
+      "Flying"
+    ],
+    "abilities": [
+      "No Guard"
+    ],
+    "tier": "UU"
+  },
+  "raticate": {
+    "id": 20,
+    "name": "Raticate",
+    "types": [
+      "Normal"
+    ],
+    "abilities": [
+      "Run Away",
+      "Guts",
+      "Hustle"
+    ],
+    "tier": "ZU"
+  },
+  "raticatealola": {
+    "id": 20,
+    "name": "Raticate-Alola",
+    "types": [
+      "Dark",
+      "Normal"
+    ],
+    "abilities": [
+      "Gluttony",
+      "Hustle",
+      "Thick Fat"
+    ],
+    "tier": "ZUBL"
+  },
+  "raticatealolatotem": {
+    "id": 20,
+    "name": "Raticate-Alola-Totem",
+    "types": [
+      "Dark",
+      "Normal"
+    ],
+    "abilities": [
+      "Thick Fat"
+    ],
+    "tier": "ZUBL"
+  },
+  "fearow": {
+    "id": 22,
+    "name": "Fearow",
+    "types": [
+      "Normal",
+      "Flying"
+    ],
+    "abilities": [
+      "Keen Eye",
+      "Sniper"
+    ],
+    "tier": "ZU"
+  },
+  "arbok": {
+    "id": 24,
+    "name": "Arbok",
+    "types": [
+      "Poison"
+    ],
+    "abilities": [
+      "Intimidate",
+      "Shed Skin",
+      "Unnerve"
+    ],
+    "tier": "ZU"
+  },
+  "pikachuoriginal": {
+    "id": 25,
+    "name": "Pikachu-Original",
+    "types": [
+      "Electric"
+    ],
+    "abilities": [
+      "Static"
+    ],
+    "tier": "ZU"
+  },
+  "pikachuhoenn": {
+    "id": 25,
+    "name": "Pikachu-Hoenn",
+    "types": [
+      "Electric"
+    ],
+    "abilities": [
+      "Static"
+    ],
+    "tier": "ZU"
+  },
+  "pikachusinnoh": {
+    "id": 25,
+    "name": "Pikachu-Sinnoh",
+    "types": [
+      "Electric"
+    ],
+    "abilities": [
+      "Static"
+    ],
+    "tier": "ZU"
+  },
+  "pikachuunova": {
+    "id": 25,
+    "name": "Pikachu-Unova",
+    "types": [
+      "Electric"
+    ],
+    "abilities": [
+      "Static"
+    ],
+    "tier": "ZU"
+  },
+  "pikachukalos": {
+    "id": 25,
+    "name": "Pikachu-Kalos",
+    "types": [
+      "Electric"
+    ],
+    "abilities": [
+      "Static"
+    ],
+    "tier": "ZU"
+  },
+  "pikachualola": {
+    "id": 25,
+    "name": "Pikachu-Alola",
+    "types": [
+      "Electric"
+    ],
+    "abilities": [
+      "Static"
+    ],
+    "tier": "ZU"
+  },
+  "pikachupartner": {
+    "id": 25,
+    "name": "Pikachu-Partner",
+    "types": [
+      "Electric"
+    ],
+    "abilities": [
+      "Static"
+    ],
+    "tier": "ZU"
+  },
+  "raichu": {
+    "id": 26,
+    "name": "Raichu",
+    "types": [
+      "Electric"
+    ],
+    "abilities": [
+      "Static",
+      "Lightning Rod"
+    ],
+    "tier": "ZU"
+  },
+  "raichualola": {
+    "id": 26,
+    "name": "Raichu-Alola",
+    "types": [
+      "Electric",
+      "Psychic"
+    ],
+    "abilities": [
+      "Surge Surfer"
+    ],
+    "tier": "PU"
+  },
+  "sandslash": {
+    "id": 28,
+    "name": "Sandslash",
+    "types": [
+      "Ground"
+    ],
+    "abilities": [
+      "Sand Veil",
+      "Sand Rush"
+    ],
+    "tier": "ZU"
+  },
+  "sandslashalola": {
+    "id": 28,
+    "name": "Sandslash-Alola",
+    "types": [
+      "Ice",
+      "Steel"
+    ],
+    "abilities": [
+      "Snow Cloak",
+      "Slush Rush"
+    ],
+    "tier": "PU"
+  },
+  "nidoqueen": {
+    "id": 31,
+    "name": "Nidoqueen",
+    "types": [
+      "Poison",
+      "Ground"
+    ],
+    "abilities": [
+      "Poison Point",
+      "Rivalry",
+      "Sheer Force"
+    ],
+    "tier": "RU"
+  },
+  "nidoking": {
+    "id": 34,
+    "name": "Nidoking",
+    "types": [
+      "Poison",
+      "Ground"
+    ],
+    "abilities": [
+      "Poison Point",
+      "Rivalry",
+      "Sheer Force"
+    ],
+    "tier": "UU"
+  },
+  "clefable": {
+    "id": 36,
+    "name": "Clefable",
+    "types": [
+      "Fairy"
+    ],
+    "abilities": [
+      "Cute Charm",
+      "Magic Guard",
+      "Unaware"
+    ],
+    "tier": "OU"
+  },
+  "ninetales": {
+    "id": 38,
+    "name": "Ninetales",
+    "types": [
+      "Fire"
+    ],
+    "abilities": [
+      "Flash Fire",
+      "Drought"
+    ],
+    "tier": "RU"
+  },
+  "ninetalesalola": {
+    "id": 38,
+    "name": "Ninetales-Alola",
+    "types": [
+      "Ice",
+      "Fairy"
+    ],
+    "abilities": [
+      "Snow Cloak",
+      "Snow Warning"
+    ],
+    "tier": "UUBL"
+  },
+  "wigglytuff": {
+    "id": 40,
+    "name": "Wigglytuff",
+    "types": [
+      "Normal",
+      "Fairy"
+    ],
+    "abilities": [
+      "Cute Charm",
+      "Competitive",
+      "Frisk"
+    ],
+    "tier": "ZU"
+  },
+  "golbat": {
+    "id": 42,
+    "name": "Golbat",
+    "types": [
+      "Poison",
+      "Flying"
+    ],
+    "abilities": [
+      "Inner Focus",
+      "Infiltrator"
+    ],
+    "tier": "NU"
+  },
+  "crobat": {
+    "id": 169,
+    "name": "Crobat",
+    "types": [
+      "Poison",
+      "Flying"
+    ],
+    "abilities": [
+      "Inner Focus",
+      "Infiltrator"
+    ],
+    "tier": "UU"
+  },
+  "vileplume": {
+    "id": 45,
+    "name": "Vileplume",
+    "types": [
+      "Grass",
+      "Poison"
+    ],
+    "abilities": [
+      "Chlorophyll",
+      "Effect Spore"
+    ],
+    "tier": "NUBL"
+  },
+  "bellossom": {
+    "id": 182,
+    "name": "Bellossom",
+    "types": [
+      "Grass"
+    ],
+    "abilities": [
+      "Chlorophyll",
+      "Healer"
+    ],
+    "tier": "ZU"
+  },
+  "parasect": {
+    "id": 47,
+    "name": "Parasect",
+    "types": [
+      "Bug",
+      "Grass"
+    ],
+    "abilities": [
+      "Effect Spore",
+      "Dry Skin",
+      "Damp"
+    ],
+    "tier": "ZU"
+  },
+  "venomoth": {
+    "id": 49,
+    "name": "Venomoth",
+    "types": [
+      "Bug",
+      "Poison"
+    ],
+    "abilities": [
+      "Shield Dust",
+      "Tinted Lens",
+      "Wonder Skin"
+    ],
+    "tier": "RUBL"
+  },
+  "dugtrio": {
+    "id": 51,
+    "name": "Dugtrio",
+    "types": [
+      "Ground"
+    ],
+    "abilities": [
+      "Sand Veil",
+      "Arena Trap",
+      "Sand Force"
+    ],
+    "tier": "ZU"
+  },
+  "dugtrioalola": {
+    "id": 51,
+    "name": "Dugtrio-Alola",
+    "types": [
+      "Ground",
+      "Steel"
+    ],
+    "abilities": [
+      "Sand Veil",
+      "Tangling Hair",
+      "Sand Force"
+    ],
+    "tier": "PU"
+  },
+  "persian": {
+    "id": 53,
+    "name": "Persian",
+    "types": [
+      "Normal"
+    ],
+    "abilities": [
+      "Limber",
+      "Technician",
+      "Unnerve"
+    ],
+    "tier": "ZU"
+  },
+  "persianalola": {
+    "id": 53,
+    "name": "Persian-Alola",
+    "types": [
+      "Dark"
+    ],
+    "abilities": [
+      "Fur Coat",
+      "Technician",
+      "Rattled"
+    ],
+    "tier": "PU"
+  },
+  "golduck": {
+    "id": 55,
+    "name": "Golduck",
+    "types": [
+      "Water"
+    ],
+    "abilities": [
+      "Damp",
+      "Cloud Nine",
+      "Swift Swim"
+    ],
+    "tier": "ZU"
+  },
+  "arcanine": {
+    "id": 59,
+    "name": "Arcanine",
+    "types": [
+      "Fire"
+    ],
+    "abilities": [
+      "Intimidate",
+      "Flash Fire",
+      "Justified"
+    ],
+    "tier": "RU"
+  },
+  "poliwrath": {
+    "id": 62,
+    "name": "Poliwrath",
+    "types": [
+      "Water",
+      "Fighting"
+    ],
+    "abilities": [
+      "Water Absorb",
+      "Damp",
+      "Swift Swim"
+    ],
+    "tier": "ZU"
+  },
+  "politoed": {
+    "id": 186,
+    "name": "Politoed",
+    "types": [
+      "Water"
+    ],
+    "abilities": [
+      "Water Absorb",
+      "Damp",
+      "Drizzle"
+    ],
+    "tier": "ZU"
+  },
+  "alakazam": {
+    "id": 65,
+    "name": "Alakazam",
+    "types": [
+      "Psychic"
+    ],
+    "abilities": [
+      "Synchronize",
+      "Inner Focus",
+      "Magic Guard"
+    ],
+    "tier": "UUBL"
+  },
+  "alakazammega": {
+    "id": 65,
+    "name": "Alakazam-Mega",
+    "types": [
+      "Psychic"
+    ],
+    "abilities": [
+      "Trace"
+    ],
+    "tier": "OU"
+  },
+  "machamp": {
+    "id": 68,
+    "name": "Machamp",
+    "types": [
+      "Fighting"
+    ],
+    "abilities": [
+      "Guts",
+      "No Guard",
+      "Steadfast"
+    ],
+    "tier": "RU"
+  },
+  "victreebel": {
+    "id": 71,
+    "name": "Victreebel",
+    "types": [
+      "Grass",
+      "Poison"
+    ],
+    "abilities": [
+      "Chlorophyll",
+      "Gluttony"
+    ],
+    "tier": "PU"
+  },
+  "tentacruel": {
+    "id": 73,
+    "name": "Tentacruel",
+    "types": [
+      "Water",
+      "Poison"
+    ],
+    "abilities": [
+      "Clear Body",
+      "Liquid Ooze",
+      "Rain Dish"
+    ],
+    "tier": "UU"
+  },
+  "golem": {
+    "id": 76,
+    "name": "Golem",
+    "types": [
+      "Rock",
+      "Ground"
+    ],
+    "abilities": [
+      "Rock Head",
+      "Sturdy",
+      "Sand Veil"
+    ],
+    "tier": "ZU"
+  },
+  "golemalola": {
+    "id": 76,
+    "name": "Golem-Alola",
+    "types": [
+      "Rock",
+      "Electric"
+    ],
+    "abilities": [
+      "Magnet Pull",
+      "Sturdy",
+      "Galvanize"
+    ],
+    "tier": "ZU"
+  },
+  "rapidash": {
+    "id": 78,
+    "name": "Rapidash",
+    "types": [
+      "Fire"
+    ],
+    "abilities": [
+      "Run Away",
+      "Flash Fire",
+      "Flame Body"
+    ],
+    "tier": "ZU"
+  },
+  "slowbro": {
+    "id": 80,
+    "name": "Slowbro",
+    "types": [
+      "Water",
+      "Psychic"
+    ],
+    "abilities": [
+      "Oblivious",
+      "Own Tempo",
+      "Regenerator"
+    ],
+    "tier": "RU"
+  },
+  "slowbromega": {
+    "id": 80,
+    "name": "Slowbro-Mega",
+    "types": [
+      "Water",
+      "Psychic"
+    ],
+    "abilities": [
+      "Shell Armor"
+    ],
+    "tier": "RUBL"
+  },
+  "slowking": {
+    "id": 199,
+    "name": "Slowking",
+    "types": [
+      "Water",
+      "Psychic"
+    ],
+    "abilities": [
+      "Oblivious",
+      "Own Tempo",
+      "Regenerator"
+    ],
+    "tier": "NU"
+  },
+  "magneton": {
+    "id": 82,
+    "name": "Magneton",
+    "types": [
+      "Electric",
+      "Steel"
+    ],
+    "abilities": [
+      "Magnet Pull",
+      "Sturdy",
+      "Analytic"
+    ],
+    "tier": "UU"
+  },
+  "magnezone": {
+    "id": 462,
+    "name": "Magnezone",
+    "types": [
+      "Electric",
+      "Steel"
+    ],
+    "abilities": [
+      "Magnet Pull",
+      "Sturdy",
+      "Analytic"
+    ],
+    "tier": "OU"
+  },
+  "farfetchd": {
+    "id": 83,
+    "name": "Farfetch’d",
+    "types": [
+      "Normal",
+      "Flying"
+    ],
+    "abilities": [
+      "Keen Eye",
+      "Inner Focus",
+      "Defiant"
+    ],
+    "tier": "ZU"
+  },
+  "dodrio": {
+    "id": 85,
+    "name": "Dodrio",
+    "types": [
+      "Normal",
+      "Flying"
+    ],
+    "abilities": [
+      "Run Away",
+      "Early Bird",
+      "Tangled Feet"
+    ],
+    "tier": "PU"
+  },
+  "dewgong": {
+    "id": 87,
+    "name": "Dewgong",
+    "types": [
+      "Water",
+      "Ice"
+    ],
+    "abilities": [
+      "Thick Fat",
+      "Hydration",
+      "Ice Body"
+    ],
+    "tier": "ZU"
+  },
+  "muk": {
+    "id": 89,
+    "name": "Muk",
+    "types": [
+      "Poison"
+    ],
+    "abilities": [
+      "Stench",
+      "Sticky Hold",
+      "Poison Touch"
+    ],
+    "tier": "ZU"
+  },
+  "mukalola": {
+    "id": 89,
+    "name": "Muk-Alola",
+    "types": [
+      "Poison",
+      "Dark"
+    ],
+    "abilities": [
+      "Poison Touch",
+      "Gluttony",
+      "Power of Alchemy"
+    ],
+    "tier": "UU"
+  },
+  "cloyster": {
+    "id": 91,
+    "name": "Cloyster",
+    "types": [
+      "Water",
+      "Ice"
+    ],
+    "abilities": [
+      "Shell Armor",
+      "Skill Link",
+      "Overcoat"
+    ],
+    "tier": "RU"
+  },
+  "gengar": {
+    "id": 94,
+    "name": "Gengar",
+    "types": [
+      "Ghost",
+      "Poison"
+    ],
+    "abilities": [
+      "Cursed Body"
+    ],
+    "tier": "UU"
+  },
+  "gengarmega": {
+    "id": 94,
+    "name": "Gengar-Mega",
+    "types": [
+      "Ghost",
+      "Poison"
+    ],
+    "abilities": [
+      "Shadow Tag"
+    ],
+    "tier": "Uber"
+  },
+  "steelix": {
+    "id": 208,
+    "name": "Steelix",
+    "types": [
+      "Steel",
+      "Ground"
+    ],
+    "abilities": [
+      "Rock Head",
+      "Sturdy",
+      "Sheer Force"
+    ],
+    "tier": "NU"
+  },
+  "steelixmega": {
+    "id": 208,
+    "name": "Steelix-Mega",
+    "types": [
+      "Steel",
+      "Ground"
+    ],
+    "abilities": [
+      "Sand Force"
+    ],
+    "tier": "UU"
+  },
+  "hypno": {
+    "id": 97,
+    "name": "Hypno",
+    "types": [
+      "Psychic"
+    ],
+    "abilities": [
+      "Insomnia",
+      "Forewarn",
+      "Inner Focus"
+    ],
+    "tier": "ZU"
+  },
+  "kingler": {
+    "id": 99,
+    "name": "Kingler",
+    "types": [
+      "Water"
+    ],
+    "abilities": [
+      "Hyper Cutter",
+      "Shell Armor",
+      "Sheer Force"
+    ],
+    "tier": "PUBL"
+  },
+  "electrode": {
+    "id": 101,
+    "name": "Electrode",
+    "types": [
+      "Electric"
+    ],
+    "abilities": [
+      "Soundproof",
+      "Static",
+      "Aftermath"
+    ],
+    "tier": "ZU"
+  },
+  "exeggutor": {
+    "id": 103,
+    "name": "Exeggutor",
+    "types": [
+      "Grass",
+      "Psychic"
+    ],
+    "abilities": [
+      "Chlorophyll",
+      "Harvest"
+    ],
+    "tier": "ZUBL"
+  },
+  "exeggutoralola": {
+    "id": 103,
+    "name": "Exeggutor-Alola",
+    "types": [
+      "Grass",
+      "Dragon"
+    ],
+    "abilities": [
+      "Frisk",
+      "Harvest"
+    ],
+    "tier": "NU"
+  },
+  "marowak": {
+    "id": 105,
+    "name": "Marowak",
+    "types": [
+      "Ground"
+    ],
+    "abilities": [
+      "Rock Head",
+      "Lightning Rod",
+      "Battle Armor"
+    ],
+    "tier": "ZU"
+  },
+  "marowakalola": {
+    "id": 105,
+    "name": "Marowak-Alola",
+    "types": [
+      "Fire",
+      "Ghost"
+    ],
+    "abilities": [
+      "Cursed Body",
+      "Lightning Rod",
+      "Rock Head"
+    ],
+    "tier": "RU"
+  },
+  "marowakalolatotem": {
+    "id": 105,
+    "name": "Marowak-Alola-Totem",
+    "types": [
+      "Fire",
+      "Ghost"
+    ],
+    "abilities": [
+      "Rock Head"
+    ],
+    "tier": "RU"
+  },
+  "hitmonlee": {
+    "id": 106,
+    "name": "Hitmonlee",
+    "types": [
+      "Fighting"
+    ],
+    "abilities": [
+      "Limber",
+      "Reckless",
+      "Unburden"
+    ],
+    "tier": "NU"
+  },
+  "hitmonchan": {
+    "id": 107,
+    "name": "Hitmonchan",
+    "types": [
+      "Fighting"
+    ],
+    "abilities": [
+      "Keen Eye",
+      "Iron Fist",
+      "Inner Focus"
+    ],
+    "tier": "PU"
+  },
+  "hitmontop": {
+    "id": 237,
+    "name": "Hitmontop",
+    "types": [
+      "Fighting"
+    ],
+    "abilities": [
+      "Intimidate",
+      "Technician",
+      "Steadfast"
+    ],
+    "tier": "NU"
+  },
+  "lickilicky": {
+    "id": 463,
+    "name": "Lickilicky",
+    "types": [
+      "Normal"
+    ],
+    "abilities": [
+      "Own Tempo",
+      "Oblivious",
+      "Cloud Nine"
+    ],
+    "tier": "ZU"
+  },
+  "weezing": {
+    "id": 110,
+    "name": "Weezing",
+    "types": [
+      "Poison"
+    ],
+    "abilities": [
+      "Levitate"
+    ],
+    "tier": "NU"
+  },
+  "rhydon": {
+    "id": 112,
+    "name": "Rhydon",
+    "types": [
+      "Ground",
+      "Rock"
+    ],
+    "abilities": [
+      "Lightning Rod",
+      "Rock Head",
+      "Reckless"
+    ],
+    "tier": "NU"
+  },
+  "rhyperior": {
+    "id": 464,
+    "name": "Rhyperior",
+    "types": [
+      "Ground",
+      "Rock"
+    ],
+    "abilities": [
+      "Lightning Rod",
+      "Solid Rock",
+      "Reckless"
+    ],
+    "tier": "RU"
+  },
+  "chansey": {
+    "id": 113,
+    "name": "Chansey",
+    "types": [
+      "Normal"
+    ],
+    "abilities": [
+      "Natural Cure",
+      "Serene Grace",
+      "Healer"
+    ],
+    "tier": "OU"
+  },
+  "blissey": {
+    "id": 242,
+    "name": "Blissey",
+    "types": [
+      "Normal"
+    ],
+    "abilities": [
+      "Natural Cure",
+      "Serene Grace",
+      "Healer"
+    ],
+    "tier": "UU"
+  },
+  "tangrowth": {
+    "id": 465,
+    "name": "Tangrowth",
+    "types": [
+      "Grass"
+    ],
+    "abilities": [
+      "Chlorophyll",
+      "Leaf Guard",
+      "Regenerator"
+    ],
+    "tier": "OU"
+  },
+  "kangaskhan": {
+    "id": 115,
+    "name": "Kangaskhan",
+    "types": [
+      "Normal"
+    ],
+    "abilities": [
+      "Early Bird",
+      "Scrappy",
+      "Inner Focus"
+    ],
+    "tier": "PU"
+  },
+  "kangaskhanmega": {
+    "id": 115,
+    "name": "Kangaskhan-Mega",
+    "types": [
+      "Normal"
+    ],
+    "abilities": [
+      "Parental Bond"
+    ],
+    "tier": "Uber"
+  },
+  "kingdra": {
+    "id": 230,
+    "name": "Kingdra",
+    "types": [
+      "Water",
+      "Dragon"
+    ],
+    "abilities": [
+      "Swift Swim",
+      "Sniper",
+      "Damp"
+    ],
+    "tier": "NUBL"
+  },
+  "seaking": {
+    "id": 119,
+    "name": "Seaking",
+    "types": [
+      "Water"
+    ],
+    "abilities": [
+      "Swift Swim",
+      "Water Veil",
+      "Lightning Rod"
+    ],
+    "tier": "ZU"
+  },
+  "starmie": {
+    "id": 121,
+    "name": "Starmie",
+    "types": [
+      "Water",
+      "Psychic"
+    ],
+    "abilities": [
+      "Illuminate",
+      "Natural Cure",
+      "Analytic"
+    ],
+    "tier": "UU"
+  },
+  "mrmime": {
+    "id": 122,
+    "name": "Mr. Mime",
+    "types": [
+      "Psychic",
+      "Fairy"
+    ],
+    "abilities": [
+      "Soundproof",
+      "Filter",
+      "Technician"
+    ],
+    "tier": "ZU"
+  },
+  "scizor": {
+    "id": 212,
+    "name": "Scizor",
+    "types": [
+      "Bug",
+      "Steel"
+    ],
+    "abilities": [
+      "Swarm",
+      "Technician",
+      "Light Metal"
+    ],
+    "tier": "UU"
+  },
+  "scizormega": {
+    "id": 212,
+    "name": "Scizor-Mega",
+    "types": [
+      "Bug",
+      "Steel"
+    ],
+    "abilities": [
+      "Technician"
+    ],
+    "tier": "OU"
+  },
+  "jynx": {
+    "id": 124,
+    "name": "Jynx",
+    "types": [
+      "Ice",
+      "Psychic"
+    ],
+    "abilities": [
+      "Oblivious",
+      "Forewarn",
+      "Dry Skin"
+    ],
+    "tier": "ZUBL"
+  },
+  "electivire": {
+    "id": 466,
+    "name": "Electivire",
+    "types": [
+      "Electric"
+    ],
+    "abilities": [
+      "Motor Drive",
+      "Vital Spirit"
+    ],
+    "tier": "ZU"
+  },
+  "magmortar": {
+    "id": 467,
+    "name": "Magmortar",
+    "types": [
+      "Fire"
+    ],
+    "abilities": [
+      "Flame Body",
+      "Vital Spirit"
+    ],
+    "tier": "NU"
+  },
+  "pinsir": {
+    "id": 127,
+    "name": "Pinsir",
+    "types": [
+      "Bug"
+    ],
+    "abilities": [
+      "Hyper Cutter",
+      "Mold Breaker",
+      "Moxie"
+    ],
+    "tier": "ZU"
+  },
+  "pinsirmega": {
+    "id": 127,
+    "name": "Pinsir-Mega",
+    "types": [
+      "Bug",
+      "Flying"
+    ],
+    "abilities": [
+      "Aerilate"
+    ],
+    "tier": "UUBL"
+  },
+  "tauros": {
+    "id": 128,
+    "name": "Tauros",
+    "types": [
+      "Normal"
+    ],
+    "abilities": [
+      "Intimidate",
+      "Anger Point",
+      "Sheer Force"
+    ],
+    "tier": "PUBL"
+  },
+  "gyarados": {
+    "id": 130,
+    "name": "Gyarados",
+    "types": [
+      "Water",
+      "Flying"
+    ],
+    "abilities": [
+      "Intimidate",
+      "Moxie"
+    ],
+    "tier": "UUBL"
+  },
+  "gyaradosmega": {
+    "id": 130,
+    "name": "Gyarados-Mega",
+    "types": [
+      "Water",
+      "Dark"
+    ],
+    "abilities": [
+      "Mold Breaker"
+    ],
+    "tier": "OU"
+  },
+  "lapras": {
+    "id": 131,
+    "name": "Lapras",
+    "types": [
+      "Water",
+      "Ice"
+    ],
+    "abilities": [
+      "Water Absorb",
+      "Shell Armor",
+      "Hydration"
+    ],
+    "tier": "ZU"
+  },
+  "ditto": {
+    "id": 132,
+    "name": "Ditto",
+    "types": [
+      "Normal"
+    ],
+    "abilities": [
+      "Limber",
+      "Imposter"
+    ],
+    "tier": "ZU"
+  },
+  "vaporeon": {
+    "id": 134,
+    "name": "Vaporeon",
+    "types": [
+      "Water"
+    ],
+    "abilities": [
+      "Water Absorb",
+      "Hydration"
+    ],
+    "tier": "NU"
+  },
+  "jolteon": {
+    "id": 135,
+    "name": "Jolteon",
+    "types": [
+      "Electric"
+    ],
+    "abilities": [
+      "Volt Absorb",
+      "Quick Feet"
+    ],
+    "tier": "RU"
+  },
+  "flareon": {
+    "id": 136,
+    "name": "Flareon",
+    "types": [
+      "Fire"
+    ],
+    "abilities": [
+      "Flash Fire",
+      "Guts"
+    ],
+    "tier": "ZU"
+  },
+  "espeon": {
+    "id": 196,
+    "name": "Espeon",
+    "types": [
+      "Psychic"
+    ],
+    "abilities": [
+      "Synchronize",
+      "Magic Bounce"
+    ],
+    "tier": "RU"
+  },
+  "umbreon": {
+    "id": 197,
+    "name": "Umbreon",
+    "types": [
+      "Dark"
+    ],
+    "abilities": [
+      "Synchronize",
+      "Inner Focus"
+    ],
+    "tier": "RU"
+  },
+  "leafeon": {
+    "id": 470,
+    "name": "Leafeon",
+    "types": [
+      "Grass"
+    ],
+    "abilities": [
+      "Leaf Guard",
+      "Chlorophyll"
+    ],
+    "tier": "ZU"
+  },
+  "glaceon": {
+    "id": 471,
+    "name": "Glaceon",
+    "types": [
+      "Ice"
+    ],
+    "abilities": [
+      "Snow Cloak",
+      "Ice Body"
+    ],
+    "tier": "ZU"
+  },
+  "porygon2": {
+    "id": 233,
+    "name": "Porygon2",
+    "types": [
+      "Normal"
+    ],
+    "abilities": [
+      "Trace",
+      "Download",
+      "Analytic"
+    ],
+    "tier": "RU"
+  },
+  "porygonz": {
+    "id": 474,
+    "name": "Porygon-Z",
+    "types": [
+      "Normal"
+    ],
+    "abilities": [
+      "Adaptability",
+      "Download",
+      "Analytic"
+    ],
+    "tier": "UUBL"
+  },
+  "omastar": {
+    "id": 139,
+    "name": "Omastar",
+    "types": [
+      "Rock",
+      "Water"
+    ],
+    "abilities": [
+      "Swift Swim",
+      "Shell Armor",
+      "Weak Armor"
+    ],
+    "tier": "PU"
+  },
+  "kabutops": {
+    "id": 141,
+    "name": "Kabutops",
+    "types": [
+      "Rock",
+      "Water"
+    ],
+    "abilities": [
+      "Swift Swim",
+      "Battle Armor",
+      "Weak Armor"
+    ],
+    "tier": "PU"
+  },
+  "aerodactyl": {
+    "id": 142,
+    "name": "Aerodactyl",
+    "types": [
+      "Rock",
+      "Flying"
+    ],
+    "abilities": [
+      "Rock Head",
+      "Pressure",
+      "Unnerve"
+    ],
+    "tier": "NU"
+  },
+  "aerodactylmega": {
+    "id": 142,
+    "name": "Aerodactyl-Mega",
+    "types": [
+      "Rock",
+      "Flying"
+    ],
+    "abilities": [
+      "Tough Claws"
+    ],
+    "tier": "UU"
+  },
+  "snorlax": {
+    "id": 143,
+    "name": "Snorlax",
+    "types": [
+      "Normal"
+    ],
+    "abilities": [
+      "Immunity",
+      "Thick Fat",
+      "Gluttony"
+    ],
+    "tier": "RU"
+  },
+  "articuno": {
+    "id": 144,
+    "name": "Articuno",
+    "types": [
+      "Ice",
+      "Flying"
+    ],
+    "abilities": [
+      "Pressure",
+      "Snow Cloak"
+    ],
+    "tier": "PU"
+  },
+  "zapdos": {
+    "id": 145,
+    "name": "Zapdos",
+    "types": [
+      "Electric",
+      "Flying"
+    ],
+    "abilities": [
+      "Pressure",
+      "Static"
+    ],
+    "tier": "OU"
+  },
+  "moltres": {
+    "id": 146,
+    "name": "Moltres",
+    "types": [
+      "Fire",
+      "Flying"
+    ],
+    "abilities": [
+      "Pressure",
+      "Flame Body"
+    ],
+    "tier": "UU"
+  },
+  "dragonite": {
+    "id": 149,
+    "name": "Dragonite",
+    "types": [
+      "Dragon",
+      "Flying"
+    ],
+    "abilities": [
+      "Inner Focus",
+      "Multiscale"
+    ],
+    "tier": "UUBL"
+  },
+  "mewtwo": {
+    "id": 150,
+    "name": "Mewtwo",
+    "types": [
+      "Psychic"
+    ],
+    "abilities": [
+      "Pressure",
+      "Unnerve"
+    ],
+    "tier": "Uber"
+  },
+  "mewtwomegax": {
+    "id": 150,
+    "name": "Mewtwo-Mega-X",
+    "types": [
+      "Psychic",
+      "Fighting"
+    ],
+    "abilities": [
+      "Steadfast"
+    ],
+    "tier": "Uber"
+  },
+  "mewtwomegay": {
+    "id": 150,
+    "name": "Mewtwo-Mega-Y",
+    "types": [
+      "Psychic"
+    ],
+    "abilities": [
+      "Insomnia"
+    ],
+    "tier": "Uber"
+  },
+  "mew": {
+    "id": 151,
+    "name": "Mew",
+    "types": [
+      "Psychic"
+    ],
+    "abilities": [
+      "Synchronize"
+    ],
+    "tier": "UU"
+  },
+  "meganium": {
+    "id": 154,
+    "name": "Meganium",
+    "types": [
+      "Grass"
+    ],
+    "abilities": [
+      "Overgrow",
+      "Leaf Guard"
+    ],
+    "tier": "ZU"
+  },
+  "typhlosion": {
+    "id": 157,
+    "name": "Typhlosion",
+    "types": [
+      "Fire"
+    ],
+    "abilities": [
+      "Blaze",
+      "Flash Fire"
+    ],
+    "tier": "NU"
+  },
+  "feraligatr": {
+    "id": 160,
+    "name": "Feraligatr",
+    "types": [
+      "Water"
+    ],
+    "abilities": [
+      "Torrent",
+      "Sheer Force"
+    ],
+    "tier": "UU"
+  },
+  "furret": {
+    "id": 162,
+    "name": "Furret",
+    "types": [
+      "Normal"
+    ],
+    "abilities": [
+      "Run Away",
+      "Keen Eye",
+      "Frisk"
+    ],
+    "tier": "ZU"
+  },
+  "noctowl": {
+    "id": 164,
+    "name": "Noctowl",
+    "types": [
+      "Normal",
+      "Flying"
+    ],
+    "abilities": [
+      "Insomnia",
+      "Keen Eye",
+      "Tinted Lens"
+    ],
+    "tier": "ZU"
+  },
+  "ledian": {
+    "id": 166,
+    "name": "Ledian",
+    "types": [
+      "Bug",
+      "Flying"
+    ],
+    "abilities": [
+      "Swarm",
+      "Early Bird",
+      "Iron Fist"
+    ],
+    "tier": "ZU"
+  },
+  "ariados": {
+    "id": 168,
+    "name": "Ariados",
+    "types": [
+      "Bug",
+      "Poison"
+    ],
+    "abilities": [
+      "Swarm",
+      "Insomnia",
+      "Sniper"
+    ],
+    "tier": "ZU"
+  },
+  "lanturn": {
+    "id": 171,
+    "name": "Lanturn",
+    "types": [
+      "Water",
+      "Electric"
+    ],
+    "abilities": [
+      "Volt Absorb",
+      "Illuminate",
+      "Water Absorb"
+    ],
+    "tier": "PU"
+  },
+  "togekiss": {
+    "id": 468,
+    "name": "Togekiss",
+    "types": [
+      "Fairy",
+      "Flying"
+    ],
+    "abilities": [
+      "Hustle",
+      "Serene Grace",
+      "Super Luck"
+    ],
+    "tier": "UU"
+  },
+  "xatu": {
+    "id": 178,
+    "name": "Xatu",
+    "types": [
+      "Psychic",
+      "Flying"
+    ],
+    "abilities": [
+      "Synchronize",
+      "Early Bird",
+      "Magic Bounce"
+    ],
+    "tier": "NU"
+  },
+  "ampharos": {
+    "id": 181,
+    "name": "Ampharos",
+    "types": [
+      "Electric"
+    ],
+    "abilities": [
+      "Static",
+      "Plus"
+    ],
+    "tier": "ZU"
+  },
+  "ampharosmega": {
+    "id": 181,
+    "name": "Ampharos-Mega",
+    "types": [
+      "Electric",
+      "Dragon"
+    ],
+    "abilities": [
+      "Mold Breaker"
+    ],
+    "tier": "RU"
+  },
+  "azumarill": {
+    "id": 184,
+    "name": "Azumarill",
+    "types": [
+      "Water",
+      "Fairy"
+    ],
+    "abilities": [
+      "Thick Fat",
+      "Huge Power",
+      "Sap Sipper"
+    ],
+    "tier": "OU"
+  },
+  "sudowoodo": {
+    "id": 185,
+    "name": "Sudowoodo",
+    "types": [
+      "Rock"
+    ],
+    "abilities": [
+      "Sturdy",
+      "Rock Head",
+      "Rattled"
+    ],
+    "tier": "ZU"
+  },
+  "jumpluff": {
+    "id": 189,
+    "name": "Jumpluff",
+    "types": [
+      "Grass",
+      "Flying"
+    ],
+    "abilities": [
+      "Chlorophyll",
+      "Leaf Guard",
+      "Infiltrator"
+    ],
+    "tier": "ZU"
+  },
+  "ambipom": {
+    "id": 424,
+    "name": "Ambipom",
+    "types": [
+      "Normal"
+    ],
+    "abilities": [
+      "Technician",
+      "Pickup",
+      "Skill Link"
+    ],
+    "tier": "NU"
+  },
+  "sunflora": {
+    "id": 192,
+    "name": "Sunflora",
+    "types": [
+      "Grass"
+    ],
+    "abilities": [
+      "Chlorophyll",
+      "Solar Power",
+      "Early Bird"
+    ],
+    "tier": "ZU"
+  },
+  "yanmega": {
+    "id": 469,
+    "name": "Yanmega",
+    "types": [
+      "Bug",
+      "Flying"
+    ],
+    "abilities": [
+      "Speed Boost",
+      "Tinted Lens",
+      "Frisk"
+    ],
+    "tier": "RU"
+  },
+  "quagsire": {
+    "id": 195,
+    "name": "Quagsire",
+    "types": [
+      "Water",
+      "Ground"
+    ],
+    "abilities": [
+      "Damp",
+      "Water Absorb",
+      "Unaware"
+    ],
+    "tier": "UUBL"
+  },
+  "honchkrow": {
+    "id": 430,
+    "name": "Honchkrow",
+    "types": [
+      "Dark",
+      "Flying"
+    ],
+    "abilities": [
+      "Insomnia",
+      "Super Luck",
+      "Moxie"
+    ],
+    "tier": "RU"
+  },
+  "mismagius": {
+    "id": 429,
+    "name": "Mismagius",
+    "types": [
+      "Ghost"
+    ],
+    "abilities": [
+      "Levitate"
+    ],
+    "tier": "NU"
+  },
+  "unown": {
+    "id": 201,
+    "name": "Unown",
+    "types": [
+      "Psychic"
+    ],
+    "abilities": [
+      "Levitate"
+    ],
+    "tier": "ZU"
+  },
+  "wobbuffet": {
+    "id": 202,
+    "name": "Wobbuffet",
+    "types": [
+      "Psychic"
+    ],
+    "abilities": [
+      "Shadow Tag",
+      "Telepathy"
+    ],
+    "tier": "ZU"
+  },
+  "forretress": {
+    "id": 205,
+    "name": "Forretress",
+    "types": [
+      "Bug",
+      "Steel"
+    ],
+    "abilities": [
+      "Sturdy",
+      "Overcoat"
+    ],
+    "tier": "RU"
+  },
+  "gligar": {
+    "id": 207,
+    "name": "Gligar",
+    "types": [
+      "Ground",
+      "Flying"
+    ],
+    "abilities": [
+      "Hyper Cutter",
+      "Sand Veil",
+      "Immunity"
+    ],
+    "tier": "UU"
+  },
+  "gliscor": {
+    "id": 472,
+    "name": "Gliscor",
+    "types": [
+      "Ground",
+      "Flying"
+    ],
+    "abilities": [
+      "Hyper Cutter",
+      "Sand Veil",
+      "Poison Heal"
+    ],
+    "tier": "OU"
+  },
+  "granbull": {
+    "id": 210,
+    "name": "Granbull",
+    "types": [
+      "Fairy"
+    ],
+    "abilities": [
+      "Intimidate",
+      "Quick Feet",
+      "Rattled"
+    ],
+    "tier": "ZU"
+  },
+  "qwilfish": {
+    "id": 211,
+    "name": "Qwilfish",
+    "types": [
+      "Water",
+      "Poison"
+    ],
+    "abilities": [
+      "Poison Point",
+      "Swift Swim",
+      "Intimidate"
+    ],
+    "tier": "PU"
+  },
+  "shuckle": {
+    "id": 213,
+    "name": "Shuckle",
+    "types": [
+      "Bug",
+      "Rock"
+    ],
+    "abilities": [
+      "Sturdy",
+      "Gluttony",
+      "Contrary"
+    ],
+    "tier": "ZU"
+  },
+  "heracross": {
+    "id": 214,
+    "name": "Heracross",
+    "types": [
+      "Bug",
+      "Fighting"
+    ],
+    "abilities": [
+      "Swarm",
+      "Guts",
+      "Moxie"
+    ],
+    "tier": "RUBL"
+  },
+  "heracrossmega": {
+    "id": 214,
+    "name": "Heracross-Mega",
+    "types": [
+      "Bug",
+      "Fighting"
+    ],
+    "abilities": [
+      "Skill Link"
+    ],
+    "tier": "UUBL"
+  },
+  "sneasel": {
+    "id": 215,
+    "name": "Sneasel",
+    "types": [
+      "Dark",
+      "Ice"
+    ],
+    "abilities": [
+      "Inner Focus",
+      "Keen Eye",
+      "Pickpocket"
+    ],
+    "tier": "NU"
+  },
+  "weavile": {
+    "id": 461,
+    "name": "Weavile",
+    "types": [
+      "Dark",
+      "Ice"
+    ],
+    "abilities": [
+      "Pressure",
+      "Pickpocket"
+    ],
+    "tier": "UUBL"
+  },
+  "magcargo": {
+    "id": 219,
+    "name": "Magcargo",
+    "types": [
+      "Fire",
+      "Rock"
+    ],
+    "abilities": [
+      "Magma Armor",
+      "Flame Body",
+      "Weak Armor"
+    ],
+    "tier": "ZU"
+  },
+  "piloswine": {
+    "id": 221,
+    "name": "Piloswine",
+    "types": [
+      "Ice",
+      "Ground"
+    ],
+    "abilities": [
+      "Oblivious",
+      "Snow Cloak",
+      "Thick Fat"
+    ],
+    "tier": "NU"
+  },
+  "mamoswine": {
+    "id": 473,
+    "name": "Mamoswine",
+    "types": [
+      "Ice",
+      "Ground"
+    ],
+    "abilities": [
+      "Oblivious",
+      "Snow Cloak",
+      "Thick Fat"
+    ],
+    "tier": "UU"
+  },
+  "corsola": {
+    "id": 222,
+    "name": "Corsola",
+    "types": [
+      "Water",
+      "Rock"
+    ],
+    "abilities": [
+      "Hustle",
+      "Natural Cure",
+      "Regenerator"
+    ],
+    "tier": "ZU"
+  },
+  "octillery": {
+    "id": 224,
+    "name": "Octillery",
+    "types": [
+      "Water"
+    ],
+    "abilities": [
+      "Suction Cups",
+      "Sniper",
+      "Moody"
+    ],
+    "tier": "ZU"
+  },
+  "delibird": {
+    "id": 225,
+    "name": "Delibird",
+    "types": [
+      "Ice",
+      "Flying"
+    ],
+    "abilities": [
+      "Vital Spirit",
+      "Hustle",
+      "Insomnia"
+    ],
+    "tier": "ZU"
+  },
+  "mantine": {
+    "id": 226,
+    "name": "Mantine",
+    "types": [
+      "Water",
+      "Flying"
+    ],
+    "abilities": [
+      "Swift Swim",
+      "Water Absorb",
+      "Water Veil"
+    ],
+    "tier": "RU"
+  },
+  "skarmory": {
+    "id": 227,
+    "name": "Skarmory",
+    "types": [
+      "Steel",
+      "Flying"
+    ],
+    "abilities": [
+      "Keen Eye",
+      "Sturdy",
+      "Weak Armor"
+    ],
+    "tier": "OU"
+  },
+  "houndoom": {
+    "id": 229,
+    "name": "Houndoom",
+    "types": [
+      "Dark",
+      "Fire"
+    ],
+    "abilities": [
+      "Early Bird",
+      "Flash Fire",
+      "Unnerve"
+    ],
+    "tier": "PUBL"
+  },
+  "houndoommega": {
+    "id": 229,
+    "name": "Houndoom-Mega",
+    "types": [
+      "Dark",
+      "Fire"
+    ],
+    "abilities": [
+      "Solar Power"
+    ],
+    "tier": "RUBL"
+  },
+  "donphan": {
+    "id": 232,
+    "name": "Donphan",
+    "types": [
+      "Ground"
+    ],
+    "abilities": [
+      "Sturdy",
+      "Sand Veil"
+    ],
+    "tier": "RU"
+  },
+  "smeargle": {
+    "id": 235,
+    "name": "Smeargle",
+    "types": [
+      "Normal"
+    ],
+    "abilities": [
+      "Own Tempo",
+      "Technician",
+      "Moody"
+    ],
+    "tier": "ZU"
+  },
+  "miltank": {
+    "id": 241,
+    "name": "Miltank",
+    "types": [
+      "Normal"
+    ],
+    "abilities": [
+      "Thick Fat",
+      "Scrappy",
+      "Sap Sipper"
+    ],
+    "tier": "NU"
+  },
+  "raikou": {
+    "id": 243,
+    "name": "Raikou",
+    "types": [
+      "Electric"
+    ],
+    "abilities": [
+      "Pressure",
+      "Inner Focus"
+    ],
+    "tier": "RU"
+  },
+  "entei": {
+    "id": 244,
+    "name": "Entei",
+    "types": [
+      "Fire"
+    ],
+    "abilities": [
+      "Pressure",
+      "Inner Focus"
+    ],
+    "tier": "RUBL"
+  },
+  "suicune": {
+    "id": 245,
+    "name": "Suicune",
+    "types": [
+      "Water"
+    ],
+    "abilities": [
+      "Pressure",
+      "Inner Focus"
+    ],
+    "tier": "UU"
+  },
+  "tyranitar": {
+    "id": 248,
+    "name": "Tyranitar",
+    "types": [
+      "Rock",
+      "Dark"
+    ],
+    "abilities": [
+      "Sand Stream",
+      "Unnerve"
+    ],
+    "tier": "OU"
+  },
+  "tyranitarmega": {
+    "id": 248,
+    "name": "Tyranitar-Mega",
+    "types": [
+      "Rock",
+      "Dark"
+    ],
+    "abilities": [
+      "Sand Stream"
+    ],
+    "tier": "OU"
+  },
+  "lugia": {
+    "id": 249,
+    "name": "Lugia",
+    "types": [
+      "Psychic",
+      "Flying"
+    ],
+    "abilities": [
+      "Pressure",
+      "Multiscale"
+    ],
+    "tier": "Uber"
+  },
+  "hooh": {
+    "id": 250,
+    "name": "Ho-Oh",
+    "types": [
+      "Fire",
+      "Flying"
+    ],
+    "abilities": [
+      "Pressure",
+      "Regenerator"
+    ],
+    "tier": "Uber"
+  },
+  "celebi": {
+    "id": 251,
+    "name": "Celebi",
+    "types": [
+      "Psychic",
+      "Grass"
+    ],
+    "abilities": [
+      "Natural Cure"
+    ],
+    "tier": "UU"
+  },
+  "sceptile": {
+    "id": 254,
+    "name": "Sceptile",
+    "types": [
+      "Grass"
+    ],
+    "abilities": [
+      "Overgrow",
+      "Unburden"
+    ],
+    "tier": "NU"
+  },
+  "sceptilemega": {
+    "id": 254,
+    "name": "Sceptile-Mega",
+    "types": [
+      "Grass",
+      "Dragon"
+    ],
+    "abilities": [
+      "Lightning Rod"
+    ],
+    "tier": "RU"
+  },
+  "blaziken": {
+    "id": 257,
+    "name": "Blaziken",
+    "types": [
+      "Fire",
+      "Fighting"
+    ],
+    "abilities": [
+      "Blaze",
+      "Speed Boost"
+    ],
+    "tier": "Uber"
+  },
+  "blazikenmega": {
+    "id": 257,
+    "name": "Blaziken-Mega",
+    "types": [
+      "Fire",
+      "Fighting"
+    ],
+    "abilities": [
+      "Speed Boost"
+    ],
+    "tier": "Uber"
+  },
+  "swampert": {
+    "id": 260,
+    "name": "Swampert",
+    "types": [
+      "Water",
+      "Ground"
+    ],
+    "abilities": [
+      "Torrent",
+      "Damp"
+    ],
+    "tier": "UU"
+  },
+  "swampertmega": {
+    "id": 260,
+    "name": "Swampert-Mega",
+    "types": [
+      "Water",
+      "Ground"
+    ],
+    "abilities": [
+      "Swift Swim"
+    ],
+    "tier": "OU"
+  },
+  "mightyena": {
+    "id": 262,
+    "name": "Mightyena",
+    "types": [
+      "Dark"
+    ],
+    "abilities": [
+      "Intimidate",
+      "Quick Feet",
+      "Moxie"
+    ],
+    "tier": "ZU"
+  },
+  "linoone": {
+    "id": 264,
+    "name": "Linoone",
+    "types": [
+      "Normal"
+    ],
+    "abilities": [
+      "Pickup",
+      "Gluttony",
+      "Quick Feet"
+    ],
+    "tier": "RUBL"
+  },
+  "beautifly": {
+    "id": 267,
+    "name": "Beautifly",
+    "types": [
+      "Bug",
+      "Flying"
+    ],
+    "abilities": [
+      "Swarm",
+      "Rivalry"
+    ],
+    "tier": "ZU"
+  },
+  "dustox": {
+    "id": 269,
+    "name": "Dustox",
+    "types": [
+      "Bug",
+      "Poison"
+    ],
+    "abilities": [
+      "Shield Dust",
+      "Compound Eyes"
+    ],
+    "tier": "ZU"
+  },
+  "ludicolo": {
+    "id": 272,
+    "name": "Ludicolo",
+    "types": [
+      "Water",
+      "Grass"
+    ],
+    "abilities": [
+      "Swift Swim",
+      "Rain Dish",
+      "Own Tempo"
+    ],
+    "tier": "PU"
+  },
+  "shiftry": {
+    "id": 275,
+    "name": "Shiftry",
+    "types": [
+      "Grass",
+      "Dark"
+    ],
+    "abilities": [
+      "Chlorophyll",
+      "Early Bird",
+      "Pickpocket"
+    ],
+    "tier": "ZUBL"
+  },
+  "swellow": {
+    "id": 277,
+    "name": "Swellow",
+    "types": [
+      "Normal",
+      "Flying"
+    ],
+    "abilities": [
+      "Guts",
+      "Scrappy"
+    ],
+    "tier": "RU"
+  },
+  "pelipper": {
+    "id": 279,
+    "name": "Pelipper",
+    "types": [
+      "Water",
+      "Flying"
+    ],
+    "abilities": [
+      "Keen Eye",
+      "Drizzle",
+      "Rain Dish"
+    ],
+    "tier": "OU"
+  },
+  "gardevoir": {
+    "id": 282,
+    "name": "Gardevoir",
+    "types": [
+      "Psychic",
+      "Fairy"
+    ],
+    "abilities": [
+      "Synchronize",
+      "Trace",
+      "Telepathy"
+    ],
+    "tier": "RU"
+  },
+  "gardevoirmega": {
+    "id": 282,
+    "name": "Gardevoir-Mega",
+    "types": [
+      "Psychic",
+      "Fairy"
+    ],
+    "abilities": [
+      "Pixilate"
+    ],
+    "tier": "UUBL"
+  },
+  "gallade": {
+    "id": 475,
+    "name": "Gallade",
+    "types": [
+      "Psychic",
+      "Fighting"
+    ],
+    "abilities": [
+      "Steadfast",
+      "Justified"
+    ],
+    "tier": "PUBL"
+  },
+  "gallademega": {
+    "id": 475,
+    "name": "Gallade-Mega",
+    "types": [
+      "Psychic",
+      "Fighting"
+    ],
+    "abilities": [
+      "Inner Focus"
+    ],
+    "tier": "UUBL"
+  },
+  "masquerain": {
+    "id": 284,
+    "name": "Masquerain",
+    "types": [
+      "Bug",
+      "Flying"
+    ],
+    "abilities": [
+      "Intimidate",
+      "Unnerve"
+    ],
+    "tier": "ZU"
+  },
+  "breloom": {
+    "id": 286,
+    "name": "Breloom",
+    "types": [
+      "Grass",
+      "Fighting"
+    ],
+    "abilities": [
+      "Effect Spore",
+      "Poison Heal",
+      "Technician"
+    ],
+    "tier": "UUBL"
+  },
+  "slaking": {
+    "id": 289,
+    "name": "Slaking",
+    "types": [
+      "Normal"
+    ],
+    "abilities": [
+      "Truant"
+    ],
+    "tier": "ZU"
+  },
+  "ninjask": {
+    "id": 291,
+    "name": "Ninjask",
+    "types": [
+      "Bug",
+      "Flying"
+    ],
+    "abilities": [
+      "Speed Boost",
+      "Infiltrator"
+    ],
+    "tier": "ZU"
+  },
+  "shedinja": {
+    "id": 292,
+    "name": "Shedinja",
+    "types": [
+      "Bug",
+      "Ghost"
+    ],
+    "abilities": [
+      "Wonder Guard"
+    ],
+    "tier": "ZU"
+  },
+  "exploud": {
+    "id": 295,
+    "name": "Exploud",
+    "types": [
+      "Normal"
+    ],
+    "abilities": [
+      "Soundproof",
+      "Scrappy"
+    ],
+    "tier": "NUBL"
+  },
+  "hariyama": {
+    "id": 297,
+    "name": "Hariyama",
+    "types": [
+      "Fighting"
+    ],
+    "abilities": [
+      "Thick Fat",
+      "Guts",
+      "Sheer Force"
+    ],
+    "tier": "NU"
+  },
+  "probopass": {
+    "id": 476,
+    "name": "Probopass",
+    "types": [
+      "Rock",
+      "Steel"
+    ],
+    "abilities": [
+      "Sturdy",
+      "Magnet Pull",
+      "Sand Force"
+    ],
+    "tier": "ZU"
+  },
+  "delcatty": {
+    "id": 301,
+    "name": "Delcatty",
+    "types": [
+      "Normal"
+    ],
+    "abilities": [
+      "Cute Charm",
+      "Normalize",
+      "Wonder Skin"
+    ],
+    "tier": "ZU"
+  },
+  "sableye": {
+    "id": 302,
+    "name": "Sableye",
+    "types": [
+      "Dark",
+      "Ghost"
+    ],
+    "abilities": [
+      "Keen Eye",
+      "Stall",
+      "Prankster"
+    ],
+    "tier": "PU"
+  },
+  "sableyemega": {
+    "id": 302,
+    "name": "Sableye-Mega",
+    "types": [
+      "Dark",
+      "Ghost"
+    ],
+    "abilities": [
+      "Magic Bounce"
+    ],
+    "tier": "OU"
+  },
+  "mawile": {
+    "id": 303,
+    "name": "Mawile",
+    "types": [
+      "Steel",
+      "Fairy"
+    ],
+    "abilities": [
+      "Hyper Cutter",
+      "Intimidate",
+      "Sheer Force"
+    ],
+    "tier": "ZU"
+  },
+  "mawilemega": {
+    "id": 303,
+    "name": "Mawile-Mega",
+    "types": [
+      "Steel",
+      "Fairy"
+    ],
+    "abilities": [
+      "Huge Power"
+    ],
+    "tier": "OU"
+  },
+  "aggron": {
+    "id": 306,
+    "name": "Aggron",
+    "types": [
+      "Steel",
+      "Rock"
+    ],
+    "abilities": [
+      "Sturdy",
+      "Rock Head",
+      "Heavy Metal"
+    ],
+    "tier": "PU"
+  },
+  "aggronmega": {
+    "id": 306,
+    "name": "Aggron-Mega",
+    "types": [
+      "Steel"
+    ],
+    "abilities": [
+      "Filter"
+    ],
+    "tier": "UU"
+  },
+  "medicham": {
+    "id": 308,
+    "name": "Medicham",
+    "types": [
+      "Fighting",
+      "Psychic"
+    ],
+    "abilities": [
+      "Pure Power",
+      "Telepathy"
+    ],
+    "tier": "NU"
+  },
+  "medichammega": {
+    "id": 308,
+    "name": "Medicham-Mega",
+    "types": [
+      "Fighting",
+      "Psychic"
+    ],
+    "abilities": [
+      "Pure Power"
+    ],
+    "tier": "OU"
+  },
+  "manectric": {
+    "id": 310,
+    "name": "Manectric",
+    "types": [
+      "Electric"
+    ],
+    "abilities": [
+      "Static",
+      "Lightning Rod",
+      "Minus"
+    ],
+    "tier": "PU"
+  },
+  "manectricmega": {
+    "id": 310,
+    "name": "Manectric-Mega",
+    "types": [
+      "Electric"
+    ],
+    "abilities": [
+      "Intimidate"
+    ],
+    "tier": "UU"
+  },
+  "plusle": {
+    "id": 311,
+    "name": "Plusle",
+    "types": [
+      "Electric"
+    ],
+    "abilities": [
+      "Plus",
+      "Lightning Rod"
+    ],
+    "tier": "ZU"
+  },
+  "minun": {
+    "id": 312,
+    "name": "Minun",
+    "types": [
+      "Electric"
+    ],
+    "abilities": [
+      "Minus",
+      "Volt Absorb"
+    ],
+    "tier": "ZU"
+  },
+  "volbeat": {
+    "id": 313,
+    "name": "Volbeat",
+    "types": [
+      "Bug"
+    ],
+    "abilities": [
+      "Illuminate",
+      "Swarm",
+      "Prankster"
+    ],
+    "tier": "ZU"
+  },
+  "illumise": {
+    "id": 314,
+    "name": "Illumise",
+    "types": [
+      "Bug"
+    ],
+    "abilities": [
+      "Oblivious",
+      "Tinted Lens",
+      "Prankster"
+    ],
+    "tier": "ZU"
+  },
+  "roserade": {
+    "id": 407,
+    "name": "Roserade",
+    "types": [
+      "Grass",
+      "Poison"
+    ],
+    "abilities": [
+      "Natural Cure",
+      "Poison Point",
+      "Technician"
+    ],
+    "tier": "RU"
+  },
+  "swalot": {
+    "id": 317,
+    "name": "Swalot",
+    "types": [
+      "Poison"
+    ],
+    "abilities": [
+      "Liquid Ooze",
+      "Sticky Hold",
+      "Gluttony"
+    ],
+    "tier": "ZU"
+  },
+  "sharpedo": {
+    "id": 319,
+    "name": "Sharpedo",
+    "types": [
+      "Water",
+      "Dark"
+    ],
+    "abilities": [
+      "Rough Skin",
+      "Speed Boost"
+    ],
+    "tier": "RUBL"
+  },
+  "sharpedomega": {
+    "id": 319,
+    "name": "Sharpedo-Mega",
+    "types": [
+      "Water",
+      "Dark"
+    ],
+    "abilities": [
+      "Strong Jaw"
+    ],
+    "tier": "UU"
+  },
+  "wailord": {
+    "id": 321,
+    "name": "Wailord",
+    "types": [
+      "Water"
+    ],
+    "abilities": [
+      "Water Veil",
+      "Oblivious",
+      "Pressure"
+    ],
+    "tier": "ZU"
+  },
+  "camerupt": {
+    "id": 323,
+    "name": "Camerupt",
+    "types": [
+      "Fire",
+      "Ground"
+    ],
+    "abilities": [
+      "Magma Armor",
+      "Solid Rock",
+      "Anger Point"
+    ],
+    "tier": "ZU"
+  },
+  "cameruptmega": {
+    "id": 323,
+    "name": "Camerupt-Mega",
+    "types": [
+      "Fire",
+      "Ground"
+    ],
+    "abilities": [
+      "Sheer Force"
+    ],
+    "tier": "NUBL"
+  },
+  "torkoal": {
+    "id": 324,
+    "name": "Torkoal",
+    "types": [
+      "Fire"
+    ],
+    "abilities": [
+      "White Smoke",
+      "Drought",
+      "Shell Armor"
+    ],
+    "tier": "ZU"
+  },
+  "grumpig": {
+    "id": 326,
+    "name": "Grumpig",
+    "types": [
+      "Psychic"
+    ],
+    "abilities": [
+      "Thick Fat",
+      "Own Tempo",
+      "Gluttony"
+    ],
+    "tier": "ZU"
+  },
+  "spinda": {
+    "id": 327,
+    "name": "Spinda",
+    "types": [
+      "Normal"
+    ],
+    "abilities": [
+      "Own Tempo",
+      "Tangled Feet",
+      "Contrary"
+    ],
+    "tier": "ZU"
+  },
+  "flygon": {
+    "id": 330,
+    "name": "Flygon",
+    "types": [
+      "Ground",
+      "Dragon"
+    ],
+    "abilities": [
+      "Levitate"
+    ],
+    "tier": "RU"
+  },
+  "cacturne": {
+    "id": 332,
+    "name": "Cacturne",
+    "types": [
+      "Grass",
+      "Dark"
+    ],
+    "abilities": [
+      "Sand Veil",
+      "Water Absorb"
+    ],
+    "tier": "ZU"
+  },
+  "altaria": {
+    "id": 334,
+    "name": "Altaria",
+    "types": [
+      "Dragon",
+      "Flying"
+    ],
+    "abilities": [
+      "Natural Cure",
+      "Cloud Nine"
+    ],
+    "tier": "ZU"
+  },
+  "altariamega": {
+    "id": 334,
+    "name": "Altaria-Mega",
+    "types": [
+      "Dragon",
+      "Fairy"
+    ],
+    "abilities": [
+      "Pixilate"
+    ],
+    "tier": "UU"
+  },
+  "zangoose": {
+    "id": 335,
+    "name": "Zangoose",
+    "types": [
+      "Normal"
+    ],
+    "abilities": [
+      "Immunity",
+      "Toxic Boost"
+    ],
+    "tier": "PU"
+  },
+  "seviper": {
+    "id": 336,
+    "name": "Seviper",
+    "types": [
+      "Poison"
+    ],
+    "abilities": [
+      "Shed Skin",
+      "Infiltrator"
+    ],
+    "tier": "ZU"
+  },
+  "lunatone": {
+    "id": 337,
+    "name": "Lunatone",
+    "types": [
+      "Rock",
+      "Psychic"
+    ],
+    "abilities": [
+      "Levitate"
+    ],
+    "tier": "ZU"
+  },
+  "solrock": {
+    "id": 338,
+    "name": "Solrock",
+    "types": [
+      "Rock",
+      "Psychic"
+    ],
+    "abilities": [
+      "Levitate"
+    ],
+    "tier": "ZU"
+  },
+  "whiscash": {
+    "id": 340,
+    "name": "Whiscash",
+    "types": [
+      "Water",
+      "Ground"
+    ],
+    "abilities": [
+      "Oblivious",
+      "Anticipation",
+      "Hydration"
+    ],
+    "tier": "ZU"
+  },
+  "crawdaunt": {
+    "id": 342,
+    "name": "Crawdaunt",
+    "types": [
+      "Water",
+      "Dark"
+    ],
+    "abilities": [
+      "Hyper Cutter",
+      "Shell Armor",
+      "Adaptability"
+    ],
+    "tier": "UU"
+  },
+  "claydol": {
+    "id": 344,
+    "name": "Claydol",
+    "types": [
+      "Ground",
+      "Psychic"
+    ],
+    "abilities": [
+      "Levitate"
+    ],
+    "tier": "PU"
+  },
+  "cradily": {
+    "id": 346,
+    "name": "Cradily",
+    "types": [
+      "Rock",
+      "Grass"
+    ],
+    "abilities": [
+      "Suction Cups",
+      "Storm Drain"
+    ],
+    "tier": "ZU"
+  },
+  "armaldo": {
+    "id": 348,
+    "name": "Armaldo",
+    "types": [
+      "Rock",
+      "Bug"
+    ],
+    "abilities": [
+      "Battle Armor",
+      "Swift Swim"
+    ],
+    "tier": "ZU"
+  },
+  "milotic": {
+    "id": 350,
+    "name": "Milotic",
+    "types": [
+      "Water"
+    ],
+    "abilities": [
+      "Marvel Scale",
+      "Competitive",
+      "Cute Charm"
+    ],
+    "tier": "RU"
+  },
+  "castform": {
+    "id": 351,
+    "name": "Castform",
+    "types": [
+      "Normal"
+    ],
+    "abilities": [
+      "Forecast"
+    ],
+    "tier": "ZU"
+  },
+  "castformsunny": {
+    "id": 351,
+    "name": "Castform-Sunny",
+    "types": [
+      "Fire"
+    ],
+    "abilities": [
+      "Forecast"
+    ]
+  },
+  "castformrainy": {
+    "id": 351,
+    "name": "Castform-Rainy",
+    "types": [
+      "Water"
+    ],
+    "abilities": [
+      "Forecast"
+    ]
+  },
+  "castformsnowy": {
+    "id": 351,
+    "name": "Castform-Snowy",
+    "types": [
+      "Ice"
+    ],
+    "abilities": [
+      "Forecast"
+    ]
+  },
+  "kecleon": {
+    "id": 352,
+    "name": "Kecleon",
+    "types": [
+      "Normal"
+    ],
+    "abilities": [
+      "Color Change",
+      "Protean"
+    ],
+    "tier": "ZU"
+  },
+  "banette": {
+    "id": 354,
+    "name": "Banette",
+    "types": [
+      "Ghost"
+    ],
+    "abilities": [
+      "Insomnia",
+      "Frisk",
+      "Cursed Body"
+    ],
+    "tier": "ZU"
+  },
+  "banettemega": {
+    "id": 354,
+    "name": "Banette-Mega",
+    "types": [
+      "Ghost"
+    ],
+    "abilities": [
+      "Prankster"
+    ],
+    "tier": "RU"
+  },
+  "dusknoir": {
+    "id": 477,
+    "name": "Dusknoir",
+    "types": [
+      "Ghost"
+    ],
+    "abilities": [
+      "Pressure",
+      "Frisk"
+    ],
+    "tier": "ZU"
+  },
+  "tropius": {
+    "id": 357,
+    "name": "Tropius",
+    "types": [
+      "Grass",
+      "Flying"
+    ],
+    "abilities": [
+      "Chlorophyll",
+      "Solar Power",
+      "Harvest"
+    ],
+    "tier": "ZU"
+  },
+  "chimecho": {
+    "id": 358,
+    "name": "Chimecho",
+    "types": [
+      "Psychic"
+    ],
+    "abilities": [
+      "Levitate"
+    ],
+    "tier": "ZU"
+  },
+  "absol": {
+    "id": 359,
+    "name": "Absol",
+    "types": [
+      "Dark"
+    ],
+    "abilities": [
+      "Pressure",
+      "Super Luck",
+      "Justified"
+    ],
+    "tier": "PU"
+  },
+  "absolmega": {
+    "id": 359,
+    "name": "Absol-Mega",
+    "types": [
+      "Dark"
+    ],
+    "abilities": [
+      "Magic Bounce"
+    ],
+    "tier": "RUBL"
+  },
+  "glalie": {
+    "id": 362,
+    "name": "Glalie",
+    "types": [
+      "Ice"
+    ],
+    "abilities": [
+      "Inner Focus",
+      "Ice Body",
+      "Moody"
+    ],
+    "tier": "ZU"
+  },
+  "glaliemega": {
+    "id": 362,
+    "name": "Glalie-Mega",
+    "types": [
+      "Ice"
+    ],
+    "abilities": [
+      "Refrigerate"
+    ],
+    "tier": "NU"
+  },
+  "froslass": {
+    "id": 478,
+    "name": "Froslass",
+    "types": [
+      "Ice",
+      "Ghost"
+    ],
+    "abilities": [
+      "Snow Cloak",
+      "Cursed Body"
+    ],
+    "tier": "UU"
+  },
+  "walrein": {
+    "id": 365,
+    "name": "Walrein",
+    "types": [
+      "Ice",
+      "Water"
+    ],
+    "abilities": [
+      "Thick Fat",
+      "Ice Body",
+      "Oblivious"
+    ],
+    "tier": "ZU"
+  },
+  "huntail": {
+    "id": 367,
+    "name": "Huntail",
+    "types": [
+      "Water"
+    ],
+    "abilities": [
+      "Swift Swim",
+      "Water Veil"
+    ],
+    "tier": "ZU"
+  },
+  "gorebyss": {
+    "id": 368,
+    "name": "Gorebyss",
+    "types": [
+      "Water"
+    ],
+    "abilities": [
+      "Swift Swim",
+      "Hydration"
+    ],
+    "tier": "ZUBL"
+  },
+  "relicanth": {
+    "id": 369,
+    "name": "Relicanth",
+    "types": [
+      "Water",
+      "Rock"
+    ],
+    "abilities": [
+      "Swift Swim",
+      "Rock Head",
+      "Sturdy"
+    ],
+    "tier": "ZU"
+  },
+  "luvdisc": {
+    "id": 370,
+    "name": "Luvdisc",
+    "types": [
+      "Water"
+    ],
+    "abilities": [
+      "Swift Swim",
+      "Hydration"
+    ],
+    "tier": "ZU"
+  },
+  "salamence": {
+    "id": 373,
+    "name": "Salamence",
+    "types": [
+      "Dragon",
+      "Flying"
+    ],
+    "abilities": [
+      "Intimidate",
+      "Moxie"
+    ],
+    "tier": "UUBL"
+  },
+  "salamencemega": {
+    "id": 373,
+    "name": "Salamence-Mega",
+    "types": [
+      "Dragon",
+      "Flying"
+    ],
+    "abilities": [
+      "Aerilate"
+    ],
+    "tier": "Uber"
+  },
+  "metagross": {
+    "id": 376,
+    "name": "Metagross",
+    "types": [
+      "Steel",
+      "Psychic"
+    ],
+    "abilities": [
+      "Clear Body",
+      "Light Metal"
+    ],
+    "tier": "RU"
+  },
+  "metagrossmega": {
+    "id": 376,
+    "name": "Metagross-Mega",
+    "types": [
+      "Steel",
+      "Psychic"
+    ],
+    "abilities": [
+      "Tough Claws"
+    ],
+    "tier": "Uber"
+  },
+  "regirock": {
+    "id": 377,
+    "name": "Regirock",
+    "types": [
+      "Rock"
+    ],
+    "abilities": [
+      "Clear Body",
+      "Sturdy"
+    ],
+    "tier": "PU"
+  },
+  "regice": {
+    "id": 378,
+    "name": "Regice",
+    "types": [
+      "Ice"
+    ],
+    "abilities": [
+      "Clear Body",
+      "Ice Body"
+    ],
+    "tier": "ZU"
+  },
+  "registeel": {
+    "id": 379,
+    "name": "Registeel",
+    "types": [
+      "Steel"
+    ],
+    "abilities": [
+      "Clear Body",
+      "Light Metal"
+    ],
+    "tier": "RU"
+  },
+  "latias": {
+    "id": 380,
+    "name": "Latias",
+    "types": [
+      "Dragon",
+      "Psychic"
+    ],
+    "abilities": [
+      "Levitate"
+    ],
+    "tier": "UU"
+  },
+  "latiasmega": {
+    "id": 380,
+    "name": "Latias-Mega",
+    "types": [
+      "Dragon",
+      "Psychic"
+    ],
+    "abilities": [
+      "Levitate"
+    ],
+    "tier": "OU"
+  },
+  "latios": {
+    "id": 381,
+    "name": "Latios",
+    "types": [
+      "Dragon",
+      "Psychic"
+    ],
+    "abilities": [
+      "Levitate"
+    ],
+    "tier": "UUBL"
+  },
+  "latiosmega": {
+    "id": 381,
+    "name": "Latios-Mega",
+    "types": [
+      "Dragon",
+      "Psychic"
+    ],
+    "abilities": [
+      "Levitate"
+    ],
+    "tier": "UUBL"
+  },
+  "kyogre": {
+    "id": 382,
+    "name": "Kyogre",
+    "types": [
+      "Water"
+    ],
+    "abilities": [
+      "Drizzle"
+    ],
+    "tier": "Uber"
+  },
+  "kyogreprimal": {
+    "id": 382,
+    "name": "Kyogre-Primal",
+    "types": [
+      "Water"
+    ],
+    "abilities": [
+      "Primordial Sea"
+    ],
+    "tier": "Uber"
+  },
+  "groudon": {
+    "id": 383,
+    "name": "Groudon",
+    "types": [
+      "Ground"
+    ],
+    "abilities": [
+      "Drought"
+    ],
+    "tier": "Uber"
+  },
+  "groudonprimal": {
+    "id": 383,
+    "name": "Groudon-Primal",
+    "types": [
+      "Ground",
+      "Fire"
+    ],
+    "abilities": [
+      "Desolate Land"
+    ],
+    "tier": "Uber"
+  },
+  "rayquaza": {
+    "id": 384,
+    "name": "Rayquaza",
+    "types": [
+      "Dragon",
+      "Flying"
+    ],
+    "abilities": [
+      "Air Lock"
+    ],
+    "tier": "Uber"
+  },
+  "rayquazamega": {
+    "id": 384,
+    "name": "Rayquaza-Mega",
+    "types": [
+      "Dragon",
+      "Flying"
+    ],
+    "abilities": [
+      "Delta Stream"
+    ],
+    "tier": "AG"
+  },
+  "jirachi": {
+    "id": 385,
+    "name": "Jirachi",
+    "types": [
+      "Steel",
+      "Psychic"
+    ],
+    "abilities": [
+      "Serene Grace"
+    ],
+    "tier": "OU"
+  },
+  "deoxys": {
+    "id": 386,
+    "name": "Deoxys",
+    "types": [
+      "Psychic"
+    ],
+    "abilities": [
+      "Pressure"
+    ],
+    "tier": "Uber"
+  },
+  "deoxysattack": {
+    "id": 386,
+    "name": "Deoxys-Attack",
+    "types": [
+      "Psychic"
+    ],
+    "abilities": [
+      "Pressure"
+    ],
+    "tier": "Uber"
+  },
+  "deoxysdefense": {
+    "id": 386,
+    "name": "Deoxys-Defense",
+    "types": [
+      "Psychic"
+    ],
+    "abilities": [
+      "Pressure"
+    ],
+    "tier": "Uber"
+  },
+  "deoxysspeed": {
+    "id": 386,
+    "name": "Deoxys-Speed",
+    "types": [
+      "Psychic"
+    ],
+    "abilities": [
+      "Pressure"
+    ],
+    "tier": "Uber"
+  },
+  "torterra": {
+    "id": 389,
+    "name": "Torterra",
+    "types": [
+      "Grass",
+      "Ground"
+    ],
+    "abilities": [
+      "Overgrow",
+      "Shell Armor"
+    ],
+    "tier": "ZU"
+  },
+  "infernape": {
+    "id": 392,
+    "name": "Infernape",
+    "types": [
+      "Fire",
+      "Fighting"
+    ],
+    "abilities": [
+      "Blaze",
+      "Iron Fist"
+    ],
+    "tier": "UU"
+  },
+  "empoleon": {
+    "id": 395,
+    "name": "Empoleon",
+    "types": [
+      "Water",
+      "Steel"
+    ],
+    "abilities": [
+      "Torrent",
+      "Defiant"
+    ],
+    "tier": "UU"
+  },
+  "staraptor": {
+    "id": 398,
+    "name": "Staraptor",
+    "types": [
+      "Normal",
+      "Flying"
+    ],
+    "abilities": [
+      "Intimidate",
+      "Reckless"
+    ],
+    "tier": "UUBL"
+  },
+  "bibarel": {
+    "id": 400,
+    "name": "Bibarel",
+    "types": [
+      "Normal",
+      "Water"
+    ],
+    "abilities": [
+      "Simple",
+      "Unaware",
+      "Moody"
+    ],
+    "tier": "ZU"
+  },
+  "kricketune": {
+    "id": 402,
+    "name": "Kricketune",
+    "types": [
+      "Bug"
+    ],
+    "abilities": [
+      "Swarm",
+      "Technician"
+    ],
+    "tier": "ZU"
+  },
+  "luxray": {
+    "id": 405,
+    "name": "Luxray",
+    "types": [
+      "Electric"
+    ],
+    "abilities": [
+      "Rivalry",
+      "Intimidate",
+      "Guts"
+    ],
+    "tier": "ZU"
+  },
+  "rampardos": {
+    "id": 409,
+    "name": "Rampardos",
+    "types": [
+      "Rock"
+    ],
+    "abilities": [
+      "Mold Breaker",
+      "Sheer Force"
+    ],
+    "tier": "ZU"
+  },
+  "bastiodon": {
+    "id": 411,
+    "name": "Bastiodon",
+    "types": [
+      "Rock",
+      "Steel"
+    ],
+    "abilities": [
+      "Sturdy",
+      "Soundproof"
+    ],
+    "tier": "ZU"
+  },
+  "wormadam": {
+    "id": 413,
+    "name": "Wormadam",
+    "types": [
+      "Bug",
+      "Grass"
+    ],
+    "abilities": [
+      "Anticipation",
+      "Overcoat"
+    ],
+    "tier": "ZU"
+  },
+  "wormadamsandy": {
+    "id": 413,
+    "name": "Wormadam-Sandy",
+    "types": [
+      "Bug",
+      "Ground"
+    ],
+    "abilities": [
+      "Anticipation",
+      "Overcoat"
+    ],
+    "tier": "ZU"
+  },
+  "wormadamtrash": {
+    "id": 413,
+    "name": "Wormadam-Trash",
+    "types": [
+      "Bug",
+      "Steel"
+    ],
+    "abilities": [
+      "Anticipation",
+      "Overcoat"
+    ],
+    "tier": "ZU"
+  },
+  "mothim": {
+    "id": 414,
+    "name": "Mothim",
+    "types": [
+      "Bug",
+      "Flying"
+    ],
+    "abilities": [
+      "Swarm",
+      "Tinted Lens"
+    ],
+    "tier": "ZU"
+  },
+  "vespiquen": {
+    "id": 416,
+    "name": "Vespiquen",
+    "types": [
+      "Bug",
+      "Flying"
+    ],
+    "abilities": [
+      "Pressure",
+      "Unnerve"
+    ],
+    "tier": "ZU"
+  },
+  "pachirisu": {
+    "id": 417,
+    "name": "Pachirisu",
+    "types": [
+      "Electric"
+    ],
+    "abilities": [
+      "Run Away",
+      "Pickup",
+      "Volt Absorb"
+    ],
+    "tier": "ZU"
+  },
+  "floatzel": {
+    "id": 419,
+    "name": "Floatzel",
+    "types": [
+      "Water"
+    ],
+    "abilities": [
+      "Swift Swim",
+      "Water Veil"
+    ],
+    "tier": "ZU"
+  },
+  "cherrim": {
+    "id": 421,
+    "name": "Cherrim",
+    "types": [
+      "Grass"
+    ],
+    "abilities": [
+      "Flower Gift"
+    ],
+    "tier": "ZU"
+  },
+  "cherrimsunshine": {
+    "id": 421,
+    "name": "Cherrim-Sunshine",
+    "types": [
+      "Grass"
+    ],
+    "abilities": [
+      "Flower Gift"
+    ]
+  },
+  "gastrodon": {
+    "id": 423,
+    "name": "Gastrodon",
+    "types": [
+      "Water",
+      "Ground"
+    ],
+    "abilities": [
+      "Sticky Hold",
+      "Storm Drain",
+      "Sand Force"
+    ],
+    "tier": "PU"
+  },
+  "drifblim": {
+    "id": 426,
+    "name": "Drifblim",
+    "types": [
+      "Ghost",
+      "Flying"
+    ],
+    "abilities": [
+      "Aftermath",
+      "Unburden",
+      "Flare Boost"
+    ],
+    "tier": "ZU"
+  },
+  "lopunny": {
+    "id": 428,
+    "name": "Lopunny",
+    "types": [
+      "Normal"
+    ],
+    "abilities": [
+      "Cute Charm",
+      "Klutz",
+      "Limber"
+    ],
+    "tier": "ZU"
+  },
+  "lopunnymega": {
+    "id": 428,
+    "name": "Lopunny-Mega",
+    "types": [
+      "Normal",
+      "Fighting"
+    ],
+    "abilities": [
+      "Scrappy"
+    ],
+    "tier": "OU"
+  },
+  "purugly": {
+    "id": 432,
+    "name": "Purugly",
+    "types": [
+      "Normal"
+    ],
+    "abilities": [
+      "Thick Fat",
+      "Own Tempo",
+      "Defiant"
+    ],
+    "tier": "ZU"
+  },
+  "skuntank": {
+    "id": 435,
+    "name": "Skuntank",
+    "types": [
+      "Poison",
+      "Dark"
+    ],
+    "abilities": [
+      "Stench",
+      "Aftermath",
+      "Keen Eye"
+    ],
+    "tier": "PU"
+  },
+  "bronzong": {
+    "id": 437,
+    "name": "Bronzong",
+    "types": [
+      "Steel",
+      "Psychic"
+    ],
+    "abilities": [
+      "Levitate",
+      "Heatproof",
+      "Heavy Metal"
+    ],
+    "tier": "RU"
+  },
+  "chatot": {
+    "id": 441,
+    "name": "Chatot",
+    "types": [
+      "Normal",
+      "Flying"
+    ],
+    "abilities": [
+      "Keen Eye",
+      "Tangled Feet",
+      "Big Pecks"
+    ],
+    "tier": "ZU"
+  },
+  "spiritomb": {
+    "id": 442,
+    "name": "Spiritomb",
+    "types": [
+      "Ghost",
+      "Dark"
+    ],
+    "abilities": [
+      "Pressure",
+      "Infiltrator"
+    ],
+    "tier": "PU"
+  },
+  "garchomp": {
+    "id": 445,
+    "name": "Garchomp",
+    "types": [
+      "Dragon",
+      "Ground"
+    ],
+    "abilities": [
+      "Sand Veil",
+      "Rough Skin"
+    ],
+    "tier": "OU"
+  },
+  "garchompmega": {
+    "id": 445,
+    "name": "Garchomp-Mega",
+    "types": [
+      "Dragon",
+      "Ground"
+    ],
+    "abilities": [
+      "Sand Force"
+    ],
+    "tier": "(OU)"
+  },
+  "lucario": {
+    "id": 448,
+    "name": "Lucario",
+    "types": [
+      "Fighting",
+      "Steel"
+    ],
+    "abilities": [
+      "Steadfast",
+      "Inner Focus",
+      "Justified"
+    ],
+    "tier": "UU"
+  },
+  "lucariomega": {
+    "id": 448,
+    "name": "Lucario-Mega",
+    "types": [
+      "Fighting",
+      "Steel"
+    ],
+    "abilities": [
+      "Adaptability"
+    ],
+    "tier": "Uber"
+  },
+  "hippowdon": {
+    "id": 450,
+    "name": "Hippowdon",
+    "types": [
+      "Ground"
+    ],
+    "abilities": [
+      "Sand Stream",
+      "Sand Force"
+    ],
+    "tier": "UU"
+  },
+  "drapion": {
+    "id": 452,
+    "name": "Drapion",
+    "types": [
+      "Poison",
+      "Dark"
+    ],
+    "abilities": [
+      "Battle Armor",
+      "Sniper",
+      "Keen Eye"
+    ],
+    "tier": "RU"
+  },
+  "toxicroak": {
+    "id": 454,
+    "name": "Toxicroak",
+    "types": [
+      "Poison",
+      "Fighting"
+    ],
+    "abilities": [
+      "Anticipation",
+      "Dry Skin",
+      "Poison Touch"
+    ],
+    "tier": "RU"
+  },
+  "carnivine": {
+    "id": 455,
+    "name": "Carnivine",
+    "types": [
+      "Grass"
+    ],
+    "abilities": [
+      "Levitate"
+    ],
+    "tier": "ZU"
+  },
+  "lumineon": {
+    "id": 457,
+    "name": "Lumineon",
+    "types": [
+      "Water"
+    ],
+    "abilities": [
+      "Swift Swim",
+      "Storm Drain",
+      "Water Veil"
+    ],
+    "tier": "ZU"
+  },
+  "abomasnow": {
+    "id": 460,
+    "name": "Abomasnow",
+    "types": [
+      "Grass",
+      "Ice"
+    ],
+    "abilities": [
+      "Snow Warning",
+      "Soundproof"
+    ],
+    "tier": "PU"
+  },
+  "abomasnowmega": {
+    "id": 460,
+    "name": "Abomasnow-Mega",
+    "types": [
+      "Grass",
+      "Ice"
+    ],
+    "abilities": [
+      "Snow Warning"
+    ],
+    "tier": "NU"
+  },
+  "rotom": {
+    "id": 479,
+    "name": "Rotom",
+    "types": [
+      "Electric",
+      "Ghost"
+    ],
+    "abilities": [
+      "Levitate"
+    ],
+    "tier": "NU"
+  },
+  "rotomheat": {
+    "id": 479,
+    "name": "Rotom-Heat",
+    "types": [
+      "Electric",
+      "Fire"
+    ],
+    "abilities": [
+      "Levitate"
+    ],
+    "tier": "UU"
+  },
+  "rotomwash": {
+    "id": 479,
+    "name": "Rotom-Wash",
+    "types": [
+      "Electric",
+      "Water"
+    ],
+    "abilities": [
+      "Levitate"
+    ],
+    "tier": "OU"
+  },
+  "rotomfrost": {
+    "id": 479,
+    "name": "Rotom-Frost",
+    "types": [
+      "Electric",
+      "Ice"
+    ],
+    "abilities": [
+      "Levitate"
+    ],
+    "tier": "PU"
+  },
+  "rotomfan": {
+    "id": 479,
+    "name": "Rotom-Fan",
+    "types": [
+      "Electric",
+      "Flying"
+    ],
+    "abilities": [
+      "Levitate"
+    ],
+    "tier": "ZU"
+  },
+  "rotommow": {
+    "id": 479,
+    "name": "Rotom-Mow",
+    "types": [
+      "Electric",
+      "Grass"
+    ],
+    "abilities": [
+      "Levitate"
+    ],
+    "tier": "RU"
+  },
+  "uxie": {
+    "id": 480,
+    "name": "Uxie",
+    "types": [
+      "Psychic"
+    ],
+    "abilities": [
+      "Levitate"
+    ],
+    "tier": "RU"
+  },
+  "mesprit": {
+    "id": 481,
+    "name": "Mesprit",
+    "types": [
+      "Psychic"
+    ],
+    "abilities": [
+      "Levitate"
+    ],
+    "tier": "NU"
+  },
+  "azelf": {
+    "id": 482,
+    "name": "Azelf",
+    "types": [
+      "Psychic"
+    ],
+    "abilities": [
+      "Levitate"
+    ],
+    "tier": "UU"
+  },
+  "dialga": {
+    "id": 483,
+    "name": "Dialga",
+    "types": [
+      "Steel",
+      "Dragon"
+    ],
+    "abilities": [
+      "Pressure",
+      "Telepathy"
+    ],
+    "tier": "Uber"
+  },
+  "palkia": {
+    "id": 484,
+    "name": "Palkia",
+    "types": [
+      "Water",
+      "Dragon"
+    ],
+    "abilities": [
+      "Pressure",
+      "Telepathy"
+    ],
+    "tier": "Uber"
+  },
+  "heatran": {
+    "id": 485,
+    "name": "Heatran",
+    "types": [
+      "Fire",
+      "Steel"
+    ],
+    "abilities": [
+      "Flash Fire",
+      "Flame Body"
+    ],
+    "tier": "OU"
+  },
+  "regigigas": {
+    "id": 486,
+    "name": "Regigigas",
+    "types": [
+      "Normal"
+    ],
+    "abilities": [
+      "Slow Start"
+    ],
+    "tier": "ZU"
+  },
+  "giratina": {
+    "id": 487,
+    "name": "Giratina",
+    "types": [
+      "Ghost",
+      "Dragon"
+    ],
+    "abilities": [
+      "Pressure",
+      "Telepathy"
+    ],
+    "tier": "Uber"
+  },
+  "giratinaorigin": {
+    "id": 487,
+    "name": "Giratina-Origin",
+    "types": [
+      "Ghost",
+      "Dragon"
+    ],
+    "abilities": [
+      "Levitate"
+    ]
+  },
+  "cresselia": {
+    "id": 488,
+    "name": "Cresselia",
+    "types": [
+      "Psychic"
+    ],
+    "abilities": [
+      "Levitate"
+    ],
+    "tier": "RU"
+  },
+  "phione": {
+    "id": 489,
+    "name": "Phione",
+    "types": [
+      "Water"
+    ],
+    "abilities": [
+      "Hydration"
+    ],
+    "tier": "ZU"
+  },
+  "manaphy": {
+    "id": 490,
+    "name": "Manaphy",
+    "types": [
+      "Water"
+    ],
+    "abilities": [
+      "Hydration"
+    ],
+    "tier": "OU"
+  },
+  "darkrai": {
+    "id": 491,
+    "name": "Darkrai",
+    "types": [
+      "Dark"
+    ],
+    "abilities": [
+      "Bad Dreams"
+    ],
+    "tier": "Uber"
+  },
+  "shaymin": {
+    "id": 492,
+    "name": "Shaymin",
+    "types": [
+      "Grass"
+    ],
+    "abilities": [
+      "Natural Cure"
+    ],
+    "tier": "RU"
+  },
+  "shayminsky": {
+    "id": 492,
+    "name": "Shaymin-Sky",
+    "types": [
+      "Grass",
+      "Flying"
+    ],
+    "abilities": [
+      "Serene Grace"
+    ],
+    "tier": "Uber"
+  },
+  "arceus": {
+    "id": 493,
+    "name": "Arceus",
+    "types": [
+      "Normal"
+    ],
+    "abilities": [
+      "Multitype"
+    ],
+    "tier": "Uber"
+  },
+  "arceusbug": {
+    "id": 493,
+    "name": "Arceus-Bug",
+    "types": [
+      "Bug"
+    ],
+    "abilities": [
+      "Multitype"
+    ]
+  },
+  "arceusdark": {
+    "id": 493,
+    "name": "Arceus-Dark",
+    "types": [
+      "Dark"
+    ],
+    "abilities": [
+      "Multitype"
+    ]
+  },
+  "arceusdragon": {
+    "id": 493,
+    "name": "Arceus-Dragon",
+    "types": [
+      "Dragon"
+    ],
+    "abilities": [
+      "Multitype"
+    ]
+  },
+  "arceuselectric": {
+    "id": 493,
+    "name": "Arceus-Electric",
+    "types": [
+      "Electric"
+    ],
+    "abilities": [
+      "Multitype"
+    ]
+  },
+  "arceusfairy": {
+    "id": 493,
+    "name": "Arceus-Fairy",
+    "types": [
+      "Fairy"
+    ],
+    "abilities": [
+      "Multitype"
+    ]
+  },
+  "arceusfighting": {
+    "id": 493,
+    "name": "Arceus-Fighting",
+    "types": [
+      "Fighting"
+    ],
+    "abilities": [
+      "Multitype"
+    ]
+  },
+  "arceusfire": {
+    "id": 493,
+    "name": "Arceus-Fire",
+    "types": [
+      "Fire"
+    ],
+    "abilities": [
+      "Multitype"
+    ]
+  },
+  "arceusflying": {
+    "id": 493,
+    "name": "Arceus-Flying",
+    "types": [
+      "Flying"
+    ],
+    "abilities": [
+      "Multitype"
+    ]
+  },
+  "arceusghost": {
+    "id": 493,
+    "name": "Arceus-Ghost",
+    "types": [
+      "Ghost"
+    ],
+    "abilities": [
+      "Multitype"
+    ]
+  },
+  "arceusgrass": {
+    "id": 493,
+    "name": "Arceus-Grass",
+    "types": [
+      "Grass"
+    ],
+    "abilities": [
+      "Multitype"
+    ]
+  },
+  "arceusground": {
+    "id": 493,
+    "name": "Arceus-Ground",
+    "types": [
+      "Ground"
+    ],
+    "abilities": [
+      "Multitype"
+    ]
+  },
+  "arceusice": {
+    "id": 493,
+    "name": "Arceus-Ice",
+    "types": [
+      "Ice"
+    ],
+    "abilities": [
+      "Multitype"
+    ]
+  },
+  "arceuspoison": {
+    "id": 493,
+    "name": "Arceus-Poison",
+    "types": [
+      "Poison"
+    ],
+    "abilities": [
+      "Multitype"
+    ]
+  },
+  "arceuspsychic": {
+    "id": 493,
+    "name": "Arceus-Psychic",
+    "types": [
+      "Psychic"
+    ],
+    "abilities": [
+      "Multitype"
+    ]
+  },
+  "arceusrock": {
+    "id": 493,
+    "name": "Arceus-Rock",
+    "types": [
+      "Rock"
+    ],
+    "abilities": [
+      "Multitype"
+    ]
+  },
+  "arceussteel": {
+    "id": 493,
+    "name": "Arceus-Steel",
+    "types": [
+      "Steel"
+    ],
+    "abilities": [
+      "Multitype"
+    ]
+  },
+  "arceuswater": {
+    "id": 493,
+    "name": "Arceus-Water",
+    "types": [
+      "Water"
+    ],
+    "abilities": [
+      "Multitype"
+    ]
+  },
+  "victini": {
+    "id": 494,
+    "name": "Victini",
+    "types": [
+      "Psychic",
+      "Fire"
+    ],
+    "abilities": [
+      "Victory Star"
+    ],
+    "tier": "OU"
+  },
+  "serperior": {
+    "id": 497,
+    "name": "Serperior",
+    "types": [
+      "Grass"
+    ],
+    "abilities": [
+      "Overgrow",
+      "Contrary"
+    ],
+    "tier": "OU"
+  },
+  "emboar": {
+    "id": 500,
+    "name": "Emboar",
+    "types": [
+      "Fire",
+      "Fighting"
+    ],
+    "abilities": [
+      "Blaze",
+      "Reckless"
+    ],
+    "tier": "NUBL"
+  },
+  "samurott": {
+    "id": 503,
+    "name": "Samurott",
+    "types": [
+      "Water"
+    ],
+    "abilities": [
+      "Torrent",
+      "Shell Armor"
+    ],
+    "tier": "NU"
+  },
+  "watchog": {
+    "id": 505,
+    "name": "Watchog",
+    "types": [
+      "Normal"
+    ],
+    "abilities": [
+      "Illuminate",
+      "Keen Eye",
+      "Analytic"
+    ],
+    "tier": "ZU"
+  },
+  "stoutland": {
+    "id": 508,
+    "name": "Stoutland",
+    "types": [
+      "Normal"
+    ],
+    "abilities": [
+      "Intimidate",
+      "Sand Rush",
+      "Scrappy"
+    ],
+    "tier": "PU"
+  },
+  "liepard": {
+    "id": 510,
+    "name": "Liepard",
+    "types": [
+      "Dark"
+    ],
+    "abilities": [
+      "Limber",
+      "Unburden",
+      "Prankster"
+    ],
+    "tier": "PU"
+  },
+  "simisage": {
+    "id": 512,
+    "name": "Simisage",
+    "types": [
+      "Grass"
+    ],
+    "abilities": [
+      "Gluttony",
+      "Overgrow"
+    ],
+    "tier": "ZU"
+  },
+  "simisear": {
+    "id": 514,
+    "name": "Simisear",
+    "types": [
+      "Fire"
+    ],
+    "abilities": [
+      "Gluttony",
+      "Blaze"
+    ],
+    "tier": "ZU"
+  },
+  "simipour": {
+    "id": 516,
+    "name": "Simipour",
+    "types": [
+      "Water"
+    ],
+    "abilities": [
+      "Gluttony",
+      "Torrent"
+    ],
+    "tier": "ZU"
+  },
+  "musharna": {
+    "id": 518,
+    "name": "Musharna",
+    "types": [
+      "Psychic"
+    ],
+    "abilities": [
+      "Forewarn",
+      "Synchronize",
+      "Telepathy"
+    ],
+    "tier": "PU"
+  },
+  "unfezant": {
+    "id": 521,
+    "name": "Unfezant",
+    "types": [
+      "Normal",
+      "Flying"
+    ],
+    "abilities": [
+      "Big Pecks",
+      "Super Luck",
+      "Rivalry"
+    ],
+    "tier": "ZU"
+  },
+  "zebstrika": {
+    "id": 523,
+    "name": "Zebstrika",
+    "types": [
+      "Electric"
+    ],
+    "abilities": [
+      "Lightning Rod",
+      "Motor Drive",
+      "Sap Sipper"
+    ],
+    "tier": "ZU"
+  },
+  "gigalith": {
+    "id": 526,
+    "name": "Gigalith",
+    "types": [
+      "Rock"
+    ],
+    "abilities": [
+      "Sturdy",
+      "Sand Stream",
+      "Sand Force"
+    ],
+    "tier": "RU"
+  },
+  "swoobat": {
+    "id": 528,
+    "name": "Swoobat",
+    "types": [
+      "Psychic",
+      "Flying"
+    ],
+    "abilities": [
+      "Unaware",
+      "Klutz",
+      "Simple"
+    ],
+    "tier": "ZU"
+  },
+  "excadrill": {
+    "id": 530,
+    "name": "Excadrill",
+    "types": [
+      "Ground",
+      "Steel"
+    ],
+    "abilities": [
+      "Sand Rush",
+      "Sand Force",
+      "Mold Breaker"
+    ],
+    "tier": "OU"
+  },
+  "audino": {
+    "id": 531,
+    "name": "Audino",
+    "types": [
+      "Normal"
+    ],
+    "abilities": [
+      "Healer",
+      "Regenerator",
+      "Klutz"
+    ],
+    "tier": "PU"
+  },
+  "audinomega": {
+    "id": 531,
+    "name": "Audino-Mega",
+    "types": [
+      "Normal",
+      "Fairy"
+    ],
+    "abilities": [
+      "Healer"
+    ],
+    "tier": "NU"
+  },
+  "conkeldurr": {
+    "id": 534,
+    "name": "Conkeldurr",
+    "types": [
+      "Fighting"
+    ],
+    "abilities": [
+      "Guts",
+      "Sheer Force",
+      "Iron Fist"
+    ],
+    "tier": "UUBL"
+  },
+  "seismitoad": {
+    "id": 537,
+    "name": "Seismitoad",
+    "types": [
+      "Water",
+      "Ground"
+    ],
+    "abilities": [
+      "Swift Swim",
+      "Poison Touch",
+      "Water Absorb"
+    ],
+    "tier": "NU"
+  },
+  "throh": {
+    "id": 538,
+    "name": "Throh",
+    "types": [
+      "Fighting"
+    ],
+    "abilities": [
+      "Guts",
+      "Inner Focus",
+      "Mold Breaker"
+    ],
+    "tier": "ZUBL"
+  },
+  "sawk": {
+    "id": 539,
+    "name": "Sawk",
+    "types": [
+      "Fighting"
+    ],
+    "abilities": [
+      "Sturdy",
+      "Inner Focus",
+      "Mold Breaker"
+    ],
+    "tier": "PUBL"
+  },
+  "leavanny": {
+    "id": 542,
+    "name": "Leavanny",
+    "types": [
+      "Bug",
+      "Grass"
+    ],
+    "abilities": [
+      "Swarm",
+      "Chlorophyll",
+      "Overcoat"
+    ],
+    "tier": "ZU"
+  },
+  "scolipede": {
+    "id": 545,
+    "name": "Scolipede",
+    "types": [
+      "Bug",
+      "Poison"
+    ],
+    "abilities": [
+      "Poison Point",
+      "Swarm",
+      "Speed Boost"
+    ],
+    "tier": "UUBL"
+  },
+  "whimsicott": {
+    "id": 547,
+    "name": "Whimsicott",
+    "types": [
+      "Grass",
+      "Fairy"
+    ],
+    "abilities": [
+      "Prankster",
+      "Infiltrator",
+      "Chlorophyll"
+    ],
+    "tier": "NU"
+  },
+  "lilligant": {
+    "id": 549,
+    "name": "Lilligant",
+    "types": [
+      "Grass"
+    ],
+    "abilities": [
+      "Chlorophyll",
+      "Own Tempo",
+      "Leaf Guard"
+    ],
+    "tier": "PUBL"
+  },
+  "basculin": {
+    "id": 550,
+    "name": "Basculin",
+    "types": [
+      "Water"
+    ],
+    "abilities": [
+      "Reckless",
+      "Adaptability",
+      "Mold Breaker"
+    ],
+    "tier": "ZU"
+  },
+  "basculinbluestriped": {
+    "id": 550,
+    "name": "Basculin-Blue-Striped",
+    "types": [
+      "Water"
+    ],
+    "abilities": [
+      "Rock Head",
+      "Adaptability",
+      "Mold Breaker"
+    ],
+    "tier": "ZU"
+  },
+  "krookodile": {
+    "id": 553,
+    "name": "Krookodile",
+    "types": [
+      "Ground",
+      "Dark"
+    ],
+    "abilities": [
+      "Intimidate",
+      "Moxie",
+      "Anger Point"
+    ],
+    "tier": "UU"
+  },
+  "darmanitan": {
+    "id": 555,
+    "name": "Darmanitan",
+    "types": [
+      "Fire"
+    ],
+    "abilities": [
+      "Sheer Force",
+      "Zen Mode"
+    ],
+    "tier": "RUBL"
+  },
+  "maractus": {
+    "id": 556,
+    "name": "Maractus",
+    "types": [
+      "Grass"
+    ],
+    "abilities": [
+      "Water Absorb",
+      "Chlorophyll",
+      "Storm Drain"
+    ],
+    "tier": "ZU"
+  },
+  "crustle": {
+    "id": 558,
+    "name": "Crustle",
+    "types": [
+      "Bug",
+      "Rock"
+    ],
+    "abilities": [
+      "Sturdy",
+      "Shell Armor",
+      "Weak Armor"
+    ],
+    "tier": "ZU"
+  },
+  "scrafty": {
+    "id": 560,
+    "name": "Scrafty",
+    "types": [
+      "Dark",
+      "Fighting"
+    ],
+    "abilities": [
+      "Shed Skin",
+      "Moxie",
+      "Intimidate"
+    ],
+    "tier": "NU"
+  },
+  "sigilyph": {
+    "id": 561,
+    "name": "Sigilyph",
+    "types": [
+      "Psychic",
+      "Flying"
+    ],
+    "abilities": [
+      "Wonder Skin",
+      "Magic Guard",
+      "Tinted Lens"
+    ],
+    "tier": "NU"
+  },
+  "cofagrigus": {
+    "id": 563,
+    "name": "Cofagrigus",
+    "types": [
+      "Ghost"
+    ],
+    "abilities": [
+      "Mummy"
+    ],
+    "tier": "NUBL"
+  },
+  "carracosta": {
+    "id": 565,
+    "name": "Carracosta",
+    "types": [
+      "Water",
+      "Rock"
+    ],
+    "abilities": [
+      "Solid Rock",
+      "Sturdy",
+      "Swift Swim"
+    ],
+    "tier": "PU"
+  },
+  "archeops": {
+    "id": 567,
+    "name": "Archeops",
+    "types": [
+      "Rock",
+      "Flying"
+    ],
+    "abilities": [
+      "Defeatist"
+    ],
+    "tier": "PUBL"
+  },
+  "garbodor": {
+    "id": 569,
+    "name": "Garbodor",
+    "types": [
+      "Poison"
+    ],
+    "abilities": [
+      "Stench",
+      "Weak Armor",
+      "Aftermath"
+    ],
+    "tier": "NU"
+  },
+  "zoroark": {
+    "id": 571,
+    "name": "Zoroark",
+    "types": [
+      "Dark"
+    ],
+    "abilities": [
+      "Illusion"
+    ],
+    "tier": "RUBL"
+  },
+  "cinccino": {
+    "id": 573,
+    "name": "Cinccino",
+    "types": [
+      "Normal"
+    ],
+    "abilities": [
+      "Cute Charm",
+      "Technician",
+      "Skill Link"
+    ],
+    "tier": "PUBL"
+  },
+  "gothitelle": {
+    "id": 576,
+    "name": "Gothitelle",
+    "types": [
+      "Psychic"
+    ],
+    "abilities": [
+      "Frisk",
+      "Competitive",
+      "Shadow Tag"
+    ],
+    "tier": "ZU"
+  },
+  "reuniclus": {
+    "id": 579,
+    "name": "Reuniclus",
+    "types": [
+      "Psychic"
+    ],
+    "abilities": [
+      "Overcoat",
+      "Magic Guard",
+      "Regenerator"
+    ],
+    "tier": "RUBL"
+  },
+  "swanna": {
+    "id": 581,
+    "name": "Swanna",
+    "types": [
+      "Water",
+      "Flying"
+    ],
+    "abilities": [
+      "Keen Eye",
+      "Big Pecks",
+      "Hydration"
+    ],
+    "tier": "ZU"
+  },
+  "vanilluxe": {
+    "id": 584,
+    "name": "Vanilluxe",
+    "types": [
+      "Ice"
+    ],
+    "abilities": [
+      "Ice Body",
+      "Snow Warning",
+      "Weak Armor"
+    ],
+    "tier": "NUBL"
+  },
+  "sawsbuck": {
+    "id": 586,
+    "name": "Sawsbuck",
+    "types": [
+      "Normal",
+      "Grass"
+    ],
+    "abilities": [
+      "Chlorophyll",
+      "Sap Sipper",
+      "Serene Grace"
+    ],
+    "tier": "ZU"
+  },
+  "emolga": {
+    "id": 587,
+    "name": "Emolga",
+    "types": [
+      "Electric",
+      "Flying"
+    ],
+    "abilities": [
+      "Static",
+      "Motor Drive"
+    ],
+    "tier": "ZU"
+  },
+  "escavalier": {
+    "id": 589,
+    "name": "Escavalier",
+    "types": [
+      "Bug",
+      "Steel"
+    ],
+    "abilities": [
+      "Swarm",
+      "Shell Armor",
+      "Overcoat"
+    ],
+    "tier": "RU"
+  },
+  "amoonguss": {
+    "id": 591,
+    "name": "Amoonguss",
+    "types": [
+      "Grass",
+      "Poison"
+    ],
+    "abilities": [
+      "Effect Spore",
+      "Regenerator"
+    ],
+    "tier": "UU"
+  },
+  "jellicent": {
+    "id": 593,
+    "name": "Jellicent",
+    "types": [
+      "Water",
+      "Ghost"
+    ],
+    "abilities": [
+      "Water Absorb",
+      "Cursed Body",
+      "Damp"
+    ],
+    "tier": "PU"
+  },
+  "alomomola": {
+    "id": 594,
+    "name": "Alomomola",
+    "types": [
+      "Water"
+    ],
+    "abilities": [
+      "Healer",
+      "Hydration",
+      "Regenerator"
+    ],
+    "tier": "UU"
+  },
+  "galvantula": {
+    "id": 596,
+    "name": "Galvantula",
+    "types": [
+      "Bug",
+      "Electric"
+    ],
+    "abilities": [
+      "Compound Eyes",
+      "Unnerve",
+      "Swarm"
+    ],
+    "tier": "RU"
+  },
+  "ferrothorn": {
+    "id": 598,
+    "name": "Ferrothorn",
+    "types": [
+      "Grass",
+      "Steel"
+    ],
+    "abilities": [
+      "Iron Barbs",
+      "Anticipation"
+    ],
+    "tier": "OU"
+  },
+  "klinklang": {
+    "id": 601,
+    "name": "Klinklang",
+    "types": [
+      "Steel"
+    ],
+    "abilities": [
+      "Plus",
+      "Minus",
+      "Clear Body"
+    ],
+    "tier": "NU"
+  },
+  "eelektross": {
+    "id": 604,
+    "name": "Eelektross",
+    "types": [
+      "Electric"
+    ],
+    "abilities": [
+      "Levitate"
+    ],
+    "tier": "PU"
+  },
+  "beheeyem": {
+    "id": 606,
+    "name": "Beheeyem",
+    "types": [
+      "Psychic"
+    ],
+    "abilities": [
+      "Telepathy",
+      "Synchronize",
+      "Analytic"
+    ],
+    "tier": "ZU"
+  },
+  "chandelure": {
+    "id": 609,
+    "name": "Chandelure",
+    "types": [
+      "Ghost",
+      "Fire"
+    ],
+    "abilities": [
+      "Flash Fire",
+      "Flame Body",
+      "Infiltrator"
+    ],
+    "tier": "UU"
+  },
+  "haxorus": {
+    "id": 612,
+    "name": "Haxorus",
+    "types": [
+      "Dragon"
+    ],
+    "abilities": [
+      "Rivalry",
+      "Mold Breaker",
+      "Unnerve"
+    ],
+    "tier": "UU"
+  },
+  "beartic": {
+    "id": 614,
+    "name": "Beartic",
+    "types": [
+      "Ice"
+    ],
+    "abilities": [
+      "Snow Cloak",
+      "Slush Rush",
+      "Swift Swim"
+    ],
+    "tier": "ZU"
+  },
+  "cryogonal": {
+    "id": 615,
+    "name": "Cryogonal",
+    "types": [
+      "Ice"
+    ],
+    "abilities": [
+      "Levitate"
+    ],
+    "tier": "PU"
+  },
+  "accelgor": {
+    "id": 617,
+    "name": "Accelgor",
+    "types": [
+      "Bug"
+    ],
+    "abilities": [
+      "Hydration",
+      "Sticky Hold",
+      "Unburden"
+    ],
+    "tier": "NU"
+  },
+  "stunfisk": {
+    "id": 618,
+    "name": "Stunfisk",
+    "types": [
+      "Ground",
+      "Electric"
+    ],
+    "abilities": [
+      "Static",
+      "Limber",
+      "Sand Veil"
+    ],
+    "tier": "ZU"
+  },
+  "mienshao": {
+    "id": 620,
+    "name": "Mienshao",
+    "types": [
+      "Fighting"
+    ],
+    "abilities": [
+      "Inner Focus",
+      "Regenerator",
+      "Reckless"
+    ],
+    "tier": "RUBL"
+  },
+  "druddigon": {
+    "id": 621,
+    "name": "Druddigon",
+    "types": [
+      "Dragon"
+    ],
+    "abilities": [
+      "Rough Skin",
+      "Sheer Force",
+      "Mold Breaker"
+    ],
+    "tier": "NU"
+  },
+  "golurk": {
+    "id": 623,
+    "name": "Golurk",
+    "types": [
+      "Ground",
+      "Ghost"
+    ],
+    "abilities": [
+      "Iron Fist",
+      "Klutz",
+      "No Guard"
+    ],
+    "tier": "PU"
+  },
+  "bisharp": {
+    "id": 625,
+    "name": "Bisharp",
+    "types": [
+      "Dark",
+      "Steel"
+    ],
+    "abilities": [
+      "Defiant",
+      "Inner Focus",
+      "Pressure"
+    ],
+    "tier": "UU"
+  },
+  "bouffalant": {
+    "id": 626,
+    "name": "Bouffalant",
+    "types": [
+      "Normal"
+    ],
+    "abilities": [
+      "Reckless",
+      "Sap Sipper",
+      "Soundproof"
+    ],
+    "tier": "ZU"
+  },
+  "braviary": {
+    "id": 628,
+    "name": "Braviary",
+    "types": [
+      "Normal",
+      "Flying"
+    ],
+    "abilities": [
+      "Keen Eye",
+      "Sheer Force",
+      "Defiant"
+    ],
+    "tier": "NU"
+  },
+  "mandibuzz": {
+    "id": 630,
+    "name": "Mandibuzz",
+    "types": [
+      "Dark",
+      "Flying"
+    ],
+    "abilities": [
+      "Big Pecks",
+      "Overcoat",
+      "Weak Armor"
+    ],
+    "tier": "RU"
+  },
+  "heatmor": {
+    "id": 631,
+    "name": "Heatmor",
+    "types": [
+      "Fire"
+    ],
+    "abilities": [
+      "Gluttony",
+      "Flash Fire",
+      "White Smoke"
+    ],
+    "tier": "ZU"
+  },
+  "durant": {
+    "id": 632,
+    "name": "Durant",
+    "types": [
+      "Bug",
+      "Steel"
+    ],
+    "abilities": [
+      "Swarm",
+      "Hustle",
+      "Truant"
+    ],
+    "tier": "RUBL"
+  },
+  "hydreigon": {
+    "id": 635,
+    "name": "Hydreigon",
+    "types": [
+      "Dark",
+      "Dragon"
+    ],
+    "abilities": [
+      "Levitate"
+    ],
+    "tier": "UU"
+  },
+  "volcarona": {
+    "id": 637,
+    "name": "Volcarona",
+    "types": [
+      "Bug",
+      "Fire"
+    ],
+    "abilities": [
+      "Flame Body",
+      "Swarm"
+    ],
+    "tier": "OU"
+  },
+  "cobalion": {
+    "id": 638,
+    "name": "Cobalion",
+    "types": [
+      "Steel",
+      "Fighting"
+    ],
+    "abilities": [
+      "Justified"
+    ],
+    "tier": "UU"
+  },
+  "terrakion": {
+    "id": 639,
+    "name": "Terrakion",
+    "types": [
+      "Rock",
+      "Fighting"
+    ],
+    "abilities": [
+      "Justified"
+    ],
+    "tier": "UU"
+  },
+  "virizion": {
+    "id": 640,
+    "name": "Virizion",
+    "types": [
+      "Grass",
+      "Fighting"
+    ],
+    "abilities": [
+      "Justified"
+    ],
+    "tier": "RU"
+  },
+  "tornadus": {
+    "id": 641,
+    "name": "Tornadus",
+    "types": [
+      "Flying"
+    ],
+    "abilities": [
+      "Prankster",
+      "Defiant"
+    ],
+    "tier": "RUBL"
+  },
+  "tornadustherian": {
+    "id": 641,
+    "name": "Tornadus-Therian",
+    "types": [
+      "Flying"
+    ],
+    "abilities": [
+      "Regenerator"
+    ],
+    "tier": "OU"
+  },
+  "thundurus": {
+    "id": 642,
+    "name": "Thundurus",
+    "types": [
+      "Electric",
+      "Flying"
+    ],
+    "abilities": [
+      "Prankster",
+      "Defiant"
+    ],
+    "tier": "UUBL"
+  },
+  "thundurustherian": {
+    "id": 642,
+    "name": "Thundurus-Therian",
+    "types": [
+      "Electric",
+      "Flying"
+    ],
+    "abilities": [
+      "Volt Absorb"
+    ],
+    "tier": "UUBL"
+  },
+  "reshiram": {
+    "id": 643,
+    "name": "Reshiram",
+    "types": [
+      "Dragon",
+      "Fire"
+    ],
+    "abilities": [
+      "Turboblaze"
+    ],
+    "tier": "Uber"
+  },
+  "zekrom": {
+    "id": 644,
+    "name": "Zekrom",
+    "types": [
+      "Dragon",
+      "Electric"
+    ],
+    "abilities": [
+      "Teravolt"
+    ],
+    "tier": "Uber"
+  },
+  "landorus": {
+    "id": 645,
+    "name": "Landorus",
+    "types": [
+      "Ground",
+      "Flying"
+    ],
+    "abilities": [
+      "Sand Force",
+      "Sheer Force"
+    ],
+    "tier": "Uber"
+  },
+  "landorustherian": {
+    "id": 645,
+    "name": "Landorus-Therian",
+    "types": [
+      "Ground",
+      "Flying"
+    ],
+    "abilities": [
+      "Intimidate"
+    ],
+    "tier": "OU"
+  },
+  "kyurem": {
+    "id": 646,
+    "name": "Kyurem",
+    "types": [
+      "Dragon",
+      "Ice"
+    ],
+    "abilities": [
+      "Pressure"
+    ],
+    "tier": "RUBL"
+  },
+  "kyuremblack": {
+    "id": 646,
+    "name": "Kyurem-Black",
+    "types": [
+      "Dragon",
+      "Ice"
+    ],
+    "abilities": [
+      "Teravolt"
+    ],
+    "tier": "OU"
+  },
+  "kyuremwhite": {
+    "id": 646,
+    "name": "Kyurem-White",
+    "types": [
+      "Dragon",
+      "Ice"
+    ],
+    "abilities": [
+      "Turboblaze"
+    ],
+    "tier": "Uber"
+  },
+  "keldeo": {
+    "id": 647,
+    "name": "Keldeo",
+    "types": [
+      "Water",
+      "Fighting"
+    ],
+    "abilities": [
+      "Justified"
+    ],
+    "tier": "OU"
+  },
+  "keldeoresolute": {
+    "id": 647,
+    "name": "Keldeo-Resolute",
+    "types": [
+      "Water",
+      "Fighting"
+    ],
+    "abilities": [
+      "Justified"
+    ],
+    "tier": "OU"
+  },
+  "meloetta": {
+    "id": 648,
+    "name": "Meloetta",
+    "types": [
+      "Normal",
+      "Psychic"
+    ],
+    "abilities": [
+      "Serene Grace"
+    ],
+    "tier": "RUBL"
+  },
+  "meloettapirouette": {
+    "id": 648,
+    "name": "Meloetta-Pirouette",
+    "types": [
+      "Normal",
+      "Fighting"
+    ],
+    "abilities": [
+      "Serene Grace"
+    ]
+  },
+  "genesect": {
+    "id": 649,
+    "name": "Genesect",
+    "types": [
+      "Bug",
+      "Steel"
+    ],
+    "abilities": [
+      "Download"
+    ],
+    "tier": "Uber"
+  },
+  "genesectburn": {
+    "id": 649,
+    "name": "Genesect-Burn",
+    "types": [
+      "Bug",
+      "Steel"
+    ],
+    "abilities": [
+      "Download"
+    ],
+    "tier": "Uber"
+  },
+  "genesectchill": {
+    "id": 649,
+    "name": "Genesect-Chill",
+    "types": [
+      "Bug",
+      "Steel"
+    ],
+    "abilities": [
+      "Download"
+    ],
+    "tier": "Uber"
+  },
+  "genesectdouse": {
+    "id": 649,
+    "name": "Genesect-Douse",
+    "types": [
+      "Bug",
+      "Steel"
+    ],
+    "abilities": [
+      "Download"
+    ],
+    "tier": "Uber"
+  },
+  "genesectshock": {
+    "id": 649,
+    "name": "Genesect-Shock",
+    "types": [
+      "Bug",
+      "Steel"
+    ],
+    "abilities": [
+      "Download"
+    ],
+    "tier": "Uber"
+  },
+  "chesnaught": {
+    "id": 652,
+    "name": "Chesnaught",
+    "types": [
+      "Grass",
+      "Fighting"
+    ],
+    "abilities": [
+      "Overgrow",
+      "Bulletproof"
+    ],
+    "tier": "UU"
+  },
+  "delphox": {
+    "id": 655,
+    "name": "Delphox",
+    "types": [
+      "Fire",
+      "Psychic"
+    ],
+    "abilities": [
+      "Blaze",
+      "Magician"
+    ],
+    "tier": "NU"
+  },
+  "greninja": {
+    "id": 658,
+    "name": "Greninja",
+    "types": [
+      "Water",
+      "Dark"
+    ],
+    "abilities": [
+      "Torrent",
+      "Protean",
+      "Battle Bond"
+    ],
+    "tier": "OU"
+  },
+  "greninjabond": {
+    "id": 658,
+    "name": "Greninja-Bond",
+    "types": [
+      "Water",
+      "Dark"
+    ],
+    "abilities": [
+      "Battle Bond"
+    ],
+    "tier": "OU"
+  },
+  "greninjaash": {
+    "id": 658,
+    "name": "Greninja-Ash",
+    "types": [
+      "Water",
+      "Dark"
+    ],
+    "abilities": [
+      "Battle Bond"
+    ],
+    "tier": "OU"
+  },
+  "diggersby": {
+    "id": 660,
+    "name": "Diggersby",
+    "types": [
+      "Normal",
+      "Ground"
+    ],
+    "abilities": [
+      "Pickup",
+      "Cheek Pouch",
+      "Huge Power"
+    ],
+    "tier": "UUBL"
+  },
+  "talonflame": {
+    "id": 663,
+    "name": "Talonflame",
+    "types": [
+      "Fire",
+      "Flying"
+    ],
+    "abilities": [
+      "Flame Body",
+      "Gale Wings"
+    ],
+    "tier": "RUBL"
+  },
+  "vivillon": {
+    "id": 666,
+    "name": "Vivillon",
+    "types": [
+      "Bug",
+      "Flying"
+    ],
+    "abilities": [
+      "Shield Dust",
+      "Compound Eyes",
+      "Friend Guard"
+    ],
+    "tier": "NU"
+  },
+  "vivillonfancy": {
+    "id": 666,
+    "name": "Vivillon-Fancy",
+    "types": [
+      "Bug",
+      "Flying"
+    ],
+    "abilities": [
+      "Shield Dust",
+      "Compound Eyes"
+    ],
+    "tier": "NU"
+  },
+  "vivillonpokeball": {
+    "id": 666,
+    "name": "Vivillon-Pokeball",
+    "types": [
+      "Bug",
+      "Flying"
+    ],
+    "abilities": [
+      "Shield Dust",
+      "Compound Eyes"
+    ],
+    "tier": "NU"
+  },
+  "pyroar": {
+    "id": 668,
+    "name": "Pyroar",
+    "types": [
+      "Fire",
+      "Normal"
+    ],
+    "abilities": [
+      "Rivalry",
+      "Unnerve",
+      "Moxie"
+    ],
+    "tier": "PUBL"
+  },
+  "floetteeternal": {
+    "id": 670,
+    "name": "Floette-Eternal",
+    "types": [
+      "Fairy"
+    ],
+    "abilities": [
+      "Flower Veil"
+    ],
+    "tier": "Illegal"
+  },
+  "florges": {
+    "id": 671,
+    "name": "Florges",
+    "types": [
+      "Fairy"
+    ],
+    "abilities": [
+      "Flower Veil",
+      "Symbiosis"
+    ],
+    "tier": "RU"
+  },
+  "gogoat": {
+    "id": 673,
+    "name": "Gogoat",
+    "types": [
+      "Grass"
+    ],
+    "abilities": [
+      "Sap Sipper",
+      "Grass Pelt"
+    ],
+    "tier": "ZU"
+  },
+  "pangoro": {
+    "id": 675,
+    "name": "Pangoro",
+    "types": [
+      "Fighting",
+      "Dark"
+    ],
+    "abilities": [
+      "Iron Fist",
+      "Mold Breaker",
+      "Scrappy"
+    ],
+    "tier": "NU"
+  },
+  "furfrou": {
+    "id": 676,
+    "name": "Furfrou",
+    "types": [
+      "Normal"
+    ],
+    "abilities": [
+      "Fur Coat"
+    ],
+    "tier": "ZU"
+  },
+  "meowstic": {
+    "id": 678,
+    "name": "Meowstic",
+    "types": [
+      "Psychic"
+    ],
+    "abilities": [
+      "Keen Eye",
+      "Infiltrator",
+      "Prankster"
+    ],
+    "tier": "ZU"
+  },
+  "meowsticf": {
+    "id": 678,
+    "name": "Meowstic-F",
+    "types": [
+      "Psychic"
+    ],
+    "abilities": [
+      "Keen Eye",
+      "Infiltrator",
+      "Competitive"
+    ],
+    "tier": "ZU"
+  },
+  "doublade": {
+    "id": 680,
+    "name": "Doublade",
+    "types": [
+      "Steel",
+      "Ghost"
+    ],
+    "abilities": [
+      "No Guard"
+    ],
+    "tier": "UU"
+  },
+  "aegislash": {
+    "id": 681,
+    "name": "Aegislash",
+    "types": [
+      "Steel",
+      "Ghost"
+    ],
+    "abilities": [
+      "Stance Change"
+    ],
+    "tier": "Uber"
+  },
+  "aegislashblade": {
+    "id": 681,
+    "name": "Aegislash-Blade",
+    "types": [
+      "Steel",
+      "Ghost"
+    ],
+    "abilities": [
+      "Stance Change"
+    ]
+  },
+  "aromatisse": {
+    "id": 683,
+    "name": "Aromatisse",
+    "types": [
+      "Fairy"
+    ],
+    "abilities": [
+      "Healer",
+      "Aroma Veil"
+    ],
+    "tier": "PUBL"
+  },
+  "slurpuff": {
+    "id": 685,
+    "name": "Slurpuff",
+    "types": [
+      "Fairy"
+    ],
+    "abilities": [
+      "Sweet Veil",
+      "Unburden"
+    ],
+    "tier": "NUBL"
+  },
+  "malamar": {
+    "id": 687,
+    "name": "Malamar",
+    "types": [
+      "Dark",
+      "Psychic"
+    ],
+    "abilities": [
+      "Contrary",
+      "Suction Cups",
+      "Infiltrator"
+    ],
+    "tier": "NU"
+  },
+  "barbaracle": {
+    "id": 689,
+    "name": "Barbaracle",
+    "types": [
+      "Rock",
+      "Water"
+    ],
+    "abilities": [
+      "Tough Claws",
+      "Sniper",
+      "Pickpocket"
+    ],
+    "tier": "NUBL"
+  },
+  "dragalge": {
+    "id": 691,
+    "name": "Dragalge",
+    "types": [
+      "Poison",
+      "Dragon"
+    ],
+    "abilities": [
+      "Poison Point",
+      "Poison Touch",
+      "Adaptability"
+    ],
+    "tier": "RU"
+  },
+  "clawitzer": {
+    "id": 693,
+    "name": "Clawitzer",
+    "types": [
+      "Water"
+    ],
+    "abilities": [
+      "Mega Launcher"
+    ],
+    "tier": "NU"
+  },
+  "heliolisk": {
+    "id": 695,
+    "name": "Heliolisk",
+    "types": [
+      "Electric",
+      "Normal"
+    ],
+    "abilities": [
+      "Dry Skin",
+      "Sand Veil",
+      "Solar Power"
+    ],
+    "tier": "NU"
+  },
+  "tyrantrum": {
+    "id": 697,
+    "name": "Tyrantrum",
+    "types": [
+      "Rock",
+      "Dragon"
+    ],
+    "abilities": [
+      "Strong Jaw",
+      "Rock Head"
+    ],
+    "tier": "RU"
+  },
+  "aurorus": {
+    "id": 699,
+    "name": "Aurorus",
+    "types": [
+      "Rock",
+      "Ice"
+    ],
+    "abilities": [
+      "Refrigerate",
+      "Snow Warning"
+    ],
+    "tier": "PU"
+  },
+  "sylveon": {
+    "id": 700,
+    "name": "Sylveon",
+    "types": [
+      "Fairy"
+    ],
+    "abilities": [
+      "Cute Charm",
+      "Pixilate"
+    ],
+    "tier": "UU"
+  },
+  "hawlucha": {
+    "id": 701,
+    "name": "Hawlucha",
+    "types": [
+      "Fighting",
+      "Flying"
+    ],
+    "abilities": [
+      "Limber",
+      "Unburden",
+      "Mold Breaker"
+    ],
+    "tier": "OU"
+  },
+  "dedenne": {
+    "id": 702,
+    "name": "Dedenne",
+    "types": [
+      "Electric",
+      "Fairy"
+    ],
+    "abilities": [
+      "Cheek Pouch",
+      "Pickup",
+      "Plus"
+    ],
+    "tier": "ZU"
+  },
+  "carbink": {
+    "id": 703,
+    "name": "Carbink",
+    "types": [
+      "Rock",
+      "Fairy"
+    ],
+    "abilities": [
+      "Clear Body",
+      "Sturdy"
+    ],
+    "tier": "ZU"
+  },
+  "goodra": {
+    "id": 706,
+    "name": "Goodra",
+    "types": [
+      "Dragon"
+    ],
+    "abilities": [
+      "Sap Sipper",
+      "Hydration",
+      "Gooey"
+    ],
+    "tier": "RU"
+  },
+  "klefki": {
+    "id": 707,
+    "name": "Klefki",
+    "types": [
+      "Steel",
+      "Fairy"
+    ],
+    "abilities": [
+      "Prankster",
+      "Magician"
+    ],
+    "tier": "UU"
+  },
+  "trevenant": {
+    "id": 709,
+    "name": "Trevenant",
+    "types": [
+      "Ghost",
+      "Grass"
+    ],
+    "abilities": [
+      "Natural Cure",
+      "Frisk",
+      "Harvest"
+    ],
+    "tier": "ZU"
+  },
+  "gourgeist": {
+    "id": 711,
+    "name": "Gourgeist",
+    "types": [
+      "Ghost",
+      "Grass"
+    ],
+    "abilities": [
+      "Pickup",
+      "Frisk",
+      "Insomnia"
+    ],
+    "tier": "ZU"
+  },
+  "gourgeistsmall": {
+    "id": 711,
+    "name": "Gourgeist-Small",
+    "types": [
+      "Ghost",
+      "Grass"
+    ],
+    "abilities": [
+      "Pickup",
+      "Frisk"
+    ],
+    "tier": "ZU"
+  },
+  "gourgeistlarge": {
+    "id": 711,
+    "name": "Gourgeist-Large",
+    "types": [
+      "Ghost",
+      "Grass"
+    ],
+    "abilities": [
+      "Pickup",
+      "Frisk"
+    ],
+    "tier": "ZU"
+  },
+  "gourgeistsuper": {
+    "id": 711,
+    "name": "Gourgeist-Super",
+    "types": [
+      "Ghost",
+      "Grass"
+    ],
+    "abilities": [
+      "Pickup",
+      "Frisk",
+      "Insomnia"
+    ],
+    "tier": "ZU"
+  },
+  "avalugg": {
+    "id": 713,
+    "name": "Avalugg",
+    "types": [
+      "Ice"
+    ],
+    "abilities": [
+      "Own Tempo",
+      "Ice Body",
+      "Sturdy"
+    ],
+    "tier": "ZU"
+  },
+  "noivern": {
+    "id": 715,
+    "name": "Noivern",
+    "types": [
+      "Flying",
+      "Dragon"
+    ],
+    "abilities": [
+      "Frisk",
+      "Infiltrator",
+      "Telepathy"
+    ],
+    "tier": "RU"
+  },
+  "xerneas": {
+    "id": 716,
+    "name": "Xerneas",
+    "types": [
+      "Fairy"
+    ],
+    "abilities": [
+      "Fairy Aura"
+    ],
+    "tier": "Uber"
+  },
+  "yveltal": {
+    "id": 717,
+    "name": "Yveltal",
+    "types": [
+      "Dark",
+      "Flying"
+    ],
+    "abilities": [
+      "Dark Aura"
+    ],
+    "tier": "Uber"
+  },
+  "zygarde": {
+    "id": 718,
+    "name": "Zygarde",
+    "types": [
+      "Dragon",
+      "Ground"
+    ],
+    "abilities": [
+      "Aura Break",
+      "Power Construct"
+    ],
+    "tier": "Uber"
+  },
+  "zygarde10": {
+    "id": 718,
+    "name": "Zygarde-10%",
+    "types": [
+      "Dragon",
+      "Ground"
+    ],
+    "abilities": [
+      "Aura Break",
+      "Power Construct"
+    ],
+    "tier": "RU"
+  },
+  "zygardecomplete": {
+    "id": 718,
+    "name": "Zygarde-Complete",
+    "types": [
+      "Dragon",
+      "Ground"
+    ],
+    "abilities": [
+      "Power Construct"
+    ],
+    "tier": "Uber"
+  },
+  "diancie": {
+    "id": 719,
+    "name": "Diancie",
+    "types": [
+      "Rock",
+      "Fairy"
+    ],
+    "abilities": [
+      "Clear Body"
+    ],
+    "tier": "RU"
+  },
+  "dianciemega": {
+    "id": 719,
+    "name": "Diancie-Mega",
+    "types": [
+      "Rock",
+      "Fairy"
+    ],
+    "abilities": [
+      "Magic Bounce"
+    ],
+    "tier": "OU"
+  },
+  "hoopa": {
+    "id": 720,
+    "name": "Hoopa",
+    "types": [
+      "Psychic",
+      "Ghost"
+    ],
+    "abilities": [
+      "Magician"
+    ],
+    "tier": "RU"
+  },
+  "hoopaunbound": {
+    "id": 720,
+    "name": "Hoopa-Unbound",
+    "types": [
+      "Psychic",
+      "Dark"
+    ],
+    "abilities": [
+      "Magician"
+    ],
+    "tier": "UUBL"
+  },
+  "volcanion": {
+    "id": 721,
+    "name": "Volcanion",
+    "types": [
+      "Fire",
+      "Water"
+    ],
+    "abilities": [
+      "Water Absorb"
+    ],
+    "tier": "UU"
+  },
+  "decidueye": {
+    "id": 724,
+    "name": "Decidueye",
+    "types": [
+      "Grass",
+      "Ghost"
+    ],
+    "abilities": [
+      "Overgrow",
+      "Long Reach"
+    ],
+    "tier": "NU"
+  },
+  "incineroar": {
+    "id": 727,
+    "name": "Incineroar",
+    "types": [
+      "Fire",
+      "Dark"
+    ],
+    "abilities": [
+      "Blaze",
+      "Intimidate"
+    ],
+    "tier": "NU"
+  },
+  "primarina": {
+    "id": 730,
+    "name": "Primarina",
+    "types": [
+      "Water",
+      "Fairy"
+    ],
+    "abilities": [
+      "Torrent",
+      "Liquid Voice"
+    ],
+    "tier": "UU"
+  },
+  "toucannon": {
+    "id": 733,
+    "name": "Toucannon",
+    "types": [
+      "Normal",
+      "Flying"
+    ],
+    "abilities": [
+      "Keen Eye",
+      "Skill Link",
+      "Sheer Force"
+    ],
+    "tier": "ZU"
+  },
+  "gumshoos": {
+    "id": 735,
+    "name": "Gumshoos",
+    "types": [
+      "Normal"
+    ],
+    "abilities": [
+      "Stakeout",
+      "Strong Jaw",
+      "Adaptability"
+    ],
+    "tier": "ZU"
+  },
+  "gumshoostotem": {
+    "id": 735,
+    "name": "Gumshoos-Totem",
+    "types": [
+      "Normal"
+    ],
+    "abilities": [
+      "Adaptability"
+    ],
+    "tier": "ZU"
+  },
+  "vikavolt": {
+    "id": 738,
+    "name": "Vikavolt",
+    "types": [
+      "Bug",
+      "Electric"
+    ],
+    "abilities": [
+      "Levitate"
+    ],
+    "tier": "NU"
+  },
+  "vikavolttotem": {
+    "id": 738,
+    "name": "Vikavolt-Totem",
+    "types": [
+      "Bug",
+      "Electric"
+    ],
+    "abilities": [
+      "Levitate"
+    ],
+    "tier": "NU"
+  },
+  "crabominable": {
+    "id": 740,
+    "name": "Crabominable",
+    "types": [
+      "Fighting",
+      "Ice"
+    ],
+    "abilities": [
+      "Hyper Cutter",
+      "Iron Fist",
+      "Anger Point"
+    ],
+    "tier": "ZUBL"
+  },
+  "oricorio": {
+    "id": 741,
+    "name": "Oricorio",
+    "types": [
+      "Fire",
+      "Flying"
+    ],
+    "abilities": [
+      "Dancer"
+    ],
+    "tier": "ZU"
+  },
+  "oricoriopompom": {
+    "id": 741,
+    "name": "Oricorio-Pom-Pom",
+    "types": [
+      "Electric",
+      "Flying"
+    ],
+    "abilities": [
+      "Dancer"
+    ],
+    "tier": "PU"
+  },
+  "oricoriopau": {
+    "id": 741,
+    "name": "Oricorio-Pa'u",
+    "types": [
+      "Psychic",
+      "Flying"
+    ],
+    "abilities": [
+      "Dancer"
+    ],
+    "tier": "ZU"
+  },
+  "oricoriosensu": {
+    "id": 741,
+    "name": "Oricorio-Sensu",
+    "types": [
+      "Ghost",
+      "Flying"
+    ],
+    "abilities": [
+      "Dancer"
+    ],
+    "tier": "PU"
+  },
+  "ribombee": {
+    "id": 743,
+    "name": "Ribombee",
+    "types": [
+      "Bug",
+      "Fairy"
+    ],
+    "abilities": [
+      "Honey Gather",
+      "Shield Dust",
+      "Sweet Veil"
+    ],
+    "tier": "RU"
+  },
+  "ribombeetotem": {
+    "id": 743,
+    "name": "Ribombee-Totem",
+    "types": [
+      "Bug",
+      "Fairy"
+    ],
+    "abilities": [
+      "Sweet Veil"
+    ],
+    "tier": "RU"
+  },
+  "lycanroc": {
+    "id": 745,
+    "name": "Lycanroc",
+    "types": [
+      "Rock"
+    ],
+    "abilities": [
+      "Keen Eye",
+      "Sand Rush",
+      "Steadfast"
+    ],
+    "tier": "PU"
+  },
+  "lycanrocmidnight": {
+    "id": 745,
+    "name": "Lycanroc-Midnight",
+    "types": [
+      "Rock"
+    ],
+    "abilities": [
+      "Keen Eye",
+      "Vital Spirit",
+      "No Guard"
+    ],
+    "tier": "ZU"
+  },
+  "lycanrocdusk": {
+    "id": 745,
+    "name": "Lycanroc-Dusk",
+    "types": [
+      "Rock"
+    ],
+    "abilities": [
+      "Tough Claws"
+    ],
+    "tier": "RU"
+  },
+  "wishiwashi": {
+    "id": 746,
+    "name": "Wishiwashi",
+    "types": [
+      "Water"
+    ],
+    "abilities": [
+      "Schooling"
+    ],
+    "tier": "ZU"
+  },
+  "wishiwashischool": {
+    "id": 746,
+    "name": "Wishiwashi-School",
+    "types": [
+      "Water"
+    ],
+    "abilities": [
+      "Schooling"
+    ]
+  },
+  "toxapex": {
+    "id": 748,
+    "name": "Toxapex",
+    "types": [
+      "Poison",
+      "Water"
+    ],
+    "abilities": [
+      "Merciless",
+      "Limber",
+      "Regenerator"
+    ],
+    "tier": "OU"
+  },
+  "mudsdale": {
+    "id": 750,
+    "name": "Mudsdale",
+    "types": [
+      "Ground"
+    ],
+    "abilities": [
+      "Own Tempo",
+      "Stamina",
+      "Inner Focus"
+    ],
+    "tier": "PU"
+  },
+  "araquanid": {
+    "id": 752,
+    "name": "Araquanid",
+    "types": [
+      "Water",
+      "Bug"
+    ],
+    "abilities": [
+      "Water Bubble",
+      "Water Absorb"
+    ],
+    "tier": "RU"
+  },
+  "araquanidtotem": {
+    "id": 752,
+    "name": "Araquanid-Totem",
+    "types": [
+      "Water",
+      "Bug"
+    ],
+    "abilities": [
+      "Water Bubble"
+    ],
+    "tier": "RU"
+  },
+  "lurantis": {
+    "id": 754,
+    "name": "Lurantis",
+    "types": [
+      "Grass"
+    ],
+    "abilities": [
+      "Leaf Guard",
+      "Contrary"
+    ],
+    "tier": "PU"
+  },
+  "lurantistotem": {
+    "id": 754,
+    "name": "Lurantis-Totem",
+    "types": [
+      "Grass"
+    ],
+    "abilities": [
+      "Leaf Guard"
+    ],
+    "tier": "PU"
+  },
+  "shiinotic": {
+    "id": 756,
+    "name": "Shiinotic",
+    "types": [
+      "Grass",
+      "Fairy"
+    ],
+    "abilities": [
+      "Illuminate",
+      "Effect Spore",
+      "Rain Dish"
+    ],
+    "tier": "ZU"
+  },
+  "salazzle": {
+    "id": 758,
+    "name": "Salazzle",
+    "types": [
+      "Poison",
+      "Fire"
+    ],
+    "abilities": [
+      "Corrosion",
+      "Oblivious"
+    ],
+    "tier": "RU"
+  },
+  "salazzletotem": {
+    "id": 758,
+    "name": "Salazzle-Totem",
+    "types": [
+      "Poison",
+      "Fire"
+    ],
+    "abilities": [
+      "Corrosion"
+    ],
+    "tier": "RU"
+  },
+  "bewear": {
+    "id": 760,
+    "name": "Bewear",
+    "types": [
+      "Normal",
+      "Fighting"
+    ],
+    "abilities": [
+      "Fluffy",
+      "Klutz",
+      "Unnerve"
+    ],
+    "tier": "RU"
+  },
+  "tsareena": {
+    "id": 763,
+    "name": "Tsareena",
+    "types": [
+      "Grass"
+    ],
+    "abilities": [
+      "Leaf Guard",
+      "Queenly Majesty",
+      "Sweet Veil"
+    ],
+    "tier": "RU"
+  },
+  "comfey": {
+    "id": 764,
+    "name": "Comfey",
+    "types": [
+      "Fairy"
+    ],
+    "abilities": [
+      "Flower Veil",
+      "Triage",
+      "Natural Cure"
+    ],
+    "tier": "NU"
+  },
+  "oranguru": {
+    "id": 765,
+    "name": "Oranguru",
+    "types": [
+      "Normal",
+      "Psychic"
+    ],
+    "abilities": [
+      "Inner Focus",
+      "Telepathy",
+      "Symbiosis"
+    ],
+    "tier": "ZU"
+  },
+  "passimian": {
+    "id": 766,
+    "name": "Passimian",
+    "types": [
+      "Fighting"
+    ],
+    "abilities": [
+      "Receiver",
+      "Defiant"
+    ],
+    "tier": "NU"
+  },
+  "golisopod": {
+    "id": 768,
+    "name": "Golisopod",
+    "types": [
+      "Bug",
+      "Water"
+    ],
+    "abilities": [
+      "Emergency Exit"
+    ],
+    "tier": "RU"
+  },
+  "palossand": {
+    "id": 770,
+    "name": "Palossand",
+    "types": [
+      "Ghost",
+      "Ground"
+    ],
+    "abilities": [
+      "Water Compaction",
+      "Sand Veil"
+    ],
+    "tier": "NU"
+  },
+  "pyukumuku": {
+    "id": 771,
+    "name": "Pyukumuku",
+    "types": [
+      "Water"
+    ],
+    "abilities": [
+      "Innards Out",
+      "Unaware"
+    ],
+    "tier": "ZU"
+  },
+  "silvally": {
+    "id": 773,
+    "name": "Silvally",
+    "types": [
+      "Normal"
+    ],
+    "abilities": [
+      "RKS System"
+    ],
+    "tier": "ZU"
+  },
+  "silvallybug": {
+    "id": 773,
+    "name": "Silvally-Bug",
+    "types": [
+      "Bug"
+    ],
+    "abilities": [
+      "RKS System"
+    ],
+    "tier": "ZU"
+  },
+  "silvallydark": {
+    "id": 773,
+    "name": "Silvally-Dark",
+    "types": [
+      "Dark"
+    ],
+    "abilities": [
+      "RKS System"
+    ],
+    "tier": "ZU"
+  },
+  "silvallydragon": {
+    "id": 773,
+    "name": "Silvally-Dragon",
+    "types": [
+      "Dragon"
+    ],
+    "abilities": [
+      "RKS System"
+    ],
+    "tier": "ZU"
+  },
+  "silvallyelectric": {
+    "id": 773,
+    "name": "Silvally-Electric",
+    "types": [
+      "Electric"
+    ],
+    "abilities": [
+      "RKS System"
+    ],
+    "tier": "ZU"
+  },
+  "silvallyfairy": {
+    "id": 773,
+    "name": "Silvally-Fairy",
+    "types": [
+      "Fairy"
+    ],
+    "abilities": [
+      "RKS System"
+    ],
+    "tier": "PU"
+  },
+  "silvallyfighting": {
+    "id": 773,
+    "name": "Silvally-Fighting",
+    "types": [
+      "Fighting"
+    ],
+    "abilities": [
+      "RKS System"
+    ],
+    "tier": "ZU"
+  },
+  "silvallyfire": {
+    "id": 773,
+    "name": "Silvally-Fire",
+    "types": [
+      "Fire"
+    ],
+    "abilities": [
+      "RKS System"
+    ],
+    "tier": "ZU"
+  },
+  "silvallyflying": {
+    "id": 773,
+    "name": "Silvally-Flying",
+    "types": [
+      "Flying"
+    ],
+    "abilities": [
+      "RKS System"
+    ],
+    "tier": "ZU"
+  },
+  "silvallyghost": {
+    "id": 773,
+    "name": "Silvally-Ghost",
+    "types": [
+      "Ghost"
+    ],
+    "abilities": [
+      "RKS System"
+    ],
+    "tier": "PU"
+  },
+  "silvallygrass": {
+    "id": 773,
+    "name": "Silvally-Grass",
+    "types": [
+      "Grass"
+    ],
+    "abilities": [
+      "RKS System"
+    ],
+    "tier": "ZU"
+  },
+  "silvallyground": {
+    "id": 773,
+    "name": "Silvally-Ground",
+    "types": [
+      "Ground"
+    ],
+    "abilities": [
+      "RKS System"
+    ],
+    "tier": "ZU"
+  },
+  "silvallyice": {
+    "id": 773,
+    "name": "Silvally-Ice",
+    "types": [
+      "Ice"
+    ],
+    "abilities": [
+      "RKS System"
+    ],
+    "tier": "ZU"
+  },
+  "silvallypoison": {
+    "id": 773,
+    "name": "Silvally-Poison",
+    "types": [
+      "Poison"
+    ],
+    "abilities": [
+      "RKS System"
+    ],
+    "tier": "ZU"
+  },
+  "silvallypsychic": {
+    "id": 773,
+    "name": "Silvally-Psychic",
+    "types": [
+      "Psychic"
+    ],
+    "abilities": [
+      "RKS System"
+    ],
+    "tier": "ZU"
+  },
+  "silvallyrock": {
+    "id": 773,
+    "name": "Silvally-Rock",
+    "types": [
+      "Rock"
+    ],
+    "abilities": [
+      "RKS System"
+    ],
+    "tier": "ZU"
+  },
+  "silvallysteel": {
+    "id": 773,
+    "name": "Silvally-Steel",
+    "types": [
+      "Steel"
+    ],
+    "abilities": [
+      "RKS System"
+    ],
+    "tier": "NU"
+  },
+  "silvallywater": {
+    "id": 773,
+    "name": "Silvally-Water",
+    "types": [
+      "Water"
+    ],
+    "abilities": [
+      "RKS System"
+    ],
+    "tier": "ZU"
+  },
+  "minior": {
+    "id": 774,
+    "name": "Minior",
+    "types": [
+      "Rock",
+      "Flying"
+    ],
+    "abilities": [
+      "Shields Down"
+    ],
+    "tier": "NU"
+  },
+  "miniormeteor": {
+    "id": 774,
+    "name": "Minior-Meteor",
+    "types": [
+      "Rock",
+      "Flying"
+    ],
+    "abilities": [
+      "Shields Down"
+    ]
+  },
+  "komala": {
+    "id": 775,
+    "name": "Komala",
+    "types": [
+      "Normal"
+    ],
+    "abilities": [
+      "Comatose"
+    ],
+    "tier": "ZU"
+  },
+  "turtonator": {
+    "id": 776,
+    "name": "Turtonator",
+    "types": [
+      "Fire",
+      "Dragon"
+    ],
+    "abilities": [
+      "Shell Armor"
+    ],
+    "tier": "ZUBL"
+  },
+  "togedemaru": {
+    "id": 777,
+    "name": "Togedemaru",
+    "types": [
+      "Electric",
+      "Steel"
+    ],
+    "abilities": [
+      "Iron Barbs",
+      "Lightning Rod",
+      "Sturdy"
+    ],
+    "tier": "NU"
+  },
+  "togedemarutotem": {
+    "id": 777,
+    "name": "Togedemaru-Totem",
+    "types": [
+      "Electric",
+      "Steel"
+    ],
+    "abilities": [
+      "Sturdy"
+    ],
+    "tier": "NU"
+  },
+  "mimikyu": {
+    "id": 778,
+    "name": "Mimikyu",
+    "types": [
+      "Ghost",
+      "Fairy"
+    ],
+    "abilities": [
+      "Disguise"
+    ],
+    "tier": "UU"
+  },
+  "mimikyutotem": {
+    "id": 778,
+    "name": "Mimikyu-Totem",
+    "types": [
+      "Ghost",
+      "Fairy"
+    ],
+    "abilities": [
+      "Disguise"
+    ],
+    "tier": "UU"
+  },
+  "mimikyubustedtotem": {
+    "id": 778,
+    "name": "Mimikyu-Busted-Totem",
+    "types": [
+      "Ghost",
+      "Fairy"
+    ],
+    "abilities": [
+      "Disguise"
+    ]
+  },
+  "bruxish": {
+    "id": 779,
+    "name": "Bruxish",
+    "types": [
+      "Water",
+      "Psychic"
+    ],
+    "abilities": [
+      "Dazzling",
+      "Strong Jaw",
+      "Wonder Skin"
+    ],
+    "tier": "NUBL"
+  },
+  "drampa": {
+    "id": 780,
+    "name": "Drampa",
+    "types": [
+      "Normal",
+      "Dragon"
+    ],
+    "abilities": [
+      "Berserk",
+      "Sap Sipper",
+      "Cloud Nine"
+    ],
+    "tier": "PU"
+  },
+  "dhelmise": {
+    "id": 781,
+    "name": "Dhelmise",
+    "types": [
+      "Ghost",
+      "Grass"
+    ],
+    "abilities": [
+      "Steelworker"
+    ],
+    "tier": "NU"
+  },
+  "kommoo": {
+    "id": 784,
+    "name": "Kommo-o",
+    "types": [
+      "Dragon",
+      "Fighting"
+    ],
+    "abilities": [
+      "Bulletproof",
+      "Soundproof",
+      "Overcoat"
+    ],
+    "tier": "OU"
+  },
+  "kommoototem": {
+    "id": 784,
+    "name": "Kommo-o-Totem",
+    "types": [
+      "Dragon",
+      "Fighting"
+    ],
+    "abilities": [
+      "Overcoat"
+    ],
+    "tier": "OU"
+  },
+  "tapukoko": {
+    "id": 785,
+    "name": "Tapu Koko",
+    "types": [
+      "Electric",
+      "Fairy"
+    ],
+    "abilities": [
+      "Electric Surge"
+    ],
+    "tier": "OU"
+  },
+  "tapulele": {
+    "id": 786,
+    "name": "Tapu Lele",
+    "types": [
+      "Psychic",
+      "Fairy"
+    ],
+    "abilities": [
+      "Psychic Surge"
+    ],
+    "tier": "OU"
+  },
+  "tapubulu": {
+    "id": 787,
+    "name": "Tapu Bulu",
+    "types": [
+      "Grass",
+      "Fairy"
+    ],
+    "abilities": [
+      "Grassy Surge"
+    ],
+    "tier": "OU"
+  },
+  "tapufini": {
+    "id": 788,
+    "name": "Tapu Fini",
+    "types": [
+      "Water",
+      "Fairy"
+    ],
+    "abilities": [
+      "Misty Surge"
+    ],
+    "tier": "OU"
+  },
+  "solgaleo": {
+    "id": 791,
+    "name": "Solgaleo",
+    "types": [
+      "Psychic",
+      "Steel"
+    ],
+    "abilities": [
+      "Full Metal Body"
+    ],
+    "tier": "Uber"
+  },
+  "lunala": {
+    "id": 792,
+    "name": "Lunala",
+    "types": [
+      "Psychic",
+      "Ghost"
+    ],
+    "abilities": [
+      "Shadow Shield"
+    ],
+    "tier": "Uber"
+  },
+  "nihilego": {
+    "id": 793,
+    "name": "Nihilego",
+    "types": [
+      "Rock",
+      "Poison"
+    ],
+    "abilities": [
+      "Beast Boost"
+    ],
+    "tier": "UU"
+  },
+  "buzzwole": {
+    "id": 794,
+    "name": "Buzzwole",
+    "types": [
+      "Bug",
+      "Fighting"
+    ],
+    "abilities": [
+      "Beast Boost"
+    ],
+    "tier": "UUBL"
+  },
+  "pheromosa": {
+    "id": 795,
+    "name": "Pheromosa",
+    "types": [
+      "Bug",
+      "Fighting"
+    ],
+    "abilities": [
+      "Beast Boost"
+    ],
+    "tier": "Uber"
+  },
+  "xurkitree": {
+    "id": 796,
+    "name": "Xurkitree",
+    "types": [
+      "Electric"
+    ],
+    "abilities": [
+      "Beast Boost"
+    ],
+    "tier": "UUBL"
+  },
+  "celesteela": {
+    "id": 797,
+    "name": "Celesteela",
+    "types": [
+      "Steel",
+      "Flying"
+    ],
+    "abilities": [
+      "Beast Boost"
+    ],
+    "tier": "OU"
+  },
+  "kartana": {
+    "id": 798,
+    "name": "Kartana",
+    "types": [
+      "Grass",
+      "Steel"
+    ],
+    "abilities": [
+      "Beast Boost"
+    ],
+    "tier": "OU"
+  },
+  "guzzlord": {
+    "id": 799,
+    "name": "Guzzlord",
+    "types": [
+      "Dark",
+      "Dragon"
+    ],
+    "abilities": [
+      "Beast Boost"
+    ],
+    "tier": "PUBL"
+  },
+  "necrozma": {
+    "id": 800,
+    "name": "Necrozma",
+    "types": [
+      "Psychic"
+    ],
+    "abilities": [
+      "Prism Armor"
+    ],
+    "tier": "RU"
+  },
+  "necrozmaduskmane": {
+    "id": 800,
+    "name": "Necrozma-Dusk-Mane",
+    "types": [
+      "Psychic",
+      "Steel"
+    ],
+    "abilities": [
+      "Prism Armor"
+    ],
+    "tier": "Uber"
+  },
+  "necrozmadawnwings": {
+    "id": 800,
+    "name": "Necrozma-Dawn-Wings",
+    "types": [
+      "Psychic",
+      "Ghost"
+    ],
+    "abilities": [
+      "Prism Armor"
+    ],
+    "tier": "Uber"
+  },
+  "necrozmaultra": {
+    "id": 800,
+    "name": "Necrozma-Ultra",
+    "types": [
+      "Psychic",
+      "Dragon"
+    ],
+    "abilities": [
+      "Neuroforce"
+    ],
+    "tier": "Uber"
+  },
+  "magearna": {
+    "id": 801,
+    "name": "Magearna",
+    "types": [
+      "Steel",
+      "Fairy"
+    ],
+    "abilities": [
+      "Soul-Heart"
+    ],
+    "tier": "OU"
+  },
+  "magearnaoriginal": {
+    "id": 801,
+    "name": "Magearna-Original",
+    "types": [
+      "Steel",
+      "Fairy"
+    ],
+    "abilities": [
+      "Soul-Heart"
+    ],
+    "tier": "Illegal"
+  },
+  "marshadow": {
+    "id": 802,
+    "name": "Marshadow",
+    "types": [
+      "Fighting",
+      "Ghost"
+    ],
+    "abilities": [
+      "Technician"
+    ],
+    "tier": "Uber"
+  },
+  "naganadel": {
+    "id": 804,
+    "name": "Naganadel",
+    "types": [
+      "Poison",
+      "Dragon"
+    ],
+    "abilities": [
+      "Beast Boost"
+    ],
+    "tier": "Uber"
+  },
+  "stakataka": {
+    "id": 805,
+    "name": "Stakataka",
+    "types": [
+      "Rock",
+      "Steel"
+    ],
+    "abilities": [
+      "Beast Boost"
+    ],
+    "tier": "RUBL"
+  },
+  "blacephalon": {
+    "id": 806,
+    "name": "Blacephalon",
+    "types": [
+      "Fire",
+      "Ghost"
+    ],
+    "abilities": [
+      "Beast Boost"
+    ],
+    "tier": "OU"
+  },
+  "zeraora": {
+    "id": 807,
+    "name": "Zeraora",
+    "types": [
+      "Electric"
+    ],
+    "abilities": [
+      "Volt Absorb"
+    ],
+    "tier": "UU"
+  },
+  "meltan": {
+    "id": 808,
+    "name": "Meltan",
+    "types": [
+      "Steel"
+    ],
+    "abilities": [
+      "Magnet Pull"
+    ],
+    "tier": "Illegal"
+  },
+  "melmetal": {
+    "id": 809,
+    "name": "Melmetal",
+    "types": [
+      "Steel"
+    ],
+    "abilities": [
+      "Iron Fist"
+    ],
+    "tier": "Illegal"
+  }
+}
