@@ -79,3 +79,28 @@ const { Dex } = showdown;
 
 const pokedex = Dex.forGen(7);
 
+const type = 'Fire';
+const tier = 'OU';
+
+// Baue den vollständigen Befehl als String
+const command = `python src/dataframes.py ${type} ${tier}`;
+
+exec(command, (error, stdout, stderr) => {
+  if (error) {
+    console.error(`Fehler beim Ausführen: ${error.message}`);
+    return;
+  }
+
+  if (stderr) {
+    console.error(`Python stderr: ${stderr}`);
+    return;
+  }
+
+  try {
+    const data = JSON.parse(stdout);
+    console.log('Gefilterte Daten:', data);
+  } catch (e) {
+    console.error('Fehler beim Parsen der Ausgabe:', e.message);
+    console.log('Python-Ausgabe:', stdout);
+  }
+});
