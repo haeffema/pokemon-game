@@ -1,0 +1,82 @@
+[
+    {
+        "name": "Charizard",
+        "tier": "OU",
+        "type": [
+            "Fire",
+            "Flying"
+        ]
+    },
+    {
+        "name": "Blastoise",
+        "tier": "OU",
+        "type": [
+            "Water",
+            "Normal"
+        ]
+    },
+    {
+        "name": "Garchomp",
+        "tier": "OU",
+        "type": [
+            "Dragon",
+            "Ground"
+        ]
+    },
+    {
+        "name": "Alakazam",
+        "tier": "RU",
+        "type": [
+            "Psychic",
+            "None"
+        ]
+    },
+    {
+        "name": "Tyranitar",
+        "tier": "OU",
+        "type": [
+            "Rock",
+            "Dark"
+        ]
+    },
+    {
+        "name": "Mamoswine",
+        "tier": "UU",
+        "type": [
+            "Ice",
+            "Ground"
+        ]
+    },
+    {
+        "name": "Lilligant",
+        "tier": "NU",
+        "type": [
+            "Grass",
+            "None"
+        ]
+    },
+    {
+        "name": "Infernape",
+        "tier": "OU",
+        "type": [
+            "Fire",
+            "Fighting"
+        ]
+    },
+    {
+        "name": "Haxorus",
+        "tier": "OU",
+        "type": [
+            "Dragon",
+            "None"
+        ]
+    },
+    {
+        "name": "Scizor",
+        "tier": "OU",
+        "type": [
+            "Bug",
+            "Steel"
+        ]
+    }
+]
