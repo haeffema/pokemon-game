@@ -1,5 +1,7 @@
 import tiers from './tiers.json' with { type: 'json' };
 import dex from './pokedex.json' with { type: 'json' };
+import pokemonData from './pokemon_data.json' with { type: 'json' };
+import { promises } from 'node:fs';
 
 const pokedex = dex['Pokedex'];
 
@@ -25,7 +27,6 @@ function isVaildNotEvolved(str) {
 const data = {};
 
 for (let pokemonToCheck in tiers) {
-  console.log(pokemonToCheck);
   const pokemon = pokedex[pokemonToCheck];
   if (pokemon['evos']) {
     if (!isVaildNotEvolved(tiers[pokemonToCheck]['tier'])) {
@@ -48,16 +49,35 @@ for (let pokemonToCheck in tiers) {
   ) {
     continue;
   }
-  data[pokemonToCheck] = {
+
+  let moves = {};
+
+  for (let moveNum in pokemonData[pokemonToCheck]['moves']) {
+    const move = pokemonData[pokemonToCheck]['moves'][moveNum];
+    const detailSunMoon = move.version_group_details.find(
+      (detail) => detail.version_group.name === 'ultra-sun-ultra-moon'
+    );
+    if (!detailSunMoon) {
+      continue;
+    }
+    const learnType = detailSunMoon.move_learn_method.name;
+
+    moves[move['move']['name']] = {
+      name: move['move']['name'],
+      type: learnType,
+    };
+  }
+
+  data[pokemon['name'].toLowerCase()] = {
     id: pokemon['num'],
     name: pokemon['name'],
     types: pokemon['types'],
     abilities: abilities,
+    moves: moves,
     tier: tiers[pokemonToCheck]['tier'],
+    sprite: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon['num']}.png`,
   };
 }
-
-import { promises } from 'node:fs';
 
 let jsonData = JSON.stringify(data, null, 2);
 await promises.writeFile('data.json', jsonData, 'utf8');
