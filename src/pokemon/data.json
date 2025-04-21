@@ -72838,6 +72838,7 @@
         "type": "machine"
       }
     },
+    "tier": "Uber",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/487.png"
   },
   "cresselia": {
