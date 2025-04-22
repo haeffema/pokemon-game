@@ -1,1245 +1,587 @@
 {
-  "absorbbulb": {
+  "Absorb Bulb": {
     "name": "Absorb Bulb",
-    "spritenum": 2,
-    "fling": {
-      "basePower": 30
-    },
-    "boosts": {
-      "spa": 1
-    },
-    "num": 545,
-    "gen": 5
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/absorb-bulb.png",
+    "description": "A consumable bulb. If the holder is hit by a Water-type move, its Sp. Atk will rise."
   },
-  "adrenalineorb": {
+  "Adrenaline Orb": {
     "name": "Adrenaline Orb",
-    "spritenum": 660,
-    "fling": {
-      "basePower": 30
-    },
-    "boosts": {
-      "spe": 1
-    },
-    "num": 846,
-    "gen": 7
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/adrenaline-orb.png",
+    "description": "Using it makes wild Pokémon more likely to call for help. If held by a Pokémon, it boosts Speed when intimidated. It can be used only once."
   },
-  "apicotberry": {
+  "Apicot Berry": {
     "name": "Apicot Berry",
-    "spritenum": 10,
-    "isBerry": true,
-    "naturalGift": {
-      "basePower": 100,
-      "type": "Ground"
-    },
-    "num": 205,
-    "gen": 3
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/apicot-berry.png",
+    "description": "A hold item that raises SP. DEF in a pinch."
   },
-  "babiriberry": {
+  "Babiri Berry": {
     "name": "Babiri Berry",
-    "spritenum": 17,
-    "isBerry": true,
-    "naturalGift": {
-      "basePower": 80,
-      "type": "Steel"
-    },
-    "num": 199,
-    "gen": 4
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/babiri-berry.png",
+    "description": "A Poffin ingredient. If held by a Pokémon, it weakens a foe’s supereffective Steel-type attack."
   },
-  "berryjuice": {
+  "Berry Juice": {
     "name": "Berry Juice",
-    "spritenum": 22,
-    "fling": {
-      "basePower": 30
-    },
-    "num": 43,
-    "gen": 2,
-    "isNonstandard": null
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/berry-juice.png",
+    "description": "A 100% pure juice that restores HP by 20 points."
   },
-  "blackbelt": {
+  "Black Belt": {
     "name": "Black Belt",
-    "spritenum": 32,
-    "fling": {
-      "basePower": 30
-    },
-    "onBasePowerPriority": 15,
-    "num": 241,
-    "gen": 2
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/black-belt.png",
+    "description": "A hold item that boosts FIGHTING- type moves."
   },
-  "blackglasses": {
+  "Black Glasses": {
     "name": "Black Glasses",
-    "spritenum": 35,
-    "fling": {
-      "basePower": 30
-    },
-    "onBasePowerPriority": 15,
-    "num": 240,
-    "gen": 2
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/black-glasses.png",
+    "description": "A hold item that raises the power of DARK-type moves."
   },
-  "blacksludge": {
+  "Black Sludge": {
     "name": "Black Sludge",
-    "spritenum": 34,
-    "fling": {
-      "basePower": 30
-    },
-    "onResidualOrder": 5,
-    "onResidualSubOrder": 4,
-    "num": 281,
-    "gen": 4
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/black-sludge.png",
+    "description": "A hold item that gradually restores the HP of Poison-type Pokémon. It inflicts damage on all other types."
   },
-  "brightpowder": {
+  "Bright Powder": {
     "name": "Bright Powder",
-    "spritenum": 51,
-    "fling": {
-      "basePower": 10
-    },
-    "onModifyAccuracyPriority": -2,
-    "num": 213,
-    "gen": 2
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/bright-powder.png",
+    "description": "A hold item that casts a glare to reduce accuracy."
   },
-  "cellbattery": {
+  "Cell Battery": {
     "name": "Cell Battery",
-    "spritenum": 60,
-    "fling": {
-      "basePower": 30
-    },
-    "boosts": {
-      "atk": 1
-    },
-    "num": 546,
-    "gen": 5
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/cell-battery.png",
+    "description": "A consumable battery. If the holder is hit by an Electric-type move, its Attack will rise."
   },
-  "charcoal": {
+  "Charcoal": {
     "name": "Charcoal",
-    "spritenum": 61,
-    "fling": {
-      "basePower": 30
-    },
-    "onBasePowerPriority": 15,
-    "num": 249,
-    "gen": 2
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/charcoal.png",
+    "description": "A hold item that raises the power of FIRE-type moves."
   },
-  "chartiberry": {
+  "Charti Berry": {
     "name": "Charti Berry",
-    "spritenum": 62,
-    "isBerry": true,
-    "naturalGift": {
-      "basePower": 80,
-      "type": "Rock"
-    },
-    "num": 195,
-    "gen": 4
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/charti-berry.png",
+    "description": "A Poffin ingredient. If held by a Pokémon, it weakens a foe’s supereffective Rock-type attack."
   },
-  "chestoberry": {
+  "Chesto Berry": {
     "name": "Chesto Berry",
-    "spritenum": 65,
-    "isBerry": true,
-    "naturalGift": {
-      "basePower": 80,
-      "type": "Water"
-    },
-    "num": 150,
-    "gen": 3
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/chesto-berry.png",
+    "description": "A hold item that awakens POKéMON in battle."
   },
-  "chilanberry": {
+  "Chilan Berry": {
     "name": "Chilan Berry",
-    "spritenum": 66,
-    "isBerry": true,
-    "naturalGift": {
-      "basePower": 80,
-      "type": "Normal"
-    },
-    "num": 200,
-    "gen": 4
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/chilan-berry.png",
+    "description": "A Poffin ingredient. If held by a Pokémon, it weakens a foe’s Normal-type attack."
   },
-  "chopleberry": {
+  "Chople Berry": {
     "name": "Chople Berry",
-    "spritenum": 71,
-    "isBerry": true,
-    "naturalGift": {
-      "basePower": 80,
-      "type": "Fighting"
-    },
-    "num": 189,
-    "gen": 4
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/chople-berry.png",
+    "description": "A Poffin ingredient. If held by a Pokémon, it weakens a foe’s supereffective Fighting-type attack."
   },
-  "cobaberry": {
+  "Coba Berry": {
     "name": "Coba Berry",
-    "spritenum": 76,
-    "isBerry": true,
-    "naturalGift": {
-      "basePower": 80,
-      "type": "Flying"
-    },
-    "num": 192,
-    "gen": 4
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/coba-berry.png",
+    "description": "A Poffin ingredient. If held by a Pokémon, it weakens a foe’s supereffective Flying-type attack."
   },
-  "colburberry": {
+  "Colbur Berry": {
     "name": "Colbur Berry",
-    "spritenum": 78,
-    "isBerry": true,
-    "naturalGift": {
-      "basePower": 80,
-      "type": "Dark"
-    },
-    "num": 198,
-    "gen": 4
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/colbur-berry.png",
+    "description": "A Poffin ingredient. If held by a Pokémon, it weakens a foe’s supereffective Dark-type attack."
   },
-  "custapberry": {
+  "Custap Berry": {
     "name": "Custap Berry",
-    "spritenum": 86,
-    "isBerry": true,
-    "naturalGift": {
-      "basePower": 100,
-      "type": "Ghost"
-    },
-    "onFractionalPriorityPriority": -2,
-    "num": 210,
-    "gen": 4,
-    "isNonstandard": null
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/custap-berry.png",
+    "description": "A Poffin ingredient. If held by a Pokémon, it gets to move first just once in a pinch."
   },
-  "damprock": {
+  "Damp Rock": {
     "name": "Damp Rock",
-    "spritenum": 88,
-    "fling": {
-      "basePower": 60
-    },
-    "num": 285,
-    "gen": 4
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/damp-rock.png",
+    "description": "A Pokémon hold item that extends the duration of the move Rain Dance used by the holder."
   },
-  "dracoplate": {
+  "Draco Plate": {
     "name": "Draco Plate",
-    "spritenum": 105,
-    "onPlate": "Dragon",
-    "onBasePowerPriority": 15,
-    "forcedForme": "Arceus-Dragon",
-    "num": 311,
-    "gen": 4,
-    "isNonstandard": null
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/draco-plate.png",
+    "description": "An item to be held by a Pokémon. It is a stone tablet that boosts the power of Dragon-type moves."
   },
-  "dragonfang": {
+  "Dragon Fang": {
     "name": "Dragon Fang",
-    "spritenum": 106,
-    "fling": {
-      "basePower": 70
-    },
-    "onBasePowerPriority": 15,
-    "num": 250,
-    "gen": 2
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/dragon-fang.png",
+    "description": "A hold item that raises the power of DRAGON-type moves."
   },
-  "dreadplate": {
+  "Dread Plate": {
     "name": "Dread Plate",
-    "spritenum": 110,
-    "onPlate": "Dark",
-    "onBasePowerPriority": 15,
-    "forcedForme": "Arceus-Dark",
-    "num": 312,
-    "gen": 4,
-    "isNonstandard": null
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/dread-plate.png",
+    "description": "An item to be held by a Pokémon. It is a stone tablet that boosts the power of Dark-type moves."
   },
-  "earthplate": {
+  "Earth Plate": {
     "name": "Earth Plate",
-    "spritenum": 117,
-    "onPlate": "Ground",
-    "onBasePowerPriority": 15,
-    "forcedForme": "Arceus-Ground",
-    "num": 305,
-    "gen": 4,
-    "isNonstandard": null
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/earth-plate.png",
+    "description": "An item to be held by a Pokémon. It is a stone tablet that boosts the power of Ground-type moves."
   },
-  "ejectbutton": {
+  "Eject Button": {
     "name": "Eject Button",
-    "spritenum": 118,
-    "fling": {
-      "basePower": 30
-    },
-    "onAfterMoveSecondaryPriority": 2,
-    "num": 547,
-    "gen": 5
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/eject-button.png",
+    "description": "If the holder is hit by an attack, it will switch with another Pokémon in your party."
   },
-  "electricseed": {
+  "Electric Seed": {
     "name": "Electric Seed",
-    "spritenum": 664,
-    "fling": {
-      "basePower": 10
-    },
-    "onSwitchInPriority": -1,
-    "boosts": {
-      "def": 1
-    },
-    "num": 881,
-    "gen": 7
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/electric-seed.png",
+    "description": "An item to be held by a Pokémon. It boosts Defense on Electric Terrain. It can only be used once."
   },
-  "fistplate": {
+  "Fist Plate": {
     "name": "Fist Plate",
-    "spritenum": 143,
-    "onPlate": "Fighting",
-    "onBasePowerPriority": 15,
-    "forcedForme": "Arceus-Fighting",
-    "num": 303,
-    "gen": 4,
-    "isNonstandard": null
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/fist-plate.png",
+    "description": "An item to be held by a Pokémon. It is a stone tablet that boosts the power of Fighting-type moves."
   },
-  "flameorb": {
+  "Flame Orb": {
     "name": "Flame Orb",
-    "spritenum": 145,
-    "fling": {
-      "basePower": 30,
-      "status": "brn"
-    },
-    "onResidualOrder": 28,
-    "onResidualSubOrder": 3,
-    "num": 273,
-    "gen": 4
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/flame-orb.png",
+    "description": "An item to be held by a Pokémon. It is a bizarre orb that inflicts a burn on the holder in battle."
   },
-  "flameplate": {
+  "Flame Plate": {
     "name": "Flame Plate",
-    "spritenum": 146,
-    "onPlate": "Fire",
-    "onBasePowerPriority": 15,
-    "forcedForme": "Arceus-Fire",
-    "num": 298,
-    "gen": 4,
-    "isNonstandard": null
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/flame-plate.png",
+    "description": "An item to be held by a Pokémon. It is a stone tablet that boosts the power of Fire-type moves."
   },
-  "fullincense": {
+  "Full Incense": {
     "name": "Full Incense",
-    "spritenum": 155,
-    "fling": {
-      "basePower": 10
-    },
-    "onFractionalPriority": -0.1,
-    "num": 316,
-    "gen": 4,
-    "isNonstandard": null
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/full-incense.png",
+    "description": "An item to be held by a Pokémon. It is an exotic-smelling incense that makes the holder bloated and slow moving."
   },
-  "ganlonberry": {
+  "Ganlon Berry": {
     "name": "Ganlon Berry",
-    "spritenum": 158,
-    "isBerry": true,
-    "naturalGift": {
-      "basePower": 100,
-      "type": "Ice"
-    },
-    "num": 202,
-    "gen": 3
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/ganlon-berry.png",
+    "description": "A hold item that raises DEFENSE in a pinch."
   },
-  "grassyseed": {
+  "Grassy Seed": {
     "name": "Grassy Seed",
-    "spritenum": 667,
-    "fling": {
-      "basePower": 10
-    },
-    "onSwitchInPriority": -1,
-    "boosts": {
-      "def": 1
-    },
-    "num": 884,
-    "gen": 7
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/grassy-seed.png",
+    "description": "An item to be held by a Pokémon. It boosts Defense on Grassy Terrain. It can only be used once."
   },
-  "grepaberry": {
+  "Grepa Berry": {
     "name": "Grepa Berry",
-    "spritenum": 178,
-    "isBerry": true,
-    "naturalGift": {
-      "basePower": 90,
-      "type": "Flying"
-    },
-    "onEat": false,
-    "num": 173,
-    "gen": 3
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/grepa-berry.png",
+    "description": "POKéBLOCK ingredient. Plant in loamy soil to grow GREPA."
   },
-  "gripclaw": {
+  "Grip Claw": {
     "name": "Grip Claw",
-    "spritenum": 179,
-    "fling": {
-      "basePower": 90
-    },
-    "num": 286,
-    "gen": 4
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/grip-claw.png",
+    "description": "A Pokémon hold item that extends the duration of multiturn attacks like Bind and Wrap."
   },
-  "habanberry": {
+  "Haban Berry": {
     "name": "Haban Berry",
-    "spritenum": 185,
-    "isBerry": true,
-    "naturalGift": {
-      "basePower": 80,
-      "type": "Dragon"
-    },
-    "num": 197,
-    "gen": 4
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/haban-berry.png",
+    "description": "A Poffin ingredient. If held by a Pokémon, it weakens a foe’s supereffective Dragon-type attack."
   },
-  "hardstone": {
+  "Hard Stone": {
     "name": "Hard Stone",
-    "spritenum": 187,
-    "fling": {
-      "basePower": 100
-    },
-    "onBasePowerPriority": 15,
-    "num": 238,
-    "gen": 2
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/hard-stone.png",
+    "description": "A hold item that raises the power of ROCK-type moves."
   },
-  "heatrock": {
+  "Heat Rock": {
     "name": "Heat Rock",
-    "spritenum": 193,
-    "fling": {
-      "basePower": 60
-    },
-    "num": 284,
-    "gen": 4
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/heat-rock.png",
+    "description": "A Pokémon hold item that extends the duration of the move Sunny Day used by the holder."
   },
-  "icicleplate": {
+  "Icicle Plate": {
     "name": "Icicle Plate",
-    "spritenum": 220,
-    "onPlate": "Ice",
-    "onBasePowerPriority": 15,
-    "forcedForme": "Arceus-Ice",
-    "num": 302,
-    "gen": 4,
-    "isNonstandard": null
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/icicle-plate.png",
+    "description": "An item to be held by a Pokémon. It is a stone tablet that boosts the power of Ice-type moves."
   },
-  "icyrock": {
+  "Icy Rock": {
     "name": "Icy Rock",
-    "spritenum": 221,
-    "fling": {
-      "basePower": 40
-    },
-    "num": 282,
-    "gen": 4
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/icy-rock.png",
+    "description": "A Pokémon hold item that extends the duration of the move Hail used by the holder."
   },
-  "insectplate": {
+  "Insect Plate": {
     "name": "Insect Plate",
-    "spritenum": 223,
-    "onPlate": "Bug",
-    "onBasePowerPriority": 15,
-    "forcedForme": "Arceus-Bug",
-    "num": 308,
-    "gen": 4,
-    "isNonstandard": null
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/insect-plate.png",
+    "description": "An item to be held by a Pokémon. It is a stone tablet that boosts the power of Bug-type moves."
   },
-  "ironplate": {
+  "Iron Plate": {
     "name": "Iron Plate",
-    "spritenum": 225,
-    "onPlate": "Steel",
-    "onBasePowerPriority": 15,
-    "forcedForme": "Arceus-Steel",
-    "num": 313,
-    "gen": 4,
-    "isNonstandard": null
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/iron-plate.png",
+    "description": "An item to be held by a Pokémon. It is a stone tablet that boosts the power of Steel-type moves."
   },
-  "kasibberry": {
+  "Kasib Berry": {
     "name": "Kasib Berry",
-    "spritenum": 233,
-    "isBerry": true,
-    "naturalGift": {
-      "basePower": 80,
-      "type": "Ghost"
-    },
-    "num": 196,
-    "gen": 4
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/kasib-berry.png",
+    "description": "A Poffin ingredient. If held by a Pokémon, it weakens a foe’s supereffective Ghost-type attack."
   },
-  "kebiaberry": {
+  "Kebia Berry": {
     "name": "Kebia Berry",
-    "spritenum": 234,
-    "isBerry": true,
-    "naturalGift": {
-      "basePower": 80,
-      "type": "Poison"
-    },
-    "num": 190,
-    "gen": 4
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/kebia-berry.png",
+    "description": "A Poffin ingredient. If held by a Pokémon, it weakens a foe’s supereffective Poison-type attack."
   },
-  "keeberry": {
+  "Kee Berry": {
     "name": "Kee Berry",
-    "spritenum": 593,
-    "isBerry": true,
-    "naturalGift": {
-      "basePower": 100,
-      "type": "Fairy"
-    },
-    "num": 687,
-    "gen": 6,
-    "isNonstandard": null
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/kee-berry.png",
+    "description": "If held by a Pokémon, this Berry will increase the holder’s Defense if it’s hit with a physical move."
   },
-  "kelpsyberry": {
+  "Kelpsy Berry": {
     "name": "Kelpsy Berry",
-    "spritenum": 235,
-    "isBerry": true,
-    "naturalGift": {
-      "basePower": 90,
-      "type": "Fighting"
-    },
-    "onEat": false,
-    "num": 170,
-    "gen": 3
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/kelpsy-berry.png",
+    "description": "POKéBLOCK ingredient. Plant in loamy soil to grow KELPSY."
   },
-  "kingsrock": {
+  "King's Rock": {
     "name": "King's Rock",
-    "spritenum": 236,
-    "fling": {
-      "basePower": 30,
-      "volatileStatus": "flinch"
-    },
-    "onModifyMovePriority": -1,
-    "num": 221,
-    "gen": 2
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/kings-rock.png",
+    "description": "A hold item that may cause flinching when the foe is hit."
   },
-  "laggingtail": {
+  "Lagging Tail": {
     "name": "Lagging Tail",
-    "spritenum": 237,
-    "fling": {
-      "basePower": 10
-    },
-    "onFractionalPriority": -0.1,
-    "num": 279,
-    "gen": 4
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/lagging-tail.png",
+    "description": "An item to be held by a Pokémon. It is tremendously heavy and makes the holder move slower than usual."
   },
-  "lansatberry": {
+  "Lansat Berry": {
     "name": "Lansat Berry",
-    "spritenum": 238,
-    "isBerry": true,
-    "naturalGift": {
-      "basePower": 100,
-      "type": "Flying"
-    },
-    "num": 206,
-    "gen": 3
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/lansat-berry.png",
+    "description": "A hold item that ups the critical- hit rate in a pinch."
   },
-  "laxincense": {
+  "Lax Incense": {
     "name": "Lax Incense",
-    "spritenum": 240,
-    "fling": {
-      "basePower": 10
-    },
-    "onModifyAccuracyPriority": -2,
-    "num": 255,
-    "gen": 3,
-    "isNonstandard": null
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/lax-incense.png",
+    "description": "A hold item that slightly lowers the foe’s accuracy."
   },
-  "leppaberry": {
+  "Leppa Berry": {
     "name": "Leppa Berry",
-    "spritenum": 244,
-    "isBerry": true,
-    "naturalGift": {
-      "basePower": 80,
-      "type": "Fighting"
-    },
-    "num": 154,
-    "gen": 3
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/leppa-berry.png",
+    "description": "A hold item that restores 10 PP in battle."
   },
-  "liechiberry": {
+  "Liechi Berry": {
     "name": "Liechi Berry",
-    "spritenum": 248,
-    "isBerry": true,
-    "naturalGift": {
-      "basePower": 100,
-      "type": "Grass"
-    },
-    "num": 201,
-    "gen": 3
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/liechi-berry.png",
+    "description": "A hold item that raises ATTACK in a pinch."
   },
-  "lightclay": {
+  "Light Clay": {
     "name": "Light Clay",
-    "spritenum": 252,
-    "fling": {
-      "basePower": 30
-    },
-    "num": 269,
-    "gen": 4
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/light-clay.png",
+    "description": "A Pokémon hold item that extends the duration of barrier moves like Light Screen and Reflect used by the holder."
   },
-  "lumberry": {
+  "Lum Berry": {
     "name": "Lum Berry",
-    "spritenum": 262,
-    "isBerry": true,
-    "naturalGift": {
-      "basePower": 80,
-      "type": "Flying"
-    },
-    "onAfterSetStatusPriority": -1,
-    "num": 157,
-    "gen": 3
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/lum-berry.png",
+    "description": "A hold item that heals status in battle."
   },
-  "luminousmoss": {
+  "Luminous Moss": {
     "name": "Luminous Moss",
-    "spritenum": 595,
-    "fling": {
-      "basePower": 30
-    },
-    "boosts": {
-      "spd": 1
-    },
-    "num": 648,
-    "gen": 6
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/luminous-moss.png",
+    "description": "An item to be held by a Pokémon. It boosts Sp. Def if hit with a Water- type attack. It can only be used once."
   },
-  "magnet": {
+  "Magnet": {
     "name": "Magnet",
-    "spritenum": 273,
-    "fling": {
-      "basePower": 30
-    },
-    "onBasePowerPriority": 15,
-    "num": 242,
-    "gen": 2
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/magnet.png",
+    "description": "A hold item that boosts ELECTRIC- type moves."
   },
-  "marangaberry": {
+  "Maranga Berry": {
     "name": "Maranga Berry",
-    "spritenum": 597,
-    "isBerry": true,
-    "naturalGift": {
-      "basePower": 100,
-      "type": "Dark"
-    },
-    "num": 688,
-    "gen": 6,
-    "isNonstandard": null
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/maranga-berry.png",
+    "description": "If held by a Pokémon, this Berry will increase the holder’s Sp. Def if it’s hit with a special move."
   },
-  "meadowplate": {
+  "Meadow Plate": {
     "name": "Meadow Plate",
-    "spritenum": 282,
-    "onPlate": "Grass",
-    "onBasePowerPriority": 15,
-    "forcedForme": "Arceus-Grass",
-    "num": 301,
-    "gen": 4,
-    "isNonstandard": null
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/meadow-plate.png",
+    "description": "An item to be held by a Pokémon. It is a stone tablet that boosts the power of Grass-type moves."
   },
-  "metalcoat": {
+  "Metal Coat": {
     "name": "Metal Coat",
-    "spritenum": 286,
-    "fling": {
-      "basePower": 30
-    },
-    "onBasePowerPriority": 15,
-    "num": 233,
-    "gen": 2
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/metal-coat.png",
+    "description": "A hold item that raises the power of STEEL-type moves."
   },
-  "metronome": {
+  "Metronome": {
     "name": "Metronome",
-    "spritenum": 289,
-    "fling": {
-      "basePower": 30
-    },
-    "condition": {
-      "onTryMovePriority": -2
-    },
-    "num": 277,
-    "gen": 4
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/metronome.png",
+    "description": "A Pokémon hold item that boosts a move used consecutively. Its effect is reset if another move is used."
   },
-  "micleberry": {
+  "Micle Berry": {
     "name": "Micle Berry",
-    "spritenum": 290,
-    "isBerry": true,
-    "naturalGift": {
-      "basePower": 100,
-      "type": "Rock"
-    },
-    "condition": {
-      "duration": 2
-    },
-    "num": 209,
-    "gen": 4,
-    "isNonstandard": null
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/micle-berry.png",
+    "description": "A Poffin ingredient. If held by a Pokémon, it raises the accuracy of a move just once in a pinch."
   },
-  "mindplate": {
+  "Mind Plate": {
     "name": "Mind Plate",
-    "spritenum": 291,
-    "onPlate": "Psychic",
-    "onBasePowerPriority": 15,
-    "forcedForme": "Arceus-Psychic",
-    "num": 307,
-    "gen": 4,
-    "isNonstandard": null
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/mind-plate.png",
+    "description": "An item to be held by a Pokémon. It is a stone tablet that boosts the power of Psychic-type moves."
   },
-  "miracleseed": {
+  "Miracle Seed": {
     "name": "Miracle Seed",
-    "fling": {
-      "basePower": 30
-    },
-    "spritenum": 292,
-    "onBasePowerPriority": 15,
-    "num": 239,
-    "gen": 2
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/miracle-seed.png",
+    "description": "A hold item that raises the power of GRASS-type moves."
   },
-  "mistyseed": {
+  "Misty Seed": {
     "name": "Misty Seed",
-    "spritenum": 666,
-    "fling": {
-      "basePower": 10
-    },
-    "onSwitchInPriority": -1,
-    "boosts": {
-      "spd": 1
-    },
-    "num": 883,
-    "gen": 7
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/misty-seed.png",
+    "description": "An item to be held by a Pokémon. It boosts Sp. Def on Misty Terrain. It can only be used once."
   },
-  "muscleband": {
+  "Muscle Band": {
     "name": "Muscle Band",
-    "spritenum": 297,
-    "fling": {
-      "basePower": 10
-    },
-    "onBasePowerPriority": 16,
-    "num": 266,
-    "gen": 4
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/muscle-band.png",
+    "description": "An item to be held by a Pokémon. It is a headband that slightly boosts the power of physical moves."
   },
-  "mysticwater": {
+  "Mystic Water": {
     "name": "Mystic Water",
-    "spritenum": 300,
-    "fling": {
-      "basePower": 30
-    },
-    "onBasePowerPriority": 15,
-    "num": 243,
-    "gen": 2
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/mystic-water.png",
+    "description": "A hold item that raises the power of WATER-type moves."
   },
-  "nevermeltice": {
+  "Never-Melt Ice": {
     "name": "Never-Melt Ice",
-    "spritenum": 305,
-    "fling": {
-      "basePower": 30
-    },
-    "onBasePowerPriority": 15,
-    "num": 246,
-    "gen": 2
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/never-melt-ice.png",
+    "description": "A hold item that raises the power of ICE-type moves."
   },
-  "normalgem": {
+  "Normal Gem": {
     "name": "Normal Gem",
-    "spritenum": 307,
-    "isGem": true,
-    "num": 564,
-    "gen": 5
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/normal-gem.png",
+    "description": "A gem with an ordinary essence. When held, it strengthens the power of a Normal-type move only once."
   },
-  "occaberry": {
+  "Occa Berry": {
     "name": "Occa Berry",
-    "spritenum": 311,
-    "isBerry": true,
-    "naturalGift": {
-      "basePower": 80,
-      "type": "Fire"
-    },
-    "num": 184,
-    "gen": 4
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/occa-berry.png",
+    "description": "A Poffin ingredient. If held by a Pokémon, it weakens a foe’s supereffective Fire-type attack."
   },
-  "oddincense": {
+  "Odd Incense": {
     "name": "Odd Incense",
-    "spritenum": 312,
-    "fling": {
-      "basePower": 10
-    },
-    "onBasePowerPriority": 15,
-    "num": 314,
-    "gen": 4,
-    "isNonstandard": null
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/odd-incense.png",
+    "description": "An item to be held by a Pokémon. It is an exotic-smelling incense that boosts the power of Psychic-type moves."
   },
-  "passhoberry": {
+  "Passho Berry": {
     "name": "Passho Berry",
-    "spritenum": 329,
-    "isBerry": true,
-    "naturalGift": {
-      "basePower": 80,
-      "type": "Water"
-    },
-    "num": 185,
-    "gen": 4
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/passho-berry.png",
+    "description": "A Poffin ingredient. If held by a Pokémon, it weakens a foe’s supereffective Water-type attack."
   },
-  "payapaberry": {
+  "Payapa Berry": {
     "name": "Payapa Berry",
-    "spritenum": 330,
-    "isBerry": true,
-    "naturalGift": {
-      "basePower": 80,
-      "type": "Psychic"
-    },
-    "num": 193,
-    "gen": 4
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/payapa-berry.png",
+    "description": "A Poffin ingredient. If held by a Pokémon, it weakens a foe’s supereffective Psychic-type attack."
   },
-  "petayaberry": {
+  "Petaya Berry": {
     "name": "Petaya Berry",
-    "spritenum": 335,
-    "isBerry": true,
-    "naturalGift": {
-      "basePower": 100,
-      "type": "Poison"
-    },
-    "num": 204,
-    "gen": 3
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/petaya-berry.png",
+    "description": "A hold item that raises SP. ATK in a pinch."
   },
-  "pixieplate": {
+  "Pixie Plate": {
     "name": "Pixie Plate",
-    "spritenum": 610,
-    "onPlate": "Fairy",
-    "onBasePowerPriority": 15,
-    "forcedForme": "Arceus-Fairy",
-    "num": 644,
-    "gen": 6
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/pixie-plate.png",
+    "description": "An item to be held by a Pokémon. It is a stone tablet that boosts the power of Fairy-type moves."
   },
-  "poisonbarb": {
+  "Poison Barb": {
     "name": "Poison Barb",
-    "spritenum": 343,
-    "fling": {
-      "basePower": 70,
-      "status": "psn"
-    },
-    "onBasePowerPriority": 15,
-    "num": 245,
-    "gen": 2
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poison-barb.png",
+    "description": "A hold item that raises the power of POISON-type moves."
   },
-  "protectivepads": {
+  "Protective Pads": {
     "name": "Protective Pads",
-    "spritenum": 663,
-    "fling": {
-      "basePower": 30
-    },
-    "num": 880,
-    "gen": 7
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/protective-pads.png",
+    "description": "An item to be held by a Pokémon. These pads protect the holder from effects caused by making direct contact with the target."
   },
-  "psychicseed": {
+  "Psychic Seed": {
     "name": "Psychic Seed",
-    "spritenum": 665,
-    "fling": {
-      "basePower": 10
-    },
-    "onSwitchInPriority": -1,
-    "boosts": {
-      "spd": 1
-    },
-    "num": 882,
-    "gen": 7
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/psychic-seed.png",
+    "description": "An item to be held by a Pokémon. It boosts Sp. Def on Psychic Terrain. It can only be used once."
   },
-  "quickclaw": {
-    "onFractionalPriorityPriority": -2,
+  "Quick Claw": {
     "name": "Quick Claw",
-    "spritenum": 373,
-    "fling": {
-      "basePower": 80
-    },
-    "num": 217,
-    "gen": 2
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/quick-claw.png",
+    "description": "A hold item that occasionally allows the first strike."
   },
-  "razorclaw": {
+  "Razor Claw": {
     "name": "Razor Claw",
-    "spritenum": 382,
-    "fling": {
-      "basePower": 80
-    },
-    "num": 326,
-    "gen": 4
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/razor-claw.png",
+    "description": "An item to be held by a Pokémon. It is a sharply hooked claw that ups the holder’s critical-hit ratio."
   },
-  "razorfang": {
+  "Razor Fang": {
     "name": "Razor Fang",
-    "spritenum": 383,
-    "fling": {
-      "basePower": 30,
-      "volatileStatus": "flinch"
-    },
-    "onModifyMovePriority": -1,
-    "num": 327,
-    "gen": 4,
-    "isNonstandard": null
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/razor-fang.png",
+    "description": "An item to be held by a Pokémon. It may cause the foe to flinch when the holder inflicts damage."
   },
-  "redcard": {
+  "Red Card": {
     "name": "Red Card",
-    "spritenum": 387,
-    "fling": {
-      "basePower": 10
-    },
-    "num": 542,
-    "gen": 5
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/red-card.png",
+    "description": "A card with a mysterious power. When the holder is struck by a foe, the attacker is removed from battle."
   },
-  "rindoberry": {
+  "Rindo Berry": {
     "name": "Rindo Berry",
-    "spritenum": 409,
-    "isBerry": true,
-    "naturalGift": {
-      "basePower": 80,
-      "type": "Grass"
-    },
-    "num": 187,
-    "gen": 4
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/rindo-berry.png",
+    "description": "A Poffin ingredient. If held by a Pokémon, it weakens a foe’s supereffective Grass-type attack."
   },
-  "rockincense": {
+  "Rock Incense": {
     "name": "Rock Incense",
-    "spritenum": 416,
-    "fling": {
-      "basePower": 10
-    },
-    "onBasePowerPriority": 15,
-    "num": 315,
-    "gen": 4,
-    "isNonstandard": null
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/rock-incense.png",
+    "description": "An item to be held by a Pokémon. It is an exotic-smelling incense that boosts the power of Rock-type moves."
   },
-  "roseincense": {
+  "Rose Incense": {
     "name": "Rose Incense",
-    "spritenum": 419,
-    "fling": {
-      "basePower": 10
-    },
-    "onBasePowerPriority": 15,
-    "num": 318,
-    "gen": 4,
-    "isNonstandard": null
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/rose-incense.png",
+    "description": "An item to be held by a Pokémon. It is an exotic-smelling incense that boosts the power of Grass-type moves."
   },
-  "roseliberry": {
+  "Roseli Berry": {
     "name": "Roseli Berry",
-    "spritenum": 603,
-    "isBerry": true,
-    "naturalGift": {
-      "basePower": 80,
-      "type": "Fairy"
-    },
-    "num": 686,
-    "gen": 6
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/roseli-berry.png",
+    "description": "If held by a Pokémon, this Berry will lessen the damage taken from one supereffective Fairy-type attack."
   },
-  "safetygoggles": {
+  "Safety Goggles": {
     "name": "Safety Goggles",
-    "spritenum": 604,
-    "fling": {
-      "basePower": 80
-    },
-    "num": 650,
-    "gen": 6
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/safety-goggles.png",
+    "description": "An item to be held by a Pokémon. These goggles protect the holder from both weather-related damage and powder."
   },
-  "scopelens": {
+  "Scope Lens": {
     "name": "Scope Lens",
-    "spritenum": 429,
-    "fling": {
-      "basePower": 30
-    },
-    "num": 232,
-    "gen": 2
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/scope-lens.png",
+    "description": "A hold item that raises the critical- hit rate."
   },
-  "seaincense": {
+  "Sea Incense": {
     "name": "Sea Incense",
-    "spritenum": 430,
-    "fling": {
-      "basePower": 10
-    },
-    "onBasePowerPriority": 15,
-    "num": 254,
-    "gen": 3,
-    "isNonstandard": null
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/sea-incense.png",
+    "description": "A hold item that slightly boosts WATER-type moves."
   },
-  "sharpbeak": {
+  "Sharp Beak": {
     "name": "Sharp Beak",
-    "spritenum": 436,
-    "fling": {
-      "basePower": 50
-    },
-    "onBasePowerPriority": 15,
-    "num": 244,
-    "gen": 2
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/sharp-beak.png",
+    "description": "A hold item that raises the power of FLYING-type moves."
   },
-  "shedshell": {
+  "Shed Shell": {
     "name": "Shed Shell",
-    "spritenum": 437,
-    "fling": {
-      "basePower": 10
-    },
-    "onTrapPokemonPriority": -10,
-    "num": 295,
-    "gen": 4
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/shed-shell.png",
+    "description": "A tough, discarded carapace to be held by a Pokémon. It enables the holder to switch with a waiting Pokémon in battle."
   },
-  "shellbell": {
+  "Shell Bell": {
     "name": "Shell Bell",
-    "spritenum": 438,
-    "fling": {
-      "basePower": 30
-    },
-    "onAfterMoveSecondarySelfPriority": -1,
-    "num": 253,
-    "gen": 3
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/shell-bell.png",
+    "description": "A hold item that restores HP upon striking the foe."
   },
-  "shucaberry": {
+  "Shuca Berry": {
     "name": "Shuca Berry",
-    "spritenum": 443,
-    "isBerry": true,
-    "naturalGift": {
-      "basePower": 80,
-      "type": "Ground"
-    },
-    "num": 191,
-    "gen": 4
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/shuca-berry.png",
+    "description": "A Poffin ingredient. If held by a Pokémon, it weakens a foe’s supereffective Ground-type attack."
   },
-  "silkscarf": {
+  "Silk Scarf": {
     "name": "Silk Scarf",
-    "spritenum": 444,
-    "fling": {
-      "basePower": 10
-    },
-    "onBasePowerPriority": 15,
-    "num": 251,
-    "gen": 3
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/silk-scarf.png",
+    "description": "A hold item that raises the power of NORMAL-type moves."
   },
-  "silverpowder": {
+  "Silver Powder": {
     "name": "Silver Powder",
-    "spritenum": 447,
-    "fling": {
-      "basePower": 10
-    },
-    "onBasePowerPriority": 15,
-    "num": 222,
-    "gen": 2
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/silver-powder.png",
+    "description": "A hold item that raises the power of BUG-type moves."
   },
-  "sitrusberry": {
+  "Sitrus Berry": {
     "name": "Sitrus Berry",
-    "spritenum": 448,
-    "isBerry": true,
-    "naturalGift": {
-      "basePower": 80,
-      "type": "Psychic"
-    },
-    "num": 158,
-    "gen": 3
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/sitrus-berry.png",
+    "description": "A hold item that restores 30 HP in battle."
   },
-  "skyplate": {
+  "Sky Plate": {
     "name": "Sky Plate",
-    "spritenum": 450,
-    "onPlate": "Flying",
-    "onBasePowerPriority": 15,
-    "forcedForme": "Arceus-Flying",
-    "num": 306,
-    "gen": 4,
-    "isNonstandard": null
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/sky-plate.png",
+    "description": "An item to be held by a Pokémon. It is a stone tablet that boosts the power of Flying-type moves."
   },
-  "smoothrock": {
+  "Smooth Rock": {
     "name": "Smooth Rock",
-    "spritenum": 453,
-    "fling": {
-      "basePower": 10
-    },
-    "num": 283,
-    "gen": 4
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/smooth-rock.png",
+    "description": "A Pokémon hold item that extends the duration of the move Sandstorm used by the holder."
   },
-  "snowball": {
+  "Snowball": {
     "name": "Snowball",
-    "spritenum": 606,
-    "fling": {
-      "basePower": 30
-    },
-    "boosts": {
-      "atk": 1
-    },
-    "num": 649,
-    "gen": 6
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/snowball.png",
+    "description": "An item to be held by a Pokémon. It boosts Attack if hit with an Ice-type attack. It can only be used once."
   },
-  "softsand": {
+  "Soft Sand": {
     "name": "Soft Sand",
-    "spritenum": 456,
-    "fling": {
-      "basePower": 10
-    },
-    "onBasePowerPriority": 15,
-    "num": 237,
-    "gen": 2
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/soft-sand.png",
+    "description": "A hold item that raises the power of GROUND-type moves."
   },
-  "spelltag": {
+  "Spell Tag": {
     "name": "Spell Tag",
-    "spritenum": 461,
-    "fling": {
-      "basePower": 30
-    },
-    "onBasePowerPriority": 15,
-    "num": 247,
-    "gen": 2
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/spell-tag.png",
+    "description": "A hold item that raises the power of GHOST-type moves."
   },
-  "splashplate": {
+  "Splash Plate": {
     "name": "Splash Plate",
-    "spritenum": 463,
-    "onPlate": "Water",
-    "onBasePowerPriority": 15,
-    "forcedForme": "Arceus-Water",
-    "num": 299,
-    "gen": 4,
-    "isNonstandard": null
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/splash-plate.png",
+    "description": "An item to be held by a Pokémon. It is a stone tablet that boosts the power of Water-type moves."
   },
-  "spookyplate": {
+  "Spooky Plate": {
     "name": "Spooky Plate",
-    "spritenum": 464,
-    "onPlate": "Ghost",
-    "onBasePowerPriority": 15,
-    "forcedForme": "Arceus-Ghost",
-    "num": 310,
-    "gen": 4,
-    "isNonstandard": null
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/spooky-plate.png",
+    "description": "An item to be held by a Pokémon. It is a stone tablet that boosts the power of Ghost-type moves."
   },
-  "starfberry": {
+  "Starf Berry": {
     "name": "Starf Berry",
-    "spritenum": 472,
-    "isBerry": true,
-    "naturalGift": {
-      "basePower": 100,
-      "type": "Psychic"
-    },
-    "num": 207,
-    "gen": 3
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/starf-berry.png",
+    "description": "A hold item that sharply boosts a stat in a pinch."
   },
-  "stickybarb": {
+  "Sticky Barb": {
     "name": "Sticky Barb",
-    "spritenum": 476,
-    "fling": {
-      "basePower": 80
-    },
-    "onResidualOrder": 28,
-    "onResidualSubOrder": 3,
-    "num": 288,
-    "gen": 4
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/sticky-barb.png",
+    "description": "A hold item that damages the holder on every turn. It may latch on to foes that touch the holder."
   },
-  "stoneplate": {
+  "Stone Plate": {
     "name": "Stone Plate",
-    "spritenum": 477,
-    "onPlate": "Rock",
-    "onBasePowerPriority": 15,
-    "forcedForme": "Arceus-Rock",
-    "num": 309,
-    "gen": 4,
-    "isNonstandard": null
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/stone-plate.png",
+    "description": "An item to be held by a Pokémon. It is a stone tablet that boosts the power of Rock-type moves."
   },
-  "tangaberry": {
+  "Tanga Berry": {
     "name": "Tanga Berry",
-    "spritenum": 487,
-    "isBerry": true,
-    "naturalGift": {
-      "basePower": 80,
-      "type": "Bug"
-    },
-    "num": 194,
-    "gen": 4
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/tanga-berry.png",
+    "description": "A Poffin ingredient. If held by a Pokémon, it weakens a foe’s supereffective Bug-type attack."
   },
-  "terrainextender": {
+  "Terrain Extender": {
     "name": "Terrain Extender",
-    "spritenum": 662,
-    "fling": {
-      "basePower": 60
-    },
-    "num": 879,
-    "gen": 7
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/terrain-extender.png",
+    "description": "An item to be held by a Pokémon. It extends the duration of the terrain caused by the holder’s move or Ability."
   },
-  "toxicorb": {
+  "Toxic Orb": {
     "name": "Toxic Orb",
-    "spritenum": 515,
-    "fling": {
-      "basePower": 30,
-      "status": "tox"
-    },
-    "onResidualOrder": 28,
-    "onResidualSubOrder": 3,
-    "num": 272,
-    "gen": 4
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/toxic-orb.png",
+    "description": "An item to be held by a Pokémon. It is a bizarre orb that badly poisons the holder in battle."
   },
-  "toxicplate": {
+  "Toxic Plate": {
     "name": "Toxic Plate",
-    "spritenum": 516,
-    "onPlate": "Poison",
-    "onBasePowerPriority": 15,
-    "forcedForme": "Arceus-Poison",
-    "num": 304,
-    "gen": 4,
-    "isNonstandard": null
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/toxic-plate.png",
+    "description": "An item to be held by a Pokémon. It is a stone tablet that boosts the power of Poison-type moves."
   },
-  "twistedspoon": {
+  "Twisted Spoon": {
     "name": "Twisted Spoon",
-    "spritenum": 520,
-    "fling": {
-      "basePower": 30
-    },
-    "onBasePowerPriority": 15,
-    "num": 248,
-    "gen": 2
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/twisted-spoon.png",
+    "description": "A hold item that boosts PSYCHIC- type moves."
   },
-  "wacanberry": {
+  "Wacan Berry": {
     "name": "Wacan Berry",
-    "spritenum": 526,
-    "isBerry": true,
-    "naturalGift": {
-      "basePower": 80,
-      "type": "Electric"
-    },
-    "num": 186,
-    "gen": 4
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/wacan-berry.png",
+    "description": "A Poffin ingredient. If held by a Pokémon, it weakens a foe’s supereffective Electric-type attack."
   },
-  "waveincense": {
+  "Wave Incense": {
     "name": "Wave Incense",
-    "spritenum": 531,
-    "fling": {
-      "basePower": 10
-    },
-    "onBasePowerPriority": 15,
-    "num": 317,
-    "gen": 4,
-    "isNonstandard": null
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/wave-incense.png",
+    "description": "An item to be held by a Pokémon. It is an exotic-smelling incense that boosts the power of Water-type moves."
   },
-  "weaknesspolicy": {
+  "Weakness Policy": {
     "name": "Weakness Policy",
-    "spritenum": 609,
-    "fling": {
-      "basePower": 80
-    },
-    "boosts": {
-      "atk": 2,
-      "spa": 2
-    },
-    "num": 639,
-    "gen": 6
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/weakness-policy.png",
+    "description": "An item to be held by a Pokémon. Attack and Sp. Atk sharply increase if the holder is hit with a move it’s weak to."
   },
-  "whiteherb": {
+  "White Herb": {
     "name": "White Herb",
-    "spritenum": 535,
-    "fling": {
-      "basePower": 10
-    },
-    "onAnySwitchInPriority": -2,
-    "num": 214,
-    "gen": 3
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/white-herb.png",
+    "description": "A hold item that restores any lowered stat."
   },
-  "widelens": {
+  "Wide Lens": {
     "name": "Wide Lens",
-    "spritenum": 537,
-    "fling": {
-      "basePower": 10
-    },
-    "onSourceModifyAccuracyPriority": -2,
-    "num": 265,
-    "gen": 4
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/wide-lens.png",
+    "description": "An item to be held by a Pokémon. It is a magnifying lens that slightly boosts the accuracy of moves."
   },
-  "wiseglasses": {
+  "Wise Glasses": {
     "name": "Wise Glasses",
-    "spritenum": 539,
-    "fling": {
-      "basePower": 10
-    },
-    "onBasePowerPriority": 16,
-    "num": 267,
-    "gen": 4
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/wise-glasses.png",
+    "description": "An item to be held by a Pokémon. It is a thick pair of glasses that slightly boosts the power of special moves."
   },
-  "yacheberry": {
+  "Yache Berry": {
     "name": "Yache Berry",
-    "spritenum": 567,
-    "isBerry": true,
-    "naturalGift": {
-      "basePower": 80,
-      "type": "Ice"
-    },
-    "num": 188,
-    "gen": 4
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/yache-berry.png",
+    "description": "A Poffin ingredient. If held by a Pokémon, it weakens a foe’s supereffective Ice-type attack."
   },
-  "zapplate": {
+  "Zap Plate": {
     "name": "Zap Plate",
-    "spritenum": 572,
-    "onPlate": "Electric",
-    "onBasePowerPriority": 15,
-    "forcedForme": "Arceus-Electric",
-    "num": 300,
-    "gen": 4,
-    "isNonstandard": null
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/zap-plate.png",
+    "description": "An item to be held by a Pokémon. It is a stone tablet that boosts the power of Electric-type moves."
   },
-  "zoomlens": {
+  "Zoom Lens": {
     "name": "Zoom Lens",
-    "spritenum": 574,
-    "fling": {
-      "basePower": 10
-    },
-    "onSourceModifyAccuracyPriority": -2,
-    "num": 276,
-    "gen": 4
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/zoom-lens.png",
+    "description": "An item to be held by a Pokémon. If the holder moves after the foe, its critical-hit ratio will be boosted."
   }
 }
