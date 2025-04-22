@@ -8,6 +8,9 @@ import QuickChart from 'quickchart-js';
 import { exec } from 'child_process';
 import { EventEmitter } from 'events';
 
+import pokemonData from './pokemon/data/pokemon.json' with { type: 'json' };
+import droppableItems from './pokemon/data/droppable_items.json' with { type: 'json' };
+
 import {
   Client,
   GatewayIntentBits,
@@ -72,65 +75,56 @@ connection.connect((err) => {
   }
 });
 
-import showdown from 'pokemon-showdown';
-const { Dex } = showdown;
-
-const pokedex = Dex.forGen(7);
-
-import { readFile } from 'fs/promises';
-
 async function filterPokemonByType(type, forbiddenTiers, number) {
   try {
-    const data = await readFile('src/pokemon/pokemon.json', 'utf8');
-    const pokemonObj = JSON.parse(data);
+    const pokemonObj = JSON.parse(pokemonData);
 
     const allPokemon = Object.values(pokemonObj);
-   // Filtern mit optionalem Typ
-   const filtered = allPokemon.filter(p =>
-    (!type || p.types.includes(type)) &&
-    !forbiddenTiers.includes(p.tier)
-);
+    // Filtern mit optionalem Typ
+    const filtered = allPokemon.filter(
+      (p) =>
+        (!type || p.types.includes(type)) && !forbiddenTiers.includes(p.tier)
+    );
 
-  // Mischen des Arrays mit dem Fisher-Yates-Algorithmus
-  for (let i = filtered.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [filtered[i], filtered[j]] = [filtered[j], filtered[i]];
-}
+    // Mischen des Arrays mit dem Fisher-Yates-Algorithmus
+    for (let i = filtered.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [filtered[i], filtered[j]] = [filtered[j], filtered[i]];
+    }
 
-// Rückgabe der gewünschten Anzahl von Pokémon
-return filtered.slice(0, number);
-
+    // Rückgabe der gewünschten Anzahl von Pokémon
+    return filtered.slice(0, number);
   } catch (err) {
     console.error('Fehler beim Laden oder Verarbeiten der Datei:', err.message);
     return [];
   }
 }
 
-const Pokemon = await filterPokemonByType('Fire', ["Uber","OU","UUBL","UU","RUBL"], 20);
+const Pokemon = await filterPokemonByType(
+  'Fire',
+  ['Uber', 'OU', 'UUBL', 'UU', 'RUBL'],
+  20
+);
 console.log(`Gefundene Pokémon mit Typ: ${Pokemon.length}`);
-Pokemon.forEach(p => console.log(p.name));
+Pokemon.forEach((p) => console.log(p.name));
 
-import fs from "fs";
-
-const droppableItems = JSON.parse(fs.readFileSync('src/pokemon/droppable_items.json', 'utf-8'));
 const droppableArray = Object.values(droppableItems);
-
 
 function getBaseGold(tier) {
   const normalizedTier = tier.trim().toUpperCase();
 
-  if (["NUBL", "RU"].includes(normalizedTier)) return 100;
-  if (["RUBL", "UU"].includes(normalizedTier)) return 200;
-  if (["UUBL", "OU"].includes(normalizedTier)) return 300;
-  if (["OUBL", "UBER"].includes(normalizedTier)) return 500;
+  if (['NUBL', 'RU'].includes(normalizedTier)) return 100;
+  if (['RUBL', 'UU'].includes(normalizedTier)) return 200;
+  if (['UUBL', 'OU'].includes(normalizedTier)) return 300;
+  if (['OUBL', 'UBER'].includes(normalizedTier)) return 500;
 
   return 50;
 }
 
 function calculateLoot(defeatedPokemonTier) {
   const baseGold = getBaseGold(defeatedPokemonTier);
-  const bonus = Math.floor(Math.random() * 41) - 20; 
-  const gold = Math.max(0, baseGold + bonus); 
+  const bonus = Math.floor(Math.random() * 41) - 20;
+  const gold = Math.max(0, baseGold + bonus);
 
   let item = null;
   const dropChance = Math.random();
@@ -141,14 +135,25 @@ function calculateLoot(defeatedPokemonTier) {
 
   return {
     gold: gold,
-    item: item
+    item: item,
   };
 }
 
-var loot = calculateLoot("OU")
+var loot = calculateLoot('OU');
 console.log(loot);
 
-if(loot.item == null) bot.users.send("326305842427330560", "Du hast das Pokemon erfolgreich besiegt und gefangen! Du hast "+ loot.gold+ " Gold erhalten!");
-else bot.users.send("326305842427330560", "Du hast das Pokemon erfolgreich besiegt und gefangen! Du hast "+ loot.gold+ " Gold erhalten! Außerdem hat das wilde Pokemon ein Item fallen gelassen: "+loot.item);
-
-
+if (loot.item == null)
+  bot.users.send(
+    '326305842427330560',
+    'Du hast das Pokemon erfolgreich besiegt und gefangen! Du hast ' +
+      loot.gold +
+      ' Gold erhalten!'
+  );
+else
+  bot.users.send(
+    '326305842427330560',
+    'Du hast das Pokemon erfolgreich besiegt und gefangen! Du hast ' +
+      loot.gold +
+      ' Gold erhalten! Außerdem hat das wilde Pokemon ein Item fallen gelassen: ' +
+      loot.item
+  );
