@@ -81,7 +81,7 @@ import { readFile } from 'fs/promises';
 
 async function filterPokemonByType(type, forbiddenTiers, number) {
   try {
-    const data = await readFile('src/pokemon/data.json', 'utf8');
+    const data = await readFile('src/pokemon/pokemon.json', 'utf8');
     const pokemonObj = JSON.parse(data);
 
     const allPokemon = Object.values(pokemonObj);
@@ -110,12 +110,45 @@ const Pokemon = await filterPokemonByType('Fire', ["Uber","OU","UUBL","UU","RUBL
 console.log(`Gefundene Pokémon mit Typ: ${Pokemon.length}`);
 Pokemon.forEach(p => console.log(p.name));
 
-function calculateLoot() {
-  const minGold = 100;
-  const maxGold = 200;
-  const loot = Math.floor(Math.random() * (maxGold - minGold + 1)) + minGold;
-  return loot;
+import fs from "fs";
+
+const droppableItems = JSON.parse(fs.readFileSync('src/pokemon/droppable_items.json', 'utf-8'));
+const droppableArray = Object.values(droppableItems);
+
+
+function getBaseGold(tier) {
+  const normalizedTier = tier.trim().toUpperCase();
+
+  if (["NUBL", "RU"].includes(normalizedTier)) return 100;
+  if (["RUBL", "UU"].includes(normalizedTier)) return 200;
+  if (["UUBL", "OU"].includes(normalizedTier)) return 300;
+  if (["OUBL", "UBER"].includes(normalizedTier)) return 500;
+
+  return 50;
 }
 
-const gold = calculateLoot();
-console.log(`Du hast ${gold} Gold gefunden!`);
+function calculateLoot(defeatedPokemonTier) {
+  const baseGold = getBaseGold(defeatedPokemonTier);
+  const bonus = Math.floor(Math.random() * 41) - 20; 
+  const gold = Math.max(0, baseGold + bonus); 
+
+  let item = null;
+  const dropChance = Math.random();
+  if (dropChance <= 0.05) {
+    const randomIndex = Math.floor(Math.random() * droppableArray.length);
+    item = droppableArray[randomIndex].name;
+  }
+
+  return {
+    gold: gold,
+    item: item
+  };
+}
+
+var loot = calculateLoot("OU")
+console.log(loot);
+
+if(loot.item == null) bot.users.send("326305842427330560", "Du hast das Pokemon erfolgreich besiegt und gefangen! Du hast "+ loot.gold+ " Gold erhalten!");
+else bot.users.send("326305842427330560", "Du hast das Pokemon erfolgreich besiegt und gefangen! Du hast "+ loot.gold+ " Gold erhalten! Außerdem hat das wilde Pokemon ein Item fallen gelassen: "+loot.item);
+
+
