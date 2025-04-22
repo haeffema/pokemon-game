@@ -1,0 +1,202 @@
+{
+  "Kangaskhanite": {
+    "name": "Kangaskhanite",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/kangaskhanite.png",
+    "description": "One variety of the mysterious Mega Stones. Have Kangaskhan hold it, and this stone will enable it to Mega Evolve during battle."
+  },
+  "Galladite": {
+    "name": "Galladite",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/galladite.png",
+    "description": "One of a variety of mysterious Mega Stones. Have Gallade hold it, and this stone will enable it to Mega Evolve during battle."
+  },
+  "Charizardite X": {
+    "name": "Charizardite X",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/charizardite-x.png",
+    "description": "One variety of the mysterious Mega Stones. Have Charizard hold it, and this stone will enable it to Mega Evolve during battle."
+  },
+  "Charizardite Y": {
+    "name": "Charizardite Y",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/charizardite-y.png",
+    "description": "One variety of the mysterious Mega Stones. Have Charizard hold it, and this stone will enable it to Mega Evolve during battle."
+  },
+  "Lopunnite": {
+    "name": "Lopunnite",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/lopunnite.png",
+    "description": "One of a variety of mysterious Mega Stones. Have Lopunny hold it, and this stone will enable it to Mega Evolve during battle."
+  },
+  "Buginium Z": {
+    "name": "Buginium Z",
+    "sprite": "https://archives.bulbagarden.net/media/upload/6/66/Bag_Buginium_Z_Sprite.png",
+    "description": "Converts a Bug-type move into a Bug-type Z-Move. Compatible with Bug-type Pokémon."
+  },
+  "Darkinium Z": {
+    "name": "Darkinium Z",
+    "sprite": "https://archives.bulbagarden.net/media/upload/4/41/Bag_Darkinium_Z_Sprite.png",
+    "description": "Converts a Dark-type move into a Dark-type Z-Move. Compatible with Dark-type Pokémon."
+  },
+  "Dragonium Z": {
+    "name": "Dragonium Z",
+    "sprite": "https://archives.bulbagarden.net/media/upload/5/5a/Bag_Dragonium_Z_Sprite.png",
+    "description": "Converts a Dragon-type move into a Dragon-type Z-Move. Compatible with Dragon-type Pokémon."
+  },
+  "Electrium Z": {
+    "name": "Electrium Z",
+    "sprite": "https://archives.bulbagarden.net/media/upload/1/19/Bag_Electrium_Z_Sprite.png",
+    "description": "Converts an Electric-type move into an Electric-type Z-Move. Compatible with Electric-type Pokémon."
+  },
+  "Fairium Z": {
+    "name": "Fairium Z",
+    "sprite": "https://archives.bulbagarden.net/media/upload/b/b6/Bag_Fairium_Z_Sprite.png",
+    "description": "Converts a Fairy-type move into a Fairy-type Z-Move. Compatible with Fairy-type Pokémon."
+  },
+  "Fightinium Z": {
+    "name": "Fightinium Z",
+    "sprite": "https://archives.bulbagarden.net/media/upload/e/ef/Bag_Fightinium_Z_Sprite.png",
+    "description": "Converts a Fighting-type move into a Fighting-type Z-Move. Compatible with Fighting-type Pokémon."
+  },
+  "Firium Z": {
+    "name": "Firium Z",
+    "sprite": "https://archives.bulbagarden.net/media/upload/0/0e/Bag_Firium_Z_Sprite.png",
+    "description": "Converts a Fire-type move into a Fire-type Z-Move. Compatible with Fire-type Pokémon."
+  },
+  "Flyinium Z": {
+    "name": "Flyinium Z",
+    "sprite": "https://archives.bulbagarden.net/media/upload/3/33/Bag_Flyinium_Z_Sprite.png",
+    "description": "Converts a Flying-type move into a Flying-type Z-Move. Compatible with Flying-type Pokémon."
+  },
+  "Ghostium Z": {
+    "name": "Ghostium Z",
+    "sprite": "https://archives.bulbagarden.net/media/upload/2/23/Bag_Ghostium_Z_Sprite.png",
+    "description": "Converts a Ghost-type move into a Ghost-type Z-Move. Compatible with Ghost-type Pokémon."
+  },
+  "Grassium Z": {
+    "name": "Grassium Z",
+    "sprite": "https://archives.bulbagarden.net/media/upload/1/1d/Bag_Grassium_Z_Sprite.png",
+    "description": "Converts a Grass-type move into a Grass-type Z-Move. Compatible with Grass-type Pokémon."
+  },
+  "Groundium Z": {
+    "name": "Groundium Z",
+    "sprite": "https://archives.bulbagarden.net/media/upload/9/96/Bag_Groundium_Z_Sprite.png",
+    "description": "Converts a Ground-type move into a Ground-type Z-Move. Compatible with Ground-type Pokémon."
+  },
+  "Icium Z": {
+    "name": "Icium Z",
+    "sprite": "https://archives.bulbagarden.net/media/upload/f/f2/Bag_Icium_Z_Sprite.png",
+    "description": "Converts an Ice-type move into an Ice-type Z-Move. Compatible with Ice-type Pokémon."
+  },
+  "Normalium Z": {
+    "name": "Normalium Z",
+    "sprite": "https://archives.bulbagarden.net/media/upload/9/91/Bag_Normalium_Z_Sprite.png",
+    "description": "Converts a Normal-type move into a Normal-type Z-Move. Compatible with all Pokémon."
+  },
+  "Poisonium Z": {
+    "name": "Poisonium Z",
+    "sprite": "https://archives.bulbagarden.net/media/upload/4/4a/Bag_Poisonium_Z_Sprite.png",
+    "description": "Converts a Poison-type move into a Poison-type Z-Move. Compatible with Poison-type Pokémon."
+  },
+  "Psychium Z": {
+    "name": "Psychium Z",
+    "sprite": "https://archives.bulbagarden.net/media/upload/f/fd/Bag_Psychium_Z_Sprite.png",
+    "description": "Converts a Psychic-type move into a Psychic-type Z-Move. Compatible with Psychic-type Pokémon."
+  },
+  "Rockium Z": {
+    "name": "Rockium Z",
+    "sprite": "https://archives.bulbagarden.net/media/upload/f/fc/Bag_Rockium_Z_Sprite.png",
+    "description": "Converts a Rock-type move into a Rock-type Z-Move. Compatible with Rock-type Pokémon."
+  },
+  "Steelium Z": {
+    "name": "Steelium Z",
+    "sprite": "https://archives.bulbagarden.net/media/upload/1/18/Bag_Steelium_Z_Sprite.png",
+    "description": "Converts a Steel-type move into a Steel-type Z-Move. Compatible with Steel-type Pokémon."
+  },
+  "Waterium Z": {
+    "name": "Waterium Z",
+    "sprite": "https://archives.bulbagarden.net/media/upload/a/a4/Bag_Waterium_Z_Sprite.png",
+    "description": "Converts a Water-type move into a Water-type Z-Move. Compatible with Water-type Pokémon."
+  },
+  "Aloraichium Z": {
+    "name": "Aloraichium Z",
+    "sprite": "https://archives.bulbagarden.net/media/upload/e/ee/Bag_Aloraichium_Z_Sprite.png",
+    "description": "Lets Alolan Raichu use the exclusive Z-Move 'Stoked Sparksurfer'."
+  },
+  "Decidium Z": {
+    "name": "Decidium Z",
+    "sprite": "https://archives.bulbagarden.net/media/upload/8/86/Bag_Decidium_Z_Sprite.png",
+    "description": "Lets Decidueye use the exclusive Z-Move 'Sinister Arrow Raid'."
+  },
+  "Eevium Z": {
+    "name": "Eevium Z",
+    "sprite": "https://archives.bulbagarden.net/media/upload/0/0f/Bag_Eevium_Z_Sprite.png",
+    "description": "Lets Eevee use the exclusive Z-Move 'Extreme Evoboost'."
+  },
+  "Incinium Z": {
+    "name": "Incinium Z",
+    "sprite": "https://archives.bulbagarden.net/media/upload/d/d6/Bag_Incinium_Z_Sprite.png",
+    "description": "Lets Incineroar use the exclusive Z-Move 'Malicious Moonsault'."
+  },
+  "Kommonium Z": {
+    "name": "Kommonium Z",
+    "sprite": "https://archives.bulbagarden.net/media/upload/5/5c/Bag_Kommonium_Z_Sprite.png",
+    "description": "Lets Kommo-o use the exclusive Z-Move 'Clangorous Soulblaze'."
+  },
+  "Lunalium Z": {
+    "name": "Lunalium Z",
+    "sprite": "https://archives.bulbagarden.net/media/upload/3/36/Bag_Lunalium_Z_Sprite.png",
+    "description": "Lets Lunala use the exclusive Z-Move 'Menacing Moonraze Maelstrom'."
+  },
+  "Lycanium Z": {
+    "name": "Lycanium Z",
+    "sprite": "https://archives.bulbagarden.net/media/upload/a/a9/Bag_Lycanium_Z_Sprite.png",
+    "description": "Lets Lycanroc use the exclusive Z-Move 'Splintered Stormshards'."
+  },
+  "Marshadium Z": {
+    "name": "Marshadium Z",
+    "sprite": "https://archives.bulbagarden.net/media/upload/a/a4/Bag_Marshadium_Z_Sprite.png",
+    "description": "Lets Marshadow use the exclusive Z-Move 'Soul-Stealing 7-Star Strike'."
+  },
+  "Mewnium Z": {
+    "name": "Mewnium Z",
+    "sprite": "https://archives.bulbagarden.net/media/upload/3/3b/Bag_Mewnium_Z_Sprite.png",
+    "description": "Lets Mew use the exclusive Z-Move 'Genesis Supernova'."
+  },
+  "Mimikium Z": {
+    "name": "Mimikium Z",
+    "sprite": "https://archives.bulbagarden.net/media/upload/5/50/Bag_Mimikium_Z_Sprite.png",
+    "description": "Lets Mimikyu use the exclusive Z-Move 'Let's Snuggle Forever'."
+  },
+  "Pikanium Z": {
+    "name": "Pikanium Z",
+    "sprite": "https://archives.bulbagarden.net/media/upload/c/c5/Bag_Pikanium_Z_Sprite.png",
+    "description": "Lets Pikachu use the exclusive Z-Move 'Catastropika'."
+  },
+  "Pikashunium Z": {
+    "name": "Pikashunium Z",
+    "sprite": "https://archives.bulbagarden.net/media/upload/c/c8/Bag_Pikashunium_Z_Sprite.png",
+    "description": "Lets Pikachu in cap form use the exclusive Z-Move '10,000,000 Volt Thunderbolt'."
+  },
+  "Primarium Z": {
+    "name": "Primarium Z",
+    "sprite": "https://archives.bulbagarden.net/media/upload/3/3f/Bag_Primarium_Z_Sprite.png",
+    "description": "Lets Primarina use the exclusive Z-Move 'Oceanic Operetta'."
+  },
+  "Snorlium Z": {
+    "name": "Snorlium Z",
+    "sprite": "https://archives.bulbagarden.net/media/upload/8/80/Bag_Snorlium_Z_Sprite.png",
+    "description": "Lets Snorlax use the exclusive Z-Move 'Pulverizing Pancake'."
+  },
+  "Solganium Z": {
+    "name": "Solganium Z",
+    "sprite": "https://archives.bulbagarden.net/media/upload/e/ee/Bag_Solganium_Z_Sprite.png",
+    "description": "Lets Solgaleo use the exclusive Z-Move 'Searing Sunraze Smash'."
+  },
+  "Tapunium Z": {
+    "name": "Tapunium Z",
+    "sprite": "https://archives.bulbagarden.net/media/upload/4/47/Bag_Tapunium_Z_Sprite.png",
+    "description": "Lets Tapu Pokémon use the exclusive Z-Move 'Guardian of Alola'."
+  },
+  "Ultranecrozium Z": {
+    "name": "Ultranecrozium Z",
+    "sprite": "https://archives.bulbagarden.net/media/upload/a/aa/Bag_Ultranecrozium_Z_Sprite.png",
+    "description": "Enables Necrozma to fuse and use the Z-Move 'Light That Burns the Sky'."
+  }
+}

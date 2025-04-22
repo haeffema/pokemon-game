@@ -1,0 +1,110 @@
+{
+  "Aguav Berry": {
+    "name": "Aguav Berry",
+    "price": 10000,
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/aguav-berry.png",
+    "description": "A hold item that restores HP but may confuse."
+  },
+  "Air Balloon": {
+    "name": "Air Balloon",
+    "price": 5000,
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/air-balloon.png",
+    "description": "When held by a Pokémon, the Pokémon will float into the air. When the holder is attacked, this item will burst."
+  },
+  "Assault Vest": {
+    "name": "Assault Vest",
+    "price": 25000,
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/assault-vest.png",
+    "description": "An item to be held by a Pokémon. This offensive vest raises Sp. Def but prevents the use of status moves."
+  },
+  "Choice Band": {
+    "name": "Choice Band",
+    "price": 25000,
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/choice-band.png",
+    "description": "Raises a move’s power, but permits only that move."
+  },
+  "Choice Scarf": {
+    "name": "Choice Scarf",
+    "price": 25000,
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/choice-scarf.png",
+    "description": "An item to be held by a Pokémon. This scarf boosts Speed, but allows the use of only one kind of move."
+  },
+  "Choice Specs": {
+    "name": "Choice Specs",
+    "price": 25000,
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/choice-specs.png",
+    "description": "An item to be held by a Pokémon. These distinctive glasses boost Sp. Atk, but allow only one kind of move to be used."
+  },
+  "Expert Belt": {
+    "name": "Expert Belt",
+    "price": 25000,
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/expert-belt.png",
+    "description": "An item to be held by a Pokémon. It is a well-worn belt that slightly boosts the power of supereffective moves."
+  },
+  "Figy Berry": {
+    "name": "Figy Berry",
+    "price": 10000,
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/figy-berry.png",
+    "description": "A hold item that restores HP but may confuse."
+  },
+  "Focus Sash": {
+    "name": "Focus Sash",
+    "price": 15000,
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/focus-sash.png",
+    "description": "An item to be held by a Pokémon. If it has full HP, the holder will endure one potential KO attack, leaving 1 HP."
+  },
+  "Iapapa Berry": {
+    "name": "Iapapa Berry",
+    "price": 10000,
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/iapapa-berry.png",
+    "description": "A hold item that restores HP but may confuse."
+  },
+  "Leftovers": {
+    "name": "Leftovers",
+    "price": 20000,
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/leftovers.png",
+    "description": "A hold item that gradually restores HP in battle."
+  },
+  "Life Orb": {
+    "name": "Life Orb",
+    "price": 25000,
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/life-orb.png",
+    "description": "An item to be held by a Pokémon. It boosts the power of moves, but at the cost of some HP on each hit."
+  },
+  "Mago Berry": {
+    "name": "Mago Berry",
+    "price": 10000,
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/mago-berry.png",
+    "description": "A hold item that restores HP but may confuse."
+  },
+  "Mental Herb": {
+    "name": "Mental Herb",
+    "price": 15000,
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/mental-herb.png",
+    "description": "A hold item that snaps POKéMON out of infatuation."
+  },
+  "Power Herb": {
+    "name": "Power Herb",
+    "price": 15000,
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/power-herb.png",
+    "description": "A single-use item to be held by a Pokémon. It allows the immediate use of a move that charges on the first turn."
+  },
+  "Rocky Helmet": {
+    "name": "Rocky Helmet",
+    "price": 15000,
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/rocky-helmet.png",
+    "description": "If the holder of this item takes damage, the attacker will also be damaged upon contact."
+  },
+  "Salac Berry": {
+    "name": "Salac Berry",
+    "price": 10000,
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/salac-berry.png",
+    "description": "A hold item that raises SPEED in a pinch."
+  },
+  "Wiki Berry": {
+    "name": "Wiki Berry",
+    "price": 10000,
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/wiki-berry.png",
+    "description": "A hold item that restores HP but may confuse."
+  }
+}
