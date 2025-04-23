@@ -1,9 +1,11 @@
 import showdown from 'pokemon-showdown';
 const { Battle, Teams, Dex } = showdown;
 import { calculate, Generations, Pokemon, Move, Field } from '@smogon/calc';
+import promptSync from 'prompt-sync';
 
 const trainerID = 'p1';
 const botID = 'p2';
+const prompt = promptSync();
 
 function formatForCalc(pokemon) {
   const set = pokemon.set;
@@ -157,8 +159,8 @@ function setupBattle(playerTeam, botTeam) {
 
 async function nextTrainerMove(battle) {
   // TODO: some async shit that takes the battle state and returns the selected move id
-
-  const moveID = 2;
+  const input = prompt('Choose a Move ID (1 - 4) ');
+  const moveID = Number(input);
 
   battle.choose(trainerID, `move ${moveID}`);
 }
@@ -168,7 +170,7 @@ async function fightBotPokemon(playerTeam, botTeam) {
 
   while (!battle.ended) {
     const battleState = generateBattleState(battle);
-    // console.log(battleState);
+    console.log(battleState);
     await nextTrainerMove(battle, trainerID);
     await botChooseHighestDamageMove(battle);
     await new Promise((resolve) => setTimeout(resolve, 150));
