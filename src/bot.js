@@ -127,33 +127,39 @@ function calculateLoot(defeatedPokemonTier) {
   const gold = Math.max(0, baseGold + bonus);
 
   let item = null;
+  let description = null;
+  let sprite = null;
   const dropChance = Math.random();
-  if (dropChance <= 0.05) {
+  if (dropChance <= 1) {
     const randomIndex = Math.floor(Math.random() * droppableArray.length);
     item = droppableArray[randomIndex].name;
+    description = droppableArray[randomIndex].description;
+    sprite = droppableArray[randomIndex].sprite;
   }
 
   return {
     gold: gold,
     item: item,
+    description: description,
+    sprite: sprite
   };
 }
 
-var loot = calculateLoot('OU');
+var loot = calculateLoot('NU');
 console.log(loot);
 
-if (loot.item == null)
-  bot.users.send(
-    '326305842427330560',
-    'Du hast das Pokemon erfolgreich besiegt und gefangen! Du hast ' +
-      loot.gold +
-      ' Gold erhalten!'
-  );
-else
-  bot.users.send(
-    '326305842427330560',
-    'Du hast das Pokemon erfolgreich besiegt und gefangen! Du hast ' +
-      loot.gold +
-      ' Gold erhalten! Außerdem hat das wilde Pokemon ein Item fallen gelassen: ' +
-      loot.item
-  );
+if(loot.item == null){
+  bot.users.send("326305842427330560", "Du hast das Pokemon erfolgreich besiegt und gefangen! Du hast "+ loot.gold+ " Gold erhalten!");
+} 
+else{
+
+  bot.users.send("360366344635547650", "Du hast das Pokemon erfolgreich besiegt! Du hast "+ loot.gold+ " Gold erhalten! Außerdem hat das wilde Pokemon ein neues Item fallen gelassen!");
+  const embed = new EmbedBuilder()
+  .setTitle(loot.item)
+  .setDescription(loot.description)
+  .setThumbnail(loot.sprite)
+  bot.users
+  .send("360366344635547650", {
+    embeds: [embed],
+  })
+} 
