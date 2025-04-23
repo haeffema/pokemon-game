@@ -33,12 +33,14 @@ function formatForCalc(pokemon) {
   });
 }
 
-async function findBestMove(attackerShowdown, defenderShowdown) {
+async function botChooseHighestDamageMove(battle) {
+  const attackerShowdown = battle.p2.active[0];
+  const defenderShowdown = battle.p1.active[0];
   const gen = Generations.get(attackerShowdown.battle.gen);
   const attacker = formatForCalc(attackerShowdown);
   const defender = formatForCalc(defenderShowdown);
   const moves = attackerShowdown.set.moves;
-  let bestMoveIndex = -1;
+  let bestMoveIndex = 0;
   let maxDamage = -1;
   for (let i = 0; i < moves.length; i++) {
     const moveName = moves[i];
@@ -66,15 +68,76 @@ async function findBestMove(attackerShowdown, defenderShowdown) {
       }
     }
   }
-  return bestMoveIndex + 1;
+  battle.choose(botID, `move ${bestMoveIndex + 1}`);
 }
 
-async function getTrainerMove(moves, ownPokemon, enemyPokemon) {
-  return 1;
+function getAvailableMovesWithDescriptionForTrainer(battle) {
+  const player = battle[trainerID];
+  if (player && player.active[0]) {
+    return player.active[0].moveSlots.map((moveSlot, index) => {
+      const moveData = Dex.moves.get(moveSlot.move);
+      return {
+        id: index + 1,
+        name: moveSlot.move,
+        pp: moveSlot.pp,
+        shortDescription: moveData.shortDesc || 'No description available.',
+      };
+    });
+  }
+  return [];
 }
 
-async function getBotMove(moves, ownPokemon, enemyPokemon) {
-  return await findBestMove(ownPokemon, enemyPokemon);
+function extractLastMovesAndDamageFinal(log) {
+  const moveData = {};
+  const turnIds = [];
+  let turnNum = 1;
+
+  while (log.includes(`|turn|${turnNum}`)) {
+    turnIds.push(log.indexOf(`|turn|${turnNum}`));
+    turnNum += 1;
+  }
+
+  if (turnIds.length == 1) {
+    return {};
+  }
+
+  for (
+    let x = turnIds[turnIds.length - 2];
+    x < turnIds[turnIds.length - 1];
+    x++
+  ) {
+    console.log(log[x]);
+  }
+
+  console.log('----------');
+
+  // console.log(log);
+  // console.log(turnIds);
+
+  return moveData;
+}
+
+function generateBattleState(battle) {
+  const trainerPokemon = battle.p1.active[0];
+  const wildPokemon = battle.p2.active[0];
+  const moves = getAvailableMovesWithDescriptionForTrainer(battle);
+  const moveLog = extractLastMovesAndDamageFinal(battle.log);
+  return {
+    moves: moves,
+    trainerPokemon: {
+      name: trainerPokemon.name,
+      status: trainerPokemon.status,
+      currentHP: trainerPokemon.hp,
+      maxHP: trainerPokemon.maxhp,
+    },
+    wildPokemon: {
+      name: wildPokemon.name,
+      status: wildPokemon.status,
+      currentHP: wildPokemon.hp,
+      maxHP: wildPokemon.maxhp,
+    },
+    moveLog: moveLog,
+  };
 }
 
 function setupBattle(playerTeam, botTeam) {
@@ -92,115 +155,49 @@ function setupBattle(playerTeam, botTeam) {
   return battle;
 }
 
-function displayBattleState(battle) {
-  console.log('\n--- Turn ' + battle.turn + ' ---');
-  const trainerPokemon = battle.p1.active[0];
-  const wildPokemon = battle.p2.active[0];
+async function nextTrainerMove(battle) {
+  // TODO: some async shit that takes the battle state and returns the selected move id
 
-  console.log('\n=== Battle State ===');
-  console.log(
-    `Your ${trainerPokemon.name} (HP: ${trainerPokemon.hp}/${trainerPokemon.maxhp})`
-  );
-  console.log(
-    `Wild ${wildPokemon.name} (HP: ${wildPokemon.hp}/${wildPokemon.maxhp})`
-  );
-  console.log('---');
+  const moveID = 2;
 
-  const lastLogEntry = battle.log[battle.log.length - 1];
-  if (lastLogEntry && lastLogEntry.startsWith('|-damage|')) {
-    const parts = lastLogEntry.split('|');
-    const target = parts[2].split(':')[0];
-    const damage = parts[3].split('/')[0];
-    console.log(`${target}'s HP reduced to ${damage}`);
-  } else if (lastLogEntry && lastLogEntry.startsWith('|-status|')) {
-    const parts = lastLogEntry.split('|');
-    const target = parts[2].split(':')[0];
-    const status = parts[3];
-    console.log(`${target} got inflicted with ${status}`);
-  } else if (lastLogEntry && lastLogEntry.startsWith('|-fail|')) {
-    const parts = lastLogEntry.split('|');
-    const pokemon = parts[2].split(':')[0];
-    const move = parts[3];
-    console.log(`${pokemon}'s ${move} failed!`);
-  } else if (lastLogEntry && lastLogEntry.startsWith('|faint|')) {
-    const parts = lastLogEntry.split('|');
-    const pokemon = parts[2].split(':')[0];
-    console.log(`${pokemon} fainted!`);
-  }
-}
-
-function getAvailableMovesWithDescription(battle, playerId) {
-  const player = battle[playerId];
-  if (player && player.active[0]) {
-    return player.active[0].moveSlots.map((moveSlot, index) => {
-      const moveData = Dex.moves.get(moveSlot.move);
-      return {
-        id: index + 1,
-        name: moveSlot.move,
-        pp: moveSlot.pp,
-        shortDescription: moveData.shortDesc || 'No description available.',
-      };
-    });
-  }
-  return [];
-}
-
-async function nextMove(battle, playerID) {
-  const trainerMoves = getAvailableMovesWithDescription(battle, playerID);
-  if (trainerMoves.length > 0 && !battle.ended) {
-    let choice = 0;
-    if (playerID == trainerID) {
-      choice = await getTrainerMove(
-        trainerMoves,
-        battle.p1.active[0],
-        battle.p2.active[0]
-      );
-    } else {
-      choice = await getBotMove(
-        trainerMoves,
-        battle.p2.active[0],
-        battle.p1.active[0]
-      );
-    }
-    battle.choose(playerID, `move ${choice}`);
-  }
+  battle.choose(trainerID, `move ${moveID}`);
 }
 
 async function fightBotPokemon(playerTeam, botTeam) {
   const battle = setupBattle(playerTeam, botTeam);
 
   while (!battle.ended) {
-    displayBattleState(battle);
-    await nextMove(battle, trainerID);
-    await nextMove(battle, botID);
+    const battleState = generateBattleState(battle);
+    // console.log(battleState);
+    await nextTrainerMove(battle, trainerID);
+    await botChooseHighestDamageMove(battle);
     await new Promise((resolve) => setTimeout(resolve, 150));
   }
-
-  console.log('\n=== Battle End ===');
-  displayBattleState(battle);
-  console.log(`Winner: ${battle.winner}`);
+  console.log(generateBattleState(battle));
+  console.log(battle.winner == 'Trainer');
+  return battle.winner == 'Trainer';
 }
 
 const trainerTest = `
-Clawitzer @ Choice Specs
-Ability: Mega Launcher
-EVs: 4 Def / 252 SpA / 252 Spe
-Modest Nature
-- Water Pulse
-- Ice Beam
-- Dark Pulse
-- Aura Sphere
+Toxapex @ Black Sludge
+Ability: Regenerator
+EVs: 252 HP / 36 Def / 220 SpD
+Calm Nature
+- Scald
+- Haze
+- Toxic Spikes
+- Recover
     `;
 
 const botTest = `
-Darkrai @ Life Orb
-Ability: Bad Dreams
-EVs: 4 HP / 252 SpA / 252 Spe
-Timid Nature
-- Hypnosis
-- Nasty Plot
-- Dark Pulse
-- Thunder
+Toxapex @ Black Sludge
+Ability: Regenerator
+EVs: 252 HP / 36 Def / 220 SpD
+Calm Nature
+- Scald
+- Haze
+- Toxic Spikes
+- Recover
     `;
 
 fightBotPokemon(trainerTest, botTest);
