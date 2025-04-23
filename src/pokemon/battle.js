@@ -38,9 +38,10 @@ async function findBestMove(attackerShowdown, defenderShowdown) {
   const attacker = formatForCalc(attackerShowdown);
   const defender = formatForCalc(defenderShowdown);
   const moves = attackerShowdown.set.moves;
-  let bestMoveName = null;
+  let bestMoveIndex = -1;
   let maxDamage = -1;
-  for (const moveName of moves) {
+  for (let i = 0; i < moves.length; i++) {
+    const moveName = moves[i];
     const move = new Move(gen, moveName);
     const field = new Field({
       weather: attackerShowdown.battle.field.weather || undefined,
@@ -56,15 +57,16 @@ async function findBestMove(attackerShowdown, defenderShowdown) {
     });
     const result = calculate(gen, attacker, defender, move, field);
     const possibleDamage = result.damage;
+
     if (possibleDamage && possibleDamage.length > 0) {
       const currentMaxDamage = Math.max(...possibleDamage);
       if (currentMaxDamage > maxDamage) {
         maxDamage = currentMaxDamage;
-        bestMoveName = moveName;
+        bestMoveIndex = i;
       }
     }
   }
-  console.log(bestMoveName);
+  return bestMoveIndex + 1;
 }
 
 async function getTrainerMove(moves, ownPokemon, enemyPokemon) {
@@ -72,8 +74,7 @@ async function getTrainerMove(moves, ownPokemon, enemyPokemon) {
 }
 
 async function getBotMove(moves, ownPokemon, enemyPokemon) {
-  await findBestMove(ownPokemon, enemyPokemon);
-  return 0;
+  return await findBestMove(ownPokemon, enemyPokemon);
 }
 
 function setupBattle(playerTeam, botTeam) {
@@ -172,7 +173,7 @@ async function fightBotPokemon(playerTeam, botTeam) {
     displayBattleState(battle);
     await nextMove(battle, trainerID);
     await nextMove(battle, botID);
-    await new Promise((resolve) => setTimeout(resolve, 100));
+    await new Promise((resolve) => setTimeout(resolve, 150));
   }
 
   console.log('\n=== Battle End ===');
