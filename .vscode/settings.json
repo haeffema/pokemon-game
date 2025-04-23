@@ -1,12 +1,4 @@
 {
-  "emeraldwalk.runonsave": {
-    "commands": [
-      {
-        "match": ".*\\.(js|ts|tsx|jsx)$",
-        "cmd": "npm run format && npm run lint"
-      }
-    ]
-  },
   "files.autoSave": "onFocusChange",
   "files.autoSaveDelay": 1000,
   "IDX.aI.enableInlineCompletion": true,

@@ -7,7 +7,7 @@
 
   env = {};
   idx = {
-    extensions = [ "whizkydee.material-palenight-theme" "christian-kohler.npm-intellisense" "christian-kohler.path-intellisense" "dbaeumer.vscode-eslint" "esbenp.prettier-vscode" "rvest.vs-code-prettier-eslint" "emeraldwalk.RunOnSave"];
+    extensions = [ "whizkydee.material-palenight-theme" "christian-kohler.npm-intellisense" "christian-kohler.path-intellisense" "dbaeumer.vscode-eslint" "esbenp.prettier-vscode" "rvest.vs-code-prettier-eslint" ];
 
     previews = {
       enable = true;

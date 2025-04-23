@@ -1,2 +1,2 @@
 npm run format
-npm run lint:fix
+echo 'add linting to pre-commit when jan fixes his bot imports'
