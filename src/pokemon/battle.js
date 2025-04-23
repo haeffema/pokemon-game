@@ -108,6 +108,7 @@ function extractLastMovesAndDamageFinal(log) {
     x < turnIds[turnIds.length - 1];
     x++
   ) {
+    // funktioniert nicht bei oneshot lol
     console.log(log[x]);
   }
 
@@ -181,25 +182,25 @@ async function fightBotPokemon(playerTeam, botTeam) {
 }
 
 const trainerTest = `
-Toxapex @ Black Sludge
-Ability: Regenerator
-EVs: 252 HP / 36 Def / 220 SpD
-Calm Nature
-- Scald
-- Haze
-- Toxic Spikes
-- Recover
+Zeraora @ Life Orb
+Ability: Volt Absorb
+EVs: 252 Atk / 4 SpA / 252 Spe
+Naive Nature
+- Plasma Fists
+- Close Combat
+- Grass Knot
+- Knock Off
     `;
 
 const botTest = `
-Toxapex @ Black Sludge
-Ability: Regenerator
-EVs: 252 HP / 36 Def / 220 SpD
-Calm Nature
-- Scald
-- Haze
-- Toxic Spikes
-- Recover
+Mimikyu @ Life Orb
+Ability: Disguise
+EVs: 252 Atk / 4 Def / 252 Spe
+Adamant Nature
+- Swords Dance
+- Shadow Claw
+- Play Rough
+- Shadow Sneak
     `;
 
 fightBotPokemon(trainerTest, botTest);
