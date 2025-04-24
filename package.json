@@ -8,7 +8,8 @@
     "lint": "eslint . ",
     "lint:fix": "eslint . --fix ",
     "prepare": "husky",
-    "battle": "node src/pokemon/battle.js"
+    "battle": "node src/pokemon/battle.js",
+    "bot": "node src/bot.js"
   },
   "keywords": [],
   "author": "",
@@ -22,6 +23,7 @@
   },
   "dependencies": {
     "@smogon/calc": "^0.10.0",
+    "canvas": "^3.1.0",
     "child_process": "^1.0.2",
     "cron": "^4.3.0",
     "discord.js": "^14.18.0",
