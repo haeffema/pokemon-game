@@ -137,3 +137,4 @@ dist
 
 # battle images dont need to be on the hub
 src/battleImages/
+!src/battleImages/example.png
