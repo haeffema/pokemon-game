@@ -103,6 +103,10 @@ function extractLastMovesAndDamageFinal(log) {
     return {};
   }
 
+  if (log[log.length - 1].startsWith('|win|')) {
+    turnIds.push(log.length)
+  }
+
   for (
     let x = turnIds[turnIds.length - 2];
     x < turnIds[turnIds.length - 1];
@@ -168,15 +172,13 @@ async function nextTrainerMove(battle) {
 
 async function fightBotPokemon(playerTeam, botTeam) {
   const battle = setupBattle(playerTeam, botTeam);
-
+  let battleState = generateBattleState(battle)
   while (!battle.ended) {
-    const battleState = generateBattleState(battle);
-    console.log(battleState);
     await nextTrainerMove(battle, trainerID);
     await botChooseHighestDamageMove(battle);
     await new Promise((resolve) => setTimeout(resolve, 150));
+    battleState = generateBattleState(battle);
   }
-  console.log(generateBattleState(battle));
   console.log(battle.winner == 'Trainer');
   return battle.winner == 'Trainer';
 }
