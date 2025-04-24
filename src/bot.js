@@ -178,30 +178,34 @@ function getPokemonSprite(pokemonName) {
   const normalizedPokemonName = pokemonName.toLowerCase();
 
   const allPokemon = Object.values(pokemonData);
-  const pokemon = allPokemon.find(p => p.name.toLowerCase() === normalizedPokemonName);
+  const pokemon = allPokemon.find(
+    (p) => p.name.toLowerCase() === normalizedPokemonName
+  );
 
   if (pokemon) {
     return pokemon.sprite;
   } else {
-    console.error(`Pokémon mit dem Namen "${pokemonName}" wurde nicht gefunden.`);
+    console.error(
+      `Pokémon mit dem Namen "${pokemonName}" wurde nicht gefunden.`
+    );
     return null;
   }
 }
 
 generateBattleImage(
   {
-    name: "Jirachi",
-    spriteUrl: getPokemonSprite("Jirachi"),
+    name: 'Jirachi',
+    spriteUrl: getPokemonSprite('Jirachi'),
     hp: 223,
     maxHp: 300,
-    status: "BRN"
+    status: 'BRN',
   },
   {
-    name: "Simisage",
-    spriteUrl: getPokemonSprite("Simisage"),
+    name: 'Simisage',
+    spriteUrl: getPokemonSprite('Simisage'),
     hp: 84,
     maxHp: 120,
-     status: "TOX"
+    status: 'TOX',
   },
-  'src/battleImages/fight_scene_'+ Date.now()+'.png'
+  'src/battleImages/fight_scene_' + Date.now() + '.png'
 );

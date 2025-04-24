@@ -37,7 +37,6 @@ function drawHealthBar(ctx, x, y, width, height, hp, maxHp, name, status) {
 
   // Statusanzeige, falls vorhanden
   if (status) {
-
     const statusUpper = status.toUpperCase();
     let statusColor;
 
@@ -70,15 +69,24 @@ function drawHealthBar(ctx, x, y, width, height, hp, maxHp, name, status) {
     ctx.font = 'bold 14px Arial';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
-    ctx.fillText(statusUpper, x + statusBoxWidth / 2, y + height + statusBoxHeight / 2);
+    ctx.fillText(
+      statusUpper,
+      x + statusBoxWidth / 2,
+      y + height + statusBoxHeight / 2
+    );
   }
 }
 
-export async function generateBattleImage(leftPokemon, rightPokemon, outputPath = 'pokemon_battle.png') {
+export async function generateBattleImage(
+  leftPokemon,
+  rightPokemon,
+  outputPath = 'pokemon_battle.png'
+) {
   const canvas = createCanvas(width, height);
   const ctx = canvas.getContext('2d');
 
-  const backgroundURL = 'https://preview.redd.it/d9spuwer2c491.png?width=1050&format=png&auto=webp&s=9ca8c75c63da9f8bb134e955d73e2770d073375e';
+  const backgroundURL =
+    'https://preview.redd.it/d9spuwer2c491.png?width=1050&format=png&auto=webp&s=9ca8c75c63da9f8bb134e955d73e2770d073375e';
 
   // Bilder laden
   const [background, leftSprite, rightSprite] = await Promise.all([
@@ -95,14 +103,34 @@ export async function generateBattleImage(leftPokemon, rightPokemon, outputPath 
   const leftX = 80;
   const leftY = height - leftSize - 40;
   ctx.drawImage(leftSprite, leftX, leftY, leftSize, leftSize);
-  drawHealthBar(ctx, leftX + 20, leftY - 35, 180, 25, leftPokemon.hp, leftPokemon.maxHp, leftPokemon.name, leftPokemon.status);
+  drawHealthBar(
+    ctx,
+    leftX + 20,
+    leftY - 35,
+    180,
+    25,
+    leftPokemon.hp,
+    leftPokemon.maxHp,
+    leftPokemon.name,
+    leftPokemon.status
+  );
 
   // Rechtes Pokémon (z. B. Bulbasaur)
   const rightSize = 150;
   const rightX = width - rightSize - 200;
   const rightY = 180;
   ctx.drawImage(rightSprite, rightX, rightY, rightSize, rightSize);
-  drawHealthBar(ctx, rightX - 20, rightY - 35, 180, 25, rightPokemon.hp, rightPokemon.maxHp, rightPokemon.name, rightPokemon.status);
+  drawHealthBar(
+    ctx,
+    rightX - 20,
+    rightY - 35,
+    180,
+    25,
+    rightPokemon.hp,
+    rightPokemon.maxHp,
+    rightPokemon.name,
+    rightPokemon.status
+  );
 
   // Speichern
   const out = createWriteStream(outputPath);

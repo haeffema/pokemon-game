@@ -182,14 +182,18 @@ async function fightBotPokemon(playerTeam, botTeam) {
   await generateBattleImage(
     battleState.trainerPokemon,
     battleState.wildPokemon,
-    'src/battleImages/fight_scene_'+ Date.now()+'.png'
+    'src/battleImages/fight_scene_' + Date.now() + '.png'
   );
   while (!battle.ended) {
     await nextTrainerMove(battle, trainerID);
     await botChooseHighestDamageMove(battle);
     await new Promise((resolve) => setTimeout(resolve, 150));
     battleState = generateBattleState(battle);
-    await generateBattleImage(battleState.trainerPokemon, battleState.wildPokemon, 'src/battleImages/fight_scene_'+ Date.now()+'.png');
+    await generateBattleImage(
+      battleState.trainerPokemon,
+      battleState.wildPokemon,
+      'src/battleImages/fight_scene_' + Date.now() + '.png'
+    );
   }
   console.log(battle.winner == 'Trainer');
   return battle.winner == 'Trainer';
