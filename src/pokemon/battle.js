@@ -137,14 +137,14 @@ function generateBattleState(battle) {
       name: trainerPokemon.name,
       status: trainerPokemon.status,
       hp: trainerPokemon.hp,
-      maxHP: trainerPokemon.maxhp,
+      maxHp: trainerPokemon.maxhp,
       spriteUrl: pokeData[trainerPokemon.name.toLowerCase()].sprite,
     },
     wildPokemon: {
       name: wildPokemon.name,
       status: wildPokemon.status,
       hp: wildPokemon.hp,
-      maxHP: wildPokemon.maxhp,
+      maxHp: wildPokemon.maxhp,
       spriteUrl: pokeData[wildPokemon.name.toLowerCase()].sprite,
     },
     moveLog: moveLog,
@@ -168,8 +168,10 @@ function setupBattle(playerTeam, botTeam) {
 
 async function nextTrainerMove(battle) {
   // TODO: some async shit that takes the battle state and returns the selected move id
-  const input = prompt('Choose a Move ID (1 - 4) ');
-  const moveID = Number(input);
+  // const input = prompt('Choose a Move ID (1 - 4) ');
+  // const moveID = Number(input);
+
+  const moveID = 1;
 
   battle.choose(trainerID, `move ${moveID}`);
 }
@@ -179,14 +181,15 @@ async function fightBotPokemon(playerTeam, botTeam) {
   let battleState = generateBattleState(battle);
   await generateBattleImage(
     battleState.trainerPokemon,
-    battleState.wildPokemon
+    battleState.wildPokemon,
+    'src/battleImages/fight_scene_'+ Date.now()+'.png'
   );
   while (!battle.ended) {
     await nextTrainerMove(battle, trainerID);
     await botChooseHighestDamageMove(battle);
     await new Promise((resolve) => setTimeout(resolve, 150));
     battleState = generateBattleState(battle);
-    await generateBattleImage(battleState.trainerPokemon, battleState.wildPokemon);
+    await generateBattleImage(battleState.trainerPokemon, battleState.wildPokemon, 'src/battleImages/fight_scene_'+ Date.now()+'.png');
   }
   console.log(battle.winner == 'Trainer');
   return battle.winner == 'Trainer';
