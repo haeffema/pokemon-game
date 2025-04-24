@@ -8,8 +8,8 @@ import QuickChart from 'quickchart-js';
 import { exec } from 'child_process';
 import { EventEmitter } from 'events';
 
-import pokemonData from './pokemon/data/pokemon.json' with { type: 'json' };
-import droppableItems from './pokemon/data/droppable_items.json' with { type: 'json' };
+import pokemonData from './data/pokemon.json' with { type: 'json' };
+import droppableItems from './data/droppable_items.json' with { type: 'json' };
 
 import {
   Client,

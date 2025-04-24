@@ -1,13 +1,13 @@
 import showdown from 'pokemon-showdown';
 const { Battle, Teams, Dex } = showdown;
 import { calculate, Generations, Pokemon, Move, Field } from '@smogon/calc';
-import promptSync from 'prompt-sync';
-import { generateBattleImage } from '../battleRenderer.js';
+// import promptSync from 'prompt-sync';
+import { generateBattleImage } from './battleRenderer.js';
 import pokeData from './data/pokemon.json' with { type: 'json' };
 
 const trainerID = 'p1';
 const botID = 'p2';
-const prompt = promptSync();
+// const prompt = promptSync();
 
 function formatForCalc(pokemon) {
   const set = pokemon.set;
