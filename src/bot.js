@@ -198,7 +198,7 @@ generateBattleImage(
     spriteUrl: getPokemonSprite('Jirachi'),
     hp: 223,
     maxHp: 300,
-    status: "FRZ"
+    status: 'FRZ',
   },
   {
     name: 'Simisage',
