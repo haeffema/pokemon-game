@@ -54,6 +54,9 @@ function drawHealthBar(ctx, x, y, width, height, hp, maxHp, name, status) {
       case 'SLP':
         statusColor = 'pink';
         break;
+      case 'FRZ':
+        statusColor = 'lightblue';
+        break;
       default:
         statusColor = 'gray';
     }
