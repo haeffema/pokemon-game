@@ -2,6 +2,8 @@ import showdown from 'pokemon-showdown';
 const { Battle, Teams, Dex } = showdown;
 import { calculate, Generations, Pokemon, Move, Field } from '@smogon/calc';
 import promptSync from 'prompt-sync';
+import { generateBattleImage } from '../battleRenderer.js'
+import pokeData from './data/pokemon.json' with { type: 'json' }
 
 const trainerID = 'p1';
 const botID = 'p2';
@@ -104,7 +106,7 @@ function extractLastMovesAndDamageFinal(log) {
   }
 
   if (log[log.length - 1].startsWith('|win|')) {
-    turnIds.push(log.length)
+    turnIds.push(log.length);
   }
 
   for (
@@ -134,14 +136,16 @@ function generateBattleState(battle) {
     trainerPokemon: {
       name: trainerPokemon.name,
       status: trainerPokemon.status,
-      currentHP: trainerPokemon.hp,
+      hp: trainerPokemon.hp,
       maxHP: trainerPokemon.maxhp,
+      spriteUrl: pokeData[trainerPokemon.name.toLowerCase()].sprite,
     },
     wildPokemon: {
       name: wildPokemon.name,
       status: wildPokemon.status,
-      currentHP: wildPokemon.hp,
+      hp: wildPokemon.hp,
       maxHP: wildPokemon.maxhp,
+      spriteUrl: pokeData[wildPokemon.name.toLowerCase()].sprite,
     },
     moveLog: moveLog,
   };
@@ -172,12 +176,14 @@ async function nextTrainerMove(battle) {
 
 async function fightBotPokemon(playerTeam, botTeam) {
   const battle = setupBattle(playerTeam, botTeam);
-  let battleState = generateBattleState(battle)
+  let battleState = generateBattleState(battle);
+  await generateBattleImage(battleState.trainerPokemon, battleState.wildPokemon)
   while (!battle.ended) {
     await nextTrainerMove(battle, trainerID);
     await botChooseHighestDamageMove(battle);
     await new Promise((resolve) => setTimeout(resolve, 150));
     battleState = generateBattleState(battle);
+    await generateBattleImage(battleState.trainerPokemon, battle.wildPokemon)
   }
   console.log(battle.winner == 'Trainer');
   return battle.winner == 'Trainer';
