@@ -144,20 +144,20 @@ function calculateLoot(defeatedPokemonTier) {
     sprite: sprite,
   };
 }
-
+/*
 var loot = calculateLoot('NU');
 console.log(loot);
 
 if (loot.item == null) {
   bot.users.send(
-    '326305842427330560',
+    '360368525379895298',
     'Du hast das Pokemon erfolgreich besiegt und gefangen! Du hast ' +
       loot.gold +
       ' Gold erhalten!'
   );
 } else {
   bot.users.send(
-    '360366344635547650',
+    '360368525379895298',
     'Du hast das Pokemon erfolgreich besiegt! Du hast ' +
       loot.gold +
       ' Gold erhalten! Außerdem hat das wilde Pokemon ein neues Item fallen gelassen!'
@@ -166,7 +166,42 @@ if (loot.item == null) {
     .setTitle(loot.item)
     .setDescription(loot.description)
     .setThumbnail(loot.sprite);
-  bot.users.send('360366344635547650', {
+  bot.users.send('360368525379895298', {
     embeds: [embed],
   });
 }
+*/
+
+import { generateBattleImage } from './battleRenderer.js';
+
+function getPokemonSprite(pokemonName) {
+  const normalizedPokemonName = pokemonName.toLowerCase();
+
+  const allPokemon = Object.values(pokemonData);
+  const pokemon = allPokemon.find(p => p.name.toLowerCase() === normalizedPokemonName);
+
+  if (pokemon) {
+    return pokemon.sprite;
+  } else {
+    console.error(`Pokémon mit dem Namen "${pokemonName}" wurde nicht gefunden.`);
+    return null;
+  }
+}
+
+generateBattleImage(
+  {
+    name: "Jirachi",
+    spriteUrl: getPokemonSprite("Jirachi"),
+    hp: 223,
+    maxHp: 300,
+    status: "BRN"
+  },
+  {
+    name: "Simisage",
+    spriteUrl: getPokemonSprite("Simisage"),
+    hp: 84,
+    maxHp: 120,
+     status: "TOX"
+  },
+  'src/battleImages/fight_scene_'+ Date.now()+'.png'
+);
