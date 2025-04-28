@@ -42,7 +42,7 @@ const bot = new Client({
   partials: [Partials.Channel],
 });
 
-import config from './config.json' assert { type: 'json' };
+import config from './utils/config.json' assert { type: 'json' };
 
 const { token, clientId } = config;
 
