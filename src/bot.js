@@ -5,8 +5,6 @@ import { v4 as uuid } from 'uuid';
 import QuickChart from 'quickchart-js';
 import { exec } from 'child_process';
 import { EventEmitter } from 'events';
-import fs from 'node:fs';
-import path from'node:path';
 
 import pokemonData from './data/pokemon.json' with { type: 'json' };
 import droppableItems from './data/droppable_items.json' with { type: 'json' };
@@ -210,7 +208,7 @@ async function calculateLoot(defeatedPokemonTier) {
   };
 }
 
-var loot = calculateLoot('NU');
+var loot = await calculateLoot('NU');
 console.log(loot);
 
 if (loot.item == null) {
@@ -275,36 +273,43 @@ generateBattleImage(
   'src/battleImages/fight_scene_' + Date.now() + '.png'
 );
 
+import { fileURLToPath, pathToFileURL } from 'url';
+import path from 'path';
+import fs from 'fs/promises';
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 bot.commands = new Collection();
 
 const foldersPath = path.join(__dirname, 'commands');
-const commandFolders = fs.readdirSync(foldersPath);
+const commandFolders = await fs.readdir(foldersPath);
 
 for (const folder of commandFolders) {
-	const commandsPath = path.join(foldersPath, folder);
-	const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
-	for (const file of commandFiles) {
-		const filePath = path.join(commandsPath, file);
-		const command = await import(filePath); // Dynamisches import()
+    const commandsPath = path.join(foldersPath, folder);
+    const commandFiles = await fs.readdir(commandsPath);
+    
+    for (const file of commandFiles) {
+        if (!file.endsWith('.js')) continue;
 
-		// Beachte: import() liefert ein Modul-Objekt mit .default
-		const commandData = command.default;
+        const filePath = path.join(commandsPath, file);
 
-		if ('data' in commandData && 'execute' in commandData) {
-			bot.commands.set(commandData.data.name, commandData);
-		} else {
-			console.log(`[WARNING] The command at ${filePath} is missing a required "data" or "execute" property.`);
-		}
-	}
+        const command = await import(pathToFileURL(filePath).href); // <-- FIX here
+
+        const commandData = command.default;
+
+        if ('data' in commandData && 'execute' in commandData) {
+            bot.commands.set(commandData.data.name, commandData);
+        } else {
+            console.log(`[WARNING] The command at ${filePath} is missing a required "data" or "execute" property.`);
+        }
+    }
 }
 
 bot.on(Events.InteractionCreate, async interaction => {
 	if (!interaction.isChatInputCommand()) return;
 
-	const command = interaction.bot.commands.get(interaction.commandName);
+	const command = interaction.client.commands.get(interaction.commandName);
 
 	if (!command) {
 		console.error(`No command matching ${interaction.commandName} was found.`);
