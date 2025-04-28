@@ -185,8 +185,19 @@ async function calculateLoot(defeatedPokemonTier) {
   };
 }
 
-var loot = await calculateLoot('NU');
-console.log(loot);
+async function pokemonDefeated(pokemon,player, set, tier){
+
+  var query = "Insert ignore into pokemon (name, Spieler, pokepaste) Values (?,?,?)"
+  connection.query(query, [pokemon, player, set],(err, results) => {
+    if (err) {
+      console.error("Error executing query:", err);
+      return;
+    } 
+    console.log(results.affectedRows)
+  })
+  
+  var loot = await calculateLoot(tier);
+  console.log(loot);
 
 if (loot.item == null) {
   bot.users.send(
@@ -210,7 +221,19 @@ if (loot.item == null) {
     embeds: [embed],
   });
 }
+}
 
+var pokepaste = `Blacephalon @ Choice Specs
+Ability: Beast Boost
+EVs: 252 SpA / 4 SpD / 252 Spe
+Timid Nature
+IVs: 0 Atk
+- Shadow Ball
+- Fire Blast
+- Dark Pulse
+- Psyshock`;
+
+await pokemonDefeated("Blacephalon", "Jan", pokepaste, "OU");
 
 import { generateBattleImage } from './battleRenderer.js';
 

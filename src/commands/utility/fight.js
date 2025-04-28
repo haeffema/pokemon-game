@@ -19,6 +19,12 @@ const execute = async (interaction) => {
       const randomSetIndex = Math.floor(Math.random() * pokemon.sets.length);
       const randomSet = pokemon.sets[randomSetIndex];
       console.log(randomSet)
+      var query= "Select p.name, pokepaste from pokemon p inner join spieler s on p.Spieler = s.Name where discordid = ? and Lead = 1"
+      connection.query(query, [interaction.user.id], async function (err, pokemon) {
+        console.log(pokemon[0].name)
+        console.log(pokemon[0].pokepaste)
+        //TODO: Pokemon Daten an Max Funktion übergeben
+    })
     await interaction.reply('Fight started!');
 };
 
