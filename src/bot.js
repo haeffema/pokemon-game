@@ -54,29 +54,7 @@ bot.once('ready', () => {
   console.info(`Logged in as ${bot.user.tag}!`);
 });
 
-import mysql from 'mysql';
-import { NULL } from 'mysql/lib/protocol/constants/types.js';
-import { log } from 'console';
-import { deserialize } from 'v8';
-
-// MySQL-Verbindung
-const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  port: 3306,
-  password: null,
-  database: 'pokemongame',
-  multipleStatements: true,
-});
-
-connection.connect((err) => {
-  if (err) {
-    console.log(err.code);
-    console.log(err.fatal);
-  } else {
-    console.log('Connection to Database successful!');
-  }
-});
+import connection from '../src/utils/databaseConnection.js';
 
 async function filterPokemonByType(type, forbiddenTiers, number) {
   try {
@@ -149,8 +127,7 @@ async function getPokemonFromPool(type, forbiddenTiers, number) { //Übergabevar
 
   return pokemonListe;
 }
-
-var pokemonListe = await getPokemonFromPool("Fire", ['Uber', 'OU', 'OUBL', 'UUBL', 'UU', 'RUBL'], 10)
+var pokemonListe = await getPokemonFromPool("Fire", ['Uber', 'OUBL', 'UUBL', 'UU', 'RUBL', 'RU', 'NUBL', 'NU', 'ZUBL', 'ZU', 'PUBL', 'PU'], 10)
 console.log(pokemonListe)
 
 
@@ -257,18 +234,18 @@ function getPokemonSprite(pokemonName) {
 
 generateBattleImage(
   {
-    name: 'Jirachi',
-    spriteUrl: getPokemonSprite('Jirachi'),
-    hp: 223,
+    name: 'Rayquaza',
+    spriteUrl: getPokemonSprite('Rayquaza'),
+    hp: 299,
     maxHp: 300,
-    status: 'FRZ',
+    status: '',
   },
   {
-    name: 'Simisage',
-    spriteUrl: getPokemonSprite('Simisage'),
-    hp: 84,
-    maxHp: 120,
-    status: 'TOX',
+    name: 'Deoxys',
+    spriteUrl: getPokemonSprite('Deoxys'),
+    hp: 150,
+    maxHp: 190,
+    status: '',
   },
   'src/battleImages/fight_scene_' + Date.now() + '.png'
 );
