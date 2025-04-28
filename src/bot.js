@@ -1,5 +1,3 @@
-import dotenv from 'dotenv';
-dotenv.config();
 
 import cron from 'cron';
 import util from 'util';
@@ -7,6 +5,8 @@ import { v4 as uuid } from 'uuid';
 import QuickChart from 'quickchart-js';
 import { exec } from 'child_process';
 import { EventEmitter } from 'events';
+import fs from 'node:fs';
+import path from'node:path';
 
 import pokemonData from './data/pokemon.json' with { type: 'json' };
 import droppableItems from './data/droppable_items.json' with { type: 'json' };
@@ -27,6 +27,7 @@ import {
   TextInputStyle,
   Events,
   Embed,
+  Collection
 } from 'discord.js';
 
 const bot = new Client({
@@ -43,8 +44,12 @@ const bot = new Client({
   partials: [Partials.Channel],
 });
 
+import config from './config.json' assert { type: 'json' };
+
+const { token, clientId } = config;
+
 bot.login(
-  'MTAzMTU3NjA3MzM2NTg4OTEzNg.GG03-y.WObE98M9wY0ncbK6uN4WU-ENmGrMg5qJRfwOiM'
+  token
 );
 
 bot.once('ready', () => {
@@ -186,7 +191,6 @@ async function calculateLoot(defeatedPokemonTier) {
   const availableItems = droppableArray.filter(
     item => !ownedItems.includes(item.name)
   );
-  console.log(availableItems)
 
   // Dropchance
   const dropChance = Math.random();
@@ -270,3 +274,51 @@ generateBattleImage(
   },
   'src/battleImages/fight_scene_' + Date.now() + '.png'
 );
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+bot.commands = new Collection();
+
+const foldersPath = path.join(__dirname, 'commands');
+const commandFolders = fs.readdirSync(foldersPath);
+
+for (const folder of commandFolders) {
+	const commandsPath = path.join(foldersPath, folder);
+	const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
+	for (const file of commandFiles) {
+		const filePath = path.join(commandsPath, file);
+		const command = await import(filePath); // Dynamisches import()
+
+		// Beachte: import() liefert ein Modul-Objekt mit .default
+		const commandData = command.default;
+
+		if ('data' in commandData && 'execute' in commandData) {
+			bot.commands.set(commandData.data.name, commandData);
+		} else {
+			console.log(`[WARNING] The command at ${filePath} is missing a required "data" or "execute" property.`);
+		}
+	}
+}
+
+bot.on(Events.InteractionCreate, async interaction => {
+	if (!interaction.isChatInputCommand()) return;
+
+	const command = interaction.bot.commands.get(interaction.commandName);
+
+	if (!command) {
+		console.error(`No command matching ${interaction.commandName} was found.`);
+		return;
+	}
+
+	try {
+		await command.execute(interaction);
+	} catch (error) {
+		console.error(error);
+		if (interaction.replied || interaction.deferred) {
+			await interaction.followUp({ content: 'There was an error while executing this command!', flags: MessageFlags.Ephemeral });
+		} else {
+			await interaction.reply({ content: 'There was an error while executing this command!', flags: MessageFlags.Ephemeral });
+		}
+	}
+});
