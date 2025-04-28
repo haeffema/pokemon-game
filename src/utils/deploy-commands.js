@@ -6,12 +6,13 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 
 // __dirname rekonstruieren, weil es in ES Modules nicht existiert
 const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+var __dirname = path.dirname(__filename);
 
 const { clientId, token } = config;
 
 const commands = [];
 
+__dirname = path.resolve(__dirname, '..');
 // Alle Ordner im "commands"-Verzeichnis laden
 const foldersPath = path.join(__dirname, 'commands');
 const commandFolders = fs.readdirSync(foldersPath);

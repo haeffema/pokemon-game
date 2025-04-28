@@ -4,7 +4,7 @@ import pokemonData from '../../data/pokemon.json' with { type: 'json' };
 
 const commandData = new SlashCommandBuilder()
     .setName('fight')
-    .setDescription('Starts a fight with a wild Pokemon');
+    .setDescription('Start a fight with a wild Pokemon');
 
 const execute = async (interaction) => {
     var pokemonListe = await getPokemonFromPool("Fire", ['Uber', 'OUBL', 'UUBL', 'UU', 'RUBL', 'RU', 'NUBL', 'NU', 'ZUBL', 'ZU', 'PUBL', 'PU'], 10)
