@@ -18,3 +18,7 @@ export function setupBattle(playerTeam, botTeam) {
 
   return battle;
 }
+
+export async function runBattle(battle, userId) {
+  console.log('this does nothing yet lol');
+}

@@ -1,8 +1,4 @@
-export function generateRandomSet(pokemon) {
-  if (pokemon.sets.length == 0) {
-    throw 'no sets found';
-  }
-  const set = pokemon.sets[Math.floor(Math.random() * pokemon.sets.length)];
+export function convertSetToPokepaste(set, name) {
   let evs = 'EVs:';
   const evConverter = {
     hp: 'HP',
@@ -24,5 +20,5 @@ export function generateRandomSet(pokemon) {
   for (let move of set.moves) {
     moveStr += '\n- ' + move;
   }
-  return `${pokemon.name} @ ${set.item}\nAbility: ${set.ability}\n${evs}\n${set.nature} Nature${moveStr}`;
+  return `${name} @ ${set.item}\nAbility: ${set.ability}\n${evs}\n${set.nature} Nature${moveStr}`;
 }

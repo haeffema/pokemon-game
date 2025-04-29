@@ -1,6 +1,8 @@
 import { SlashCommandBuilder } from 'discord.js';
 import connection from '../../utils/databaseConnection.js';
 import pokemonData from '../../data/pokemon.json' with { type: 'json' };
+import { convertSetToPokepaste } from '../../utils/pokemon.js';
+import { setupBattle, runBattle } from '../../utils/battle.js';
 
 const commandData = new SlashCommandBuilder()
   .setName('fight')
@@ -30,20 +32,24 @@ const execute = async (interaction) => {
   console.log(randomPokemon);
   const pokemon = pokemonData[randomPokemon.toLowerCase()];
   if (!pokemon.sets || pokemon.sets.length === 0) {
-    console.error(`Keine Sets für das Pokémon ${pokemonName} verfügbar.`);
+    console.error(`Keine Sets für das Pokémon ${pokemon.name} verfügbar.`);
     return null;
   }
   const randomSetIndex = Math.floor(Math.random() * pokemon.sets.length);
   const randomSet = pokemon.sets[randomSetIndex];
-  console.log(randomSet);
+  const randomSetPokepaste = convertSetToPokepaste(randomSet, pokemon.name);
   var query =
     'Select p.name, pokepaste from pokemon p inner join spieler s on p.Spieler = s.Name where discordid = ? and Lead = 1';
   connection.query(query, [interaction.user.id], async function (err, pokemon) {
     console.log(pokemon[0].name);
     console.log(pokemon[0].pokepaste);
-    //TODO: Pokemon Daten an Max Funktion übergeben
+    //TODO: pokepaste in setupBattle
   });
+  const battle = setupBattle('query result pokepaste', randomSetPokepaste);
   await interaction.reply('Fight started!');
+  // runBattle braucht die user id und ruft dann irgendeine function von Jan auf
+  // um dem user das log bild und neuen input zu geben
+  await runBattle(battle, 187420);
 };
 
 export default {
