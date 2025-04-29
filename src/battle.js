@@ -151,20 +151,7 @@ function generateBattleState(battle) {
   };
 }
 
-function setupBattle(playerTeam, botTeam) {
-  const packedPlayer = Teams.pack(Teams.import(playerTeam));
-  const packedBot = Teams.pack(Teams.import(botTeam));
 
-  const battle = new Battle({ formatid: 'gen7customgame' });
-
-  battle.setPlayer(trainerID, { name: 'Trainer', team: packedPlayer });
-  battle.setPlayer(botID, { name: 'Wild', team: packedBot });
-
-  battle.choose(trainerID, 'team 1');
-  battle.choose(botID, 'team 1');
-
-  return battle;
-}
 
 async function nextTrainerMove(battle) {
   // TODO: some async shit that takes the battle state and returns the selected move id
@@ -176,8 +163,7 @@ async function nextTrainerMove(battle) {
   battle.choose(trainerID, `move ${moveID}`);
 }
 
-async function fightBotPokemon(playerTeam, botTeam) {
-  const battle = setupBattle(playerTeam, botTeam);
+async function fightBotPokemon(battle) {
   let battleState = generateBattleState(battle);
   await generateBattleImage(
     battleState.trainerPokemon,
@@ -210,15 +196,8 @@ Naive Nature
 - Knock Off
     `;
 
-const botTest = `
-Mimikyu @ Life Orb
-Ability: Disguise
-EVs: 252 Atk / 4 Def / 252 Spe
-Adamant Nature
-- Swords Dance
-- Shadow Claw
-- Play Rough
-- Shadow Sneak
-    `;
+const botSet = generateRandomSet(pokeData.venusaur)
+console.log(botSet)
+console.log(trainerTest)
+console.log(setupBattle(trainerTest, botSet))
 
-fightBotPokemon(trainerTest, botTest);
