@@ -5,6 +5,9 @@ const trainerID = 'p1';
 const botID = 'p2';
 
 export function setupBattle(playerTeam, botTeam) {
+    /**
+     * This takes two pokepaste sets and generates a battle object of the showdown enginge.
+     */
   const packedPlayer = Teams.pack(Teams.import(playerTeam));
   const packedBot = Teams.pack(Teams.import(botTeam));
 
@@ -20,5 +23,14 @@ export function setupBattle(playerTeam, botTeam) {
 }
 
 export async function runBattle(battle, userId) {
+    /**
+     * This function is called with a battle object and a userId to run the battle until there is a winner.
+     */
   console.log('this does nothing yet lol');
+}
+
+function updateBattleState() {
+    /**
+     * This function is used to generate an object containing all usefull data for the user.
+     */
 }

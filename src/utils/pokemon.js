@@ -1,4 +1,8 @@
 export function convertSetToPokepaste(set, name) {
+  /**
+   * This function converts a random set of a pokemon with the name to a pokepaste set.
+   * This does not check if the set or name is undefined, this is done before when the random set is selected.
+   */
   let evs = 'EVs:';
   const evConverter = {
     hp: 'HP',
