@@ -220,14 +220,14 @@ async function pokemonDefeated(pokemon, player, set, tier) {
     bot.users.send('360366344635547650', {
       embeds: [embed],
     });
-    var query="Insert into item (name, spieler, beschreibung, sprite) VALUES(?,?,?,?)"
-  connection.query(query, [loot.item, player, loot.description, loot.sprite], (err, results) => {
-    if (err) {
-      console.error("Error executing query:", err);
-      return;
-    }
-    console.log(results.affectedRows)
-  })
+    var query = "Insert into item (name, spieler, beschreibung, sprite) VALUES(?,?,?,?)"
+    connection.query(query, [loot.item, player, loot.description, loot.sprite], (err, results) => {
+      if (err) {
+        console.error("Error executing query:", err);
+        return;
+      }
+      console.log(results.affectedRows)
+    })
   }
 }
 
@@ -315,15 +315,27 @@ for (const folder of commandFolders) {
 }
 
 bot.on(Events.InteractionCreate, async interaction => {
-  if (!interaction.isChatInputCommand()) return;
+  //if (!interaction.isChatInputCommand()) return;
+  if (interaction.isAutocomplete() && interaction.commandName === 'lead') {
+    const userId = interaction.user.id;
 
+    const teamResults = await getTeamFromDB(userId); // Funktion siehe unten
+
+    const focused = interaction.options.getFocused();
+    const choices = teamResults
+      .filter(p => p.name.toLowerCase().includes(focused.toLowerCase()))
+      .slice(0, 25)
+      .map(p => ({ name: p.name, value: p.name }));
+
+    await interaction.respond(choices);
+    return;
+  }
   const command = interaction.client.commands.get(interaction.commandName);
 
   if (!command) {
     console.error(`No command matching ${interaction.commandName} was found.`);
     return;
   }
-
   try {
     await command.execute(interaction);
   } catch (error) {
@@ -335,3 +347,13 @@ bot.on(Events.InteractionCreate, async interaction => {
     }
   }
 });
+
+async function getTeamFromDB(discordId) {
+  return new Promise((resolve, reject) => {
+    const query = "SELECT name FROM pokemon WHERE spieler = (SELECT name FROM spieler WHERE discordid = ?)";
+    connection.query(query, [discordId], (err, results) => {
+      if (err) return reject(err);
+      resolve(results);
+    });
+  });
+}
