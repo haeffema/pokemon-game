@@ -1,13 +1,16 @@
 import showdown from 'pokemon-showdown';
-const { Battle, Teams } = showdown;
+const { Battle, Teams, Dex } = showdown;
+import { calculate, Generations, Pokemon, Move, Field } from '@smogon/calc';
+import pokeData from './data/pokemon.json' with { type: 'json' };
+import { generateBattleImage } from '../battleRenderer.js';
 
 const trainerID = 'p1';
 const botID = 'p2';
 
 export function setupBattle(playerTeam, botTeam) {
-    /**
-     * This takes two pokepaste sets and generates a battle object of the showdown enginge.
-     */
+  /**
+   * This takes two pokepaste sets and generates a battle object of the showdown enginge.
+   */
   const packedPlayer = Teams.pack(Teams.import(playerTeam));
   const packedBot = Teams.pack(Teams.import(botTeam));
 
@@ -23,14 +26,170 @@ export function setupBattle(playerTeam, botTeam) {
 }
 
 export async function runBattle(battle, userId) {
-    /**
-     * This function is called with a battle object and a userId to run the battle until there is a winner.
-     */
-  console.log('this does nothing yet lol');
+  /**
+   * This function is called with a battle object and a userId to run the battle until there is a winner.
+   */
+  const battleState = await updateBattleState(battle);
+  console.log(battleState);
+  if (!battle.ended) {
+    // const userResponse = await sendUserBattleState(userId, battleState, false);
+    const userResponse = 1;
+    battle.choose(trainerID, `move ${userResponse}`);
+    await botChooseHighestDamageMove(battle);
+    await new Promise((resolve) => setTimeout(resolve, 250));
+    await runBattle(battle, userId);
+    return;
+  }
+  // await sendUserBattleState(userId, battleState, true);
 }
 
-function updateBattleState() {
-    /**
-     * This function is used to generate an object containing all usefull data for the user.
-     */
+async function updateBattleState(battle) {
+  /**
+   * This function is used to generate an object containing all usefull data for the user.
+   */
+  const trainerPokemon = battle.p1.active[0];
+  const wildPokemon = battle.p2.active[0];
+  const moves = getAvailableMovesWithDescriptionForTrainer(battle);
+  const moveLog = extractLastMovesAndDamageFinal(battle.log);
+  const imageName = 'src/battleImages/fight_scene_' + Date.now() + '.png';
+  await generateBattleImage(
+    {
+      name: trainerPokemon.name,
+      status: trainerPokemon.status,
+      hp: trainerPokemon.hp,
+      maxHp: trainerPokemon.maxhp,
+      spriteUrl: pokeData[trainerPokemon.name.toLowerCase()].sprite,
+    },
+    {
+      name: wildPokemon.name,
+      status: wildPokemon.status,
+      hp: wildPokemon.hp,
+      maxHp: wildPokemon.maxhp,
+      spriteUrl: pokeData[wildPokemon.name.toLowerCase()].sprite,
+    },
+    imageName
+  );
+  return {
+    moves: moves,
+    image: imageName,
+    moveLog: moveLog,
+    winner: battle.winner,
+  };
+}
+
+function getAvailableMovesWithDescriptionForTrainer(battle) {
+  const player = battle[trainerID];
+  if (player && player.active[0]) {
+    return player.active[0].moveSlots.map((moveSlot, index) => {
+      const moveData = Dex.moves.get(moveSlot.move);
+      return {
+        id: index + 1,
+        name: moveSlot.move,
+        pp: moveSlot.pp,
+        shortDescription: moveData.shortDesc || 'No description available.',
+      };
+    });
+  }
+  return [];
+}
+
+function extractLastMovesAndDamageFinal(log) {
+  const moveData = {};
+  const turnIds = [];
+  let turnNum = 1;
+
+  while (log.includes(`|turn|${turnNum}`)) {
+    turnIds.push(log.indexOf(`|turn|${turnNum}`));
+    turnNum += 1;
+  }
+
+  if (turnIds.length == 1) {
+    return {};
+  }
+
+  if (log[log.length - 1].startsWith('|win|')) {
+    turnIds.push(log.length);
+  }
+
+  for (
+    let x = turnIds[turnIds.length - 2];
+    x < turnIds[turnIds.length - 1];
+    x++
+  ) {
+    // funktioniert nicht bei oneshot lol
+    console.log(log[x]);
+  }
+
+  console.log('----------');
+
+  // console.log(log);
+  // console.log(turnIds);
+
+  return moveData;
+}
+
+async function botChooseHighestDamageMove(battle) {
+  const attackerShowdown = battle.p2.active[0];
+  const defenderShowdown = battle.p1.active[0];
+  const gen = Generations.get(attackerShowdown.battle.gen);
+  const attacker = formatForCalc(attackerShowdown);
+  const defender = formatForCalc(defenderShowdown);
+  const moves = attackerShowdown.set.moves;
+  let bestMoveIndex = 0;
+  let maxDamage = -1;
+  for (let i = 0; i < moves.length; i++) {
+    const moveName = moves[i];
+    const move = new Move(gen, moveName);
+    const field = new Field({
+      weather: attackerShowdown.battle.field.weather || undefined,
+      terrain: attackerShowdown.battle.field.terrain || undefined,
+      defenderSide: {
+        reflect: defenderShowdown.volatiles['reflect']?.active || false,
+        lightScreen: defenderShowdown.volatiles['lightscreen']?.active || false,
+        auroraVeil: defenderShowdown.volatiles['auroraveil']?.active || false,
+      },
+      attackerSide: {
+        helpingHand: attackerShowdown.volatiles['helpinghand']?.active || false,
+      },
+    });
+    const result = calculate(gen, attacker, defender, move, field);
+    const possibleDamage = result.damage;
+
+    if (possibleDamage && possibleDamage.length > 0) {
+      const currentMaxDamage = Math.max(...possibleDamage);
+      if (currentMaxDamage > maxDamage) {
+        maxDamage = currentMaxDamage;
+        bestMoveIndex = i;
+      }
+    }
+  }
+  battle.choose(botID, `move ${bestMoveIndex + 1}`);
+}
+
+function formatForCalc(pokemon) {
+  const set = pokemon.set;
+  const evs = set?.evs || { hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0 };
+  const ivs = set?.ivs || {
+    hp: 31,
+    atk: 31,
+    def: 31,
+    spa: 31,
+    spd: 31,
+    spe: 31,
+  };
+  const nature = set?.nature || 'Serious';
+
+  return new Pokemon(pokemon.battle.gen, set.name, {
+    level: pokemon.level,
+    ability: pokemon.ability,
+    item: set?.item,
+    nature: nature,
+    evs: evs,
+    ivs: ivs,
+    boosts: pokemon.boosts,
+    gender:
+      pokemon.gender === 'M' ? 'M' : pokemon.gender === 'F' ? 'F' : undefined,
+    hp: pokemon.hp,
+    maxhp: pokemon.maxhp,
+  });
 }
