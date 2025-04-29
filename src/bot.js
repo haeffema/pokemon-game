@@ -1,4 +1,3 @@
-
 import cron from 'cron';
 import util from 'util';
 import { v4 as uuid } from 'uuid';
@@ -25,7 +24,7 @@ import {
   TextInputStyle,
   Events,
   Embed,
-  Collection
+  Collection,
 } from 'discord.js';
 
 import bot from './utils/client.js';
@@ -49,15 +48,13 @@ async function filterPokemonByType(type, forbiddenTiers, number) {
     const selected = filtered.slice(0, number);
 
     // Kommagetrennte Liste erstellen
-    const pokemonListeStr = selected.map(p => p.name).join(', ');
+    const pokemonListeStr = selected.map((p) => p.name).join(', ');
     const anzahl = selected.length;
 
-
-    var query = "Insert into pool (typ, pokemonliste, anzahl) VALUES(?,?,?)";
-    connection.query(query, [type, pokemonListeStr, anzahl])
+    var query = 'Insert into pool (typ, pokemonliste, anzahl) VALUES(?,?,?)';
+    connection.query(query, [type, pokemonListeStr, anzahl]);
     // Rückgabe der gewünschten Anzahl von Pokémon
     return selected;
-
   } catch (err) {
     console.error('Fehler beim Laden oder Verarbeiten der Datei:', err.message);
     return [];
@@ -72,13 +69,13 @@ async function filterPokemonByType(type, forbiddenTiers, number) {
 console.log(`Gefundene Pokémon mit Typ: ${Pokemon.length}`);
 Pokemon.forEach((p) => console.log(p.name));*/
 
-
-async function getPokemonFromPool(type, forbiddenTiers, number) { //Übergabevariablen nur für Generierung neuer Pool notwendig
+async function getPokemonFromPool(type, forbiddenTiers, number) {
+  //Übergabevariablen nur für Generierung neuer Pool notwendig
   // Datum von heute im Format YYYY-MM-DD
   const today = new Date().toISOString().slice(0, 10);
 
   const pokemonListe = await new Promise((resolve, reject) => {
-    const query = "SELECT pokemonliste FROM pool WHERE DATE(datum) = ?";
+    const query = 'SELECT pokemonliste FROM pool WHERE DATE(datum) = ?';
     connection.query(query, [today], function (err, results) {
       if (err) return reject(err);
 
@@ -87,25 +84,39 @@ async function getPokemonFromPool(type, forbiddenTiers, number) { //Übergabevar
         resolve(null);
       } else {
         // Wir nehmen nur das erste Ergebnis (falls mehrere)
-        const liste = results[0].pokemonliste.split(',').map(p => p.trim());
+        const liste = results[0].pokemonliste.split(',').map((p) => p.trim());
         resolve(liste);
       }
     });
   });
 
   if (!pokemonListe) {
-    console.log("Kein Pool gefunden, generiere neuen...");
-    await filterPokemonByType(type,
-      forbiddenTiers,
-      number);
-    return "Pool generiert"
+    console.log('Kein Pool gefunden, generiere neuen...');
+    await filterPokemonByType(type, forbiddenTiers, number);
+    return 'Pool generiert';
   }
 
   return pokemonListe;
 }
-var pokemonListe = await getPokemonFromPool("Fire", ['Uber', 'OUBL', 'UUBL', 'UU', 'RUBL', 'RU', 'NUBL', 'NU', 'ZUBL', 'ZU', 'PUBL', 'PU'], 10)
-console.log(pokemonListe)
-
+var pokemonListe = await getPokemonFromPool(
+  'Fire',
+  [
+    'Uber',
+    'OUBL',
+    'UUBL',
+    'UU',
+    'RUBL',
+    'RU',
+    'NUBL',
+    'NU',
+    'ZUBL',
+    'ZU',
+    'PUBL',
+    'PU',
+  ],
+  10
+);
+console.log(pokemonListe);
 
 const droppableArray = Object.values(droppableItems);
 
@@ -130,17 +141,17 @@ async function calculateLoot(defeatedPokemonTier) {
 
   // Datenbankabfrage: Welche Items besitzt der Spieler schon?
   const ownedItems = await new Promise((resolve, reject) => {
-    const query = "SELECT name FROM item WHERE spieler = ?";
-    connection.query(query, ["Jan"], function (err, results) {
+    const query = 'SELECT name FROM item WHERE spieler = ?';
+    connection.query(query, ['Jan'], function (err, results) {
       if (err) return reject(err);
-      const ownedNames = results.map(row => row.name);
+      const ownedNames = results.map((row) => row.name);
       resolve(ownedNames);
     });
   });
 
   // Alle Items, die der Spieler noch nicht hat
   const availableItems = droppableArray.filter(
-    item => !ownedItems.includes(item.name)
+    (item) => !ownedItems.includes(item.name)
   );
 
   // Dropchance
@@ -162,15 +173,15 @@ async function calculateLoot(defeatedPokemonTier) {
 }
 
 async function pokemonDefeated(pokemon, player, set, tier) {
-
-  var query = "Insert ignore into pokemon (name, Spieler, pokepaste) Values (?,?,?)"
+  var query =
+    'Insert ignore into pokemon (name, Spieler, pokepaste) Values (?,?,?)';
   connection.query(query, [pokemon, player, set], (err, results) => {
     if (err) {
-      console.error("Error executing query:", err);
+      console.error('Error executing query:', err);
       return;
     }
-    console.log(results.affectedRows)
-  })
+    console.log(results.affectedRows);
+  });
 
   var loot = await calculateLoot(tier);
   console.log(loot);
@@ -179,15 +190,15 @@ async function pokemonDefeated(pokemon, player, set, tier) {
     bot.users.send(
       '360366344635547650',
       'Du hast das Pokemon erfolgreich besiegt und gefangen! Du hast ' +
-      loot.gold +
-      ' Gold erhalten!'
+        loot.gold +
+        ' Gold erhalten!'
     );
   } else {
     bot.users.send(
       '360366344635547650',
       'Du hast das Pokemon erfolgreich besiegt! Du hast ' +
-      loot.gold +
-      ' Gold erhalten! Außerdem hat das wilde Pokemon ein neues Item fallen gelassen!'
+        loot.gold +
+        ' Gold erhalten! Außerdem hat das wilde Pokemon ein neues Item fallen gelassen!'
     );
     const embed = new EmbedBuilder()
       .setTitle(loot.item)
@@ -196,14 +207,19 @@ async function pokemonDefeated(pokemon, player, set, tier) {
     bot.users.send('360366344635547650', {
       embeds: [embed],
     });
-    var query = "Insert into item (name, spieler, beschreibung, sprite) VALUES(?,?,?,?)"
-    connection.query(query, [loot.item, player, loot.description, loot.sprite], (err, results) => {
-      if (err) {
-        console.error("Error executing query:", err);
-        return;
+    var query =
+      'Insert into item (name, spieler, beschreibung, sprite) VALUES(?,?,?,?)';
+    connection.query(
+      query,
+      [loot.item, player, loot.description, loot.sprite],
+      (err, results) => {
+        if (err) {
+          console.error('Error executing query:', err);
+          return;
+        }
+        console.log(results.affectedRows);
       }
-      console.log(results.affectedRows)
-    })
+    );
   }
 }
 
@@ -217,7 +233,7 @@ IVs: 0 Atk
 - Dark Pulse
 - Psyshock`;
 
-await pokemonDefeated("Blacephalon", "Jan", pokepaste, "OU");
+await pokemonDefeated('Blacephalon', 'Jan', pokepaste, 'OU');
 
 import { generateBattleImage } from './battleRenderer.js';
 
@@ -285,12 +301,14 @@ for (const folder of commandFolders) {
     if ('data' in commandData && 'execute' in commandData) {
       bot.commands.set(commandData.data.name, commandData);
     } else {
-      console.log(`[WARNING] The command at ${filePath} is missing a required "data" or "execute" property.`);
+      console.log(
+        `[WARNING] The command at ${filePath} is missing a required "data" or "execute" property.`
+      );
     }
   }
 }
 
-bot.on(Events.InteractionCreate, async interaction => {
+bot.on(Events.InteractionCreate, async (interaction) => {
   //if (!interaction.isChatInputCommand()) return;
   if (interaction.isAutocomplete() && interaction.commandName === 'lead') {
     const userId = interaction.user.id;
@@ -299,9 +317,9 @@ bot.on(Events.InteractionCreate, async interaction => {
 
     const focused = interaction.options.getFocused();
     const choices = teamResults
-      .filter(p => p.name.toLowerCase().includes(focused.toLowerCase()))
+      .filter((p) => p.name.toLowerCase().includes(focused.toLowerCase()))
       .slice(0, 25)
-      .map(p => ({ name: p.name, value: p.name }));
+      .map((p) => ({ name: p.name, value: p.name }));
 
     await interaction.respond(choices);
     return;
@@ -317,16 +335,23 @@ bot.on(Events.InteractionCreate, async interaction => {
   } catch (error) {
     console.error(error);
     if (interaction.replied || interaction.deferred) {
-      await interaction.followUp({ content: 'There was an error while executing this command!', flags: MessageFlags.Ephemeral });
+      await interaction.followUp({
+        content: 'There was an error while executing this command!',
+        flags: MessageFlags.Ephemeral,
+      });
     } else {
-      await interaction.reply({ content: 'There was an error while executing this command!', flags: MessageFlags.Ephemeral });
+      await interaction.reply({
+        content: 'There was an error while executing this command!',
+        flags: MessageFlags.Ephemeral,
+      });
     }
   }
 });
 
 async function getTeamFromDB(discordId) {
   return new Promise((resolve, reject) => {
-    const query = "SELECT name FROM pokemon WHERE spieler = (SELECT name FROM spieler WHERE discordid = ?)";
+    const query =
+      'SELECT name FROM pokemon WHERE spieler = (SELECT name FROM spieler WHERE discordid = ?)';
     connection.query(query, [discordId], (err, results) => {
       if (err) return reject(err);
       resolve(results);

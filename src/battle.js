@@ -151,8 +151,6 @@ function generateBattleState(battle) {
   };
 }
 
-
-
 async function nextTrainerMove(battle) {
   // TODO: some async shit that takes the battle state and returns the selected move id
   // const input = prompt('Choose a Move ID (1 - 4) ');
@@ -196,8 +194,7 @@ Naive Nature
 - Knock Off
     `;
 
-const botSet = generateRandomSet(pokeData.venusaur)
-console.log(botSet)
-console.log(trainerTest)
-console.log(setupBattle(trainerTest, botSet))
-
+const botSet = generateRandomSet(pokeData.venusaur);
+console.log(botSet);
+console.log(trainerTest);
+console.log(setupBattle(trainerTest, botSet));
