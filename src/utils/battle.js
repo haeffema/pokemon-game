@@ -4,8 +4,6 @@ const { Battle, Teams } = showdown;
 const trainerID = 'p1';
 const botID = 'p2';
 
-
-
 export function setupBattle(playerTeam, botTeam) {
   const packedPlayer = Teams.pack(Teams.import(playerTeam));
   const packedBot = Teams.pack(Teams.import(botTeam));
