@@ -28,31 +28,7 @@ import {
   Collection
 } from 'discord.js';
 
-const bot = new Client({
-  intents: [
-    GatewayIntentBits.DirectMessages,
-    GatewayIntentBits.Guilds,
-    GatewayIntentBits.GuildMessages,
-    GatewayIntentBits.MessageContent,
-    GatewayIntentBits.GuildMembers,
-    GatewayIntentBits.GuildModeration,
-    GatewayIntentBits.GuildIntegrations,
-    GatewayIntentBits.GuildPresences,
-  ],
-  partials: [Partials.Channel],
-});
-
-import config from './utils/config.json' assert { type: 'json' };
-
-const { token, clientId } = config;
-
-bot.login(
-  token
-);
-
-bot.once('ready', () => {
-  console.info(`Logged in as ${bot.user.tag}!`);
-});
+import bot from './utils/client.js';
 
 import connection from '../src/utils/databaseConnection.js';
 
