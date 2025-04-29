@@ -120,9 +120,9 @@ async function getPokemonFromPool(type, forbiddenTiers, number) { //Übergabevar
   if (!pokemonListe) {
     console.log("Kein Pool gefunden, generiere neuen...");
     await filterPokemonByType(type,
-  forbiddenTiers,
-  number); 
-  return "Pool generiert"
+      forbiddenTiers,
+      number);
+    return "Pool generiert"
   }
 
   return pokemonListe;
@@ -185,42 +185,50 @@ async function calculateLoot(defeatedPokemonTier) {
   };
 }
 
-async function pokemonDefeated(pokemon,player, set, tier){
+async function pokemonDefeated(pokemon, player, set, tier) {
 
   var query = "Insert ignore into pokemon (name, Spieler, pokepaste) Values (?,?,?)"
-  connection.query(query, [pokemon, player, set],(err, results) => {
+  connection.query(query, [pokemon, player, set], (err, results) => {
     if (err) {
       console.error("Error executing query:", err);
       return;
-    } 
+    }
     console.log(results.affectedRows)
   })
-  
+
   var loot = await calculateLoot(tier);
   console.log(loot);
 
-if (loot.item == null) {
-  bot.users.send(
-    '360366344635547650',
-    'Du hast das Pokemon erfolgreich besiegt und gefangen! Du hast ' +
+  if (loot.item == null) {
+    bot.users.send(
+      '360366344635547650',
+      'Du hast das Pokemon erfolgreich besiegt und gefangen! Du hast ' +
       loot.gold +
       ' Gold erhalten!'
-  );
-} else {
-  bot.users.send(
-    '360366344635547650',
-    'Du hast das Pokemon erfolgreich besiegt! Du hast ' +
+    );
+  } else {
+    bot.users.send(
+      '360366344635547650',
+      'Du hast das Pokemon erfolgreich besiegt! Du hast ' +
       loot.gold +
       ' Gold erhalten! Außerdem hat das wilde Pokemon ein neues Item fallen gelassen!'
-  );
-  const embed = new EmbedBuilder()
-    .setTitle(loot.item)
-    .setDescription(loot.description)
-    .setThumbnail(loot.sprite);
-  bot.users.send('360366344635547650', {
-    embeds: [embed],
-  });
-}
+    );
+    const embed = new EmbedBuilder()
+      .setTitle(loot.item)
+      .setDescription(loot.description)
+      .setThumbnail(loot.sprite);
+    bot.users.send('360366344635547650', {
+      embeds: [embed],
+    });
+    var query="Insert into item (name, spieler, beschreibung, sprite) VALUES(?,?,?,?)"
+  connection.query(query, [loot.item, player, loot.description, loot.sprite], (err, results) => {
+    if (err) {
+      console.error("Error executing query:", err);
+      return;
+    }
+    console.log(results.affectedRows)
+  })
+  }
 }
 
 var pokepaste = `Blacephalon @ Choice Specs
@@ -286,44 +294,44 @@ const foldersPath = path.join(__dirname, 'commands');
 const commandFolders = await fs.readdir(foldersPath);
 
 for (const folder of commandFolders) {
-    const commandsPath = path.join(foldersPath, folder);
-    const commandFiles = await fs.readdir(commandsPath);
-    
-    for (const file of commandFiles) {
-        if (!file.endsWith('.js')) continue;
+  const commandsPath = path.join(foldersPath, folder);
+  const commandFiles = await fs.readdir(commandsPath);
 
-        const filePath = path.join(commandsPath, file);
+  for (const file of commandFiles) {
+    if (!file.endsWith('.js')) continue;
 
-        const command = await import(pathToFileURL(filePath).href); // <-- FIX here
+    const filePath = path.join(commandsPath, file);
 
-        const commandData = command.default;
+    const command = await import(pathToFileURL(filePath).href); // <-- FIX here
 
-        if ('data' in commandData && 'execute' in commandData) {
-            bot.commands.set(commandData.data.name, commandData);
-        } else {
-            console.log(`[WARNING] The command at ${filePath} is missing a required "data" or "execute" property.`);
-        }
+    const commandData = command.default;
+
+    if ('data' in commandData && 'execute' in commandData) {
+      bot.commands.set(commandData.data.name, commandData);
+    } else {
+      console.log(`[WARNING] The command at ${filePath} is missing a required "data" or "execute" property.`);
     }
+  }
 }
 
 bot.on(Events.InteractionCreate, async interaction => {
-	if (!interaction.isChatInputCommand()) return;
+  if (!interaction.isChatInputCommand()) return;
 
-	const command = interaction.client.commands.get(interaction.commandName);
+  const command = interaction.client.commands.get(interaction.commandName);
 
-	if (!command) {
-		console.error(`No command matching ${interaction.commandName} was found.`);
-		return;
-	}
+  if (!command) {
+    console.error(`No command matching ${interaction.commandName} was found.`);
+    return;
+  }
 
-	try {
-		await command.execute(interaction);
-	} catch (error) {
-		console.error(error);
-		if (interaction.replied || interaction.deferred) {
-			await interaction.followUp({ content: 'There was an error while executing this command!', flags: MessageFlags.Ephemeral });
-		} else {
-			await interaction.reply({ content: 'There was an error while executing this command!', flags: MessageFlags.Ephemeral });
-		}
-	}
+  try {
+    await command.execute(interaction);
+  } catch (error) {
+    console.error(error);
+    if (interaction.replied || interaction.deferred) {
+      await interaction.followUp({ content: 'There was an error while executing this command!', flags: MessageFlags.Ephemeral });
+    } else {
+      await interaction.reply({ content: 'There was an error while executing this command!', flags: MessageFlags.Ephemeral });
+    }
+  }
 });
