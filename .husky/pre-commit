@@ -7,4 +7,5 @@ then
 fi
 
 npm run format
+git stage .
 echo 'add linting to pre-commit when jan fixes his bot imports'
