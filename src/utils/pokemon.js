@@ -26,5 +26,3 @@ export function convertSetToPokepaste(set, name) {
   }
   return `${name} @ ${set.item}\nAbility: ${set.ability}\n${evs}\n${set.nature} Nature${moveStr}`;
 }
-
-export function getRandomSet(pokemon) {}
