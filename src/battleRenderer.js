@@ -1,6 +1,11 @@
 import { createCanvas, loadImage } from 'canvas';
 import { createWriteStream } from 'fs';
 
+import pokemonData from './data/pokemon.json' with { type: 'json' };
+import droppableItems from './data/droppable_items.json' with { type: 'json' };
+const droppableArray = Object.values(droppableItems);
+import connection from '../src/utils/databaseConnection.js';
+
 const width = 800;
 const height = 600;
 
@@ -143,7 +148,7 @@ export async function sendUserBattleState(userid, battleState, wildPokemon) {
     if (battleState.winner) {
       const winnerText =
         battleState.winner === 'Trainer'
-          ? 'Du hast den Kampf gewonnen und das wilde Pokemon gefangen!'
+          ? 'Du hast den Kampf gewonnen!'
           : 'Das wilde Pokémon hat den Kampf gewonnen und ist geflüchtet.';
 
       const embed = new EmbedBuilder()
@@ -152,6 +157,7 @@ export async function sendUserBattleState(userid, battleState, wildPokemon) {
         .setColor(battleState.winner === 'Trainer' ? 0x00ff00 : 0xff0000);
 
       await bot.users.send(userid, { embeds: [embed] });
+      if(battleState.winner === 'Trainer')pokemonDefeated(userid, wildPokemon)
       return battleState.winner;
     }
 
@@ -200,3 +206,116 @@ export async function sendUserBattleState(userid, battleState, wildPokemon) {
   }
 }
 
+async function pokemonDefeated(userid, pokepaste) {
+  console.log(pokepaste)
+  const firstLine = pokepaste.trim().split('\n')[0];
+  const name = firstLine.split(' @ ')[0].trim();
+  const normalizedPokemonName = name.toLowerCase();
+
+  const allPokemon = Object.values(pokemonData);
+  const wildPokemon = allPokemon.find(
+    (p) => p.name.toLowerCase() === normalizedPokemonName
+  );
+  var tier = wildPokemon.tier;
+  var query =
+    'Insert ignore into pokemon (name, Spieler, pokepaste) Values (?,(Select name from spieler where discordid= ? ),?)';
+  connection.query(query, [name, userid, pokepaste], (err, results) => {
+    if (err) {
+      console.error('Error executing query:', err);
+      return;
+    }
+    console.log(results.affectedRows);
+  });
+
+ var loot = await calculateLoot(tier);
+  console.log(loot);
+
+  if (loot.item == null) {
+    bot.users.send(
+      userid,
+      'Du hast das Pokemon erfolgreich besiegt und gefangen! Du hast ' +
+        loot.gold +
+        ' Gold erhalten!'
+    );
+  } else {
+    bot.users.send(
+      userid,
+      'Du hast das Pokemon erfolgreich besiegt! Du hast ' +
+        loot.gold +
+        ' Gold erhalten! Außerdem hat das wilde Pokemon ein neues Item fallen gelassen!'
+    );
+    const embed = new EmbedBuilder()
+      .setTitle(loot.item)
+      .setDescription(loot.description)
+      .setThumbnail(loot.sprite);
+    bot.users.send(userid, {
+      embeds: [embed],
+    });
+    var query =
+      'Insert into item (name, spieler, beschreibung, sprite) VALUES(?,(Select name from spieler where discordid= ? ),?,?)';
+    connection.query(
+      query,
+      [loot.item, userid, loot.description, loot.sprite],
+      (err, results) => {
+        if (err) {
+          console.error('Error executing query:', err);
+          return;
+        }
+        console.log(results.affectedRows);
+      }
+    );
+  }
+}
+
+async function calculateLoot(defeatedPokemonTier) {
+  const baseGold = getBaseGold(defeatedPokemonTier);
+  const bonus = Math.floor(Math.random() * 41) - 20;
+  const gold = Math.max(0, baseGold + bonus);
+
+  let item = null;
+  let description = null;
+  let sprite = null;
+
+  // Datenbankabfrage: Welche Items besitzt der Spieler schon?
+  const ownedItems = await new Promise((resolve, reject) => {
+    const query = 'SELECT name FROM item WHERE spieler = ?';
+    connection.query(query, ['Jan'], function (err, results) {
+      if (err) return reject(err);
+      const ownedNames = results.map((row) => row.name);
+      resolve(ownedNames);
+    });
+  });
+
+  // Alle Items, die der Spieler noch nicht hat
+  const availableItems = droppableArray.filter(
+    (item) => !ownedItems.includes(item.name)
+  );
+
+  // Dropchance
+  const dropChance = Math.random();
+  if (dropChance <= 0.1 && availableItems.length > 0) {
+    const randomIndex = Math.floor(Math.random() * availableItems.length);
+    const dropped = availableItems[randomIndex];
+    item = dropped.name;
+    description = dropped.description;
+    sprite = dropped.sprite;
+  }
+
+  return {
+    gold: gold,
+    item: item,
+    description: description,
+    sprite: sprite,
+  };
+}
+
+function getBaseGold(tier) {
+  const normalizedTier = tier.trim().toUpperCase();
+
+  if (['NUBL', 'RU'].includes(normalizedTier)) return 100;
+  if (['RUBL', 'UU'].includes(normalizedTier)) return 200;
+  if (['UUBL', 'OU'].includes(normalizedTier)) return 300;
+  if (['OUBL', 'UBER'].includes(normalizedTier)) return 500;
+
+  return 50;
+}

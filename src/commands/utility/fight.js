@@ -42,7 +42,7 @@ const execute = async (interaction) => {
   await interaction.reply('Fight started!');
   // runBattle braucht die user id und ruft dann irgendeine function von Jan auf
   // um dem user das log bild und neuen input zu geben
-  await runBattle(battle, interaction.user.id);
+  await runBattle(battle, interaction.user.id, randomSetPokepaste);
 });
 };
 

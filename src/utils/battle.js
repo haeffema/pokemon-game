@@ -25,19 +25,18 @@ export function setupBattle(playerTeam, botTeam) {
   return battle;
 }
 
-export async function runBattle(battle, userId) {
+export async function runBattle(battle, userId, wildPokemon) {
   /**
    * This function is called with a battle object and a userId to run the battle until there is a winner.
    */
   const battleState = await updateBattleState(battle);
-  console.log(battleState);
   if (!battle.ended) {
     const userResponse = await sendUserBattleState(userId, battleState, wildPokemon);
     //const userResponse = 1;
     battle.choose(trainerID, `move ${userResponse}`);
     await botChooseHighestDamageMove(battle);
     await new Promise((resolve) => setTimeout(resolve, 250));
-    await runBattle(battle, userId);
+    await runBattle(battle, userId, wildPokemon);
     return;
   }
   await sendUserBattleState(userId, battleState, wildPokemon);
