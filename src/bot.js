@@ -98,25 +98,6 @@ async function getPokemonFromPool(type, forbiddenTiers, number) {
 
   return pokemonListe;
 }
-var pokemonListe = await getPokemonFromPool(
-  'Fire',
-  [
-    'Uber',
-    'OUBL',
-    'UUBL',
-    'UU',
-    'RUBL',
-    'RU',
-    'NUBL',
-    'NU',
-    'ZUBL',
-    'ZU',
-    'PUBL',
-    'PU',
-  ],
-  10
-);
-console.log(pokemonListe);
 
 const droppableArray = Object.values(droppableItems);
 
@@ -171,7 +152,7 @@ async function calculateLoot(defeatedPokemonTier) {
     sprite: sprite,
   };
 }
-
+/*
 async function pokemonDefeated(pokemon, player, set, tier) {
   var query =
     'Insert ignore into pokemon (name, Spieler, pokepaste) Values (?,?,?)';
@@ -183,7 +164,7 @@ async function pokemonDefeated(pokemon, player, set, tier) {
     console.log(results.affectedRows);
   });
 
-  var loot = await calculateLoot(tier);
+ var loot = await calculateLoot(tier);
   console.log(loot);
 
   if (loot.item == null) {
@@ -221,7 +202,7 @@ async function pokemonDefeated(pokemon, player, set, tier) {
       }
     );
   }
-}
+}*/
 
 var pokepaste = `Blacephalon @ Choice Specs
 Ability: Beast Boost
@@ -233,7 +214,7 @@ IVs: 0 Atk
 - Dark Pulse
 - Psyshock`;
 
-await pokemonDefeated('Blacephalon', 'Jan', pokepaste, 'OU');
+//await pokemonDefeated('Blacephalon', 'Jan', pokepaste, 'OU');
 
 import { generateBattleImage } from './battleRenderer.js';
 
@@ -254,7 +235,7 @@ function getPokemonSprite(pokemonName) {
     return null;
   }
 }
-
+/*
 generateBattleImage(
   {
     name: 'Rayquaza',
@@ -271,7 +252,7 @@ generateBattleImage(
     status: '',
   },
   'src/battleImages/fight_scene_' + Date.now() + '.png'
-);
+);*/
 
 import { fileURLToPath, pathToFileURL } from 'url';
 import path from 'path';

@@ -10,20 +10,13 @@ const commandData = new SlashCommandBuilder()
 
 const execute = async (interaction) => {
   var pokemonListe = await getPokemonFromPool(
-    'Fire',
+    'Grass',
     [
       'Uber',
+      'OU',
       'OUBL',
       'UUBL',
       'UU',
-      'RUBL',
-      'RU',
-      'NUBL',
-      'NU',
-      'ZUBL',
-      'ZU',
-      'PUBL',
-      'PU',
     ],
     10
   );
@@ -44,12 +37,13 @@ const execute = async (interaction) => {
     console.log(pokemon[0].name);
     console.log(pokemon[0].pokepaste);
     //TODO: pokepaste in setupBattle
-  });
-  const battle = setupBattle('query result pokepaste', randomSetPokepaste);
+
+  const battle = setupBattle(pokemon[0].pokepaste, randomSetPokepaste);
   await interaction.reply('Fight started!');
   // runBattle braucht die user id und ruft dann irgendeine function von Jan auf
   // um dem user das log bild und neuen input zu geben
-  await runBattle(battle, 187420);
+  await runBattle(battle, interaction.user.id);
+});
 };
 
 export default {
@@ -85,4 +79,34 @@ async function getPokemonFromPool(type, forbiddenTiers, number) {
   }
 
   return pokemonListe;
+}
+
+async function filterPokemonByType(type, forbiddenTiers, number) {
+  try {
+    const allPokemon = Object.values(pokemonData);
+    // Filtern mit optionalem Typ
+    const filtered = allPokemon.filter(
+      (p) =>
+        (!type || p.types.includes(type)) && !forbiddenTiers.includes(p.tier)
+    );
+
+    // Mischen des Arrays mit dem Fisher-Yates-Algorithmus
+    for (let i = filtered.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [filtered[i], filtered[j]] = [filtered[j], filtered[i]];
+    }
+    const selected = filtered.slice(0, number);
+
+    // Kommagetrennte Liste erstellen
+    const pokemonListeStr = selected.map((p) => p.name).join(', ');
+    const anzahl = selected.length;
+
+    var query = 'Insert into pool (typ, pokemonliste, anzahl) VALUES(?,?,?)';
+    connection.query(query, [type, pokemonListeStr, anzahl]);
+    // Rückgabe der gewünschten Anzahl von Pokémon
+    return selected;
+  } catch (err) {
+    console.error('Fehler beim Laden oder Verarbeiten der Datei:', err.message);
+    return [];
+  }
 }
