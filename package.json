@@ -36,7 +36,7 @@
     "util": "^0.12.5"
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx,json,md,css,scss,html}": [
+    "*.{js,json,md}": [
       "prettier --write"
     ]
   }
