@@ -1,8 +1,8 @@
 import showdown from 'pokemon-showdown';
 const { Battle, Teams, Dex } = showdown;
 import { calculate, Generations, Pokemon, Move, Field } from '@smogon/calc';
-import pokeData from './data/pokemon.json' with { type: 'json' };
-import { generateBattleImage } from '../battleRenderer.js';
+import pokeData from '../data/pokemon.json' with { type: 'json' };
+import { generateBattleImage, sendUserBattleState } from '../battleRenderer.js';
 
 const trainerID = 'p1';
 const botID = 'p2';
@@ -25,22 +25,21 @@ export function setupBattle(playerTeam, botTeam) {
   return battle;
 }
 
-export async function runBattle(battle, userId) {
+export async function runBattle(battle, userId, wildPokemon) {
   /**
    * This function is called with a battle object and a userId to run the battle until there is a winner.
    */
   const battleState = await updateBattleState(battle);
-  console.log(battleState);
   if (!battle.ended) {
-    // const userResponse = await sendUserBattleState(userId, battleState, false);
-    const userResponse = 1;
+    const userResponse = await sendUserBattleState(userId, battleState, wildPokemon);
+    //const userResponse = 1;
     battle.choose(trainerID, `move ${userResponse}`);
     await botChooseHighestDamageMove(battle);
     await new Promise((resolve) => setTimeout(resolve, 250));
-    await runBattle(battle, userId);
+    await runBattle(battle, userId, wildPokemon);
     return;
   }
-  // await sendUserBattleState(userId, battleState, true);
+  await sendUserBattleState(userId, battleState, wildPokemon);
 }
 
 async function updateBattleState(battle) {

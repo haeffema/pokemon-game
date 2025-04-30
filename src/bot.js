@@ -98,142 +98,6 @@ async function getPokemonFromPool(type, forbiddenTiers, number) {
 
   return pokemonListe;
 }
-var pokemonListe = await getPokemonFromPool(
-  'Fire',
-  [
-    'Uber',
-    'OUBL',
-    'UUBL',
-    'UU',
-    'RUBL',
-    'RU',
-    'NUBL',
-    'NU',
-    'ZUBL',
-    'ZU',
-    'PUBL',
-    'PU',
-  ],
-  10
-);
-console.log(pokemonListe);
-
-const droppableArray = Object.values(droppableItems);
-
-function getBaseGold(tier) {
-  const normalizedTier = tier.trim().toUpperCase();
-
-  if (['NUBL', 'RU'].includes(normalizedTier)) return 100;
-  if (['RUBL', 'UU'].includes(normalizedTier)) return 200;
-  if (['UUBL', 'OU'].includes(normalizedTier)) return 300;
-  if (['OUBL', 'UBER'].includes(normalizedTier)) return 500;
-
-  return 50;
-}
-async function calculateLoot(defeatedPokemonTier) {
-  const baseGold = getBaseGold(defeatedPokemonTier);
-  const bonus = Math.floor(Math.random() * 41) - 20;
-  const gold = Math.max(0, baseGold + bonus);
-
-  let item = null;
-  let description = null;
-  let sprite = null;
-
-  // Datenbankabfrage: Welche Items besitzt der Spieler schon?
-  const ownedItems = await new Promise((resolve, reject) => {
-    const query = 'SELECT name FROM item WHERE spieler = ?';
-    connection.query(query, ['Jan'], function (err, results) {
-      if (err) return reject(err);
-      const ownedNames = results.map((row) => row.name);
-      resolve(ownedNames);
-    });
-  });
-
-  // Alle Items, die der Spieler noch nicht hat
-  const availableItems = droppableArray.filter(
-    (item) => !ownedItems.includes(item.name)
-  );
-
-  // Dropchance
-  const dropChance = Math.random();
-  if (dropChance <= 0.1 && availableItems.length > 0) {
-    const randomIndex = Math.floor(Math.random() * availableItems.length);
-    const dropped = availableItems[randomIndex];
-    item = dropped.name;
-    description = dropped.description;
-    sprite = dropped.sprite;
-  }
-
-  return {
-    gold: gold,
-    item: item,
-    description: description,
-    sprite: sprite,
-  };
-}
-
-async function pokemonDefeated(pokemon, player, set, tier) {
-  var query =
-    'Insert ignore into pokemon (name, Spieler, pokepaste) Values (?,?,?)';
-  connection.query(query, [pokemon, player, set], (err, results) => {
-    if (err) {
-      console.error('Error executing query:', err);
-      return;
-    }
-    console.log(results.affectedRows);
-  });
-
-  var loot = await calculateLoot(tier);
-  console.log(loot);
-
-  if (loot.item == null) {
-    bot.users.send(
-      '360366344635547650',
-      'Du hast das Pokemon erfolgreich besiegt und gefangen! Du hast ' +
-        loot.gold +
-        ' Gold erhalten!'
-    );
-  } else {
-    bot.users.send(
-      '360366344635547650',
-      'Du hast das Pokemon erfolgreich besiegt! Du hast ' +
-        loot.gold +
-        ' Gold erhalten! Außerdem hat das wilde Pokemon ein neues Item fallen gelassen!'
-    );
-    const embed = new EmbedBuilder()
-      .setTitle(loot.item)
-      .setDescription(loot.description)
-      .setThumbnail(loot.sprite);
-    bot.users.send('360366344635547650', {
-      embeds: [embed],
-    });
-    var query =
-      'Insert into item (name, spieler, beschreibung, sprite) VALUES(?,?,?,?)';
-    connection.query(
-      query,
-      [loot.item, player, loot.description, loot.sprite],
-      (err, results) => {
-        if (err) {
-          console.error('Error executing query:', err);
-          return;
-        }
-        console.log(results.affectedRows);
-      }
-    );
-  }
-}
-
-var pokepaste = `Blacephalon @ Choice Specs
-Ability: Beast Boost
-EVs: 252 SpA / 4 SpD / 252 Spe
-Timid Nature
-IVs: 0 Atk
-- Shadow Ball
-- Fire Blast
-- Dark Pulse
-- Psyshock`;
-
-await pokemonDefeated('Blacephalon', 'Jan', pokepaste, 'OU');
 
 import { generateBattleImage } from './battleRenderer.js';
 
@@ -254,7 +118,7 @@ function getPokemonSprite(pokemonName) {
     return null;
   }
 }
-
+/*
 generateBattleImage(
   {
     name: 'Rayquaza',
@@ -271,7 +135,7 @@ generateBattleImage(
     status: '',
   },
   'src/battleImages/fight_scene_' + Date.now() + '.png'
-);
+);*/
 
 import { fileURLToPath, pathToFileURL } from 'url';
 import path from 'path';
