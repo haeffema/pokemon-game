@@ -2,7 +2,7 @@ import showdown from 'pokemon-showdown';
 const { Battle, Teams, Dex } = showdown;
 import { calculate, Generations, Pokemon, Move, Field } from '@smogon/calc';
 import pokeData from '../data/pokemon.json' with { type: 'json' };
-// import { generateBattleImage, sendUserBattleState } from '../battleRenderer.js';
+import { generateBattleImage, sendUserBattleState } from '../battleRenderer.js';
 
 const trainerID = 'p1';
 const botID = 'p2';
@@ -31,15 +31,14 @@ export async function runBattle(battle, userId, wildPokemon) {
    */
   const battleState = await updateBattleState(battle);
   if (!battle.ended) {
-    // const userResponse = await sendUserBattleState(userId, battleState, wildPokemon);
-    const userResponse = 1;
+    const userResponse = await sendUserBattleState(userId, battleState, wildPokemon);
     battle.choose(trainerID, `move ${userResponse}`);
     await botChooseHighestDamageMove(battle);
     await new Promise((resolve) => setTimeout(resolve, 250));
     await runBattle(battle, userId, wildPokemon);
     return;
   }
-  // await sendUserBattleState(userId, battleState, wildPokemon);
+  await sendUserBattleState(userId, battleState, wildPokemon);
 }
 
 async function updateBattleState(battle) {
@@ -51,7 +50,7 @@ async function updateBattleState(battle) {
   const moves = getAvailableMovesWithDescriptionForTrainer(battle);
   const roundLog = generateRoundLog(battle.log);
   const imageName = 'src/battleImages/fight_scene_' + Date.now() + '.png';
-  /*await generateBattleImage(
+  await generateBattleImage(
     {
       name: trainerPokemon.name,
       status: trainerPokemon.status,
@@ -67,7 +66,7 @@ async function updateBattleState(battle) {
       spriteUrl: pokeData[wildPokemon.name.toLowerCase()].sprite,
     },
     imageName
-  );*/
+  );
   return {
     moves: moves,
     image: imageName,
@@ -96,10 +95,6 @@ function getAvailableMovesWithDescriptionForTrainer(battle) {
 }
 
 function generateRoundLog(log) {
-  const trainerNames = {
-    p1a: 'Trainer',
-    p2a: 'Wild',
-  };
   const turnIds = [];
   const sortedMoveLog = [];
   let turnNum = 1;
@@ -143,14 +138,32 @@ function generateRoundLog(log) {
     moveLog += convertMoveLogToString(rawMoveLog);
   }
 
-  console.log(moveLog);
-  console.log('----------');
   return moveLog;
 }
 
 function convertMoveLogToString(log) {
-  let moveLog = '';
-  console.log(log);
+  const trainerNames = {
+    p1a: 'Your',
+    p2a: 'Wild',
+  };
+  let moveLog = `${trainerNames[log[0].split('|')[2].split(': ')[0]]} ${log[0].split('|')[2].split(': ')[1]} used ${log[0].split('|')[3]} against ${trainerNames[log[0].split('|')[4].split(': ')[0]]} ${log[0].split('|')[4].split(': ')[1]}\n`;
+  if (log[1].startsWith('|-supereffective')) {
+    moveLog += 'It was super effective.\n';
+  }
+  if (log[1].startsWith('|-fail|')) {
+    return moveLog + 'Failed.\n';
+  }
+  if (log[1].startsWith('|-miss|')) {
+    return moveLog + 'Missed.\n';
+  }
+  if (log[1].startsWith('|-resisted')) {
+    moveLog += 'It was not very effective.\n';
+  }
+
+  if (log[log.length - 3].startsWith('|faint|')) {
+    moveLog += `${trainerNames[log[log.length - 3].split('|')[2].split(': ')[0]]} ${log[log.length - 3].split('|')[2].split(': ')[1]} fainted.\n`;
+  }
+
   return moveLog;
 }
 
