@@ -2,7 +2,7 @@ import showdown from 'pokemon-showdown';
 const { Battle, Teams, Dex } = showdown;
 import { calculate, Generations, Pokemon, Move, Field } from '@smogon/calc';
 import pokeData from '../data/pokemon.json' with { type: 'json' };
-import { generateBattleImage, sendUserBattleState } from '../battleRenderer.js';
+// import { generateBattleImage, sendUserBattleState } from '../battleRenderer.js';
 
 const trainerID = 'p1';
 const botID = 'p2';
@@ -31,15 +31,15 @@ export async function runBattle(battle, userId, wildPokemon) {
    */
   const battleState = await updateBattleState(battle);
   if (!battle.ended) {
-    const userResponse = await sendUserBattleState(userId, battleState, wildPokemon);
-    //const userResponse = 1;
+    // const userResponse = await sendUserBattleState(userId, battleState, wildPokemon);
+    const userResponse = 1;
     battle.choose(trainerID, `move ${userResponse}`);
     await botChooseHighestDamageMove(battle);
     await new Promise((resolve) => setTimeout(resolve, 250));
     await runBattle(battle, userId, wildPokemon);
     return;
   }
-  await sendUserBattleState(userId, battleState, wildPokemon);
+  // await sendUserBattleState(userId, battleState, wildPokemon);
 }
 
 async function updateBattleState(battle) {
@@ -49,9 +49,9 @@ async function updateBattleState(battle) {
   const trainerPokemon = battle.p1.active[0];
   const wildPokemon = battle.p2.active[0];
   const moves = getAvailableMovesWithDescriptionForTrainer(battle);
-  const moveLog = extractLastMovesAndDamageFinal(battle.log);
+  const roundLog = generateRoundLog(battle.log);
   const imageName = 'src/battleImages/fight_scene_' + Date.now() + '.png';
-  await generateBattleImage(
+  /*await generateBattleImage(
     {
       name: trainerPokemon.name,
       status: trainerPokemon.status,
@@ -67,16 +67,19 @@ async function updateBattleState(battle) {
       spriteUrl: pokeData[wildPokemon.name.toLowerCase()].sprite,
     },
     imageName
-  );
+  );*/
   return {
     moves: moves,
     image: imageName,
-    moveLog: moveLog,
+    roundLog: roundLog,
     winner: battle.winner,
   };
 }
 
 function getAvailableMovesWithDescriptionForTrainer(battle) {
+  /**
+   * This function generates the move data that includes name, id, pp left and a short description for the move.
+   */
   const player = battle[trainerID];
   if (player && player.active[0]) {
     return player.active[0].moveSlots.map((moveSlot, index) => {
@@ -92,9 +95,13 @@ function getAvailableMovesWithDescriptionForTrainer(battle) {
   return [];
 }
 
-function extractLastMovesAndDamageFinal(log) {
-  const moveData = {};
+function generateRoundLog(log) {
+  const trainerNames = {
+    p1a: 'Trainer',
+    p2a: 'Wild',
+  };
   const turnIds = [];
+  const sortedMoveLog = [];
   let turnNum = 1;
 
   while (log.includes(`|turn|${turnNum}`)) {
@@ -102,32 +109,55 @@ function extractLastMovesAndDamageFinal(log) {
     turnNum += 1;
   }
 
+  let moveLog = '';
+
   if (turnIds.length == 1) {
-    return {};
+    console.log('maybe oneshot?');
+    return moveLog;
   }
 
   if (log[log.length - 1].startsWith('|win|')) {
     turnIds.push(log.length);
   }
 
+  let moveStrs = [];
+
   for (
     let x = turnIds[turnIds.length - 2];
     x < turnIds[turnIds.length - 1];
     x++
   ) {
-    // funktioniert nicht bei oneshot lol
-    console.log(log[x]);
+    if (log[x].startsWith('|turn|')) {
+      moveLog += `Turn ${log[x].split('|')[2]}\n`;
+    }
+    if (log[x].startsWith('|move|')) {
+      sortedMoveLog.push(moveStrs);
+      moveStrs = [];
+    }
+    moveStrs.push(log[x]);
+  }
+  sortedMoveLog.push(moveStrs);
+  sortedMoveLog.shift();
+
+  for (const rawMoveLog of sortedMoveLog) {
+    moveLog += convertMoveLogToString(rawMoveLog);
   }
 
+  console.log(moveLog);
   console.log('----------');
+  return moveLog;
+}
 
-  // console.log(log);
-  // console.log(turnIds);
-
-  return moveData;
+function convertMoveLogToString(log) {
+  let moveLog = '';
+  console.log(log);
+  return moveLog;
 }
 
 async function botChooseHighestDamageMove(battle) {
+  /**
+   * This function automatically chooses the highest damaging move for the bot user.
+   */
   const attackerShowdown = battle.p2.active[0];
   const defenderShowdown = battle.p1.active[0];
   const gen = Generations.get(attackerShowdown.battle.gen);
@@ -166,6 +196,9 @@ async function botChooseHighestDamageMove(battle) {
 }
 
 function formatForCalc(pokemon) {
+  /**
+   * This function formats a battle engine pokemon to a format valid to be used in the calculator.
+   */
   const set = pokemon.set;
   const evs = set?.evs || { hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0 };
   const ivs = set?.ivs || {
