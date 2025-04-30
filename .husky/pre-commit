@@ -6,5 +6,5 @@ then
     export PATH="$PATH:/c/Program Files/Git/usr/bin"
 fi
 
-npm run format
+npm run pre-commit
 echo 'add linting to pre-commit when jan fixes his bot imports'
