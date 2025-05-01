@@ -56,18 +56,18 @@ async function updateBattleState(battle) {
   const imageName = 'src/battleImages/fight_scene_' + Date.now() + '.png';
   await generateBattleImage(
     {
-      name: trainerPokemon.name,
+      name: trainerPokemon.species,
       status: trainerPokemon.status,
       hp: trainerPokemon.hp,
       maxHp: trainerPokemon.maxhp,
-      spriteUrl: pokeData[trainerPokemon.name.toLowerCase()].sprite,
+      spriteUrl: pokeData[trainerPokemon.species.toLowerCase()].sprite,
     },
     {
-      name: wildPokemon.name,
+      name: wildPokemon.species,
       status: wildPokemon.status,
       hp: wildPokemon.hp,
       maxHp: wildPokemon.maxhp,
-      spriteUrl: pokeData[wildPokemon.name.toLowerCase()].sprite,
+      spriteUrl: pokeData[wildPokemon.species.toLowerCase()].sprite,
     },
     imageName
   );
