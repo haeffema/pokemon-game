@@ -164,7 +164,7 @@ function convertMoveLogToString(log) {
     moveLog += 'It was not very effective.\n';
   }
 
-  if (log[log.length - 3].startsWith('|faint|')) {
+  if (log.lenght > 3 && log[log.length - 3].startsWith('|faint|')) {
     moveLog += `${trainerNames[log[log.length - 3].split('|')[2].split(': ')[0]]} ${log[log.length - 3].split('|')[2].split(': ')[1]} fainted.\n`;
   }
 
