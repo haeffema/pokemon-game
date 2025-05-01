@@ -11,13 +11,7 @@ const commandData = new SlashCommandBuilder()
 const execute = async (interaction) => {
   var pokemonListe = await getPokemonFromPool(
     'Grass',
-    [
-      'Uber',
-      'OU',
-      'OUBL',
-      'UUBL',
-      'UU',
-    ],
+    ['Uber', 'OU', 'OUBL', 'UUBL', 'UU'],
     10
   );
   const randomIndex = Math.floor(Math.random() * pokemonListe.length);
@@ -38,12 +32,12 @@ const execute = async (interaction) => {
     console.log(pokemon[0].pokepaste);
     //TODO: pokepaste in setupBattle
 
-  const battle = setupBattle(pokemon[0].pokepaste, randomSetPokepaste);
-  await interaction.reply('Fight started!');
-  // runBattle braucht die user id und ruft dann irgendeine function von Jan auf
-  // um dem user das log bild und neuen input zu geben
-  await runBattle(battle, interaction.user.id, randomSetPokepaste);
-});
+    const battle = setupBattle(pokemon[0].pokepaste, randomSetPokepaste);
+    await interaction.reply('Fight started!');
+    // runBattle braucht die user id und ruft dann irgendeine function von Jan auf
+    // um dem user das log bild und neuen input zu geben
+    await runBattle(battle, interaction.user.id, randomSetPokepaste);
+  });
 };
 
 export default {

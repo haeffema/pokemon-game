@@ -31,7 +31,11 @@ export async function runBattle(battle, userId, wildPokemon) {
    */
   const battleState = await updateBattleState(battle);
   if (!battle.ended) {
-    const userResponse = await sendUserBattleState(userId, battleState, wildPokemon);
+    const userResponse = await sendUserBattleState(
+      userId,
+      battleState,
+      wildPokemon
+    );
     battle.choose(trainerID, `move ${userResponse}`);
     await botChooseHighestDamageMove(battle);
     await new Promise((resolve) => setTimeout(resolve, 250));

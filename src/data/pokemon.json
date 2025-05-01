@@ -1121,7 +1121,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/12.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Focus Sash",
+        "ability": "Compound Eyes",
+        "nature": "Timid",
+        "evs": {
+          "hp": 0,
+          "atk": 0,
+          "def": 0,
+          "spa": 252,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Sleep Powder", "Quiver Dance", "Hurricane", "Bug Buzz"]
+      }
+    ]
   },
   "beedrill": {
     "id": 15,
@@ -1798,7 +1813,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/20.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Choice Band",
+        "ability": "Hustle",
+        "nature": "Adamant",
+        "evs": {
+          "hp": 0,
+          "atk": 252,
+          "def": 0,
+          "spa": 0,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Return", "Pursuit", "Crunch", "U-turn"]
+      }
+    ]
   },
   "raticate-alola": {
     "id": 20,
@@ -2248,7 +2278,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/22.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Choice Band",
+        "ability": "Keen Eye",
+        "nature": "Jolly",
+        "evs": {
+          "hp": 0,
+          "atk": 252,
+          "def": 0,
+          "spa": 0,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Drill Peck", "U-turn", "Pursuit", "Quick Attack"]
+      }
+    ]
   },
   "arbok": {
     "id": 24,
@@ -2515,7 +2560,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/24.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Black Sludge",
+        "ability": "Intimidate",
+        "nature": "Adamant",
+        "evs": {
+          "hp": 252,
+          "atk": 252,
+          "def": 4,
+          "spa": 0,
+          "spd": 0,
+          "spe": 0
+        },
+        "moves": ["Gunk Shot", "Coil", "Rest", "Sleep Talk"]
+      }
+    ]
   },
   "pikachu-original": {
     "id": 25,
@@ -2730,7 +2790,27 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Light Ball",
+        "ability": "Static",
+        "nature": "Timid",
+        "evs": {
+          "hp": 0,
+          "atk": 0,
+          "def": 0,
+          "spa": 252,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": [
+          "Thunderbolt",
+          "Hidden Power Ice",
+          "Volt Tackle",
+          "Grass Knot"
+        ]
+      }
+    ]
   },
   "raichu": {
     "id": 26,
@@ -2921,7 +3001,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/26.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Focus Sash",
+        "ability": "Static",
+        "nature": "Timid",
+        "evs": {
+          "hp": 0,
+          "atk": 0,
+          "def": 0,
+          "spa": 252,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Thunderbolt", "Nuzzle", "Volt Switch", "Hidden Power Ice"]
+      }
+    ]
   },
   "raichu-alola": {
     "id": 26,
@@ -5449,7 +5544,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/40.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Leftovers",
+        "ability": "Cute Charm",
+        "nature": "Calm",
+        "evs": {
+          "hp": 252,
+          "atk": 0,
+          "def": 0,
+          "spa": 252,
+          "spd": 4,
+          "spe": 0
+        },
+        "moves": ["Heal Bell", "Toxic", "Moonblast", "Wish"]
+      }
+    ]
   },
   "golbat": {
     "id": 42,
@@ -6152,7 +6262,22 @@
     },
     "tier": "NUBL",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/45.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Black Sludge",
+        "ability": "Effect Spore",
+        "nature": "Calm",
+        "evs": {
+          "hp": 252,
+          "atk": 0,
+          "def": 4,
+          "spa": 252,
+          "spd": 4,
+          "spe": 0
+        },
+        "moves": ["Giga Drain", "Sludge Bomb", "Sleep Powder", "Synthesis"]
+      }
+    ]
   },
   "bellossom": {
     "id": 182,
@@ -6578,7 +6703,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/47.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Leftovers",
+        "ability": "Effect Spore",
+        "nature": "Impish",
+        "evs": {
+          "hp": 252,
+          "atk": 252,
+          "def": 4,
+          "spa": 0,
+          "spd": 0,
+          "spe": 0
+        },
+        "moves": ["Spore", "Leech Life", "Toxic", "Synthesis"]
+      }
+    ]
   },
   "venomoth": {
     "id": 49,
@@ -6793,7 +6933,22 @@
     },
     "tier": "RUBL",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/49.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Black Sludge",
+        "ability": "Shield Dust",
+        "nature": "Timid",
+        "evs": {
+          "hp": 0,
+          "atk": 0,
+          "def": 0,
+          "spa": 252,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Sleep Powder", "Quiver Dance", "Bug Buzz", "Toxic"]
+      }
+    ]
   },
   "dugtrio": {
     "id": 51,
@@ -7517,7 +7672,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/53.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Black Glasses",
+        "ability": "Fur Coat",
+        "nature": "Jolly",
+        "evs": {
+          "hp": 0,
+          "atk": 252,
+          "def": 0,
+          "spa": 0,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Foul Play", "Play Rough", "Knock Off", "U-turn"]
+      }
+    ]
   },
   "persian-alola": {
     "id": 53,
@@ -8075,7 +8245,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/55.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Life Orb",
+        "ability": "Cloud Nine",
+        "nature": "Timid",
+        "evs": {
+          "hp": 0,
+          "atk": 0,
+          "def": 0,
+          "spa": 252,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Scald", "Psychic", "Ice Beam", "Focus Blast"]
+      }
+    ]
   },
   "arcanine": {
     "id": 59,
@@ -8711,7 +8896,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/186.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Leftovers",
+        "ability": "Drizzle",
+        "nature": "Calm",
+        "evs": {
+          "hp": 252,
+          "atk": 0,
+          "def": 0,
+          "spa": 252,
+          "spd": 4,
+          "spe": 0
+        },
+        "moves": ["Scald", "Toxic", "Perish Song", "Ice Beam"]
+      }
+    ]
   },
   "alakazam": {
     "id": 65,
@@ -10447,7 +10647,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/78.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Choice Scarf",
+        "ability": "Flame Body",
+        "nature": "Jolly",
+        "evs": {
+          "hp": 0,
+          "atk": 252,
+          "def": 0,
+          "spa": 0,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Flare Blitz", "Wild Charge", "Psybeam", "U-turn"]
+      }
+    ]
   },
   "slowbro": {
     "id": 80,
@@ -11999,7 +12214,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/83.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Stick",
+        "ability": "Keen Eye",
+        "nature": "Adamant",
+        "evs": {
+          "hp": 0,
+          "atk": 252,
+          "def": 0,
+          "spa": 0,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Fury Cutter", "Knock Off", "Leaf Blade", "Swords Dance"]
+      }
+    ]
   },
   "dodrio": {
     "id": 85,
@@ -12202,7 +12432,22 @@
     },
     "tier": "PU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/85.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Choice Band",
+        "ability": "Early Bird",
+        "nature": "Jolly",
+        "evs": {
+          "hp": 0,
+          "atk": 252,
+          "def": 0,
+          "spa": 0,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Brave Bird", "Knock Off", "Return", "U-turn"]
+      }
+    ]
   },
   "dewgong": {
     "id": 87,
@@ -12401,7 +12646,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/87.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Leftovers",
+        "ability": "Ice Body",
+        "nature": "Bold",
+        "evs": {
+          "hp": 252,
+          "atk": 0,
+          "def": 252,
+          "spa": 0,
+          "spd": 4,
+          "spe": 0
+        },
+        "moves": ["Ice Beam", "Toxic", "Aqua Ring", "Rest"]
+      }
+    ]
   },
   "muk": {
     "id": 89,
@@ -12660,7 +12920,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/89.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Black Sludge",
+        "ability": "Poison Touch",
+        "nature": "Impish",
+        "evs": {
+          "hp": 252,
+          "atk": 252,
+          "def": 4,
+          "spa": 0,
+          "spd": 0,
+          "spe": 0
+        },
+        "moves": ["Gunk Shot", "Knock Off", "Toxic", "Shadow Sneak"]
+      }
+    ]
   },
   "muk-alola": {
     "id": 89,
@@ -14098,7 +14373,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/97.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Leftovers",
+        "ability": "Inner Focus",
+        "nature": "Bold",
+        "evs": {
+          "hp": 252,
+          "atk": 0,
+          "def": 252,
+          "spa": 0,
+          "spd": 4,
+          "spe": 0
+        },
+        "moves": ["Psychic", "Toxic", "Wish", "Heal Bell"]
+      }
+    ]
   },
   "kingler": {
     "id": 99,
@@ -14329,7 +14619,22 @@
     },
     "tier": "PUBL",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/99.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Choice Band",
+        "ability": "Hyper Cutter",
+        "nature": "Adamant",
+        "evs": {
+          "hp": 0,
+          "atk": 252,
+          "def": 0,
+          "spa": 0,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Crabhammer", "Knock Off", "Aqua Jet", "X-Scissor"]
+      }
+    ]
   },
   "electrode": {
     "id": 101,
@@ -14532,7 +14837,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/101.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Focus Sash",
+        "ability": "Static",
+        "nature": "Timid",
+        "evs": {
+          "hp": 0,
+          "atk": 0,
+          "def": 0,
+          "spa": 252,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Thunderbolt", "Volt Switch", "Toxic", "Hidden Power Ice"]
+      }
+    ]
   },
   "exeggutor": {
     "id": 103,
@@ -14751,7 +15071,22 @@
     },
     "tier": "ZUBL",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/103.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Choice Specs",
+        "ability": "Chlorophyll",
+        "nature": "Modest",
+        "evs": {
+          "hp": 0,
+          "atk": 0,
+          "def": 0,
+          "spa": 252,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Solar Beam", "Psychic", "Hidden Power Fire", "Sleep Powder"]
+      }
+    ]
   },
   "exeggutor-alola": {
     "id": 103,
@@ -15261,7 +15596,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/105.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Thick Club",
+        "ability": "Lightning Rod",
+        "nature": "Adamant",
+        "evs": {
+          "hp": 0,
+          "atk": 252,
+          "def": 0,
+          "spa": 0,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Flare Blitz", "Shadow Bone", "Knock Off", "Swords Dance"]
+      }
+    ]
   },
   "marowak-alola": {
     "id": 105,
@@ -15798,7 +16148,22 @@
     },
     "tier": "NU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/106.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Focus Sash",
+        "ability": "Unburden",
+        "nature": "Jolly",
+        "evs": {
+          "hp": 0,
+          "atk": 252,
+          "def": 0,
+          "spa": 0,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["High Jump Kick", "Knock Off", "Fake Out", "Stone Edge"]
+      }
+    ]
   },
   "hitmonchan": {
     "id": 107,
@@ -16244,7 +16609,22 @@
     },
     "tier": "NU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/237.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Leftovers",
+        "ability": "Intimidate",
+        "nature": "Impish",
+        "evs": {
+          "hp": 252,
+          "atk": 0,
+          "def": 252,
+          "spa": 0,
+          "spd": 4,
+          "spe": 0
+        },
+        "moves": ["Close Combat", "Rapid Spin", "Toxic", "Foresight"]
+      }
+    ]
   },
   "lickilicky": {
     "id": 463,
@@ -16547,7 +16927,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/463.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Leftovers",
+        "ability": "Own Tempo",
+        "nature": "Bold",
+        "evs": {
+          "hp": 252,
+          "atk": 0,
+          "def": 252,
+          "spa": 0,
+          "spd": 4,
+          "spe": 0
+        },
+        "moves": ["Body Slam", "Knock Off", "Wish", "Heal Bell"]
+      }
+    ]
   },
   "weezing": {
     "id": 110,
@@ -19337,7 +19732,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/119.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Choice Band",
+        "ability": "Water Veil",
+        "nature": "Adamant",
+        "evs": {
+          "hp": 0,
+          "atk": 252,
+          "def": 0,
+          "spa": 0,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Waterfall", "Knock Off", "Toxic", "Aqua Jet"]
+      }
+    ]
   },
   "starmie": {
     "id": 121,
@@ -19997,7 +20407,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/122.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Light Clay",
+        "ability": "Filter",
+        "nature": "Timid",
+        "evs": {
+          "hp": 252,
+          "atk": 0,
+          "def": 0,
+          "spa": 252,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Reflect", "Light Screen", "Psychic", "Mimic"]
+      }
+    ]
   },
   "scizor": {
     "id": 212,
@@ -20911,7 +21336,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/466.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Choice Scarf",
+        "ability": "Motor Drive",
+        "nature": "Jolly",
+        "evs": {
+          "hp": 0,
+          "atk": 252,
+          "def": 0,
+          "spa": 0,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Wild Charge", "Ice Punch", "Cross Chop", "Earthquake"]
+      }
+    ]
   },
   "magmortar": {
     "id": 467,
@@ -21694,7 +22134,22 @@
     },
     "tier": "PUBL",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/128.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Choice Band",
+        "ability": "Intimidate",
+        "nature": "Jolly",
+        "evs": {
+          "hp": 0,
+          "atk": 252,
+          "def": 0,
+          "spa": 0,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Return", "Pursuit", "Earthquake", "Stone Edge"]
+      }
+    ]
   },
   "gyarados": {
     "id": 130,
@@ -22274,7 +22729,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/131.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Leftovers",
+        "ability": "Hydration",
+        "nature": "Calm",
+        "evs": {
+          "hp": 252,
+          "atk": 0,
+          "def": 4,
+          "spa": 252,
+          "spd": 0,
+          "spe": 0
+        },
+        "moves": ["Ice Beam", "Surf", "Toxic", "Rest"]
+      }
+    ]
   },
   "ditto": {
     "id": 132,
@@ -22769,7 +23239,27 @@
     },
     "tier": "RU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/135.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Life Orb",
+        "ability": "Volt Absorb",
+        "nature": "Timid",
+        "evs": {
+          "hp": 0,
+          "atk": 0,
+          "def": 0,
+          "spa": 252,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": [
+          "Thunderbolt",
+          "Hidden Power Ice",
+          "Volt Switch",
+          "Shadow Ball"
+        ]
+      }
+    ]
   },
   "flareon": {
     "id": 136,
@@ -22980,7 +23470,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/136.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Toxic Orb",
+        "ability": "Guts",
+        "nature": "Adamant",
+        "evs": {
+          "hp": 0,
+          "atk": 252,
+          "def": 0,
+          "spa": 0,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Flare Blitz", "Facade", "Superpower", "Quick Attack"]
+      }
+    ]
   },
   "espeon": {
     "id": 196,
@@ -23923,7 +24428,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/471.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Choice Specs",
+        "ability": "Ice Body",
+        "nature": "Modest",
+        "evs": {
+          "hp": 0,
+          "atk": 0,
+          "def": 0,
+          "spa": 252,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Ice Beam", "Shadow Ball", "Hidden Power Fire", "Toxic"]
+      }
+    ]
   },
   "porygon2": {
     "id": 233,
@@ -24457,7 +24977,22 @@
     },
     "tier": "UUBL",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/474.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Life Orb",
+        "ability": "Adaptability",
+        "nature": "Modest",
+        "evs": {
+          "hp": 0,
+          "atk": 0,
+          "def": 0,
+          "spa": 252,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Tri Attack", "Dark Pulse", "Psychic", "Nasty Plot"]
+      }
+    ]
   },
   "omastar": {
     "id": 139,
@@ -28156,7 +28691,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/154.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Leftovers",
+        "ability": "Leaf Guard",
+        "nature": "Calm",
+        "evs": {
+          "hp": 252,
+          "atk": 0,
+          "def": 0,
+          "spa": 252,
+          "spd": 4,
+          "spe": 0
+        },
+        "moves": ["Giga Drain", "Synthesis", "Toxic", "Leech Seed"]
+      }
+    ]
   },
   "typhlosion": {
     "id": 157,
@@ -28419,7 +28969,22 @@
     },
     "tier": "NU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/157.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Choice Specs",
+        "ability": "Blaze",
+        "nature": "Timid",
+        "evs": {
+          "hp": 0,
+          "atk": 0,
+          "def": 0,
+          "spa": 252,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Flamethrower", "Hidden Power Ice", "Focus Blast", "Eruption"]
+      }
+    ]
   },
   "feraligatr": {
     "id": 160,
@@ -29008,7 +29573,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/162.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Choice Band",
+        "ability": "Quick Feet",
+        "nature": "Jolly",
+        "evs": {
+          "hp": 0,
+          "atk": 252,
+          "def": 0,
+          "spa": 0,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Return", "Knock Off", "U-turn", "Quick Attack"]
+      }
+    ]
   },
   "noctowl": {
     "id": 164,
@@ -29231,7 +29811,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/164.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Leftovers",
+        "ability": "Keen Eye",
+        "nature": "Calm",
+        "evs": {
+          "hp": 252,
+          "atk": 0,
+          "def": 4,
+          "spa": 252,
+          "spd": 4,
+          "spe": 0
+        },
+        "moves": ["Air Slash", "Roost", "Toxic", "Heal Bell"]
+      }
+    ]
   },
   "ledian": {
     "id": 166,
@@ -29454,7 +30049,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/166.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Leftovers",
+        "ability": "Swarm",
+        "nature": "Timid",
+        "evs": {
+          "hp": 252,
+          "atk": 0,
+          "def": 0,
+          "spa": 252,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Bug Buzz", "Encore", "Toxic", "Aerial Ace"]
+      }
+    ]
   },
   "ariados": {
     "id": 168,
@@ -29685,7 +30295,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/168.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Black Sludge",
+        "ability": "Swarm",
+        "nature": "Timid",
+        "evs": {
+          "hp": 0,
+          "atk": 0,
+          "def": 0,
+          "spa": 252,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Toxic Spikes", "Venoshock", "Bug Buzz", "Sucker Punch"]
+      }
+    ]
   },
   "lanturn": {
     "id": 171,
@@ -31385,7 +32010,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/185.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Leftovers",
+        "ability": "Sturdy",
+        "nature": "Impish",
+        "evs": {
+          "hp": 252,
+          "atk": 252,
+          "def": 4,
+          "spa": 0,
+          "spd": 0,
+          "spe": 0
+        },
+        "moves": ["Stealth Rock", "Sucker Punch", "Wood Hammer", "Explosion"]
+      }
+    ]
   },
   "jumpluff": {
     "id": 189,
@@ -31895,7 +32535,22 @@
     },
     "tier": "NU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/424.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Choice Band",
+        "ability": "Technician",
+        "nature": "Jolly",
+        "evs": {
+          "hp": 0,
+          "atk": 252,
+          "def": 0,
+          "spa": 0,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Fake Out", "Knock Off", "U-turn", "Return"]
+      }
+    ]
   },
   "sunflora": {
     "id": 192,
@@ -32106,7 +32761,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/192.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Leftovers",
+        "ability": "Solar Power",
+        "nature": "Modest",
+        "evs": {
+          "hp": 252,
+          "atk": 0,
+          "def": 0,
+          "spa": 252,
+          "spd": 4,
+          "spe": 0
+        },
+        "moves": ["Solar Beam", "Synthesis", "Toxic", "Hidden Power Fire"]
+      }
+    ]
   },
   "yanmega": {
     "id": 469,
@@ -33132,7 +33802,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/201.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Choice Specs",
+        "ability": "Levitate",
+        "nature": "Modest",
+        "evs": {
+          "hp": 0,
+          "atk": 0,
+          "def": 0,
+          "spa": 252,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Hidden Power Psychic"]
+      }
+    ]
   },
   "wobbuffet": {
     "id": 202,
@@ -34948,7 +35633,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/213.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Leftovers",
+        "ability": "Sturdy",
+        "nature": "Bold",
+        "evs": {
+          "hp": 252,
+          "atk": 0,
+          "def": 252,
+          "spa": 0,
+          "spd": 0,
+          "spe": 0
+        },
+        "moves": ["Toxic", "Stealth Rock", "Knock Off", "Protect"]
+      }
+    ]
   },
   "heracross": {
     "id": 214,
@@ -36153,7 +36853,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/219.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Leftovers",
+        "ability": "Flame Body",
+        "nature": "Calm",
+        "evs": {
+          "hp": 252,
+          "atk": 0,
+          "def": 4,
+          "spa": 252,
+          "spd": 0,
+          "spe": 0
+        },
+        "moves": ["Lava Plume", "Toxic", "Stealth Rock", "Recover"]
+      }
+    ]
   },
   "piloswine": {
     "id": 221,
@@ -36944,7 +37659,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/222.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Eviolite",
+        "ability": "Regenerator",
+        "nature": "Bold",
+        "evs": {
+          "hp": 252,
+          "atk": 0,
+          "def": 252,
+          "spa": 0,
+          "spd": 4,
+          "spe": 0
+        },
+        "moves": ["Scald", "Toxic", "Recover", "Stealth Rock"]
+      }
+    ]
   },
   "octillery": {
     "id": 224,
@@ -37175,7 +37905,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/224.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Choice Specs",
+        "ability": "Suction Cups",
+        "nature": "Modest",
+        "evs": {
+          "hp": 0,
+          "atk": 0,
+          "def": 0,
+          "spa": 252,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Hydro Pump", "Ice Beam", "Gunk Shot", "Hidden Power Fire"]
+      }
+    ]
   },
   "delibird": {
     "id": 225,
@@ -37398,7 +38143,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/225.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Leftovers",
+        "ability": "Vital Spirit",
+        "nature": "Jolly",
+        "evs": {
+          "hp": 0,
+          "atk": 252,
+          "def": 0,
+          "spa": 0,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Ice Punch", "Rapid Spin", "U-turn", "Destiny Bond"]
+      }
+    ]
   },
   "mantine": {
     "id": 226,
@@ -38894,7 +39654,22 @@
     },
     "tier": "NU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/241.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Leftovers",
+        "ability": "Thick Fat",
+        "nature": "Bold",
+        "evs": {
+          "hp": 252,
+          "atk": 0,
+          "def": 252,
+          "spa": 0,
+          "spd": 4,
+          "spe": 0
+        },
+        "moves": ["Body Slam", "Milk Drink", "Stealth Rock", "Toxic"]
+      }
+    ]
   },
   "raikou": {
     "id": 243,
@@ -39324,7 +40099,22 @@
     },
     "tier": "RUBL",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/244.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Choice Band",
+        "ability": "Pressure",
+        "nature": "Adamant",
+        "evs": {
+          "hp": 0,
+          "atk": 252,
+          "def": 0,
+          "spa": 0,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Sacred Fire", "Stone Edge", "Iron Head", "Extreme Speed"]
+      }
+    ]
   },
   "suicune": {
     "id": 245,
@@ -42142,7 +42932,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/262.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Black Glasses",
+        "ability": "Intimidate",
+        "nature": "Jolly",
+        "evs": {
+          "hp": 0,
+          "atk": 252,
+          "def": 0,
+          "spa": 0,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Foul Play", "Crunch", "Iron Tail", "Taunt"]
+      }
+    ]
   },
   "linoone": {
     "id": 264,
@@ -42405,7 +43210,22 @@
     },
     "tier": "RUBL",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/264.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Salac Berry",
+        "ability": "Pickup",
+        "nature": "Adamant",
+        "evs": {
+          "hp": 0,
+          "atk": 252,
+          "def": 0,
+          "spa": 0,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Extremespeed", "Seed Bomb", "Shadow Claw", "Belly Drum"]
+      }
+    ]
   },
   "beautifly": {
     "id": 267,
@@ -42608,7 +43428,27 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/267.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Focus Sash",
+        "ability": "Swarm",
+        "nature": "Timid",
+        "evs": {
+          "hp": 0,
+          "atk": 0,
+          "def": 0,
+          "spa": 252,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": [
+          "Quiver Dance",
+          "Bug Buzz",
+          "Hidden Power Ground",
+          "Giga Drain"
+        ]
+      }
+    ]
   },
   "dustox": {
     "id": 269,
@@ -42807,7 +43647,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/269.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Black Sludge",
+        "ability": "Shield Dust",
+        "nature": "Bold",
+        "evs": {
+          "hp": 252,
+          "atk": 0,
+          "def": 252,
+          "spa": 0,
+          "spd": 4,
+          "spe": 0
+        },
+        "moves": ["Toxic Spikes", "Protect", "Bug Buzz", "Roost"]
+      }
+    ]
   },
   "ludicolo": {
     "id": 272,
@@ -44775,7 +45630,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/284.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Focus Sash",
+        "ability": "Intimidate",
+        "nature": "Timid",
+        "evs": {
+          "hp": 0,
+          "atk": 0,
+          "def": 0,
+          "spa": 252,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Bug Buzz", "Quiver Dance", "Ice Beam", "Hidden Power Ground"]
+      }
+    ]
   },
   "breloom": {
     "id": 286,
@@ -45026,7 +45896,22 @@
     },
     "tier": "UUBL",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/286.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Focus Sash",
+        "ability": "Poison Heal",
+        "nature": "Adamant",
+        "evs": {
+          "hp": 0,
+          "atk": 252,
+          "def": 0,
+          "spa": 0,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Spore", "Focus Punch", "Mach Punch", "Swords Dance"]
+      }
+    ]
   },
   "slaking": {
     "id": 289,
@@ -45305,7 +46190,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/289.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Choice Band",
+        "ability": "Truant",
+        "nature": "Adamant",
+        "evs": {
+          "hp": 252,
+          "atk": 252,
+          "def": 0,
+          "spa": 0,
+          "spd": 4,
+          "spe": 0
+        },
+        "moves": ["Return", "Earthquake", "Shadow Claw", "Pursuit"]
+      }
+    ]
   },
   "ninjask": {
     "id": 291,
@@ -45703,7 +46603,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/292.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Focus Sash",
+        "ability": "Wonder Guard",
+        "nature": "Adamant",
+        "evs": {
+          "hp": 0,
+          "atk": 252,
+          "def": 0,
+          "spa": 0,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Shadow Claw", "Swords Dance", "Toxic", "Protect"]
+      }
+    ]
   },
   "exploud": {
     "id": 295,
@@ -45978,7 +46893,27 @@
     },
     "tier": "NUBL",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/295.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Choice Specs",
+        "ability": "Soundproof",
+        "nature": "Modest",
+        "evs": {
+          "hp": 0,
+          "atk": 0,
+          "def": 0,
+          "spa": 252,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": [
+          "Hyper Voice",
+          "Focus Blast",
+          "Hidden Power Ice",
+          "Boom Burst"
+        ]
+      }
+    ]
   },
   "hariyama": {
     "id": 297,
@@ -46754,7 +47689,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/301.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Leftovers",
+        "ability": "Normalize",
+        "nature": "Timid",
+        "evs": {
+          "hp": 252,
+          "atk": 0,
+          "def": 0,
+          "spa": 252,
+          "spd": 4,
+          "spe": 0
+        },
+        "moves": ["Hyper Voice", "Toxic", "Heal Bell", "Thunder Wave"]
+      }
+    ]
   },
   "sableye": {
     "id": 302,
@@ -48773,7 +49723,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/311.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Choice Scarf",
+        "ability": "Volt Absorb",
+        "nature": "Timid",
+        "evs": {
+          "hp": 0,
+          "atk": 0,
+          "def": 0,
+          "spa": 252,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Volt Switch", "Thunderbolt", "Hidden Power Ice", "Encore"]
+      }
+    ]
   },
   "minun": {
     "id": 312,
@@ -49024,7 +49989,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/312.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Choice Band",
+        "ability": "Volt Absorb",
+        "nature": "Jolly",
+        "evs": {
+          "hp": 0,
+          "atk": 252,
+          "def": 0,
+          "spa": 0,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Volt Tackle", "Quick Attack", "Encore", "Discharge"]
+      }
+    ]
   },
   "volbeat": {
     "id": 313,
@@ -49287,7 +50267,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/313.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Leftovers",
+        "ability": "Prankster",
+        "nature": "Bold",
+        "evs": {
+          "hp": 252,
+          "atk": 0,
+          "def": 252,
+          "spa": 0,
+          "spd": 4,
+          "spe": 0
+        },
+        "moves": ["Tail Glow", "Thunder Wave", "Encore", "Bug Buzz"]
+      }
+    ]
   },
   "illumise": {
     "id": 314,
@@ -49558,7 +50553,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/314.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Leftovers",
+        "ability": "Prankster",
+        "nature": "Bold",
+        "evs": {
+          "hp": 252,
+          "atk": 0,
+          "def": 252,
+          "spa": 0,
+          "spd": 4,
+          "spe": 0
+        },
+        "moves": ["Tail Glow", "Thunder Wave", "Encore", "Bug Buzz"]
+      }
+    ]
   },
   "roserade": {
     "id": 407,
@@ -50004,7 +51014,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/317.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Black Sludge",
+        "ability": "Liquid Ooze",
+        "nature": "Modest",
+        "evs": {
+          "hp": 252,
+          "atk": 0,
+          "def": 0,
+          "spa": 252,
+          "spd": 4,
+          "spe": 0
+        },
+        "moves": ["Sludge Bomb", "Toxic", "Clear Smog", "Encore"]
+      }
+    ]
   },
   "sharpedo": {
     "id": 319,
@@ -50482,7 +51507,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/321.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Choice Specs",
+        "ability": "Water Veil",
+        "nature": "Modest",
+        "evs": {
+          "hp": 0,
+          "atk": 0,
+          "def": 0,
+          "spa": 252,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Hydro Pump", "Ice Beam", "Hidden Power Grass", "Surf"]
+      }
+    ]
   },
   "camerupt": {
     "id": 323,
@@ -51287,7 +52327,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/326.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Leftovers",
+        "ability": "Thick Fat",
+        "nature": "Bold",
+        "evs": {
+          "hp": 252,
+          "atk": 0,
+          "def": 252,
+          "spa": 0,
+          "spd": 4,
+          "spe": 0
+        },
+        "moves": ["Psychic", "Encore", "Taunt", "Magic Coat"]
+      }
+    ]
   },
   "spinda": {
     "id": 327,
@@ -51602,7 +52657,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/327.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Choice Band",
+        "ability": "Contrary",
+        "nature": "Adamant",
+        "evs": {
+          "hp": 0,
+          "atk": 252,
+          "def": 0,
+          "spa": 0,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Superpower", "Teeter Dance", "Return", "Zen Headbutt"]
+      }
+    ]
   },
   "flygon": {
     "id": 330,
@@ -52136,7 +53206,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/332.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Focus Sash",
+        "ability": "Sand Veil",
+        "nature": "Adamant",
+        "evs": {
+          "hp": 0,
+          "atk": 252,
+          "def": 0,
+          "spa": 0,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Sucker Punch", "Spikes", "Nasty Plot", "Seed Bomb"]
+      }
+    ]
   },
   "altaria": {
     "id": 334,
@@ -53093,7 +54178,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/336.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Black Sludge",
+        "ability": "Shed Skin",
+        "nature": "Jolly",
+        "evs": {
+          "hp": 252,
+          "atk": 252,
+          "def": 0,
+          "spa": 0,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Poison Jab", "Sucker Punch", "Knock Off", "Flamethrower"]
+      }
+    ]
   },
   "lunatone": {
     "id": 337,
@@ -53388,7 +54488,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/337.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Leftovers",
+        "ability": "Levitate",
+        "nature": "Modest",
+        "evs": {
+          "hp": 252,
+          "atk": 0,
+          "def": 0,
+          "spa": 252,
+          "spd": 4,
+          "spe": 0
+        },
+        "moves": ["Psychic", "Moonblast", "Stealth Rock", "Explosion"]
+      }
+    ]
   },
   "solrock": {
     "id": 338,
@@ -53691,7 +54806,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/338.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Leftovers",
+        "ability": "Levitate",
+        "nature": "Impish",
+        "evs": {
+          "hp": 252,
+          "atk": 252,
+          "def": 4,
+          "spa": 0,
+          "spd": 0,
+          "spe": 0
+        },
+        "moves": ["Stealth Rock", "Rock Slide", "Explosion", "Will-O-Wisp"]
+      }
+    ]
   },
   "whiscash": {
     "id": 340,
@@ -53902,7 +55032,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/340.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Leftovers",
+        "ability": "Oblivious",
+        "nature": "Relaxed",
+        "evs": {
+          "hp": 252,
+          "atk": 0,
+          "def": 252,
+          "spa": 0,
+          "spd": 4,
+          "spe": 0
+        },
+        "moves": ["Waterfall", "Earthquake", "Toxic", "Rest"]
+      }
+    ]
   },
   "crawdaunt": {
     "id": 342,
@@ -54478,7 +55623,22 @@
     },
     "tier": "PU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/344.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Leftovers",
+        "ability": "Levitate",
+        "nature": "Bold",
+        "evs": {
+          "hp": 252,
+          "atk": 0,
+          "def": 252,
+          "spa": 0,
+          "spd": 4,
+          "spe": 0
+        },
+        "moves": ["Earthquake", "Ice Beam", "Stealth Rock", "Rapid Spin"]
+      }
+    ]
   },
   "cradily": {
     "id": 346,
@@ -54960,7 +56120,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/348.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Leftovers",
+        "ability": "Swift Swim",
+        "nature": "Adamant",
+        "evs": {
+          "hp": 252,
+          "atk": 252,
+          "def": 4,
+          "spa": 0,
+          "spd": 0,
+          "spe": 0
+        },
+        "moves": ["Stone Edge", "Aqua Jet", "Rapid Spin", "Swords Dance"]
+      }
+    ]
   },
   "milotic": {
     "id": 350,
@@ -55422,7 +56597,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/351.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Choice Specs",
+        "ability": "Forecast",
+        "nature": "Modest",
+        "evs": {
+          "hp": 0,
+          "atk": 0,
+          "def": 0,
+          "spa": 252,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Weather Ball", "Solar Beam", "Thunder", "Ice Beam"]
+      }
+    ]
   },
   "kecleon": {
     "id": 352,
@@ -56048,7 +57238,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/354.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Focus Sash",
+        "ability": "Prankster",
+        "nature": "Jolly",
+        "evs": {
+          "hp": 0,
+          "atk": 252,
+          "def": 0,
+          "spa": 0,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Will-O-Wisp", "Shadow Sneak", "Knock Off", "Destiny Bond"]
+      }
+    ]
   },
   "dusknoir": {
     "id": 477,
@@ -56347,7 +57552,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/477.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Leftovers",
+        "ability": "Frisk",
+        "nature": "Careful",
+        "evs": {
+          "hp": 252,
+          "atk": 0,
+          "def": 0,
+          "spa": 0,
+          "spd": 252,
+          "spe": 4
+        },
+        "moves": ["Shadow Sneak", "Will-O-Wisp", "Toxic", "Pain Split"]
+      }
+    ]
   },
   "tropius": {
     "id": 357,
@@ -56614,7 +57834,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/357.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Leftovers",
+        "ability": "Harvest",
+        "nature": "Bold",
+        "evs": {
+          "hp": 252,
+          "atk": 0,
+          "def": 252,
+          "spa": 0,
+          "spd": 4,
+          "spe": 0
+        },
+        "moves": ["Leech Seed", "Synthesis", "Aromatherapy", "Solar Beam"]
+      }
+    ]
   },
   "chimecho": {
     "id": 358,
@@ -56937,7 +58172,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/358.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Leftovers",
+        "ability": "Levitate",
+        "nature": "Calm",
+        "evs": {
+          "hp": 252,
+          "atk": 0,
+          "def": 0,
+          "spa": 252,
+          "spd": 4,
+          "spe": 0
+        },
+        "moves": ["Psychic", "Heal Bell", "Calm Mind", "Shadow Ball"]
+      }
+    ]
   },
   "absol": {
     "id": 359,
@@ -58051,7 +59301,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/365.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Leftovers",
+        "ability": "Ice Body",
+        "nature": "Bold",
+        "evs": {
+          "hp": 252,
+          "atk": 0,
+          "def": 252,
+          "spa": 4,
+          "spd": 0,
+          "spe": 0
+        },
+        "moves": ["Ice Beam", "Waterfall", "Protect", "Toxic"]
+      }
+    ]
   },
   "huntail": {
     "id": 367,
@@ -58246,7 +59511,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/367.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Choice Band",
+        "ability": "Swift Swim",
+        "nature": "Adamant",
+        "evs": {
+          "hp": 0,
+          "atk": 252,
+          "def": 0,
+          "spa": 0,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Waterfall", "Crunch", "Ice Beam", "Aqua Jet"]
+      }
+    ]
   },
   "gorebyss": {
     "id": 368,
@@ -58720,7 +60000,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/369.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Leftovers",
+        "ability": "Rock Head",
+        "nature": "Adamant",
+        "evs": {
+          "hp": 252,
+          "atk": 252,
+          "def": 4,
+          "spa": 0,
+          "spd": 0,
+          "spe": 0
+        },
+        "moves": ["Waterfall", "Stone Edge", "Earthquake", "Yawn"]
+      }
+    ]
   },
   "luvdisc": {
     "id": 370,
@@ -58931,7 +60226,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/370.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Choice Scarf",
+        "ability": "Hydration",
+        "nature": "Timid",
+        "evs": {
+          "hp": 0,
+          "atk": 0,
+          "def": 0,
+          "spa": 252,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Hydro Pump", "Ice Beam", "Hidden Power Fire", "Toxic"]
+      }
+    ]
   },
   "salamence": {
     "id": 373,
@@ -62721,7 +64031,22 @@
     },
     "tier": "Uber",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/386.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Life Orb",
+        "ability": "Pressure",
+        "nature": "Timid",
+        "evs": {
+          "hp": 0,
+          "atk": 0,
+          "def": 0,
+          "spa": 252,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Psychic", "Ice Beam", "Thunderbolt", "Hidden Power Fire"]
+      }
+    ]
   },
   "deoxys-attack": {
     "id": 386,
@@ -63435,7 +64760,22 @@
     },
     "tier": "Uber",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/386.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Leftovers",
+        "ability": "Pressure",
+        "nature": "Bold",
+        "evs": {
+          "hp": 252,
+          "atk": 0,
+          "def": 252,
+          "spa": 0,
+          "spd": 4,
+          "spe": 0
+        },
+        "moves": ["Toxic", "Stealth Rock", "Recover", "Psychic"]
+      }
+    ]
   },
   "deoxys-speed": {
     "id": 386,
@@ -64960,7 +66300,22 @@
     },
     "tier": "UUBL",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/398.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Choice Band",
+        "ability": "Intimidate",
+        "nature": "Jolly",
+        "evs": {
+          "hp": 0,
+          "atk": 252,
+          "def": 0,
+          "spa": 0,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Brave Bird", "U-turn", "Close Combat", "Pursuit"]
+      }
+    ]
   },
   "bibarel": {
     "id": 400,
@@ -65227,7 +66582,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/400.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Leftovers",
+        "ability": "Simple",
+        "nature": "Adamant",
+        "evs": {
+          "hp": 252,
+          "atk": 252,
+          "def": 4,
+          "spa": 0,
+          "spd": 0,
+          "spe": 0
+        },
+        "moves": ["Curse", "Return", "Aqua Jet", "Stealth Rock"]
+      }
+    ]
   },
   "kricketune": {
     "id": 402,
@@ -65434,7 +66804,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/402.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Focus Sash",
+        "ability": "Swarm",
+        "nature": "Adamant",
+        "evs": {
+          "hp": 0,
+          "atk": 252,
+          "def": 0,
+          "spa": 0,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Swords Dance", "X-Scissor", "Knock Off", "U-turn"]
+      }
+    ]
   },
   "luxray": {
     "id": 405,
@@ -65629,7 +67014,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/405.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Choice Band",
+        "ability": "Intimidate",
+        "nature": "Adamant",
+        "evs": {
+          "hp": 0,
+          "atk": 252,
+          "def": 0,
+          "spa": 0,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Wild Charge", "Ice Fang", "Crunch", "Close Combat"]
+      }
+    ]
   },
   "rampardos": {
     "id": 409,
@@ -65924,7 +67324,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/409.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Choice Band",
+        "ability": "Mold Breaker",
+        "nature": "Adamant",
+        "evs": {
+          "hp": 0,
+          "atk": 252,
+          "def": 0,
+          "spa": 0,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Head Smash", "Stone Edge", "Earthquake", "Pursuit"]
+      }
+    ]
   },
   "bastiodon": {
     "id": 411,
@@ -66155,7 +67570,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/411.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Leftovers",
+        "ability": "Sturdy",
+        "nature": "Impish",
+        "evs": {
+          "hp": 252,
+          "atk": 0,
+          "def": 252,
+          "spa": 0,
+          "spd": 4,
+          "spe": 0
+        },
+        "moves": ["Stealth Rock", "Toxic", "Roar", "Metal Burst"]
+      }
+    ]
   },
   "wormadam": {
     "id": 413,
@@ -66378,7 +67808,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/413.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Leftovers",
+        "ability": "Anticipation",
+        "nature": "Bold",
+        "evs": {
+          "hp": 252,
+          "atk": 0,
+          "def": 252,
+          "spa": 0,
+          "spd": 4,
+          "spe": 0
+        },
+        "moves": ["Protect", "Toxic", "Hidden Power Ground", "Bug Buzz"]
+      }
+    ]
   },
   "wormadam-sandy": {
     "id": 413,
@@ -66601,7 +68046,27 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/413.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Leftovers",
+        "ability": "Anticipation",
+        "nature": "Bold",
+        "evs": {
+          "hp": 252,
+          "atk": 0,
+          "def": 252,
+          "spa": 0,
+          "spd": 4,
+          "spe": 0
+        },
+        "moves": [
+          "Stealth Rock",
+          "Toxic",
+          "Earthquake",
+          "Hidden Power Fighting"
+        ]
+      }
+    ]
   },
   "wormadam-trash": {
     "id": 413,
@@ -66824,7 +68289,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/413.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Leftovers",
+        "ability": "Anticipation",
+        "nature": "Bold",
+        "evs": {
+          "hp": 252,
+          "atk": 0,
+          "def": 252,
+          "spa": 0,
+          "spd": 4,
+          "spe": 0
+        },
+        "moves": ["Stealth Rock", "Toxic", "Hidden Power Fighting", "Bug Buzz"]
+      }
+    ]
   },
   "mothim": {
     "id": 414,
@@ -67039,7 +68519,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/414.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Choice Scarf",
+        "ability": "Tinted Lens",
+        "nature": "Timid",
+        "evs": {
+          "hp": 0,
+          "atk": 0,
+          "def": 0,
+          "spa": 252,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Bug Buzz", "Hidden Power Ground", "U-turn", "Air Slash"]
+      }
+    ]
   },
   "vespiquen": {
     "id": 416,
@@ -67258,7 +68753,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/416.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Leftovers",
+        "ability": "Pressure",
+        "nature": "Bold",
+        "evs": {
+          "hp": 252,
+          "atk": 0,
+          "def": 252,
+          "spa": 0,
+          "spd": 4,
+          "spe": 0
+        },
+        "moves": ["Toxic", "Defend Order", "Attack Order", "Heal Order"]
+      }
+    ]
   },
   "pachirisu": {
     "id": 417,
@@ -67521,7 +69031,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/417.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Sitrus Berry",
+        "ability": "Volt Absorb",
+        "nature": "Bold",
+        "evs": {
+          "hp": 252,
+          "atk": 0,
+          "def": 252,
+          "spa": 0,
+          "spd": 4,
+          "spe": 0
+        },
+        "moves": ["Nuzzle", "Super Fang", "Protect", "Volt Switch"]
+      }
+    ]
   },
   "floatzel": {
     "id": 419,
@@ -67965,7 +69490,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/421.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Life Orb",
+        "ability": "Flower Gift",
+        "nature": "Modest",
+        "evs": {
+          "hp": 0,
+          "atk": 0,
+          "def": 0,
+          "spa": 252,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Solar Beam", "Weather Ball", "Hidden Power Ice", "Protect"]
+      }
+    ]
   },
   "gastrodon": {
     "id": 423,
@@ -68457,7 +69997,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/426.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Leftovers",
+        "ability": "Unburden",
+        "nature": "Jolly",
+        "evs": {
+          "hp": 252,
+          "atk": 0,
+          "def": 0,
+          "spa": 0,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Acrobatics", "Will-O-Wisp", "Destiny Bond", "Taunt"]
+      }
+    ]
   },
   "lopunny": {
     "id": 428,
@@ -69018,7 +70573,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/432.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Choice Band",
+        "ability": "Defiant",
+        "nature": "Jolly",
+        "evs": {
+          "hp": 0,
+          "atk": 252,
+          "def": 0,
+          "spa": 0,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Fake Out", "Return", "U-turn", "Pursuit"]
+      }
+    ]
   },
   "skuntank": {
     "id": 435,
@@ -69788,7 +71358,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/441.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Choice Specs",
+        "ability": "Tangled Feet",
+        "nature": "Modest",
+        "evs": {
+          "hp": 0,
+          "atk": 0,
+          "def": 0,
+          "spa": 252,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Chatter", "Heat Wave", "U-turn", "Hidden Power Ice"]
+      }
+    ]
   },
   "spiritomb": {
     "id": 442,
@@ -71776,7 +73361,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/455.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Leftovers",
+        "ability": "Chlorophyll",
+        "nature": "Jolly",
+        "evs": {
+          "hp": 252,
+          "atk": 252,
+          "def": 4,
+          "spa": 0,
+          "spd": 0,
+          "spe": 0
+        },
+        "moves": ["Leaf Storm", "Power Whip", "Synthesis", "Toxic"]
+      }
+    ]
   },
   "lumineon": {
     "id": 457,
@@ -71959,7 +73559,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/457.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Leftovers",
+        "ability": "Storm Drain",
+        "nature": "Bold",
+        "evs": {
+          "hp": 252,
+          "atk": 0,
+          "def": 252,
+          "spa": 0,
+          "spd": 4,
+          "spe": 0
+        },
+        "moves": ["Surf", "Toxic", "Heal Bell", "Ice Beam"]
+      }
+    ]
   },
   "abomasnow": {
     "id": 460,
@@ -73401,7 +75016,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/479.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Choice Scarf",
+        "ability": "Levitate",
+        "nature": "Timid",
+        "evs": {
+          "hp": 0,
+          "atk": 0,
+          "def": 0,
+          "spa": 252,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Air Slash", "Volt Switch", "Thunderbolt", "Will-O-Wisp"]
+      }
+    ]
   },
   "rotom-mow": {
     "id": 479,
@@ -74264,7 +75894,22 @@
     },
     "tier": "NU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/481.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Leftovers",
+        "ability": "Levitate",
+        "nature": "Bold",
+        "evs": {
+          "hp": 252,
+          "atk": 0,
+          "def": 252,
+          "spa": 0,
+          "spd": 4,
+          "spe": 0
+        },
+        "moves": ["Psychic", "Thunder Wave", "Healing Wish", "Stealth Rock"]
+      }
+    ]
   },
   "azelf": {
     "id": 482,
@@ -75669,7 +77314,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/486.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Choice Band",
+        "ability": "Slow Start",
+        "nature": "Adamant",
+        "evs": {
+          "hp": 252,
+          "atk": 252,
+          "def": 0,
+          "spa": 0,
+          "spd": 4,
+          "spe": 0
+        },
+        "moves": ["Return", "Knock Off", "Fire Punch", "Ice Punch"]
+      }
+    ]
   },
   "giratina": {
     "id": 487,
@@ -76418,7 +78078,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/489.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Leftovers",
+        "ability": "Hydration",
+        "nature": "Calm",
+        "evs": {
+          "hp": 252,
+          "atk": 0,
+          "def": 252,
+          "spa": 0,
+          "spd": 4,
+          "spe": 0
+        },
+        "moves": ["Hydro Pump", "Toxic", "Aqua Ring", "Rest"]
+      }
+    ]
   },
   "manaphy": {
     "id": 490,
@@ -79351,7 +81026,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/505.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Choice Scarf",
+        "ability": "Run Away",
+        "nature": "Jolly",
+        "evs": {
+          "hp": 0,
+          "atk": 252,
+          "def": 0,
+          "spa": 0,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Hyper Fang", "U-turn", "Crunch", "Hidden Power Fighting"]
+      }
+    ]
   },
   "stoutland": {
     "id": 508,
@@ -80118,7 +81808,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/512.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Life Orb",
+        "ability": "Overgrow",
+        "nature": "Jolly",
+        "evs": {
+          "hp": 0,
+          "atk": 252,
+          "def": 0,
+          "spa": 0,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Leaf Storm", "Knock Off", "Leech Seed", "Giga Drain"]
+      }
+    ]
   },
   "simisear": {
     "id": 514,
@@ -80365,7 +82070,27 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/514.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Choice Scarf",
+        "ability": "Blaze",
+        "nature": "Timid",
+        "evs": {
+          "hp": 0,
+          "atk": 0,
+          "def": 0,
+          "spa": 252,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": [
+          "Flamethrower",
+          "Hidden Power Ice",
+          "Focus Blast",
+          "Grass Knot"
+        ]
+      }
+    ]
   },
   "simipour": {
     "id": 516,
@@ -80616,7 +82341,27 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/516.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Life Orb",
+        "ability": "Torrent",
+        "nature": "Timid",
+        "evs": {
+          "hp": 0,
+          "atk": 0,
+          "def": 0,
+          "spa": 252,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": [
+          "Hydro Pump",
+          "Ice Beam",
+          "Focus Blast",
+          "Hidden Power Electric"
+        ]
+      }
+    ]
   },
   "musharna": {
     "id": 518,
@@ -81053,7 +82798,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/521.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Choice Scarf",
+        "ability": "Big Pecks",
+        "nature": "Jolly",
+        "evs": {
+          "hp": 0,
+          "atk": 252,
+          "def": 0,
+          "spa": 0,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Brave Bird", "U-turn", "Pursuit", "Roost"]
+      }
+    ]
   },
   "zebstrika": {
     "id": 523,
@@ -81244,7 +83004,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/523.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Choice Scarf",
+        "ability": "Lightning Rod",
+        "nature": "Timid",
+        "evs": {
+          "hp": 0,
+          "atk": 0,
+          "def": 0,
+          "spa": 252,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Thunderbolt", "Volt Switch", "Overheat", "Hidden Power Ice"]
+      }
+    ]
   },
   "gigalith": {
     "id": 526,
@@ -81750,7 +83525,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/528.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Psychium Z",
+        "ability": "Simple",
+        "nature": "Timid",
+        "evs": {
+          "hp": 0,
+          "atk": 0,
+          "def": 0,
+          "spa": 252,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Calm Mind", "Psychic", "Stored Power", "Air Slash"]
+      }
+    ]
   },
   "excadrill": {
     "id": 530,
@@ -82649,7 +84439,22 @@
     },
     "tier": "UUBL",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/534.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Flame Orb",
+        "ability": "Guts",
+        "nature": "Adamant",
+        "evs": {
+          "hp": 252,
+          "atk": 252,
+          "def": 0,
+          "spa": 0,
+          "spd": 4,
+          "spe": 0
+        },
+        "moves": ["Mach Punch", "Drain Punch", "Knock Off", "Ice Punch"]
+      }
+    ]
   },
   "seismitoad": {
     "id": 537,
@@ -83739,7 +85544,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/542.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Leftovers",
+        "ability": "Chlorophyll",
+        "nature": "Jolly",
+        "evs": {
+          "hp": 252,
+          "atk": 252,
+          "def": 0,
+          "spa": 0,
+          "spd": 4,
+          "spe": 0
+        },
+        "moves": ["Swords Dance", "Leaf Blade", "Knock Off", "Sticky Web"]
+      }
+    ]
   },
   "scolipede": {
     "id": 545,
@@ -84395,7 +86215,27 @@
     },
     "tier": "PUBL",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/549.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Focus Sash",
+        "ability": "Chlorophyll",
+        "nature": "Timid",
+        "evs": {
+          "hp": 0,
+          "atk": 0,
+          "def": 0,
+          "spa": 252,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": [
+          "Quiver Dance",
+          "Giga Drain",
+          "Hidden Power Fire",
+          "Sleep Powder"
+        ]
+      }
+    ]
   },
   "basculin": {
     "id": 550,
@@ -84626,7 +86466,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/550.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Choice Band",
+        "ability": "Reckless",
+        "nature": "Adamant",
+        "evs": {
+          "hp": 0,
+          "atk": 252,
+          "def": 0,
+          "spa": 0,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Aqua Jet", "Waterfall", "Crunch", "Pursuit"]
+      }
+    ]
   },
   "basculin-blue-striped": {
     "id": 550,
@@ -84857,7 +86712,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/550.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Choice Scarf",
+        "ability": "Reckless",
+        "nature": "Jolly",
+        "evs": {
+          "hp": 0,
+          "atk": 252,
+          "def": 0,
+          "spa": 0,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Aqua Jet", "Waterfall", "Ice Beam", "Crunch"]
+      }
+    ]
   },
   "krookodile": {
     "id": 553,
@@ -85442,7 +87312,22 @@
     },
     "tier": "RUBL",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/555.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Choice Scarf",
+        "ability": "Zen Mode",
+        "nature": "Adamant",
+        "evs": {
+          "hp": 0,
+          "atk": 252,
+          "def": 0,
+          "spa": 0,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Flare Blitz", "U-turn", "Earthquake", "Rock Slide"]
+      }
+    ]
   },
   "maractus": {
     "id": 556,
@@ -85681,7 +87566,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/556.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Focus Sash",
+        "ability": "Water Absorb",
+        "nature": "Modest",
+        "evs": {
+          "hp": 0,
+          "atk": 0,
+          "def": 0,
+          "spa": 252,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Spikes", "Giga Drain", "Toxic", "Sucker Punch"]
+      }
+    ]
   },
   "crustle": {
     "id": 558,
@@ -85876,7 +87776,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/558.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Leftovers",
+        "ability": "Sturdy",
+        "nature": "Impish",
+        "evs": {
+          "hp": 252,
+          "atk": 252,
+          "def": 4,
+          "spa": 0,
+          "spd": 0,
+          "spe": 0
+        },
+        "moves": ["Stealth Rock", "X-Scissor", "Toxic", "Shell Smash"]
+      }
+    ]
   },
   "scrafty": {
     "id": 560,
@@ -87340,7 +89255,22 @@
     },
     "tier": "PUBL",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/567.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Focus Sash",
+        "ability": "Defeatist",
+        "nature": "Jolly",
+        "evs": {
+          "hp": 0,
+          "atk": 252,
+          "def": 0,
+          "spa": 0,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Stone Edge", "Acrobatics", "U-turn", "Toxic"]
+      }
+    ]
   },
   "garbodor": {
     "id": 569,
@@ -87857,7 +89787,22 @@
     },
     "tier": "RUBL",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/571.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Choice Scarf",
+        "ability": "Illusion",
+        "nature": "Timid",
+        "evs": {
+          "hp": 0,
+          "atk": 0,
+          "def": 0,
+          "spa": 252,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Nasty Plot", "Dark Pulse", "Flamethrower", "Focus Blast"]
+      }
+    ]
   },
   "cinccino": {
     "id": 573,
@@ -88072,7 +90017,22 @@
     },
     "tier": "PUBL",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/573.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Choice Band",
+        "ability": "Skill Link",
+        "nature": "Jolly",
+        "evs": {
+          "hp": 0,
+          "atk": 252,
+          "def": 0,
+          "spa": 0,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Tail Slap", "Knock Off", "U-turn", "Rock Blast"]
+      }
+    ]
   },
   "gothitelle": {
     "id": 576,
@@ -89376,7 +91336,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/586.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Choice Scarf",
+        "ability": "Chlorophyll",
+        "nature": "Jolly",
+        "evs": {
+          "hp": 0,
+          "atk": 252,
+          "def": 0,
+          "spa": 0,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Horn Leech", "Jump Kick", "Wild Charge", "Synthesis"]
+      }
+    ]
   },
   "emolga": {
     "id": 587,
@@ -89615,7 +91590,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/587.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Sitrus Berry",
+        "ability": "Volt Absorb",
+        "nature": "Timid",
+        "evs": {
+          "hp": 252,
+          "atk": 0,
+          "def": 0,
+          "spa": 252,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Volt Switch", "Air Slash", "Hidden Power Ice", "Encore"]
+      }
+    ]
   },
   "escavalier": {
     "id": 589,
@@ -91835,7 +93825,27 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/606.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Life Orb",
+        "ability": "Analytic",
+        "nature": "Modest",
+        "evs": {
+          "hp": 0,
+          "atk": 0,
+          "def": 0,
+          "spa": 252,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": [
+          "Psychic",
+          "Shadow Ball",
+          "Focus Blast",
+          "Hidden Power Fighting"
+        ]
+      }
+    ]
   },
   "chandelure": {
     "id": 609,
@@ -92575,7 +94585,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/614.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Leftovers",
+        "ability": "Swift Swim",
+        "nature": "Adamant",
+        "evs": {
+          "hp": 252,
+          "atk": 252,
+          "def": 0,
+          "spa": 0,
+          "spd": 4,
+          "spe": 0
+        },
+        "moves": ["Icicle Crash", "Swords Dance", "Aqua Jet", "Knock Off"]
+      }
+    ]
   },
   "cryogonal": {
     "id": 615,
@@ -93299,7 +95324,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/618.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Leftovers",
+        "ability": "Static",
+        "nature": "Bold",
+        "evs": {
+          "hp": 252,
+          "atk": 0,
+          "def": 252,
+          "spa": 0,
+          "spd": 4,
+          "spe": 0
+        },
+        "moves": ["Scald", "Earthquake", "Toxic", "Stealth Rock"]
+      }
+    ]
   },
   "mienshao": {
     "id": 620,
@@ -94798,7 +96838,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/626.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Choice Band",
+        "ability": "Reckless",
+        "nature": "Adamant",
+        "evs": {
+          "hp": 0,
+          "atk": 252,
+          "def": 0,
+          "spa": 0,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Head Charge", "Earthquake", "Megahorn", "U-turn"]
+      }
+    ]
   },
   "braviary": {
     "id": 628,
@@ -95589,7 +97644,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/631.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Leftovers",
+        "ability": "Flash Fire",
+        "nature": "Modest",
+        "evs": {
+          "hp": 252,
+          "atk": 0,
+          "def": 0,
+          "spa": 252,
+          "spd": 4,
+          "spe": 0
+        },
+        "moves": ["Flamethrower", "Knock Off", "Sucker Punch", "Will-O-Wisp"]
+      }
+    ]
   },
   "durant": {
     "id": 632,
@@ -98695,7 +100765,22 @@
     },
     "tier": "Uber",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/643.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Leftovers",
+        "ability": "Turboblaze",
+        "nature": "Modest",
+        "evs": {
+          "hp": 252,
+          "atk": 0,
+          "def": 0,
+          "spa": 252,
+          "spd": 4,
+          "spe": 0
+        },
+        "moves": ["Blue Flare", "Roar", "Dragon Pulse", "Toxic"]
+      }
+    ]
   },
   "zekrom": {
     "id": 644,
@@ -100870,7 +102955,27 @@
     },
     "tier": "OU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/647.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Choice Scarf",
+        "ability": "Justified",
+        "nature": "Timid",
+        "evs": {
+          "hp": 0,
+          "atk": 0,
+          "def": 0,
+          "spa": 252,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": [
+          "Hydro Pump",
+          "Secret Sword",
+          "Hidden Power Electric",
+          "Icy Wind"
+        ]
+      }
+    ]
   },
   "meloetta": {
     "id": 648,
@@ -101217,7 +103322,22 @@
     },
     "tier": "RUBL",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/648.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Leftovers",
+        "ability": "Serene Grace",
+        "nature": "Timid",
+        "evs": {
+          "hp": 0,
+          "atk": 0,
+          "def": 0,
+          "spa": 252,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Psychic", "Shadow Ball", "Hyper Voice", "Calm Mind"]
+      }
+    ]
   },
   "genesect": {
     "id": 649,
@@ -101508,7 +103628,22 @@
     },
     "tier": "Uber",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/649.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Choice Scarf",
+        "ability": "Download",
+        "nature": "Modest",
+        "evs": {
+          "hp": 0,
+          "atk": 0,
+          "def": 0,
+          "spa": 252,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Techno Blast", "Ice Beam", "U-turn", "Hidden Power Fire"]
+      }
+    ]
   },
   "chesnaught": {
     "id": 652,
@@ -102815,7 +104950,22 @@
     },
     "tier": "UUBL",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/660.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Choice Band",
+        "ability": "Huge Power",
+        "nature": "Adamant",
+        "evs": {
+          "hp": 0,
+          "atk": 252,
+          "def": 0,
+          "spa": 0,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Return", "Knock Off", "Earthquake", "U-turn"]
+      }
+    ]
   },
   "talonflame": {
     "id": 663,
@@ -103530,7 +105680,27 @@
     },
     "tier": "NU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/666.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Focus Sash",
+        "ability": "Compound Eyes",
+        "nature": "Timid",
+        "evs": {
+          "hp": 0,
+          "atk": 0,
+          "def": 0,
+          "spa": 252,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": [
+          "Quiver Dance",
+          "Bug Buzz",
+          "Hidden Power Fire",
+          "Sleep Powder"
+        ]
+      }
+    ]
   },
   "vivillon-pokeball": {
     "id": 666,
@@ -103757,7 +105927,27 @@
     },
     "tier": "NU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/666.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Focus Sash",
+        "ability": "Compound Eyes",
+        "nature": "Timid",
+        "evs": {
+          "hp": 0,
+          "atk": 0,
+          "def": 0,
+          "spa": 252,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": [
+          "Quiver Dance",
+          "Bug Buzz",
+          "Hidden Power Fire",
+          "Sleep Powder"
+        ]
+      }
+    ]
   },
   "pyroar": {
     "id": 668,
@@ -103972,7 +106162,27 @@
     },
     "tier": "PUBL",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/668.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Leftovers",
+        "ability": "Unnerve",
+        "nature": "Timid",
+        "evs": {
+          "hp": 0,
+          "atk": 0,
+          "def": 0,
+          "spa": 252,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": [
+          "Flamethrower",
+          "Hyper Voice",
+          "Will-O-Wisp",
+          "Hidden Power Grass"
+        ]
+      }
+    ]
   },
   "florges": {
     "id": 671,
@@ -104441,7 +106651,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/673.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Leftovers",
+        "ability": "Grass Pelt",
+        "nature": "Impish",
+        "evs": {
+          "hp": 252,
+          "atk": 252,
+          "def": 4,
+          "spa": 0,
+          "spd": 0,
+          "spe": 0
+        },
+        "moves": ["Horn Leech", "Synthesis", "Toxic", "Leech Seed"]
+      }
+    ]
   },
   "pangoro": {
     "id": 675,
@@ -105073,7 +107298,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/676.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Leftovers",
+        "ability": "Fur Coat",
+        "nature": "Bold",
+        "evs": {
+          "hp": 252,
+          "atk": 0,
+          "def": 252,
+          "spa": 0,
+          "spd": 4,
+          "spe": 0
+        },
+        "moves": ["Return", "Toxic", "Cotton Guard", "Wish"]
+      }
+    ]
   },
   "meowstic": {
     "id": 678,
@@ -105360,7 +107600,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/678.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Light Clay",
+        "ability": "Prankster",
+        "nature": "Timid",
+        "evs": {
+          "hp": 252,
+          "atk": 0,
+          "def": 0,
+          "spa": 0,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Reflect", "Light Screen", "Toxic", "Foul Play"]
+      }
+    ]
   },
   "meowstic-f": {
     "id": 678,
@@ -105647,7 +107902,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/678.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Light Clay",
+        "ability": "Prankster",
+        "nature": "Timid",
+        "evs": {
+          "hp": 252,
+          "atk": 0,
+          "def": 0,
+          "spa": 0,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Reflect", "Light Screen", "Toxic", "Foul Play"]
+      }
+    ]
   },
   "doublade": {
     "id": 680,
@@ -106315,7 +108585,22 @@
     },
     "tier": "PUBL",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/683.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Leftovers",
+        "ability": "Aroma Veil",
+        "nature": "Bold",
+        "evs": {
+          "hp": 252,
+          "atk": 0,
+          "def": 252,
+          "spa": 0,
+          "spd": 4,
+          "spe": 0
+        },
+        "moves": ["Moonblast", "Wish", "Protect", "Toxic"]
+      }
+    ]
   },
   "slurpuff": {
     "id": 685,
@@ -107641,7 +109926,22 @@
     },
     "tier": "NU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/693.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Choice Specs",
+        "ability": "Mega Launcher",
+        "nature": "Modest",
+        "evs": {
+          "hp": 0,
+          "atk": 0,
+          "def": 0,
+          "spa": 252,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Aqua Jet", "Water Pulse", "Dark Pulse", "Ice Beam"]
+      }
+    ]
   },
   "heliolisk": {
     "id": 695,
@@ -108990,7 +111290,22 @@
     },
     "tier": "OU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/701.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Leftovers",
+        "ability": "Unburden",
+        "nature": "Jolly",
+        "evs": {
+          "hp": 0,
+          "atk": 252,
+          "def": 0,
+          "spa": 0,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["High Jump Kick", "Acrobatics", "Swords Dance", "Roost"]
+      }
+    ]
   },
   "dedenne": {
     "id": 702,
@@ -109217,7 +111532,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/702.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Sitrus Berry",
+        "ability": "Cheek Pouch",
+        "nature": "Timid",
+        "evs": {
+          "hp": 0,
+          "atk": 0,
+          "def": 0,
+          "spa": 252,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Thunderbolt", "Nuzzle", "Play Rough", "Volt Switch"]
+      }
+    ]
   },
   "carbink": {
     "id": 703,
@@ -109448,7 +111778,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/703.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Leftovers",
+        "ability": "Clear Body",
+        "nature": "Bold",
+        "evs": {
+          "hp": 252,
+          "atk": 0,
+          "def": 252,
+          "spa": 0,
+          "spd": 4,
+          "spe": 0
+        },
+        "moves": ["Stealth Rock", "Moonblast", "Toxic", "Protect"]
+      }
+    ]
   },
   "goodra": {
     "id": 706,
@@ -110243,7 +112588,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/709.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Leftovers",
+        "ability": "Harvest",
+        "nature": "Careful",
+        "evs": {
+          "hp": 252,
+          "atk": 252,
+          "def": 0,
+          "spa": 0,
+          "spd": 4,
+          "spe": 0
+        },
+        "moves": ["Leech Seed", "Will-O-Wisp", "Phantom Force", "Horn Leech"]
+      }
+    ]
   },
   "gourgeist": {
     "id": 711,
@@ -110498,7 +112858,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/711.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Leftovers",
+        "ability": "Insomnia",
+        "nature": "Bold",
+        "evs": {
+          "hp": 252,
+          "atk": 0,
+          "def": 252,
+          "spa": 0,
+          "spd": 4,
+          "spe": 0
+        },
+        "moves": ["Will-O-Wisp", "Leech Seed", "Phantom Force", "Synthesis"]
+      }
+    ]
   },
   "gourgeist-small": {
     "id": 711,
@@ -110753,7 +113128,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/711.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Leftovers",
+        "ability": "Insomnia",
+        "nature": "Bold",
+        "evs": {
+          "hp": 252,
+          "atk": 0,
+          "def": 252,
+          "spa": 0,
+          "spd": 4,
+          "spe": 0
+        },
+        "moves": ["Will-O-Wisp", "Leech Seed", "Phantom Force", "Synthesis"]
+      }
+    ]
   },
   "gourgeist-large": {
     "id": 711,
@@ -111008,7 +113398,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/711.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Leftovers",
+        "ability": "Insomnia",
+        "nature": "Bold",
+        "evs": {
+          "hp": 252,
+          "atk": 0,
+          "def": 252,
+          "spa": 0,
+          "spd": 4,
+          "spe": 0
+        },
+        "moves": ["Will-O-Wisp", "Leech Seed", "Phantom Force", "Synthesis"]
+      }
+    ]
   },
   "gourgeist-super": {
     "id": 711,
@@ -111518,7 +113923,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/713.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Leftovers",
+        "ability": "Sturdy",
+        "nature": "Impish",
+        "evs": {
+          "hp": 252,
+          "atk": 0,
+          "def": 252,
+          "spa": 0,
+          "spd": 4,
+          "spe": 0
+        },
+        "moves": ["Recover", "Stealth Rock", "Toxic", "Avalanche"]
+      }
+    ]
   },
   "noivern": {
     "id": 715,
@@ -112922,7 +115342,22 @@
     },
     "tier": "RU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/718.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Leftovers",
+        "ability": "Aura Break",
+        "nature": "Jolly",
+        "evs": {
+          "hp": 252,
+          "atk": 252,
+          "def": 4,
+          "spa": 0,
+          "spd": 0,
+          "spe": 252
+        },
+        "moves": ["Thousand Arrows", "Iron Tail", "Toxic", "Earthquake"]
+      }
+    ]
   },
   "zygarde-complete": {
     "id": 718,
@@ -113157,7 +115592,22 @@
     },
     "tier": "Uber",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/718.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Leftovers",
+        "ability": "Aura Break",
+        "nature": "Adamant",
+        "evs": {
+          "hp": 252,
+          "atk": 252,
+          "def": 4,
+          "spa": 0,
+          "spd": 0,
+          "spe": 0
+        },
+        "moves": ["Thousand Arrows", "Coil", "Toxic", "Earthquake"]
+      }
+    ]
   },
   "diancie": {
     "id": 719,
@@ -113817,7 +116267,22 @@
     },
     "tier": "RU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/720.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Choice Specs",
+        "ability": "Magician",
+        "nature": "Modest",
+        "evs": {
+          "hp": 0,
+          "atk": 0,
+          "def": 0,
+          "spa": 252,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Psychic", "Shadow Ball", "Focus Blast", "Trick"]
+      }
+    ]
   },
   "hoopa-unbound": {
     "id": 720,
@@ -115855,7 +118320,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/735.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Choice Band",
+        "ability": "Stakeout",
+        "nature": "Adamant",
+        "evs": {
+          "hp": 0,
+          "atk": 252,
+          "def": 0,
+          "spa": 0,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Return", "Crunch", "U-turn", "Pursuit"]
+      }
+    ]
   },
   "vikavolt": {
     "id": 738,
@@ -116586,7 +119066,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/741.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Leftovers",
+        "ability": "Dancer",
+        "nature": "Timid",
+        "evs": {
+          "hp": 252,
+          "atk": 0,
+          "def": 0,
+          "spa": 252,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Revelation Dance", "Roost", "Hurricane", "Taunt"]
+      }
+    ]
   },
   "oricorio-pom-pom": {
     "id": 741,
@@ -117028,7 +119523,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/741.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Leftovers",
+        "ability": "Dancer",
+        "nature": "Timid",
+        "evs": {
+          "hp": 252,
+          "atk": 0,
+          "def": 0,
+          "spa": 252,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Revelation Dance", "Roost", "Hurricane", "Taunt"]
+      }
+    ]
   },
   "oricorio-sensu": {
     "id": 741,
@@ -117989,7 +120499,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/745.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Choice Band",
+        "ability": "No Guard",
+        "nature": "Jolly",
+        "evs": {
+          "hp": 0,
+          "atk": 252,
+          "def": 0,
+          "spa": 0,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Stone Edge", "Crunch", "Fire Fang", "Pursuit"]
+      }
+    ]
   },
   "lycanroc-dusk": {
     "id": 745,
@@ -118411,7 +120936,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/746.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Choice Scarf",
+        "ability": "Schooling",
+        "nature": "Modest",
+        "evs": {
+          "hp": 0,
+          "atk": 0,
+          "def": 0,
+          "spa": 252,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Scald", "Ice Beam", "Hydro Pump", "Hidden Power Grass"]
+      }
+    ]
   },
   "toxapex": {
     "id": 748,
@@ -119583,7 +122123,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/756.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Leftovers",
+        "ability": "Effect Spore",
+        "nature": "Calm",
+        "evs": {
+          "hp": 252,
+          "atk": 0,
+          "def": 0,
+          "spa": 0,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Spore", "Giga Drain", "Moonblast", "Toxic"]
+      }
+    ]
   },
   "salazzle": {
     "id": 758,
@@ -121003,7 +123558,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/765.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Leftovers",
+        "ability": "Instruct",
+        "nature": "Modest",
+        "evs": {
+          "hp": 252,
+          "atk": 0,
+          "def": 0,
+          "spa": 252,
+          "spd": 4,
+          "spe": 0
+        },
+        "moves": ["Instruct", "Psychic", "Foul Play", "Protect"]
+      }
+    ]
   },
   "passimian": {
     "id": 766,
@@ -122440,7 +125010,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/773.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Silk Scarf",
+        "ability": "RKS System",
+        "nature": "Jolly",
+        "evs": {
+          "hp": 252,
+          "atk": 252,
+          "def": 0,
+          "spa": 0,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Multi-Attack", "Flame Charge", "Parting Shot", "Crunch"]
+      }
+    ]
   },
   "minior": {
     "id": 774,
@@ -122683,7 +125268,22 @@
     },
     "tier": "NU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/774.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "White Herb",
+        "ability": "Shields Down",
+        "nature": "Jolly",
+        "evs": {
+          "hp": 252,
+          "atk": 252,
+          "def": 0,
+          "spa": 0,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Meteor Beam", "Stone Edge", "Power Gem", "Explosion"]
+      }
+    ]
   },
   "komala": {
     "id": 775,
@@ -122906,7 +125506,22 @@
     },
     "tier": "ZU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/775.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Leftovers",
+        "ability": "Comatose",
+        "nature": "Careful",
+        "evs": {
+          "hp": 252,
+          "atk": 252,
+          "def": 0,
+          "spa": 0,
+          "spd": 4,
+          "spe": 0
+        },
+        "moves": ["Body Slam", "Knock Off", "Sucker Punch", "Toxic"]
+      }
+    ]
   },
   "turtonator": {
     "id": 776,
@@ -124093,7 +126708,22 @@
     },
     "tier": "NUBL",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/779.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Life Orb",
+        "ability": "Dazzling",
+        "nature": "Jolly",
+        "evs": {
+          "hp": 0,
+          "atk": 252,
+          "def": 0,
+          "spa": 0,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Psychic Fangs", "Crunch", "Aqua Jet", "Ice Fang"]
+      }
+    ]
   },
   "drampa": {
     "id": 780,
@@ -125371,7 +128001,22 @@
     },
     "tier": "OU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/785.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Life Orb",
+        "ability": "Electric Surge",
+        "nature": "Timid",
+        "evs": {
+          "hp": 0,
+          "atk": 0,
+          "def": 0,
+          "spa": 252,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Thunderbolt", "Dazzling Gleam", "U-turn", "Hidden Power Ice"]
+      }
+    ]
   },
   "tapu lele": {
     "id": 786,
@@ -125626,7 +128271,22 @@
     },
     "tier": "OU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/786.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Psychium Z",
+        "ability": "Psychic Surge",
+        "nature": "Modest",
+        "evs": {
+          "hp": 0,
+          "atk": 0,
+          "def": 0,
+          "spa": 252,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Psychic", "Moonblast", "Focus Blast", "Hidden Power Fire"]
+      }
+    ]
   },
   "tapu bulu": {
     "id": 787,
@@ -125909,7 +128569,22 @@
     },
     "tier": "OU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/787.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Choice Band",
+        "ability": "Grassy Surge",
+        "nature": "Adamant",
+        "evs": {
+          "hp": 252,
+          "atk": 252,
+          "def": 0,
+          "spa": 0,
+          "spd": 4,
+          "spe": 0
+        },
+        "moves": ["Wood Hammer", "Horn Leech", "Stone Edge", "Grassy Glide"]
+      }
+    ]
   },
   "tapu fini": {
     "id": 788,
@@ -126172,7 +128847,22 @@
     },
     "tier": "OU",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/788.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Leftovers",
+        "ability": "Misty Surge",
+        "nature": "Calm",
+        "evs": {
+          "hp": 252,
+          "atk": 0,
+          "def": 0,
+          "spa": 0,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Moonblast", "Defog", "Haze", "Misty Terrain"]
+      }
+    ]
   },
   "solgaleo": {
     "id": 791,
@@ -126451,7 +129141,27 @@
     },
     "tier": "Uber",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/791.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Leftovers",
+        "ability": "Full Metal Body",
+        "nature": "Adamant",
+        "evs": {
+          "hp": 252,
+          "atk": 252,
+          "def": 0,
+          "spa": 0,
+          "spd": 4,
+          "spe": 0
+        },
+        "moves": [
+          "Sunsteel Strike",
+          "Flare Blitz",
+          "Wild Charge",
+          "Stealth Rock"
+        ]
+      }
+    ]
   },
   "lunala": {
     "id": 792,
@@ -127594,7 +130304,22 @@
     },
     "tier": "Uber",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/795.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Choice Scarf",
+        "ability": "Beast Boost",
+        "nature": "Jolly",
+        "evs": {
+          "hp": 0,
+          "atk": 252,
+          "def": 0,
+          "spa": 0,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["High Jump Kick", "U-turn", "Ice Beam", "Pursuit"]
+      }
+    ]
   },
   "xurkitree": {
     "id": 796,
@@ -127825,7 +130550,27 @@
     },
     "tier": "UUBL",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/796.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Choice Specs",
+        "ability": "Beam Boost",
+        "nature": "Modest",
+        "evs": {
+          "hp": 0,
+          "atk": 0,
+          "def": 0,
+          "spa": 252,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": [
+          "Thunderbolt",
+          "Energy Ball",
+          "Hidden Power Ice",
+          "Volt Switch"
+        ]
+      }
+    ]
   },
   "celesteela": {
     "id": 797,
@@ -130010,7 +132755,22 @@
     },
     "tier": "Uber",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/800.png",
-    "sets": []
+    "sets": [
+      {
+        "item": "Psychium Z",
+        "ability": "Neuroforce",
+        "nature": "Modest",
+        "evs": {
+          "hp": 0,
+          "atk": 0,
+          "def": 0,
+          "spa": 252,
+          "spd": 4,
+          "spe": 252
+        },
+        "moves": ["Photon Geyser", "Solar Beam", "Psychic", "Stealth Rock"]
+      }
+    ]
   },
   "magearna": {
     "id": 801,

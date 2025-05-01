@@ -108,13 +108,33 @@ export async function generateBattleImage(
   const leftX = 80;
   const leftY = height - leftSize - 40;
   ctx.drawImage(leftSprite, leftX, leftY, leftSize, leftSize);
-  drawHealthBar(ctx, leftX + 20, leftY - 35, 180, 25, leftPokemon.hp, leftPokemon.maxHp, leftPokemon.name, leftPokemon.status);
+  drawHealthBar(
+    ctx,
+    leftX + 20,
+    leftY - 35,
+    180,
+    25,
+    leftPokemon.hp,
+    leftPokemon.maxHp,
+    leftPokemon.name,
+    leftPokemon.status
+  );
 
   const rightSize = 150;
   const rightX = width - rightSize - 200;
   const rightY = 180;
   ctx.drawImage(rightSprite, rightX, rightY, rightSize, rightSize);
-  drawHealthBar(ctx, rightX - 20, rightY - 35, 180, 25, rightPokemon.hp, rightPokemon.maxHp, rightPokemon.name, rightPokemon.status);
+  drawHealthBar(
+    ctx,
+    rightX - 20,
+    rightY - 35,
+    180,
+    25,
+    rightPokemon.hp,
+    rightPokemon.maxHp,
+    rightPokemon.name,
+    rightPokemon.status
+  );
 
   const out = createWriteStream(outputPath);
   const stream = canvas.createPNGStream();
@@ -135,7 +155,7 @@ import {
   ButtonStyle,
   EmbedBuilder,
   AttachmentBuilder,
-  Events
+  Events,
 } from 'discord.js';
 
 import bot from './utils/client.js';
@@ -156,8 +176,10 @@ export async function sendUserBattleState(userid, battleState, wildPokemon) {
         .setDescription(winnerText)
         .setColor(battleState.winner === 'Trainer' ? 0x00ff00 : 0xff0000);
 
+      await bot.users.send(userid, battleState.roundLog);
       await bot.users.send(userid, { embeds: [embed] });
-      if(battleState.winner === 'Trainer')pokemonDefeated(userid, wildPokemon)
+      if (battleState.winner === 'Trainer')
+        pokemonDefeated(userid, wildPokemon);
       return battleState.winner;
     }
 
@@ -183,7 +205,8 @@ export async function sendUserBattleState(userid, battleState, wildPokemon) {
     });
 
     const filter = (interaction) =>
-      interaction.customId.startsWith('move_') && interaction.user.id === userid;
+      interaction.customId.startsWith('move_') &&
+      interaction.user.id === userid;
 
     const collected = await message
       .awaitMessageComponent({
@@ -207,7 +230,7 @@ export async function sendUserBattleState(userid, battleState, wildPokemon) {
 }
 
 async function pokemonDefeated(userid, pokepaste) {
-  console.log(pokepaste)
+  console.log(pokepaste);
   const firstLine = pokepaste.trim().split('\n')[0];
   const name = firstLine.split(' @ ')[0].trim();
   const normalizedPokemonName = name.toLowerCase();
@@ -227,7 +250,7 @@ async function pokemonDefeated(userid, pokepaste) {
     console.log(results.affectedRows);
   });
 
- var loot = await calculateLoot(tier);
+  var loot = await calculateLoot(tier);
   console.log(loot);
 
   if (loot.item == null) {
