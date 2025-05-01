@@ -160,12 +160,13 @@ import {
 
 import bot from './utils/client.js';
 export async function sendUserBattleState(userid, battleState, wildPokemon) {
-  console.log(battleState.roundLog)
+  console.log(battleState.roundLog);
   try {
     const imagePath = battleState.image;
     const attachment = new AttachmentBuilder(imagePath);
     await bot.users.send(userid, { files: [attachment] });
-    if(battleState.roundLog) await bot.users.send(userid, battleState.roundLog);
+    if (battleState.roundLog)
+      await bot.users.send(userid, battleState.roundLog);
 
     if (battleState.winner) {
       const winnerText =
