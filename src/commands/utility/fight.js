@@ -10,8 +10,8 @@ const commandData = new SlashCommandBuilder()
 
 const execute = async (interaction) => {
   var pokemonListe = await getPokemonFromPool(
-    'Grass',
-    ['Uber', 'OU', 'OUBL', 'UUBL', 'UU'],
+    'Dark',
+    ['Uber', 'OU', 'OUBL', 'UUBL'],
     10
   );
   const randomIndex = Math.floor(Math.random() * pokemonListe.length);

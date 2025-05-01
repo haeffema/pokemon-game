@@ -160,10 +160,12 @@ import {
 
 import bot from './utils/client.js';
 export async function sendUserBattleState(userid, battleState, wildPokemon) {
+  console.log(battleState.roundLog)
   try {
     const imagePath = battleState.image;
     const attachment = new AttachmentBuilder(imagePath);
     await bot.users.send(userid, { files: [attachment] });
+    if(battleState.roundLog) await bot.users.send(userid, battleState.roundLog);
 
     if (battleState.winner) {
       const winnerText =
@@ -176,7 +178,6 @@ export async function sendUserBattleState(userid, battleState, wildPokemon) {
         .setDescription(winnerText)
         .setColor(battleState.winner === 'Trainer' ? 0x00ff00 : 0xff0000);
 
-      await bot.users.send(userid, battleState.roundLog);
       await bot.users.send(userid, { embeds: [embed] });
       if (battleState.winner === 'Trainer')
         pokemonDefeated(userid, wildPokemon);
