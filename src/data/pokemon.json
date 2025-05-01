@@ -74331,7 +74331,7 @@
       }
     },
     "tier": "UU",
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/479.png",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10008.png",
     "sets": [
       {
         "item": "Firium Z",
@@ -74566,7 +74566,7 @@
       }
     },
     "tier": "OU",
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/479.png",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10009.png",
     "sets": [
       {
         "item": "Iapapa Berry",
@@ -74785,7 +74785,7 @@
       }
     },
     "tier": "PU",
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/479.png",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10010.png",
     "sets": [
       {
         "item": "Icium Z",
@@ -75015,7 +75015,7 @@
       }
     },
     "tier": "ZU",
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/479.png",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10011.png",
     "sets": [
       {
         "item": "Choice Scarf",
@@ -75237,7 +75237,7 @@
       }
     },
     "tier": "RU",
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/479.png",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10012.png",
     "sets": [
       {
         "item": "Grassium Z",
@@ -86711,7 +86711,7 @@
       }
     },
     "tier": "ZU",
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/550.png",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10016.png",
     "sets": [
       {
         "item": "Choice Scarf",
