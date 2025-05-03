@@ -8,7 +8,8 @@
     "format": "prettier --write .",
     "lint": "eslint . ",
     "lint:fix": "eslint . --fix ",
-    "bot": "node src/bot.js"
+    "bot": "node src/bot.js",
+    "prepare": "husky"
   },
   "keywords": [],
   "author": "",

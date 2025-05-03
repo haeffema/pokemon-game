@@ -1,3 +1,2 @@
-#!/bin/sh
 npm run pre-commit
-echo 'add linting to pre-commit when jan fixes his bot imports'
+echo 'linting only if jan fixes imports ;P'
