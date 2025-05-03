@@ -232,7 +232,6 @@ export async function sendUserBattleState(userid, battleState, wildPokemon) {
 }
 
 async function pokemonDefeated(userid, pokepaste) {
-  console.log(pokepaste);
   const firstLine = pokepaste.trim().split('\n')[0];
   const name = firstLine.split(' @ ')[0].trim();
   const normalizedPokemonName = name.toLowerCase();
@@ -242,9 +241,11 @@ async function pokemonDefeated(userid, pokepaste) {
     (p) => p.name.toLowerCase() === normalizedPokemonName
   );
   var tier = wildPokemon.tier;
+  var pokepasteWithoutItem = removeItemsFromPokepaste(pokepaste);
+  console.log(pokepasteWithoutItem)
   var query =
     'Insert ignore into pokemon (name, Spieler, pokepaste) Values (?,(Select name from spieler where discordid= ? ),?)';
-  connection.query(query, [name, userid, pokepaste], (err, results) => {
+  connection.query(query, [name, userid, pokepasteWithoutItem], (err, results) => {
     if (err) {
       console.error('Error executing query:', err);
       return;
@@ -290,6 +291,19 @@ async function pokemonDefeated(userid, pokepaste) {
       }
     );
   }
+}
+
+function removeItemsFromPokepaste(pokepaste) {
+  return pokepaste
+    .split('\n')
+    .map(line => {
+      // Wenn ein @ in der Zeile vorkommt, entferne alles ab dem @
+      if (line.includes('@')) {
+        return line.split('@')[0].trim();
+      }
+      return line;
+    })
+    .join('\n');
 }
 
 async function calculateLoot(defeatedPokemonTier) {
