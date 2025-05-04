@@ -110,7 +110,7 @@ function generateRoundLog(log) {
 
   let moveLog = '';
 
-  if (turnIds.length == 1) {
+  if (turnIds.length == 1 && !log[log.length - 1].startsWith('|win|')) {
     console.log('maybe oneshot?');
     return moveLog;
   }
