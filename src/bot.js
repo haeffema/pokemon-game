@@ -173,7 +173,11 @@ for (const folder of commandFolders) {
 }
 
 bot.on(Events.InteractionCreate, async (interaction) => {
-  //if (!interaction.isChatInputCommand()) return;
+  if (
+    interaction.user.id != '360366344635547650' &&
+    interaction.user.id != '326305842427330560'
+  )
+    return;
   if (interaction.isAutocomplete() && interaction.commandName === 'lead') {
     const userId = interaction.user.id;
 

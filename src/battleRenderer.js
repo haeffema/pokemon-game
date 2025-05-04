@@ -242,16 +242,20 @@ async function pokemonDefeated(userid, pokepaste) {
   );
   var tier = wildPokemon.tier;
   var pokepasteWithoutItem = removeItemsFromPokepaste(pokepaste);
-  console.log(pokepasteWithoutItem)
+  console.log(pokepasteWithoutItem);
   var query =
     'Insert ignore into pokemon (name, Spieler, pokepaste) Values (?,(Select name from spieler where discordid= ? ),?)';
-  connection.query(query, [name, userid, pokepasteWithoutItem], (err, results) => {
-    if (err) {
-      console.error('Error executing query:', err);
-      return;
+  connection.query(
+    query,
+    [name, userid, pokepasteWithoutItem],
+    (err, results) => {
+      if (err) {
+        console.error('Error executing query:', err);
+        return;
+      }
+      console.log(results.affectedRows);
     }
-    console.log(results.affectedRows);
-  });
+  );
 
   var loot = await calculateLoot(tier);
   console.log(loot);
@@ -261,14 +265,14 @@ async function pokemonDefeated(userid, pokepaste) {
       userid,
       'Du hast das Pokemon erfolgreich besiegt und gefangen! Du hast ' +
         loot.gold +
-        ' Gold erhalten!'
+        ' PokéDollar erhalten!'
     );
   } else {
     bot.users.send(
       userid,
       'Du hast das Pokemon erfolgreich besiegt! Du hast ' +
         loot.gold +
-        ' Gold erhalten! Außerdem hat das wilde Pokemon ein neues Item fallen gelassen!'
+        ' PokéDollar erhalten! Außerdem hat das wilde Pokemon ein neues Item fallen gelassen!'
     );
     const embed = new EmbedBuilder()
       .setTitle(loot.item)
@@ -291,12 +295,14 @@ async function pokemonDefeated(userid, pokepaste) {
       }
     );
   }
+  var query = 'Update spieler set geld = geld + ? where discordid = ?';
+  connection.query(query, [loot.gold, userid]);
 }
 
 function removeItemsFromPokepaste(pokepaste) {
   return pokepaste
     .split('\n')
-    .map(line => {
+    .map((line) => {
       // Wenn ein @ in der Zeile vorkommt, entferne alles ab dem @
       if (line.includes('@')) {
         return line.split('@')[0].trim();
