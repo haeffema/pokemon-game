@@ -1,6 +1,8 @@
 import fetch from 'node-fetch';
 import { URLSearchParams } from 'url';
 import connection from './utils/databaseConnection.js';
+import showdown from 'pokemon-showdown';
+const { Teams } = showdown;
 
 const POKEPASTE_UPLOAD_URL = 'https://pokepast.es/create';
 
@@ -12,7 +14,7 @@ async function uploadToPokePaste(teamData, options = {}) {
     return null;
   }
   const params = new URLSearchParams();
-  params.append('paste', teamData);
+  params.append('paste', teamData.replace(/^\s+|\s+$/g, ''));
   if (title) params.append('title', title);
   if (author) params.append('author', author);
 
@@ -61,15 +63,21 @@ const query =
   'Select pokepaste, s.name from pokemon p inner join spieler s on p.Spieler = s.Name where discordid = ?';
 connection.query(
   query,
-  ['360366344635547650'],
+  ['326305842427330560'],
   async function (err, collectedPokemon) {
     let pokepaste = '';
     for (const pokemon of collectedPokemon) {
       pokepaste += `${pokemon.pokepaste}\n\n`;
     }
-    console.log(pokepaste);
-    uploadToPokePaste(pokepaste, {
-      title: `${collectedPokemon[0].name}`,
+    const team = Teams.import(pokepaste);
+    let formattedTeam = '';
+    for (const pokemon of team) {
+      formattedTeam += `${Teams.exportSet(pokemon)}\n`;
+    }
+    formattedTeam = formattedTeam.substring(0, formattedTeam.length - 1);
+    formattedTeam = formattedTeam.replace(/\n/g, '\r\n');
+    uploadToPokePaste(formattedTeam, {
+      title: collectedPokemon[0].name,
       author: 'Orion',
     }).then((url) => {
       if (url) {
