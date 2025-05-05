@@ -213,9 +213,16 @@ export async function sendUserBattleState(userid, battleState, wildPokemon) {
     const collected = await message
       .awaitMessageComponent({
         filter,
-        time: 15 * 60 * 1000,
+        time: 3 * 60 * 1000,
       })
-      .catch(() => null);
+      .catch(async () => {
+        // Timeout-Fallback
+        await interaction.editReply({
+          content:
+            '⏳ Deine Zeit ist abgelaufen. Das wilde Pokémon hat den Kampf gewonnen und ist geflüchtet.',
+        });
+        return null;
+      });
 
     if (!collected) {
       console.log('Keine Auswahl getroffen.');

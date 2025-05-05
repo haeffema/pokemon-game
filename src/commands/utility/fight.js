@@ -15,6 +15,13 @@ const execute = async (interaction) => {
     12,
     interaction.user.id
   );
+  if (pokemonListe == null) {
+    await interaction.reply(
+      'Du hast das tägliche Limit an Kämpfen gegen wilde Pokemon erreicht (30). Warte bis Morgen um gegen neue Pokemon eines anderen Typs anzutreten'
+    );
+    return;
+  }
+
   const randomIndex = Math.floor(Math.random() * pokemonListe.length);
   var randomPokemon = pokemonListe[randomIndex];
   console.log(randomPokemon);
@@ -53,20 +60,25 @@ async function getPokemonFromPool(type, forbiddenTiers, number, discordid) {
 
   const pokemonListe = await new Promise((resolve, reject) => {
     const query =
-      'SELECT pokemonliste FROM pool WHERE DATE(datum) = ? and spieler = (Select name from spieler where discordid = ?)';
+      'SELECT pokemonliste, kämpfe FROM pool WHERE DATE(datum) = ? and spieler = (Select name from spieler where discordid = ?)';
     connection.query(query, [today, discordid], function (err, results) {
       if (err) return reject(err);
-
       if (results.length === 0) {
         // Falls kein Eintrag für heute existiert
         resolve(null);
-      } else {
+      } else if (results[0].kämpfe == 0) return resolve('ABBRECHEN');
+      else {
         // Wir nehmen nur das erste Ergebnis (falls mehrere)
         const liste = results[0].pokemonliste.split(',').map((p) => p.trim());
         resolve(liste);
       }
     });
   });
+
+  if (pokemonListe === 'ABBRECHEN') {
+    console.log('Keine Kämpfe mehr übrig – Funktion wird abgebrochen.');
+    return null;
+  }
 
   if (!pokemonListe) {
     console.log('Kein Pool gefunden, generiere neuen...');
@@ -78,6 +90,15 @@ async function getPokemonFromPool(type, forbiddenTiers, number, discordid) {
     );
     return generiertePokemonListe.split(', ');
   }
+  var query =
+    'Update pool set kämpfe = kämpfe - 1 where DATE(datum) = ? and spieler = (Select name from spieler where discordid = ?)';
+  connection.query(query, [today, discordid], (err, results) => {
+    if (err) {
+      console.error('Error executing query:', err);
+      return;
+    }
+    console.log(results.affectedRows);
+  });
 
   return pokemonListe;
 }
@@ -103,8 +124,8 @@ async function filterPokemonByType(type, forbiddenTiers, number, discordid) {
     const anzahl = selected.length;
 
     var query =
-      'Insert into pool (typ, pokemonliste, anzahl, spieler) VALUES(?,?,?,(Select name from spieler where discordid = ?))';
-    connection.query(query, [type, pokemonListeStr, anzahl, discordid]);
+      'Insert into pool (typ, pokemonliste, anzahl, spieler, kämpfe) VALUES(?,?,?,(Select name from spieler where discordid = ?),?)';
+    connection.query(query, [type, pokemonListeStr, anzahl, discordid, 29]);
     // Rückgabe der gewünschten Anzahl von Pokémon
     return pokemonListeStr;
   } catch (err) {
