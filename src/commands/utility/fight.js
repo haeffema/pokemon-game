@@ -10,9 +10,10 @@ const commandData = new SlashCommandBuilder()
 
 const execute = async (interaction) => {
   var pokemonListe = await getPokemonFromPool(
-    'Dark',
-    ['Uber', 'OU', 'OUBL', 'UUBL'],
-    10
+    'Normal',
+    ['Uber', 'OU', 'OUBL', 'UUBL', 'UU'],
+    12,
+    interaction.user.id
   );
   const randomIndex = Math.floor(Math.random() * pokemonListe.length);
   var randomPokemon = pokemonListe[randomIndex];
@@ -45,14 +46,15 @@ export default {
   execute: execute,
 };
 
-async function getPokemonFromPool(type, forbiddenTiers, number) {
+async function getPokemonFromPool(type, forbiddenTiers, number, discordid) {
   //Übergabevariablen nur für Generierung neuer Pool notwendig
   // Datum von heute im Format YYYY-MM-DD
   const today = new Date().toISOString().slice(0, 10);
 
   const pokemonListe = await new Promise((resolve, reject) => {
-    const query = 'SELECT pokemonliste FROM pool WHERE DATE(datum) = ?';
-    connection.query(query, [today], function (err, results) {
+    const query =
+      'SELECT pokemonliste FROM pool WHERE DATE(datum) = ? and spieler = (Select name from spieler where discordid = ?)';
+    connection.query(query, [today, discordid], function (err, results) {
       if (err) return reject(err);
 
       if (results.length === 0) {
@@ -68,14 +70,19 @@ async function getPokemonFromPool(type, forbiddenTiers, number) {
 
   if (!pokemonListe) {
     console.log('Kein Pool gefunden, generiere neuen...');
-    await filterPokemonByType(type, forbiddenTiers, number);
-    return 'Pool generiert';
+    var generiertePokemonListe = await filterPokemonByType(
+      type,
+      forbiddenTiers,
+      number,
+      discordid
+    );
+    return generiertePokemonListe.split(', ');
   }
 
   return pokemonListe;
 }
 
-async function filterPokemonByType(type, forbiddenTiers, number) {
+async function filterPokemonByType(type, forbiddenTiers, number, discordid) {
   try {
     const allPokemon = Object.values(pokemonData);
     // Filtern mit optionalem Typ
@@ -95,10 +102,11 @@ async function filterPokemonByType(type, forbiddenTiers, number) {
     const pokemonListeStr = selected.map((p) => p.name).join(', ');
     const anzahl = selected.length;
 
-    var query = 'Insert into pool (typ, pokemonliste, anzahl) VALUES(?,?,?)';
-    connection.query(query, [type, pokemonListeStr, anzahl]);
+    var query =
+      'Insert into pool (typ, pokemonliste, anzahl, spieler) VALUES(?,?,?,(Select name from spieler where discordid = ?))';
+    connection.query(query, [type, pokemonListeStr, anzahl, discordid]);
     // Rückgabe der gewünschten Anzahl von Pokémon
-    return selected;
+    return pokemonListeStr;
   } catch (err) {
     console.error('Fehler beim Laden oder Verarbeiten der Datei:', err.message);
     return [];

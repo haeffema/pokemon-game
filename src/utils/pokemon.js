@@ -39,7 +39,8 @@ export function parsePokepaste(pasteText) {
   const pokePasteStringFormat = lines.join('\n');
   const firstLine = lines[0];
   const [namePart, itemPart] = firstLine.split(' @ ');
-  const name = namePart.trim();
+  var name = namePart.trim();
+  name = name.replace(/\s*\([^()]*\)/g, '').trim();
   const item = itemPart ? itemPart.trim() : null;
 
   let ability = null;
@@ -63,7 +64,7 @@ export async function validateSet(parsedSet, userid) {
   if (!pokemon) {
     return {
       success: false,
-      message: `Pokemon "${name}" not found in database.`,
+      message: `Das Pokemon "${name}" wurde nicht in der Datenbank gefunden.`,
     };
   }
 
@@ -80,7 +81,10 @@ export async function validateSet(parsedSet, userid) {
   });
 
   if (results.length === 0) {
-    return { success: false, message: `You have not catched ${name} yet.` };
+    return {
+      success: false,
+      message: `Du hast das Pokemon ${name} noch nicht gefangen.`,
+    };
   }
 
   query =
@@ -96,13 +100,13 @@ export async function validateSet(parsedSet, userid) {
   });
 
   if (itemResults.length === 0) {
-    return { success: false, message: `You do not own the item "${item}".` };
+    return { success: false, message: `Du besitzt das Item "${item}" nicht.` };
   }
 
   if (!pokemon.abilities.includes(ability)) {
     return {
       success: false,
-      message: `Ability "${ability}" is not valid for ${name}.`,
+      message: `Die Fähigkeit "${ability}" ist nicht zulässig für das Pokemon ${name}.`,
     };
   }
 
@@ -138,14 +142,17 @@ export async function validateSet(parsedSet, userid) {
       });
 
       if (tmResults.length === 0) {
-        return { success: false, message: `Move "${move}" does not exist.` };
+        return {
+          success: false,
+          message: `Der Move "${move}" existiert nicht für dieses Pokemon.`,
+        };
       }
 
       const tm = tmResults[0];
       if (!tm.besitzt_tm) {
         return {
           success: false,
-          message: `${name} can only learn "${move}" via ${tm.tm_id}, which you don't have.`,
+          message: `${name} kann den Move "${move}" nur via ${tm.tm_id} lernen, die du nicht besitzt!.`,
         };
       }
     }
@@ -153,7 +160,7 @@ export async function validateSet(parsedSet, userid) {
 
   return {
     success: true,
-    message: `${name} with ability "${ability}" and selected moves is valid.`,
+    message: `${name} mit der Fähigkeit "${ability}" und den angegebenen Moves ist zulässig.`,
   };
 }
 

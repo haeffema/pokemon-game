@@ -8,7 +8,7 @@ const commandData = new SlashCommandBuilder()
   .addStringOption((option) =>
     option
       .setName('pokepaste')
-      .setDescription('Link to your Pokepaste')
+      .setDescription('Pokepaste for your Pokemon')
       .setRequired(true)
   );
 
