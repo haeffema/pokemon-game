@@ -1,5 +1,9 @@
 import pokemonData from '../data/pokemon.json' with { type: 'json' };
 import connection from '../utils/databaseConnection.js';
+import fetch from 'node-fetch';
+import { URLSearchParams } from 'url';
+import showdown from 'pokemon-showdown';
+const { Teams } = showdown;
 
 export function convertSetToPokepaste(set, name) {
   /**
@@ -166,4 +170,114 @@ export async function validateSet(parsedSet, userid) {
 
 function normalizeMove(move) {
   return move.toLowerCase().replace(/\s+/g, '-');
+}
+
+export function generatePokepasteForTrainer(discordId) {
+  return new Promise((resolve, reject) => {
+    const query =
+      'SELECT pokepaste, s.name FROM pokemon p INNER JOIN spieler s ON p.Spieler = s.Name WHERE discordid = ?';
+    connection.query(query, [discordId], async (err, collectedPokemon) => {
+      if (err) {
+        console.error('Database query error:', err);
+        return reject(err);
+      }
+
+      if (!collectedPokemon || collectedPokemon.length === 0) {
+        console.log(`No Pokémon data found for discordId: ${discordId}`);
+        return resolve(null);
+      }
+      try {
+        const rawTeamString = collectedPokemon
+          .map((p) => (p.pokepaste || '').trim())
+          .filter((p) => p.length > 0)
+          .join('\n\n');
+        if (!rawTeamString) {
+          console.error(
+            'Error: No valid pokepaste data found after processing DB results.'
+          );
+          return resolve(null);
+        }
+        const teamObject = Teams.import(rawTeamString);
+        if (
+          !teamObject ||
+          !Array.isArray(teamObject) ||
+          teamObject.length === 0
+        ) {
+          console.error(
+            'Error: Failed to import team string using Teams.import().'
+          );
+          return resolve(null);
+        }
+        let finalTeamString = Teams.export(teamObject);
+        const windowsFormattedTeamString = finalTeamString.replace(
+          /\n/g,
+          '\r\n'
+        );
+        const pokepasteUrl = await uploadToPokePaste(
+          windowsFormattedTeamString,
+          {
+            title: collectedPokemon[0].name,
+            author: 'Orion',
+          }
+        );
+        resolve(pokepasteUrl);
+      } catch (processingError) {
+        console.error('Error processing data or uploading:', processingError);
+        reject(processingError);
+      }
+    });
+  });
+}
+
+async function uploadToPokePaste(teamData, options = {}) {
+  const { title = '', author = '' } = options;
+
+  if (!teamData) {
+    console.error('Error: teamData cannot be empty.');
+    return null;
+  }
+  const params = new URLSearchParams();
+  params.append('paste', teamData.replace(/^\s+|\s+$/g, ''));
+  if (title) params.append('title', title);
+  if (author) params.append('author', author);
+
+  console.log('Attempting to upload to PokePaste...');
+
+  try {
+    const response = await fetch('https://pokepast.es/create', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'User-Agent':
+          'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
+      },
+      body: params,
+      redirect: 'manual',
+    });
+    if (
+      response.status === 302 ||
+      response.status === 301 ||
+      response.status === 303
+    ) {
+      const locationHeader = response.headers.get('location');
+      if (locationHeader) {
+        const newUrl = new URL(locationHeader, 'https://pokepast.es/').href;
+        console.log('Successfully uploaded!');
+        return newUrl;
+      } else {
+        console.error(
+          'Error: Redirect status received, but Location header is missing.'
+        );
+        return null;
+      }
+    } else {
+      console.error(
+        `Error: Unexpected status code received: ${response.status} ${response.statusText}`
+      );
+      return null;
+    }
+  } catch (error) {
+    console.error('Error during fetch operation:', error);
+    return null;
+  }
 }
