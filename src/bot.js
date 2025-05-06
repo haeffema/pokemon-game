@@ -194,6 +194,9 @@ bot.on(Events.InteractionCreate, async (interaction) => {
   }
   const command = interaction.client.commands.get(interaction.commandName);
 
+  if (!command) {
+    return;
+  }
   try {
     await command.execute(interaction);
   } catch (error) {
