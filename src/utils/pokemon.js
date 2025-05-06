@@ -197,29 +197,15 @@ export function generatePokepasteForTrainer(discordId) {
           );
           return resolve(null);
         }
-        const teamObject = Teams.import(rawTeamString);
-        if (
-          !teamObject ||
-          !Array.isArray(teamObject) ||
-          teamObject.length === 0
-        ) {
-          console.error(
-            'Error: Failed to import team string using Teams.import().'
-          );
+        const formattedTeam = formatPokepasteStringForWebsite(rawTeamString);
+        if (!formattedTeam) {
+          console.log('Team formatting failed.');
           return resolve(null);
         }
-        let finalTeamString = Teams.export(teamObject);
-        const windowsFormattedTeamString = finalTeamString.replace(
-          /\n/g,
-          '\r\n'
-        );
-        const pokepasteUrl = await uploadToPokePaste(
-          windowsFormattedTeamString,
-          {
-            title: collectedPokemon[0].name,
-            author: 'Orion',
-          }
-        );
+        const pokepasteUrl = await uploadToPokePaste(formattedTeam, {
+          title: collectedPokemon[0].name,
+          author: 'Orion',
+        });
         resolve(pokepasteUrl);
       } catch (processingError) {
         console.error('Error processing data or uploading:', processingError);
@@ -227,6 +213,16 @@ export function generatePokepasteForTrainer(discordId) {
       }
     });
   });
+}
+
+export function formatPokepasteStringForWebsite(rawTeamString) {
+  const teamObject = Teams.import(rawTeamString);
+  if (!teamObject || !Array.isArray(teamObject) || teamObject.length === 0) {
+    console.error('Error: Failed to import team string using Teams.import().');
+    return null;
+  }
+  let finalTeamString = Teams.export(teamObject);
+  return finalTeamString.replace(/\n/g, '\r\n');
 }
 
 export async function uploadToPokePaste(teamData, options = {}) {
