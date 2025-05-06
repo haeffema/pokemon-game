@@ -55,7 +55,7 @@ export default {
 
 async function getPokemonFromPool(type, forbiddenTiers, number, discordid) {
   //Übergabevariablen nur für Generierung neuer Pool notwendig
-  // Datum von heute im Format YYYY-MM-DD
+
   const today = new Date().toISOString().slice(0, 10);
 
   const pokemonListe = await new Promise((resolve, reject) => {
@@ -82,8 +82,18 @@ async function getPokemonFromPool(type, forbiddenTiers, number, discordid) {
 
   if (!pokemonListe) {
     console.log('Kein Pool gefunden, generiere neuen...');
+    const poolTag = await new Promise((resolve, reject) => {
+      const query = 'SELECT * FROM poolTag WHERE aktiv = 1';
+      connection.query(query, function (err, results) {
+        if (err) return reject(err);
+        else {
+          resolve(results[0]);
+        }
+      });
+    });
+
     var generiertePokemonListe = await filterPokemonByType(
-      type,
+      poolTag.typ,
       forbiddenTiers,
       number,
       discordid
