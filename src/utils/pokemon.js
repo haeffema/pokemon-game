@@ -103,7 +103,7 @@ export async function validateSet(parsedSet, userid) {
     });
   });
 
-  if (itemResults.length === 0) {
+  if (itemResults.length === 0 && item != null) {
     return { success: false, message: `Du besitzt das Item "${item}" nicht.` };
   }
 
@@ -130,7 +130,7 @@ export async function validateSet(parsedSet, userid) {
       var query = `
             SELECT t.id AS tm_id, t.attacke, ts.Spieler AS besitzt_tm
             FROM tm t 
-            LEFT JOIN tm_spieler ts ON t.id = ts.tm AND ts.Spieler = (Select name from Spieler where discordid = ?)
+            LEFT JOIN tm_spieler ts ON t.id = ts.tm AND ts.Spieler = (Select name from spieler where discordid = ?)
             WHERE t.attacke = ?
         `;
 
@@ -229,7 +229,7 @@ export function generatePokepasteForTrainer(discordId) {
   });
 }
 
-async function uploadToPokePaste(teamData, options = {}) {
+export async function uploadToPokePaste(teamData, options = {}) {
   const { title = '', author = '' } = options;
 
   if (!teamData) {

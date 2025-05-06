@@ -8,7 +8,11 @@ import {
 } from 'discord.js';
 import connection from '../../utils/databaseConnection.js';
 import bot from '../../utils/client.js';
-import { parsePokepaste, validateSet } from '../../utils/pokemon.js';
+import {
+  parsePokepaste,
+  validateSet,
+  uploadToPokePaste,
+} from '../../utils/pokemon.js';
 import pokemonData from '../../data/pokemon.json' with { type: 'json' };
 
 const commandData = new SlashCommandBuilder()
@@ -48,8 +52,11 @@ const execute = async (interaction) => {
   const typeCounts = {};
   var validationMessage = '';
   var numberMessage = '';
+  var windowsFormattedPokepaste = '';
   for (const pokemon of allPokemon) {
     var parsedPokemon = parsePokepaste(pokemon);
+    windowsFormattedPokepaste +=
+      parsedPokemon.pokePasteStringFormat + '\r\n\r\n';
     var types = pokemonData[parsedPokemon.name.toLowerCase()].types;
 
     if (!types) {
@@ -110,19 +117,38 @@ const execute = async (interaction) => {
       });
     });
     if (results.length > 0) {
+      const pokepasteUrl = await uploadToPokePaste(windowsFormattedPokepaste, {
+        title:
+          results[0].Name +
+          's Team für die ' +
+          results[0].Orden +
+          1 +
+          '. Arena',
+        author: 'Orion',
+      });
       var query =
-        'Insert into challenge (spieler, aktiv, arena) VALUES (?,?,?)';
-      connection.query(query, [results[0].Name, 1, arenas[results[0].Orden]]);
-      await bot.users.send(
+        'Insert into challenge (spieler, aktiv, arena, team) VALUES (?,?,?,?)';
+      connection.query(query, [
+        results[0].Name,
+        1,
+        arenas[results[0].Orden],
+        pokepasteUrl,
+      ]);
+      /*await bot.users.send(
         '360366344635547650',
         `${results[0].Name} hat die ${arenas[results[0].Orden]} Arena herausgefordert. Vernichten wir ihn!`
       );
       await bot.users.send(
         '326305842427330560',
         `${results[0].Name} hat die ${arenas[results[0].Orden]} Arena herausgefordert. Vernichten wir ihn!`
-      );
+      );*/
+
       await interaction.editReply(
         'Dein Team ist zulässig und deine Herausforderung wurde an den Arenaleiter gesendet, er wird dich in kürze kontaktieren. Viel Glück, du wirst es brauchen!'
+      );
+      await bot.users.send(
+        interaction.user.id,
+        `Dein Team für die Arena im Pokepaste Format: ${pokepasteUrl}. Du darfst nur mit diesem Team in der Arena antreten und keine Änderungen mehr vornehmen!`
       );
     }
   } else {
@@ -165,23 +191,41 @@ const execute = async (interaction) => {
           );
         });
         if (results.length > 0) {
+          const pokepasteUrl = await uploadToPokePaste(
+            windowsFormattedPokepaste,
+            {
+              title:
+                results[0].Name +
+                's Team für die ' +
+                results[0].Orden +
+                1 +
+                '. Arena',
+              author: 'Orion',
+            }
+          );
           var query =
-            'Insert into challenge (spieler, aktiv, arena) VALUES (?,?,?)';
+            'Insert into challenge (spieler, aktiv, arena, team) VALUES (?,?,?,?)';
           connection.query(query, [
             results[0].Name,
             1,
             arenas[results[0].Orden],
+            pokepasteUrl,
           ]);
-          await bot.users.send(
+          /*await bot.users.send(
             '360366344635547650',
             `${results[0].Name} has challenged the ${arenas[results[0].Orden]} Arena. Let's give him an epic battle.`
           );
           await bot.users.send(
             '326305842427330560',
             `${results[0].Name} has challenged the ${arenas[results[0].Orden]} Arena. Let's give him an epic battle.`
-          );
+          );*/
+
           await buttonInteraction.reply(
             'Deine Herausforderung mit weniger als **6 Pokemon!!!!** wurde an den Arenaleiter gesendet, er wird dich in kürze kontaktieren. Du wirst diesmal Glück mehr als alles andere brauchen, also möge dein Eisstrahl das Yveltal einfrieren!'
+          );
+          await bot.users.send(
+            interaction.user.id,
+            `Dein Team für die Arena im Pokepaste Format: ${pokepasteUrl}. Du darfst nur mit diesem Team in der Arena antreten und keine Änderungen mehr vornehmen!`
           );
         }
       } else {
