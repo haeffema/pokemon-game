@@ -86,99 +86,106 @@ export async function execute(interaction) {
     });
 
     collector.on('collect', async (selectInteraction) => {
-      const selectedItemName = selectInteraction.values[0];
-      const selectedItem = itemData[selectedItemName];
+      try {
+        await selectInteraction.deferReply();
+        const selectedItemName = selectInteraction.values[0];
+        const selectedItem = itemData[selectedItemName];
 
-      if (!selectedItem) {
-        return await selectInteraction.reply({
-          content: '❌ Item not found.',
-        });
-      }
-
-      const itemEmbed = new EmbedBuilder()
-        .setTitle(`🧾 ${selectedItem.name}`)
-        .setDescription(
-          `${selectedItem.description}\n\n💰 Price: ${selectedItem.price.toLocaleString()} PokéDollar`
-        )
-        .setThumbnail(selectedItem.sprite)
-        .setColor('Green');
-      console.log(itemEmbed);
-
-      const buttons = new ActionRowBuilder().addComponents(
-        new ButtonBuilder()
-          .setCustomId('buy_item')
-          .setLabel('🛒 Kaufen')
-          .setStyle(ButtonStyle.Success),
-        new ButtonBuilder()
-          .setCustomId('cancel_buy')
-          .setLabel('❌ Abbrechen')
-          .setStyle(ButtonStyle.Danger)
-      );
-
-      await selectInteraction.reply({
-        content: `Details for **${selectedItem.name}**:`,
-        embeds: [itemEmbed],
-        components: [buttons],
-      });
-      const buttonCollector =
-        selectInteraction.channel.createMessageComponentCollector({
-          componentType: ComponentType.Button,
-          time: 30_000,
-          filter: (i) => i.user.id === userId,
-        });
-
-      buttonCollector.on('collect', async (buttonInteraction) => {
-        await buttonInteraction.deferReply();
-        if (buttonInteraction.customId === 'buy_item') {
-          const geldAbfragen = await new Promise((resolve, reject) => {
-            const query = 'SELECT geld FROM spieler WHERE discordid = ?';
-            connection.query(
-              query,
-              [interaction.user.id],
-              function (err, results) {
-                if (err) return reject(err);
-
-                if (results.length === 0) {
-                  reject('Spieler nicht gefunden');
-                } else {
-                  resolve(results[0].geld);
-                }
-              }
-            );
+        if (!selectedItem) {
+          return await selectInteraction.editReply({
+            content: '❌ Item not found.',
           });
-
-          const itemPreis = selectedItem.price;
-          if (geldAbfragen >= itemPreis) {
-            var query =
-              'Insert into item (name, Spieler, beschreibung, sprite) VALUES(?,(Select name from spieler where discordid = ?),?,?)';
-            connection.query(query, [
-              selectedItem.name,
-              interaction.user.id,
-              selectedItem.description,
-              selectedItem.sprite,
-            ]);
-            var query =
-              'Update spieler set geld = geld - ? where discordid = ?';
-            connection.query(query, [itemPreis, interaction.user.id]);
-
-            await buttonInteraction.editReply({
-              content: `Du hast **${selectedItem.name}** erfolgreich gekauft!`,
-            });
-            buttonCollector.stop();
-          } else {
-            await buttonInteraction.editReply({
-              content: `Du hast nicht genug Geld, um **${selectedItem.name}** zu kaufen. Erforderlich: ${itemPreis.toLocaleString()} PokéDollar.`,
-            });
-            buttonCollector.stop();
-            return;
-          }
-        } else if (buttonInteraction.customId === 'cancel_buy') {
-          await buttonInteraction.editReply({
-            content: 'Der Kaufprozess wurde abgebrochen.',
-          });
-          buttonCollector.stop();
         }
-      });
+
+        const itemEmbed = new EmbedBuilder()
+          .setTitle(`🧾 ${selectedItem.name}`)
+          .setDescription(
+            `${selectedItem.description}\n\n💰 Price: ${selectedItem.price.toLocaleString()} PokéDollar`
+          )
+          .setThumbnail(selectedItem.sprite)
+          .setColor('Green');
+        console.log(itemEmbed);
+
+        const buttons = new ActionRowBuilder().addComponents(
+          new ButtonBuilder()
+            .setCustomId('buy_item')
+            .setLabel('🛒 Kaufen')
+            .setStyle(ButtonStyle.Success),
+          new ButtonBuilder()
+            .setCustomId('cancel_buy')
+            .setLabel('❌ Abbrechen')
+            .setStyle(ButtonStyle.Danger)
+        );
+
+        await selectInteraction.editReply({
+          content: `Details for **${selectedItem.name}**:`,
+          embeds: [itemEmbed],
+          components: [buttons],
+        });
+        const buttonCollector =
+          selectInteraction.channel.createMessageComponentCollector({
+            componentType: ComponentType.Button,
+            time: 30_000,
+            filter: (i) => i.user.id === userId,
+          });
+
+        buttonCollector.on('collect', async (buttonInteraction) => {
+          await buttonInteraction.deferReply();
+          if (buttonInteraction.customId === 'buy_item') {
+            const geldAbfragen = await new Promise((resolve, reject) => {
+              const query = 'SELECT geld FROM spieler WHERE discordid = ?';
+              connection.query(
+                query,
+                [interaction.user.id],
+                function (err, results) {
+                  if (err) return reject(err);
+
+                  if (results.length === 0) {
+                    reject('Spieler nicht gefunden');
+                  } else {
+                    resolve(results[0].geld);
+                  }
+                }
+              );
+            });
+
+            const itemPreis = selectedItem.price;
+            if (geldAbfragen >= itemPreis) {
+              var query =
+                'Insert into item (name, Spieler, beschreibung, sprite) VALUES(?,(Select name from spieler where discordid = ?),?,?)';
+              connection.query(query, [
+                selectedItem.name,
+                interaction.user.id,
+                selectedItem.description,
+                selectedItem.sprite,
+              ]);
+              var query =
+                'Update spieler set geld = geld - ? where discordid = ?';
+              connection.query(query, [itemPreis, interaction.user.id]);
+
+              await buttonInteraction.editReply({
+                content: `Du hast **${selectedItem.name}** erfolgreich gekauft!`,
+              });
+              buttonCollector.stop();
+            } else {
+              await buttonInteraction.editReply({
+                content: `Du hast nicht genug Geld, um **${selectedItem.name}** zu kaufen. Erforderlich: ${itemPreis.toLocaleString()} PokéDollar.`,
+              });
+              buttonCollector.stop();
+              return;
+            }
+          } else if (buttonInteraction.customId === 'cancel_buy') {
+            await buttonInteraction.editReply({
+              content: 'Der Kaufprozess wurde abgebrochen.',
+            });
+            buttonCollector.stop();
+          }
+        });
+      } catch (error) {
+        console.error(
+          'Mal wieder unknown interaction aber können wir ignorieren'
+        );
+      }
     });
 
     collector.on('end', async (collected) => {
@@ -292,11 +299,13 @@ export async function execute(interaction) {
     });
 
     collectorSelect.on('collect', async (selectInteraction) => {
-      const selectedTM = selectInteraction.values[0];
-      var TMData;
       try {
-        TMData = await new Promise((resolve, reject) => {
-          const query = `SELECT * 
+        await selectInteraction.deferReply();
+        const selectedTM = selectInteraction.values[0];
+        var TMData;
+        try {
+          TMData = await new Promise((resolve, reject) => {
+            const query = `SELECT * 
           FROM tm 
           WHERE id = ? 
           AND NOT EXISTS (
@@ -305,111 +314,116 @@ export async function execute(interaction) {
             JOIN spieler s ON ts.spieler = s.name
             WHERE ts.tm = tm.id AND s.discordid = ?
           )`;
-          connection.query(
-            query,
-            [selectedTM, interaction.user.id],
-            function (err, results) {
-              if (err) return reject(err);
-
-              if (results.length === 0) {
-                reject('Du besitzt **' + selectedTM + '** bereits!');
-              } else {
-                resolve(results[0]);
-              }
-            }
-          );
-        });
-      } catch (error) {
-        await selectInteraction.reply({
-          content: error,
-        });
-        return;
-      }
-
-      const tmEmbed = new EmbedBuilder()
-        .setTitle(`🧾 ${TMData.id + ': ' + TMData.attacke}`)
-        .setDescription(
-          `${TMData.typ} | Stärke: ${TMData.stärke} | Genauigkeit: ${TMData.genauigkeit}\n\n💰 Price: 10000 PokéDollar`
-        )
-        .setThumbnail(
-          'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/tm-' +
-            TMData.typ.toLowerCase() +
-            '.png'
-        )
-        .setColor('Green');
-      console.log(tmEmbed);
-      const buttons = new ActionRowBuilder().addComponents(
-        new ButtonBuilder()
-          .setCustomId('buy_tm')
-          .setLabel('🛒 Kaufen')
-          .setStyle(ButtonStyle.Success),
-        new ButtonBuilder()
-          .setCustomId('cancel_tm_buy')
-          .setLabel('❌ Abbrechen')
-          .setStyle(ButtonStyle.Danger)
-      );
-
-      await selectInteraction.reply({
-        content: `Details for **${TMData.id}**:`,
-        embeds: [tmEmbed],
-        components: [buttons],
-      });
-      collectorSelect.stop();
-      const buttonCollector =
-        selectInteraction.channel.createMessageComponentCollector({
-          componentType: ComponentType.Button,
-          time: 30_000,
-          filter: (i) => i.user.id === userId,
-        });
-
-      buttonCollector.on('collect', async (buttonInteraction) => {
-        await buttonInteraction.deferReply();
-        console.log('Interaction deffered');
-        if (buttonInteraction.customId === 'buy_tm') {
-          const geldAbfragen = await new Promise((resolve, reject) => {
-            const query = 'SELECT geld FROM spieler WHERE discordid = ?';
             connection.query(
               query,
-              [interaction.user.id],
+              [selectedTM, interaction.user.id],
               function (err, results) {
                 if (err) return reject(err);
 
                 if (results.length === 0) {
-                  reject('Spieler nicht gefunden');
+                  reject('Du besitzt **' + selectedTM + '** bereits!');
                 } else {
-                  resolve(results[0].geld);
+                  resolve(results[0]);
                 }
               }
             );
           });
-
-          const itemPreis = 10000;
-          if (geldAbfragen >= itemPreis) {
-            var query =
-              'Insert into tm_spieler (tm, spieler) VALUES(?,(Select name from spieler where discordid = ?))';
-            connection.query(query, [TMData.id, interaction.user.id]);
-            var query =
-              'Update spieler set geld = geld - ? where discordid = ?';
-            connection.query(query, [itemPreis, interaction.user.id]);
-
-            await buttonInteraction.editReply({
-              content: `Du hast **${TMData.id}** erfolgreich gekauft!`,
-            });
-            buttonCollector.stop();
-          } else {
-            await buttonInteraction.editReply({
-              content: `Du hast nicht genug Geld, um **${TMData.id}** zu kaufen. Erforderlich: 10000 PokéDollar.`,
-            });
-            buttonCollector.stop();
-            return;
-          }
-        } else if (buttonInteraction.customId === 'cancel_tm_buy') {
-          await buttonInteraction.editReply({
-            content: 'Der Kaufprozess wurde abgebrochen.',
+        } catch (error) {
+          await selectInteraction.editReply({
+            content: error,
           });
-          buttonCollector.stop();
+          return;
         }
-      });
+
+        const tmEmbed = new EmbedBuilder()
+          .setTitle(`🧾 ${TMData.id + ': ' + TMData.attacke}`)
+          .setDescription(
+            `${TMData.typ} | Stärke: ${TMData.stärke} | Genauigkeit: ${TMData.genauigkeit}\n\n💰 Price: 10000 PokéDollar`
+          )
+          .setThumbnail(
+            'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/tm-' +
+              TMData.typ.toLowerCase() +
+              '.png'
+          )
+          .setColor('Green');
+        console.log(tmEmbed);
+        const buttons = new ActionRowBuilder().addComponents(
+          new ButtonBuilder()
+            .setCustomId('buy_tm')
+            .setLabel('🛒 Kaufen')
+            .setStyle(ButtonStyle.Success),
+          new ButtonBuilder()
+            .setCustomId('cancel_tm_buy')
+            .setLabel('❌ Abbrechen')
+            .setStyle(ButtonStyle.Danger)
+        );
+
+        await selectInteraction.editReply({
+          content: `Details for **${TMData.id}**:`,
+          embeds: [tmEmbed],
+          components: [buttons],
+        });
+        collectorSelect.stop();
+        const buttonCollector =
+          selectInteraction.channel.createMessageComponentCollector({
+            componentType: ComponentType.Button,
+            time: 30_000,
+            filter: (i) => i.user.id === userId,
+          });
+
+        buttonCollector.on('collect', async (buttonInteraction) => {
+          await buttonInteraction.deferReply();
+          console.log('Interaction deffered');
+          if (buttonInteraction.customId === 'buy_tm') {
+            const geldAbfragen = await new Promise((resolve, reject) => {
+              const query = 'SELECT geld FROM spieler WHERE discordid = ?';
+              connection.query(
+                query,
+                [interaction.user.id],
+                function (err, results) {
+                  if (err) return reject(err);
+
+                  if (results.length === 0) {
+                    reject('Spieler nicht gefunden');
+                  } else {
+                    resolve(results[0].geld);
+                  }
+                }
+              );
+            });
+
+            const itemPreis = 10000;
+            if (geldAbfragen >= itemPreis) {
+              var query =
+                'Insert into tm_spieler (tm, spieler) VALUES(?,(Select name from spieler where discordid = ?))';
+              connection.query(query, [TMData.id, interaction.user.id]);
+              var query =
+                'Update spieler set geld = geld - ? where discordid = ?';
+              connection.query(query, [itemPreis, interaction.user.id]);
+
+              await buttonInteraction.editReply({
+                content: `Du hast **${TMData.id}** erfolgreich gekauft!`,
+              });
+              buttonCollector.stop();
+            } else {
+              await buttonInteraction.editReply({
+                content: `Du hast nicht genug Geld, um **${TMData.id}** zu kaufen. Erforderlich: 10000 PokéDollar.`,
+              });
+              buttonCollector.stop();
+              return;
+            }
+          } else if (buttonInteraction.customId === 'cancel_tm_buy') {
+            await buttonInteraction.editReply({
+              content: 'Der Kaufprozess wurde abgebrochen.',
+            });
+            buttonCollector.stop();
+          }
+        });
+      } catch (error) {
+        console.error(
+          'Mal wieder unknown interaction aber können wir ignorieren'
+        );
+      }
     });
 
     collector.on('end', async (collected) => {
