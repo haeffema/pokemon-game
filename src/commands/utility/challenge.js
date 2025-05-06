@@ -55,7 +55,8 @@ const execute = async (interaction) => {
   var windowsFormattedPokepaste = '';
   for (const pokemon of allPokemon) {
     var parsedPokemon = parsePokepaste(pokemon);
-    windowsFormattedPokepaste += parsedPokemon.pokePasteStringFormat + '\r\n';
+    windowsFormattedPokepaste +=
+      parsedPokemon.pokePasteStringFormat + '\r\n\r\n';
     var types = pokemonData[parsedPokemon.name.toLowerCase()].types;
 
     if (!types) {
@@ -116,18 +117,6 @@ const execute = async (interaction) => {
       });
     });
     if (results.length > 0) {
-      var query =
-        'Insert into challenge (spieler, aktiv, arena) VALUES (?,?,?)';
-      connection.query(query, [results[0].Name, 1, arenas[results[0].Orden]]);
-      /*await bot.users.send(
-        '360366344635547650',
-        `${results[0].Name} hat die ${arenas[results[0].Orden]} Arena herausgefordert. Vernichten wir ihn!`
-      );
-      await bot.users.send(
-        '326305842427330560',
-        `${results[0].Name} hat die ${arenas[results[0].Orden]} Arena herausgefordert. Vernichten wir ihn!`
-      );*/
-
       const pokepasteUrl = await uploadToPokePaste(windowsFormattedPokepaste, {
         title:
           results[0].Name +
@@ -137,6 +126,22 @@ const execute = async (interaction) => {
           '. Arena',
         author: 'Orion',
       });
+      var query =
+        'Insert into challenge (spieler, aktiv, arena, team) VALUES (?,?,?,?)';
+      connection.query(query, [
+        results[0].Name,
+        1,
+        arenas[results[0].Orden],
+        pokepasteUrl,
+      ]);
+      /*await bot.users.send(
+        '360366344635547650',
+        `${results[0].Name} hat die ${arenas[results[0].Orden]} Arena herausgefordert. Vernichten wir ihn!`
+      );
+      await bot.users.send(
+        '326305842427330560',
+        `${results[0].Name} hat die ${arenas[results[0].Orden]} Arena herausgefordert. Vernichten wir ihn!`
+      );*/
 
       await interaction.editReply(
         'Dein Team ist zulässig und deine Herausforderung wurde an den Arenaleiter gesendet, er wird dich in kürze kontaktieren. Viel Glück, du wirst es brauchen!'
@@ -186,22 +191,6 @@ const execute = async (interaction) => {
           );
         });
         if (results.length > 0) {
-          var query =
-            'Insert into challenge (spieler, aktiv, arena) VALUES (?,?,?)';
-          connection.query(query, [
-            results[0].Name,
-            1,
-            arenas[results[0].Orden],
-          ]);
-          /*await bot.users.send(
-            '360366344635547650',
-            `${results[0].Name} has challenged the ${arenas[results[0].Orden]} Arena. Let's give him an epic battle.`
-          );
-          await bot.users.send(
-            '326305842427330560',
-            `${results[0].Name} has challenged the ${arenas[results[0].Orden]} Arena. Let's give him an epic battle.`
-          );*/
-
           const pokepasteUrl = await uploadToPokePaste(
             windowsFormattedPokepaste,
             {
@@ -214,6 +203,23 @@ const execute = async (interaction) => {
               author: 'Orion',
             }
           );
+          var query =
+            'Insert into challenge (spieler, aktiv, arena, team) VALUES (?,?,?,?)';
+          connection.query(query, [
+            results[0].Name,
+            1,
+            arenas[results[0].Orden],
+            pokepasteUrl,
+          ]);
+          /*await bot.users.send(
+            '360366344635547650',
+            `${results[0].Name} has challenged the ${arenas[results[0].Orden]} Arena. Let's give him an epic battle.`
+          );
+          await bot.users.send(
+            '326305842427330560',
+            `${results[0].Name} has challenged the ${arenas[results[0].Orden]} Arena. Let's give him an epic battle.`
+          );*/
+
           await buttonInteraction.reply(
             'Deine Herausforderung mit weniger als **6 Pokemon!!!!** wurde an den Arenaleiter gesendet, er wird dich in kürze kontaktieren. Du wirst diesmal Glück mehr als alles andere brauchen, also möge dein Eisstrahl das Yveltal einfrieren!'
           );
