@@ -51,14 +51,17 @@ const execute = async (interaction) => {
   console.log('Pokemon im Pokepaste: ' + allPokemon.length);
   let erfolg = 0;
   const typeCounts = {};
+  const itemCounts = {};
   var validationMessage = '';
   var numberMessage = '';
+  var itemMessage = '';
   var windowsFormattedPokepaste = '';
   for (const pokemon of allPokemon) {
     var parsedPokemon = parsePokepaste(pokemon);
     windowsFormattedPokepaste +=
       parsedPokemon.pokePasteStringFormat + '\r\n\r\n';
     var types = pokemonData[parsedPokemon.name.toLowerCase()].types;
+    var item = parsedPokemon.item;
 
     if (!types) {
       // Fehlerbehandlung, falls das Pokémon nicht gefunden wird
@@ -74,6 +77,15 @@ const execute = async (interaction) => {
         /*await bot.users.send(
           interaction.user.id, `Too many Pokémon with the type '${type}'. Maximum 2 allowed.`
         );*/
+        erfolg--;
+      }
+    }
+
+    if (item) {
+      itemCounts[item] = (itemCounts[item] || 0) + 1;
+
+      if (itemCounts[item] > 1) {
+        itemMessage += `Das Item '${item}' wurde mehrfach verwendet. Jedes Item darf nur einmal im Team vorkommen.\n`;
         erfolg--;
       }
     }
@@ -94,11 +106,11 @@ const execute = async (interaction) => {
 
   if (erfolg !== allPokemon.length) {
     await interaction.editReply(
-      'Dein Pokemon Team ist nicht zulässig, bitte korrigiere die untern aufgefhrten Fehler und fordere den Arenaleiter erneut heraus!'
+      'Dein Pokemon Team ist nicht zulässig, bitte korrigiere die untern aufgeführten Fehler und fordere den Arenaleiter erneut heraus!'
     );
     const errorEmbed = new EmbedBuilder()
       .setTitle('Errorliste')
-      .setDescription(numberMessage + validationMessage)
+      .setDescription(numberMessage + itemMessage + validationMessage)
       .setColor('Red')
       .setFooter({ text: 'Alles korrigieren und neu probieren :)' });
     await bot.users.send(interaction.user.id, {

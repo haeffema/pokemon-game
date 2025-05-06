@@ -29,6 +29,25 @@ export async function execute(interaction) {
 
   switch (category) {
     case 'items':
+      var query =
+        'SELECT name FROM item where spieler = (Select name from spieler where discordid = ?)';
+      var allItemsOfUser = await new Promise((resolve, reject) => {
+        connection.query(query, [userId], function (err, results) {
+          if (err) {
+            reject('Datenbankfehler: ' + err);
+          } else {
+            resolve(results);
+          }
+        });
+      });
+      var validItems = allItemsOfUser.map((item) => item.name);
+      if (!validItems.includes(chosenItem)) {
+        await interaction.reply({
+          content: `❌ Ungültige Auswahl: Das Item '${chosenItem}' existiert nicht oder ist nicht in deinem Besitz.`,
+        });
+        return;
+      }
+
       var query = 'SELECT * FROM item where name = ?';
       var item = await new Promise((resolve, reject) => {
         connection.query(query, [chosenItem], function (err, results) {
@@ -48,6 +67,25 @@ export async function execute(interaction) {
       await interaction.reply({ embeds: [itemEmbed] });
       break;
     case 'tms':
+      var query =
+        'SELECT id, attacke FROM tm_spieler ts inner join tm on ts.tm = tm.id where spieler = (Select name from spieler where discordid = ?)';
+      var allTMsOfUser = await new Promise((resolve, reject) => {
+        connection.query(query, [userId], function (err, results) {
+          if (err) {
+            reject('Datenbankfehler: ' + err);
+          } else {
+            resolve(results);
+          }
+        });
+      });
+      var validTMs = allTMsOfUser.map((tm) => tm.id + ': ' + tm.attacke);
+      if (!validTMs.includes(chosenItem)) {
+        await interaction.reply({
+          content: `❌ Ungültige Auswahl: Die TM '${chosenItem}' existiert nicht oder ist nicht in deinem Besitz.`,
+        });
+        return;
+      }
+
       var query = 'SELECT * FROM tm where id = ?';
       var tm = await new Promise((resolve, reject) => {
         connection.query(
