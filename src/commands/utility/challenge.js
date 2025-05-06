@@ -12,6 +12,7 @@ import {
   parsePokepaste,
   validateSet,
   uploadToPokePaste,
+  formatPokepasteStringForWebsite,
 } from '../../utils/pokemon.js';
 import pokemonData from '../../data/pokemon.json' with { type: 'json' };
 
@@ -117,7 +118,10 @@ const execute = async (interaction) => {
       });
     });
     if (results.length > 0) {
-      const pokepasteUrl = await uploadToPokePaste(windowsFormattedPokepaste, {
+      const formattedTeam = formatPokepasteStringForWebsite(
+        windowsFormattedPokepaste
+      );
+      const pokepasteUrl = await uploadToPokePaste(formattedTeam, {
         title:
           results[0].Name +
           's Team für die ' +
