@@ -41,13 +41,13 @@ const execute = async (interaction) => {
     isValid = results.length > 0;
   } catch (err) {
     console.error('Verification DB error:', err);
-    await interaction.reply({ content: '❌ Database error.', ephemeral: true });
+    await interaction.reply({ content: '❌ Database error.' });
     return;
   }
 
   if (!isValid) {
     await interaction.reply({
-      content: `${chosenPokemon} has not been caught by you yet.`,
+      content: `❌ Ungültige Auswahl: Das Pokemon ${chosenPokemon} existiert nicht oder du hast es noch nicht gefangen.`,
     });
     return;
   }

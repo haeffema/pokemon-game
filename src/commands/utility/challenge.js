@@ -133,13 +133,10 @@ const execute = async (interaction) => {
       const formattedTeam = formatPokepasteStringForWebsite(
         windowsFormattedPokepaste
       );
+      var arenaNumber = results[0].Orden++;
+
       const pokepasteUrl = await uploadToPokePaste(formattedTeam, {
-        title:
-          results[0].Name +
-          's Team für die ' +
-          results[0].Orden +
-          1 +
-          '. Arena',
+        title: `${results[0].Name}'s Team für die ${arenaNumber}. Arena`,
         author: 'Orion',
       });
       var query =
