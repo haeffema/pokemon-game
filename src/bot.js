@@ -191,6 +191,54 @@ bot.on(Events.InteractionCreate, async (interaction) => {
 
     await interaction.respond(choices);
     return;
+  } else if (
+    interaction.isAutocomplete() &&
+    interaction.commandName === 'bag'
+  ) {
+    const userId = interaction.user.id;
+    const focusedOption = interaction.options.getFocused();
+    const category = interaction.options.getString('category');
+
+    let choices = [];
+
+    if (category === 'items') {
+      var query =
+        'SELECT * FROM item where spieler = (Select name from spieler where discordid = ?)';
+      var items = await new Promise((resolve, reject) => {
+        connection.query(query, [userId], function (err, results) {
+          if (err) {
+            reject('Datenbankfehler: ' + err);
+          } else {
+            resolve(results);
+          }
+        });
+      });
+
+      choices = items.map((item) => item.name);
+    } else if (category === 'tms') {
+      var query =
+        'SELECT * FROM tm_spieler ts inner join tm on ts.tm = tm.id where spieler = (Select name from spieler where discordid = ?)';
+      var tms = await new Promise((resolve, reject) => {
+        connection.query(query, [userId], function (err, results) {
+          if (err) {
+            reject('Datenbankfehler: ' + err);
+          } else {
+            resolve(results);
+          }
+        });
+      });
+      choices = tms.map((tm) => tm.id + ': ' + tm.attacke);
+    }
+
+    const filtered = choices
+      .filter((choice) =>
+        choice.toLowerCase().includes(focusedOption.toLowerCase())
+      )
+      .slice(0, 25)
+      .map((choice) => ({ name: choice, value: choice }));
+
+    await interaction.respond(filtered);
+    return;
   }
   const command = interaction.client.commands.get(interaction.commandName);
 

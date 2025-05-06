@@ -195,18 +195,18 @@ const execute = async (interaction) => {
           );
         });
         if (results.length > 0) {
-          const pokepasteUrl = await uploadToPokePaste(
-            windowsFormattedPokepaste,
-            {
-              title:
-                results[0].Name +
-                's Team für die ' +
-                results[0].Orden +
-                1 +
-                '. Arena',
-              author: 'Orion',
-            }
+          const formattedTeam = formatPokepasteStringForWebsite(
+            windowsFormattedPokepaste
           );
+          const pokepasteUrl = await uploadToPokePaste(formattedTeam, {
+            title:
+              results[0].Name +
+              's Team für die ' +
+              results[0].Orden +
+              1 +
+              '. Arena',
+            author: 'Orion',
+          });
           var query =
             'Insert into challenge (spieler, aktiv, arena, team) VALUES (?,?,?,?)';
           connection.query(query, [
