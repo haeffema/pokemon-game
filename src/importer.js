@@ -32,6 +32,7 @@ const customPreEvos = {
   'lycanroc-dusk': 745,
   wishiwashi: 746,
   mimikyu: 778,
+  'farfetch’d': 'farfetchd',
 };
 
 function delay(ms) {
@@ -116,8 +117,8 @@ for (const [key, value] of Object.entries(originalData)) {
   await delay(200);
 }
 
-await fs.writeFile('test.json', JSON.stringify(newData, null, 2));
-await fs.writeFile('failed_keys.json', JSON.stringify(failedKeys, null, 2));
+await fs.writeFile('xtest.json', JSON.stringify(newData, null, 2));
+await fs.writeFile('xtest2.json', JSON.stringify(failedKeys, null, 2));
 
 console.log(
   `Done. Updated data written to test.json. Failed keys written to failed_keys.json.`
