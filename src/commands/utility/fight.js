@@ -37,10 +37,13 @@ const execute = async (interaction) => {
     'Select p.name, pokepaste from pokemon p inner join spieler s on p.Spieler = s.Name where discordid = ? and Lead = 1';
   connection.query(query, [interaction.user.id], async function (err, pokemon) {
     console.log(pokemon[0].name);
-    console.log(pokemon[0].pokepaste);
+    console.log(cleanPokepaste(pokemon[0].pokepaste));
     //TODO: pokepaste in setupBattle
 
-    const battle = setupBattle(pokemon[0].pokepaste, randomSetPokepaste);
+    const battle = setupBattle(
+      cleanPokepaste(pokemon[0].pokepaste),
+      randomSetPokepaste
+    );
     await interaction.reply('Fight started!');
     // runBattle braucht die user id und ruft dann irgendeine function von Jan auf
     // um dem user das log bild und neuen input zu geben
@@ -142,4 +145,33 @@ async function filterPokemonByType(type, forbiddenTiers, number, discordid) {
     console.error('Fehler beim Laden oder Verarbeiten der Datei:', err.message);
     return [];
   }
+}
+
+function cleanPokepaste(paste) {
+  const lines = paste.split('\n');
+  if (lines.length === 0) return paste;
+
+  const firstLine = lines[0].trim();
+
+  // Pokémon-Name aus der letzten (nicht-einbuchstabigen) Klammer extrahieren
+  const nameMatch = [...firstLine.matchAll(/\(([^()]{2,})\)/g)];
+  let pokemonName = '';
+  if (nameMatch.length > 0) {
+    pokemonName = nameMatch[nameMatch.length - 1][1].trim();
+  } else {
+    // Wenn keine passende Klammer, entferne optionales Geschlecht (einzelne Buchstaben) in Klammern
+    pokemonName = firstLine
+      .replace(/\s*\([MF]\)/g, '')
+      .split('@')[0]
+      .trim();
+  }
+
+  // Item extrahieren (alles nach dem @, falls vorhanden)
+  const itemMatch = firstLine.match(/@ (.+)$/);
+  const item = itemMatch ? `@ ${itemMatch[1].trim()}` : '';
+
+  // Neue erste Zeile
+  lines[0] = `${pokemonName} ${item}`.trim();
+
+  return lines.join('\n');
 }

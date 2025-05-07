@@ -34,6 +34,18 @@ export function convertSetToPokepaste(set, name) {
   return `${name} @ ${set.item}\nAbility: ${set.ability}\n${evs}\n${set.nature} Nature${moveStr}`;
 }
 
+function extractPokemonName(namePart) {
+  const matches = [...namePart.matchAll(/\(([^()]{2,})\)/g)];
+  if (matches.length > 0) {
+    return matches[matches.length - 1][1].trim();
+  } else {
+    return namePart
+      .trim()
+      .replace(/\s*\([^()]*\)/g, '')
+      .trim();
+  }
+}
+
 export function parsePokepaste(pasteText) {
   const lines = pasteText
     .trim()
@@ -44,7 +56,8 @@ export function parsePokepaste(pasteText) {
   const firstLine = lines[0];
   const [namePart, itemPart] = firstLine.split(' @ ');
   var name = namePart.trim();
-  name = name.replace(/\s*\([^()]*\)/g, '').trim();
+  name = extractPokemonName(name);
+  console.log('Zeraoras Name: ' + name);
   const item = itemPart ? itemPart.trim() : null;
 
   let ability = null;
