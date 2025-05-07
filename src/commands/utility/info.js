@@ -73,7 +73,7 @@ export async function execute(interaction) {
         });
       });
       var pokedexCount = ownedPokemon.length + '/' + allPokemon.length;
-      var itemCount = ownedItems.length + '/' + allItems.length;
+      var itemCount = ownedItems.length + '/' + (allItems.length + 8);
 
       await createOrdenImage(spieler.Orden, spieler.Name);
 

@@ -46,6 +46,36 @@ const execute = async (interaction) => {
     return;
   }
 
+  const spieler = await new Promise((resolve, reject) => {
+    const query = 'SELECT * FROM spieler WHERE discordid = ?';
+    connection.query(query, [interaction.user.id], function (err, results) {
+      if (err) return reject(err);
+
+      resolve(results[0]);
+    });
+  });
+  const dbDatum = new Date(spieler.delay);
+  const heute = new Date();
+
+  dbDatum.setHours(0, 0, 0, 0);
+  heute.setHours(0, 0, 0, 0);
+
+  const erlaubtesDatum = new Date(dbDatum);
+  erlaubtesDatum.setDate(erlaubtesDatum.getDate() + 3);
+
+  if (heute < erlaubtesDatum) {
+    const diffInMs = erlaubtesDatum - heute;
+    const diffInTagen = Math.ceil(diffInMs / (1000 * 60 * 60 * 24)); // Aufrunden, falls Uhrzeit noch nicht erreicht
+
+    const erlaubtesDatumString = erlaubtesDatum.toLocaleDateString('de-DE');
+
+    interaction.editReply(
+      `Du kannst aktuell keinen Arenaleiter herausfordern, weil du noch ${diffInTagen} Tag(e) warten musst!\n` +
+        `Deine nächste Herausforderung für den **${spieler.Orden + 1}. Orden** ist ab dem ${erlaubtesDatumString} möglich.`
+    );
+    return;
+  }
+
   const pokepaste = interaction.options.getString('team');
   const allPokemon = pokepaste.split(/ {4}/).filter((p) => p.trim().length > 0);
   console.log('Pokemon im Pokepaste: ' + allPokemon.length);
@@ -238,7 +268,7 @@ const execute = async (interaction) => {
         }
       } else {
         await buttonInteraction.reply(
-          'Du hast die Herausforderung mit weniger als 6 Pokemon abgebrochen... glaub mir das war eine gute Entscheidung'
+          'Du hast die Herausforderung mit weniger als 6 Pokemon abgebrochen... glaub mir das war eine gute Entscheidung!'
         );
       }
     } catch (err) {
