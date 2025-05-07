@@ -48,9 +48,13 @@ export function parsePokepaste(pasteText) {
   const item = itemPart ? itemPart.trim() : null;
 
   let ability = null;
+  let shiny = false;
   const moves = [];
 
   for (const line of lines) {
+    if (line.startsWith('Shiny:')) {
+      shiny = true;
+    }
     if (line.startsWith('Ability:')) {
       ability = line.replace('Ability:', '').trim();
     } else if (line.startsWith('-')) {
@@ -58,12 +62,13 @@ export function parsePokepaste(pasteText) {
     }
   }
 
-  return { name, item, ability, moves, pokePasteStringFormat };
+  return { name, item, ability, moves, pokePasteStringFormat, shiny };
 }
 
 export async function validateSet(parsedSet, userid) {
-  const { name, item, ability, moves } = parsedSet;
+  const { name, item, ability, moves, shiny } = parsedSet;
   const pokemon = pokemonData[name.toLowerCase()];
+  var currentMoves = [];
 
   if (!pokemon) {
     return {
@@ -89,6 +94,17 @@ export async function validateSet(parsedSet, userid) {
       success: false,
       message: `Du hast das Pokemon ${name} noch nicht gefangen.`,
     };
+  } else {
+    if (shiny) {
+      return {
+        success: false,
+        message: `Nanana nicht anfangen zu schummeln, dein ${name} ist nicht Shiny ;)`,
+      };
+    }
+    currentMoves = results[0].pokepaste
+      .split('\n')
+      .filter((line) => line.trim().startsWith('-'))
+      .map((line) => normalizeMove(line.replace('-', '').trim()));
   }
 
   query =
@@ -126,7 +142,7 @@ export async function validateSet(parsedSet, userid) {
       };
     }
     const moveData = possibleMoves[normalizedMove];
-    if (moveData.type === 'machine') {
+    if (moveData.type === 'machine' && !currentMoves.includes(moveData.name)) {
       var query = `
             SELECT t.id AS tm_id, t.attacke, ts.Spieler AS besitzt_tm
             FROM tm t 

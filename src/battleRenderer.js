@@ -11,7 +11,12 @@ const height = 600;
 
 function drawHealthBar(ctx, x, y, width, height, hp, maxHp, name, status) {
   const percentage = hp / maxHp;
-  const percentText = `${Math.round(percentage * 100)}%`;
+  let percent = Math.round(percentage * 100);
+  if (hp > 0 && percent === 0) {
+    percent = 1;
+  }
+
+  const percentText = `${percent}%`;
 
   // Name oben zentriert
   ctx.fillStyle = 'black';
