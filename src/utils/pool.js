@@ -1,8 +1,9 @@
 import connection from './databaseConnection.js';
+import { EmbedBuilder } from 'discord.js';
 
 function generatePoolForPlayers() {}
 
-export function updatePoolIfNeeded() {
+export function updatePoolIfNeeded(bot) {
   const query = `
     SELECT id, tag
     FROM poolTag
@@ -16,7 +17,7 @@ export function updatePoolIfNeeded() {
     }
 
     if (results.length === 0) {
-      activatePoolTag(1);
+      activatePoolTag(1, bot);
       return;
     }
     results.forEach((row) => {
@@ -35,14 +36,15 @@ export function updatePoolIfNeeded() {
         while (id > 18) {
           id -= 18;
         }
-        activatePoolTag(id);
+        activatePoolTag(id, bot);
+        return;
       }
-      console.log(`ID: ${row.id}, Tag: ${row.tag}`);
+      return;
     });
   });
 }
 
-function activatePoolTag(id) {
+function activatePoolTag(id, bot) {
   const query = `
       UPDATE poolTag
       SET aktiv = 1,
@@ -57,6 +59,8 @@ function activatePoolTag(id) {
       return;
     }
     console.log(`Pool tag ${id} activated with tag set to ${currentDate}.`);
+    sendActivatedPoolMessage(bot);
+    return;
   });
 }
 
@@ -71,5 +75,39 @@ function deactivatePoolTag(id) {
       return;
     }
     console.log(`Pool tag ${id} deactivated.`);
+    return;
+  });
+}
+
+async function sendActivatedPoolMessage(bot) {
+  console.log('Sending activated pool message...');
+  const query = `
+    SELECT text
+    FROM poolTag
+    WHERE aktiv = 1;
+  `;
+  connection.query(query, (error, results, fields) => {
+    if (error) {
+      console.error('Error querying the database:', error);
+      return;
+    }
+
+    if (results.length === 0) {
+      console.log('No active pool tag found.');
+      return;
+    }
+    results.forEach(async (row) => {
+      const message = new EmbedBuilder()
+        .setTitle('Täglicher Bericht vom Professor')
+        .setDescription(row.text)
+        .setColor('Yellow')
+        .setThumbnail(
+          'https://play.pokemonshowdown.com/sprites/trainers/oak.png'
+        );
+      const user = await bot.users.fetch('326305842427330560');
+      await user.send({ embeds: [message] });
+      return;
+    });
+    return;
   });
 }
