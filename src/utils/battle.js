@@ -71,20 +71,13 @@ async function updateBattleState(battle, shiny) {
       '/pokemon/shiny/'
     );
   }
-  let trainerPokemonSprite =
-    pokeData[trainerPokemon.species.name.toLowerCase()].sprite;
-  trainerPokemonSprite = trainerPokemonSprite.replace(
-    '/pokemon/',
-    '/pokemon/back/'
-  );
-  console.log('Trainer Pokemon sprite: ', trainerPokemonSprite);
   await generateBattleImage(
     {
       name: trainerPokemon.species.name,
       status: trainerPokemon.status,
       hp: trainerPokemon.hp,
       maxHp: trainerPokemon.maxhp,
-      spriteUrl: trainerPokemonSprite,
+      spriteUrl: pokeData[trainerPokemon.species.name.toLowerCase()].sprite,
     },
     {
       name: wildPokemon.species.name,
