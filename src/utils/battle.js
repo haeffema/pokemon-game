@@ -32,7 +32,7 @@ export async function runBattle(battle, userId, wildPokemon) {
   var shiny = false;
   if (Math.floor(Math.random() * 8196) === 0) {
     console.log('SHINYYYYYY');
-    // shiny = true;
+    shiny = true;
   }
   const battleState = await updateBattleState(battle, shiny);
   if (!battle.ended) {
