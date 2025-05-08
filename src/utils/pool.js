@@ -123,8 +123,8 @@ async function sendActivatedPoolMessage(bot) {
         .setThumbnail(
           'https://play.pokemonshowdown.com/sprites/trainers/oak.png'
         );
-      const user = await bot.users.fetch('326305842427330560');
-      await user.send({ embeds: [message] });
+      const channel = await bot.channels.fetch('1369593938163269674');
+      await channel.send({ embeds: [message] });
       return;
     });
     return;
