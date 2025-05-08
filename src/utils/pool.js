@@ -52,16 +52,35 @@ function activatePoolTag(id, bot) {
       WHERE id = ?;
     `;
 
-  const currentDate = new Date().toISOString().split('T')[0];
+  const now = new Date();
+  const serverTimeZone = 'Europe/Berlin';
+  const year = now.toLocaleString('en-US', {
+    year: 'numeric',
+    timeZone: serverTimeZone,
+  });
+  const month = now.toLocaleString('en-US', {
+    month: '2-digit',
+    timeZone: serverTimeZone,
+  });
+  const day = now.toLocaleString('en-US', {
+    day: '2-digit',
+    timeZone: serverTimeZone,
+  });
 
-  connection.query(query, [currentDate, id], (error, results, fields) => {
-    if (error) {
+  const currentDateInServerTimeZone = `${year}-${month}-${day}`;
+
+  connection.query(
+    query,
+    [currentDateInServerTimeZone, id],
+    (error, results, fields) => {
+      if (error) {
+        return;
+      }
+      console.log(`Pool tag ${id} activated with tag set to ${currentDate}.`);
+      sendActivatedPoolMessage(bot);
       return;
     }
-    console.log(`Pool tag ${id} activated with tag set to ${currentDate}.`);
-    sendActivatedPoolMessage(bot);
-    return;
-  });
+  );
 }
 
 function deactivatePoolTag(id) {
