@@ -76,7 +76,9 @@ function activatePoolTag(id, bot) {
       if (error) {
         return;
       }
-      console.log(`Pool tag ${id} activated with tag set to ${currentDate}.`);
+      console.log(
+        `Pool tag ${id} activated with tag set to ${currentDateInServerTimeZone}.`
+      );
       sendActivatedPoolMessage(bot);
       return;
     }
@@ -117,7 +119,7 @@ async function sendActivatedPoolMessage(bot) {
     }
     results.forEach(async (row) => {
       const message = new EmbedBuilder()
-        .setTitle('Täglicher Bericht vom Professor')
+        .setTitle('Täglicher Bericht des Professors')
         .setDescription(row.text)
         .setColor('Yellow')
         .setThumbnail(
