@@ -429,7 +429,7 @@ export async function execute(interaction) {
     collector.on('end', async (collected) => {
       if (collected.size === 0) {
         await interaction.editReply({
-          content: '⏳ Selection timed out. Use `/shop` again.',
+          content: '⏳ Selection timed out. Use /shop again.',
           embeds: [],
           components: [],
         });

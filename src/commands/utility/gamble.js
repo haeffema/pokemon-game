@@ -4,7 +4,7 @@ import { runOneArmedBandit } from '../../utils/gamble.js';
 
 const commandData = new SlashCommandBuilder()
   .setName('gamble')
-  .setDescription('Gamble 55 PokeDollar and get lucky');
+  .setDescription('Gamble 57 PokeDollar and get lucky');
 
 const execute = async (interaction) => {
   var query = 'SELECT * FROM spieler where discordid = ?';
@@ -26,21 +26,22 @@ const execute = async (interaction) => {
   }
 
   interaction.reply(
-    'Du hast 55 PokeDollar gesetzt. Lass uns sehen, ob du gewinnst!'
+    'Du hast 57 PokeDollar gesetzt. Lass uns sehen, ob du gewinnst!'
   );
 
-  spieler.Geld -= 55;
+  spieler.Geld -= 57;
 
   const earnings = await runOneArmedBandit(interaction.user.id);
   interaction.followUp(`Du hast ${earnings} PokeDollar gewonnen!`);
 
   spieler.Geld += earnings;
 
-  query = 'UPDATE spieler SET Geld = ? WHERE discordid = ?';
+  query =
+    'UPDATE spieler SET Geld = ?, gewinn = gewinn - 57 + ? WHERE discordid = ?';
   await new Promise((resolve, reject) => {
     connection.query(
       query,
-      [spieler.Geld, interaction.user.id],
+      [spieler.Geld, earnings, interaction.user.id],
       function (err) {
         if (err) {
           reject('Datenbankfehler: ' + err);

@@ -182,6 +182,13 @@ export async function sendUserBattleState(userid, battleState, wildPokemon) {
     const imagePath = battleState.image;
     const attachment = new AttachmentBuilder(imagePath);
     await bot.users.send(userid, { files: [attachment] });
+    /*fs.unlink(imagePath, (err) => {
+      if (err) {
+          console.error('Fehler beim Löschen der Datei:', err);
+          return;
+      }
+      console.log('Datei erfolgreich gelöscht:', imagePath);
+  });*/
     if (battleState.roundLog)
       await bot.users.send(userid, battleState.roundLog);
 

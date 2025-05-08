@@ -128,20 +128,46 @@ const execute = async (interaction) => {
       buttonCollector.on('collect', async (buttonInteraction) => {
         await buttonInteraction.deferReply();
         if (buttonInteraction.customId === 'buy_move') {
-          var query =
-            'Insert ignore into tutor (attacke, pokemon, spieler) VALUES(?,?,(Select name from spieler where discordid = ?))';
-          connection.query(query, [
-            selectedMoveName,
-            chosenPokemon,
-            interaction.user.id,
-          ]);
-          var query =
-            'Update spieler set geld = geld - 5000 where discordid = ?';
-          connection.query(query, [interaction.user.id]);
-          await buttonInteraction.editReply({
-            content: `Der Tutor hat deinem ${chosenPokemon} den Move **${selectedMoveName}** erfolgreich beigebracht!`,
+          const geldAbfragen = await new Promise((resolve, reject) => {
+            const query = 'SELECT geld FROM spieler WHERE discordid = ?';
+            connection.query(
+              query,
+              [interaction.user.id],
+              function (err, results) {
+                if (err) return reject(err);
+
+                if (results.length === 0) {
+                  reject('Spieler nicht gefunden');
+                } else {
+                  resolve(results[0].geld);
+                }
+              }
+            );
           });
-          buttonCollector.stop();
+
+          const tutorPreis = 5000;
+          if (geldAbfragen >= tutorPreis) {
+            var query =
+              'Insert ignore into tutor (attacke, pokemon, spieler) VALUES(?,?,(Select name from spieler where discordid = ?))';
+            connection.query(query, [
+              selectedMoveName,
+              chosenPokemon,
+              interaction.user.id,
+            ]);
+            var query =
+              'Update spieler set geld = geld - ? where discordid = ?';
+            connection.query(query, [tutorPreis, interaction.user.id]);
+            await buttonInteraction.editReply({
+              content: `Der Tutor hat deinem ${chosenPokemon} den Move **${selectedMoveName}** erfolgreich beigebracht!`,
+            });
+            buttonCollector.stop();
+          } else {
+            await buttonInteraction.editReply({
+              content: `Du hast nicht genug Geld, um den Tutor zu bezahlen und deinem ${chosenPokemon} den Move **${selectedMoveName}** beizubringen. Erforderlich: ${tutorPreis} PokéDollar.`,
+            });
+            buttonCollector.stop();
+            return;
+          }
         } else if (buttonInteraction.customId === 'cancel_buy_move') {
           await buttonInteraction.editReply({
             content: 'Der Kaufprozess wurde abgebrochen.',
@@ -158,7 +184,7 @@ const execute = async (interaction) => {
   collector.on('end', async (collected) => {
     if (collected.size === 0) {
       await interaction.editReply({
-        content: '⏳ Selection timed out. Use `/tutor` again.',
+        content: '⏳ Selection timed out. Use /tutor again.',
         embeds: [],
         components: [],
       });

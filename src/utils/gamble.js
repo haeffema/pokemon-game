@@ -49,7 +49,7 @@ function moveColumn(colIndex) {
 
 export async function runOneArmedBandit(userId) {
   let counter = 0;
-  let randomSpins1 = Math.floor(Math.random() * 5) + 8;
+  let randomSpins1 = Math.floor(Math.random() * 10) + 5;
 
   const user = await bot.users.fetch(userId);
 
@@ -68,7 +68,7 @@ export async function runOneArmedBandit(userId) {
   }
 
   counter = 0;
-  let randomSpins2 = Math.floor(Math.random() * 4) + 4;
+  let randomSpins2 = Math.floor(Math.random() * 10) + 5;
   while (counter++ < randomSpins2) {
     moveColumn(1);
     moveColumn(2);
@@ -77,7 +77,7 @@ export async function runOneArmedBandit(userId) {
   }
 
   counter = 0;
-  let randomSpins3 = Math.floor(Math.random() * 4) + 4;
+  let randomSpins3 = Math.floor(Math.random() * 10) + 5;
   while (counter++ < randomSpins3) {
     moveColumn(2);
     await message.edit({ content: generateMessage() });
