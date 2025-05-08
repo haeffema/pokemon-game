@@ -178,7 +178,10 @@ bot.on(Events.InteractionCreate, async (interaction) => {
     interaction.user.id != '326305842427330560'
   )
     return;
-  if (interaction.isAutocomplete() && interaction.commandName === 'lead') {
+  if (
+    interaction.isAutocomplete() &&
+    (interaction.commandName === 'lead' || interaction.commandName === 'tutor')
+  ) {
     const userId = interaction.user.id;
 
     const teamResults = await getTeamFromDB(userId); // Funktion siehe unten

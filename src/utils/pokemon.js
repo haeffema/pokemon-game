@@ -188,6 +188,27 @@ export async function validateSet(parsedSet, userid) {
           message: `${name} kann den Move "${move}" nur via ${tm.tm_id} lernen, die du nicht besitzt!.`,
         };
       }
+    } else if (
+      moveData.type === 'tutor' &&
+      !currentMoves.includes(moveData.name)
+    ) {
+      var query = `
+      SELECT * from tutor where spieler = (Select name from spieler where discordid = ?) and pokemon = ? and attacke = ?;`;
+      var tutorResult = await new Promise((resolve, reject) => {
+        connection.query(query, [userid, name, move], function (err, results) {
+          if (err) {
+            reject('Datenbankfehler: ' + err);
+          } else {
+            resolve(results);
+          }
+        });
+      });
+      if (tutorResult.length === 0) {
+        return {
+          success: false,
+          message: `${name} kann den Move "${move}" nur via Tutor erlernen!`,
+        };
+      }
     }
   }
 
