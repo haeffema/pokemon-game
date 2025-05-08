@@ -32,7 +32,7 @@ export async function runBattle(battle, userId, wildPokemon) {
   var shiny = false;
   if (Math.floor(Math.random() * 8196) === 0) {
     console.log('SHINYYYYYY');
-    shiny = true;
+    // shiny = true;
   }
   const battleState = await updateBattleState(battle, shiny);
   if (!battle.ended) {
@@ -71,13 +71,20 @@ async function updateBattleState(battle, shiny) {
       '/pokemon/shiny/'
     );
   }
+  let trainerPokemonSprite =
+    pokeData[trainerPokemon.species.name.toLowerCase()].sprite;
+  trainerPokemonSprite = trainerPokemonSprite.replace(
+    '/pokemon/',
+    '/pokemon/back/'
+  );
+  console.log('Trainer Pokemon sprite: ', trainerPokemonSprite);
   await generateBattleImage(
     {
       name: trainerPokemon.species.name,
       status: trainerPokemon.status,
       hp: trainerPokemon.hp,
       maxHp: trainerPokemon.maxhp,
-      spriteUrl: pokeData[trainerPokemon.species.name.toLowerCase()].sprite,
+      spriteUrl: trainerPokemonSprite,
     },
     {
       name: wildPokemon.species.name,
