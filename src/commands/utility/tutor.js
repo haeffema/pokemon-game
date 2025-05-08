@@ -158,7 +158,7 @@ const execute = async (interaction) => {
   collector.on('end', async (collected) => {
     if (collected.size === 0) {
       await interaction.editReply({
-        content: '⏳ Selection timed out. Use `/shop` again.',
+        content: '⏳ Selection timed out. Use `/tutor` again.',
         embeds: [],
         components: [],
       });

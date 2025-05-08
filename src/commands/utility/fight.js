@@ -9,12 +9,7 @@ const commandData = new SlashCommandBuilder()
   .setDescription('Start a fight with a wild Pokemon');
 
 const execute = async (interaction) => {
-  var pokemonListe = await getPokemonFromPool(
-    'Normal',
-    ['Uber', 'OU', 'OUBL', 'UUBL', 'UU'],
-    12,
-    interaction.user.id
-  );
+  var pokemonListe = await getPokemonFromPool(12, interaction.user.id);
   if (pokemonListe == null) {
     await interaction.reply(
       'Du hast das tägliche Limit an Kämpfen gegen wilde Pokemon erreicht (30). Warte bis Morgen um gegen neue Pokemon eines anderen Typs anzutreten'
@@ -44,7 +39,7 @@ const execute = async (interaction) => {
       cleanPokepaste(pokemon[0].pokepaste),
       randomSetPokepaste
     );
-    await interaction.reply('Fight started!');
+    await interaction.reply('Ein wildes Pokemon taucht auf!');
     // runBattle braucht die user id und ruft dann irgendeine function von Jan auf
     // um dem user das log bild und neuen input zu geben
     await runBattle(battle, interaction.user.id, randomSetPokepaste);
@@ -56,7 +51,7 @@ export default {
   execute: execute,
 };
 
-async function getPokemonFromPool(type, forbiddenTiers, number, discordid) {
+async function getPokemonFromPool(number, discordid) {
   //Übergabevariablen nur für Generierung neuer Pool notwendig
 
   const today = new Date().toISOString().slice(0, 10);
@@ -85,6 +80,23 @@ async function getPokemonFromPool(type, forbiddenTiers, number, discordid) {
 
   if (!pokemonListe) {
     console.log('Kein Pool gefunden, generiere neuen...');
+    const spieler = await new Promise((resolve, reject) => {
+      const query = 'SELECT * FROM spieler WHERE discordid = ?';
+      connection.query(query, [discordid], function (err, results) {
+        if (err) return reject(err);
+        else {
+          resolve(results[0]);
+        }
+      });
+    });
+    var forbiddenTiers;
+    if (spieler.orden == 0 || spieler.orden == 1) {
+      forbiddenTiers = ['Uber', 'OU', 'OUBL', 'UUBL', 'UU'];
+    } else if (spieler.orden == 2 || spieler.orden == 3) {
+      forbiddenTiers = ['Uber', 'OU', 'OUBL'];
+    } else {
+      forbiddenTiers = ['Uber'];
+    }
     const poolTag = await new Promise((resolve, reject) => {
       const query = 'SELECT * FROM poolTag WHERE aktiv = 1';
       connection.query(query, function (err, results) {

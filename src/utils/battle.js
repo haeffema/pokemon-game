@@ -29,13 +29,21 @@ export async function runBattle(battle, userId, wildPokemon) {
   /**
    * This function is called with a battle object and a userId to run the battle until there is a winner.
    */
-  const battleState = await updateBattleState(battle);
+  var shiny = false;
+  if (Math.floor(Math.random() * 8196) === 0) {
+    console.log('SHINYYYYYY');
+    shiny = true;
+  }
+  const battleState = await updateBattleState(battle, shiny);
   if (!battle.ended) {
     const userResponse = await sendUserBattleState(
       userId,
       battleState,
       wildPokemon
     );
+    if (userResponse === null) {
+      return;
+    }
     battle.choose(trainerID, `move ${userResponse}`);
     await botChooseHighestDamageMove(battle);
     await new Promise((resolve) => setTimeout(resolve, 250));
@@ -45,15 +53,24 @@ export async function runBattle(battle, userId, wildPokemon) {
   await sendUserBattleState(userId, battleState, wildPokemon);
 }
 
-async function updateBattleState(battle) {
+async function updateBattleState(battle, shiny) {
   /**
    * This function is used to generate an object containing all usefull data for the user.
    */
+
   const trainerPokemon = battle.p1.active[0];
   const wildPokemon = battle.p2.active[0];
   const moves = getAvailableMovesWithDescriptionForTrainer(battle);
   const roundLog = generateRoundLog(battle.log);
   const imageName = 'src/battleImages/fight_scene_' + Date.now() + '.png';
+  var wildPokemonSprite =
+    pokeData[wildPokemon.species.name.toLowerCase()].sprite;
+  if (shiny) {
+    wildPokemonSprite = wildPokemonSprite.replace(
+      '/pokemon/',
+      '/pokemon/shiny/'
+    );
+  }
   await generateBattleImage(
     {
       name: trainerPokemon.species.name,
@@ -67,7 +84,7 @@ async function updateBattleState(battle) {
       status: wildPokemon.status,
       hp: wildPokemon.hp,
       maxHp: wildPokemon.maxhp,
-      spriteUrl: pokeData[wildPokemon.species.name.toLowerCase()].sprite,
+      spriteUrl: wildPokemonSprite,
     },
     imageName
   );

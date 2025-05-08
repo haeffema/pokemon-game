@@ -177,7 +177,9 @@ bot.on(Events.InteractionCreate, async (interaction) => {
     interaction.user.id != '360366344635547650' &&
     interaction.user.id != '326305842427330560'
   )
-    return;
+    if (interaction.channel.type !== 1) {
+      return;
+    }
   if (
     interaction.isAutocomplete() &&
     (interaction.commandName === 'lead' || interaction.commandName === 'tutor')

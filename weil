@@ -1,1 +1,0 @@
-use mal ./start.sh statt npm run bot - dann log in logs und mit ./stop.sh neustart und dann ist immer nur einer an oder so jaja

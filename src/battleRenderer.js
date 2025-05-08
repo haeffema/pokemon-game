@@ -19,7 +19,7 @@ function drawHealthBar(ctx, x, y, width, height, hp, maxHp, name, status) {
   const percentText = `${percent}%`;
 
   // Name oben zentriert
-  ctx.fillStyle = 'black';
+  ctx.fillStyle = 'white';
   ctx.font = 'bold 18px Arial';
   ctx.textAlign = 'center';
   ctx.textBaseline = 'bottom';
@@ -98,8 +98,20 @@ export async function generateBattleImage(
   const canvas = createCanvas(width, height);
   const ctx = canvas.getContext('2d');
 
-  const backgroundURL =
-    'https://preview.redd.it/d9spuwer2c491.png?width=1050&format=png&auto=webp&s=9ca8c75c63da9f8bb134e955d73e2770d073375e';
+  var query = `
+        SELECT typ from poolTag where aktiv = 1;`;
+  var poolTag = await new Promise((resolve, reject) => {
+    connection.query(query, function (err, results) {
+      if (err) {
+        reject('Datenbankfehler: ' + err);
+      } else {
+        resolve(results[0]);
+      }
+    });
+  });
+  //var backgroundURL = 'src/data/background/grass.png';
+  var backgroundURL =
+    'src/data/background/' + poolTag.typ.toLowerCase() + '.png';
 
   const [background, leftSprite, rightSprite] = await Promise.all([
     loadImage(backgroundURL),
@@ -215,20 +227,10 @@ export async function sendUserBattleState(userid, battleState, wildPokemon) {
       interaction.customId.startsWith('move_') &&
       interaction.user.id === userid;
 
-    const collected = await message
-      .awaitMessageComponent({
-        filter,
-        time: 3 * 60 * 1000,
-      })
-      .catch(async () => {
-        // Timeout-Fallback
-        await interaction.editReply({
-          content:
-            '⏳ Deine Zeit ist abgelaufen. Das wilde Pokémon hat den Kampf gewonnen und ist geflüchtet.',
-        });
-        return null;
-      });
-
+    const collected = await message.awaitMessageComponent({
+      filter,
+      time: 3 * 60 * 1000,
+    });
     if (!collected) {
       console.log('Keine Auswahl getroffen.');
       return null;
@@ -238,7 +240,10 @@ export async function sendUserBattleState(userid, battleState, wildPokemon) {
     const moveId = parseInt(collected.customId.split('_')[1]);
     return moveId;
   } catch (err) {
-    console.error('Fehler beim Senden des BattleStates', err);
+    await bot.users.send(
+      userid,
+      '⏳ Deine Zeit ist abgelaufen. Das wilde Pokémon hat den Kampf gewonnen und ist geflüchtet.'
+    );
     return null;
   }
 }
