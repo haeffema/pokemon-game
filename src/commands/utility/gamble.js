@@ -32,7 +32,7 @@ const execute = async (interaction) => {
   spieler.Geld -= 55;
 
   const earnings = await runOneArmedBandit(interaction.user.id);
-  interaction.followUp(`You won ${earnings} PokeDollar!`);
+  interaction.followUp(`Du hast ${earnings} PokeDollar gewonnen!`);
 
   spieler.Geld += earnings;
 
@@ -50,9 +50,6 @@ const execute = async (interaction) => {
       }
     );
   });
-  interaction.followUp(
-    `Dein neues Guthaben beträgt ${spieler.Geld} PokeDollar.`
-  );
 };
 
 export default {
