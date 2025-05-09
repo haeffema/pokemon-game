@@ -1,6 +1,8 @@
 import bot from './client.js';
 
-let oneArmedBandit = [
+const oneArmedBandit = {};
+
+const startingGrid = [
   ['🪙', '🪙', '🪙'],
   ['💵', '💵', '💵'],
   ['🪙', '🪙', '🪙'],
@@ -15,14 +17,14 @@ function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-function calculatePayout() {
+function calculatePayout(userGridData) {
   const payout = {
     '🪙': 187,
     '💵': 420,
     '💰': 6900,
   };
   let totalPayout = 0;
-  const winningRow = oneArmedBandit[4];
+  const winningRow = userGridData[4];
 
   if (winningRow[0] === winningRow[1] && winningRow[1] === winningRow[2]) {
     totalPayout += payout[winningRow[0]];
@@ -30,21 +32,21 @@ function calculatePayout() {
   return totalPayout;
 }
 
-function generateMessage() {
+function generateMessage(userGridData) {
   let message = '```\nOne Armed Bandit\n';
   for (let i = 3; i <= 5; i++) {
-    message += '  ' + oneArmedBandit[i].join(' | ') + '  \n';
+    message += '  ' + userGridData[i].join(' | ') + '  \n';
   }
   message += '```';
   return message;
 }
 
-function moveColumn(colIndex) {
-  const lastSymbol = oneArmedBandit[oneArmedBandit.length - 1][colIndex];
-  for (let i = oneArmedBandit.length - 1; i > 0; i--) {
-    oneArmedBandit[i][colIndex] = oneArmedBandit[i - 1][colIndex];
+function moveColumn(userGridData, colIndex) {
+  const lastSymbol = userGridData[userGridData.length - 1][colIndex];
+  for (let i = userGridData.length - 1; i > 0; i--) {
+    userGridData[i][colIndex] = userGridData[i - 1][colIndex];
   }
-  oneArmedBandit[0][colIndex] = lastSymbol;
+  userGridData[0][colIndex] = lastSymbol;
 }
 
 export async function runOneArmedBandit(userId) {
@@ -57,31 +59,39 @@ export async function runOneArmedBandit(userId) {
 
   const channel = await user.createDM();
 
-  const message = await channel.send({ content: generateMessage() });
+  let userGridData = oneArmedBandit[userId];
+
+  if (!userGridData) {
+    userGridData = startingGrid;
+  }
+
+  const message = await channel.send({
+    content: generateMessage(userGridData),
+  });
 
   while (counter++ < randomSpins1) {
-    moveColumn(0);
-    moveColumn(1);
-    moveColumn(2);
-    await message.edit({ content: generateMessage() });
+    moveColumn(userGridData, 0);
+    moveColumn(userGridData, 1);
+    moveColumn(userGridData, 2);
+    await message.edit({ content: generateMessage(userGridData) });
     await sleep(500);
   }
 
   counter = 0;
   let randomSpins2 = Math.floor(Math.random() * 10) + 5;
   while (counter++ < randomSpins2) {
-    moveColumn(1);
-    moveColumn(2);
-    await message.edit({ content: generateMessage() });
+    moveColumn(userGridData, 1);
+    moveColumn(userGridData, 2);
+    await message.edit({ content: generateMessage(userGridData) });
     await sleep(1000);
   }
 
   counter = 0;
   let randomSpins3 = Math.floor(Math.random() * 10) + 5;
   while (counter++ < randomSpins3) {
-    moveColumn(2);
-    await message.edit({ content: generateMessage() });
+    moveColumn(userGridData, 2);
+    await message.edit({ content: generateMessage(userGridData) });
     await sleep(1500);
   }
-  return calculatePayout();
+  return calculatePayout(userGridData);
 }
