@@ -79,6 +79,12 @@ const execute = async (interaction) => {
   const pokepaste = interaction.options.getString('team');
   const allPokemon = pokepaste.split(/ {4}/).filter((p) => p.trim().length > 0);
   console.log('Pokemon im Pokepaste: ' + allPokemon.length);
+  if (allPokemon.length > 6) {
+    interaction.editReply(
+      `Dein Team enthält mehr als 6 Pokemon, dass wäre nicht ganz fair oder ;)`
+    );
+    return;
+  }
   let erfolg = 0;
   const typeCounts = {};
   const itemCounts = {};
@@ -176,14 +182,14 @@ const execute = async (interaction) => {
         arenas[results[0].Orden],
         pokepasteUrl,
       ]);
-      /*await bot.users.send(
+      await bot.users.send(
         '360366344635547650',
         `${results[0].Name} hat die ${arenas[results[0].Orden]} Arena herausgefordert. Vernichten wir ihn!`
       );
       await bot.users.send(
         '326305842427330560',
         `${results[0].Name} hat die ${arenas[results[0].Orden]} Arena herausgefordert. Vernichten wir ihn!`
-      );*/
+      );
 
       await interaction.editReply(
         'Dein Team ist zulässig und deine Herausforderung wurde an den Arenaleiter gesendet, er wird dich in kürze kontaktieren. Viel Glück, du wirst es brauchen!'
@@ -249,14 +255,14 @@ const execute = async (interaction) => {
             arenas[results[0].Orden],
             pokepasteUrl,
           ]);
-          /*await bot.users.send(
+          await bot.users.send(
             '360366344635547650',
             `${results[0].Name} has challenged the ${arenas[results[0].Orden]} Arena. Let's give him an epic battle.`
           );
           await bot.users.send(
             '326305842427330560',
             `${results[0].Name} has challenged the ${arenas[results[0].Orden]} Arena. Let's give him an epic battle.`
-          );*/
+          );
 
           await buttonInteraction.reply(
             'Deine Herausforderung mit weniger als **6 Pokemon!!!!** wurde an den Arenaleiter gesendet, er wird dich in kürze kontaktieren. Du wirst diesmal Glück mehr als alles andere brauchen, also möge dein Eisstrahl das Yveltal einfrieren!'

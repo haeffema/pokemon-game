@@ -15497,7 +15497,7 @@
           "spa": 4,
           "spe": 252
         },
-        "moves": ["Shell Smash", "Icicle Spear", "Explosion", "Hydro Pump"]
+        "moves": ["Shell Smash", "Icicle Spear", "Spikes", "Hydro Pump"]
       }
     ]
   },
@@ -35839,7 +35839,12 @@
           "atk": 252,
           "def": 4
         },
-        "moves": ["Stealth Rock", "Sucker Punch", "Wood Hammer", "Explosion"]
+        "moves": [
+          "Stealth Rock",
+          "Sucker Punch",
+          "Wood Hammer",
+          "Stomping Tantrum"
+        ]
       }
     ]
   },
@@ -48929,7 +48934,7 @@
           "atk": 252,
           "spe": 252
         },
-        "moves": ["Knock Off", "Leaf Blade", "Rock Slide", "Explosion"]
+        "moves": ["Knock Off", "Leaf Blade", "Rock Slide", "Seed Bomb"]
       },
       {
         "item": "Choice Scarf",
@@ -57439,7 +57444,7 @@
           "def": 252,
           "spd": 8
         },
-        "moves": ["Stealth Rock", "Lava Plume", "Explosion", "Toxic"]
+        "moves": ["Stealth Rock", "Lava Plume", "Stomping Tantrum", "Toxic"]
       }
     ]
   },
@@ -60040,7 +60045,7 @@
           "spa": 252,
           "spd": 4
         },
-        "moves": ["Psychic", "Moonblast", "Stealth Rock", "Explosion"]
+        "moves": ["Psychic", "Moonblast", "Stealth Rock", "Stomping Tantrum"]
       }
     ]
   },
@@ -60355,7 +60360,12 @@
           "atk": 252,
           "def": 4
         },
-        "moves": ["Stealth Rock", "Rock Slide", "Explosion", "Will-O-Wisp"]
+        "moves": [
+          "Stealth Rock",
+          "Rock Slide",
+          "Stomping Tantrum",
+          "Will-O-Wisp"
+        ]
       }
     ]
   },
@@ -64577,7 +64587,7 @@
           "spd": 4,
           "spe": 252
         },
-        "moves": ["Double-Edge", "Explosion", "Earthquake", "Spikes"]
+        "moves": ["Double-Edge", "Hex", "Earthquake", "Spikes"]
       }
     ]
   },
@@ -66739,7 +66749,7 @@
           "atk": 252,
           "spe": 224
         },
-        "moves": ["Meteor Mash", "Stealth Rock", "Earthquake", "Explosion"]
+        "moves": ["Meteor Mash", "Stealth Rock", "Earthquake", "Ice Punch"]
       },
       {
         "item": "Colbur Berry",
@@ -66750,7 +66760,7 @@
           "atk": 96,
           "spe": 176
         },
-        "moves": ["Stealth Rock", "Meteor Mash", "Earthquake", "Explosion"]
+        "moves": ["Stealth Rock", "Meteor Mash", "Earthquake", "Ice Punch"]
       }
     ]
   },
@@ -67481,6 +67491,10 @@
       "stomping-tantrum": {
         "name": "stomping-tantrum",
         "type": "tutor"
+      },
+      "seismic-toss": {
+        "name": "seismic-toss",
+        "type": "event"
       }
     },
     "tier": "RU",
@@ -82581,7 +82595,7 @@
           "spa": 4,
           "spe": 252
         },
-        "moves": ["Stealth Rock", "Explosion", "Taunt", "Fire Blast"]
+        "moves": ["Stealth Rock", "Dazzling Gleam", "Taunt", "Fire Blast"]
       }
     ]
   },
@@ -96484,7 +96498,7 @@
           "spd": 4,
           "spe": 252
         },
-        "moves": ["Spikes", "Gunk Shot", "Toxic Spikes", "Explosion"]
+        "moves": ["Spikes", "Gunk Shot", "Toxic Spikes", "Seed Bomb"]
       }
     ]
   },
@@ -109130,7 +109144,7 @@
           "spd": 4,
           "spe": 252
         },
-        "moves": ["Stealth Rock", "Earthquake", "Explosion", "Swords Dance"]
+        "moves": ["Stealth Rock", "Earthquake", "Fly", "Swords Dance"]
       }
     ]
   },
@@ -122648,6 +122662,10 @@
         "name": "ice-punch",
         "type": "tutor"
       },
+      "nasty-plot": {
+        "name": "nasty-plot",
+        "type": "event"
+      },
       "thunder-punch": {
         "name": "thunder-punch",
         "type": "tutor"
@@ -131968,7 +131986,7 @@
           "spd": 4,
           "spe": 252
         },
-        "moves": ["Meteor Beam", "Stone Edge", "Power Gem", "Explosion"]
+        "moves": ["Meteor Beam", "Stone Edge", "Power Gem", "Dazzling Gleam"]
       }
     ]
   },

@@ -118,6 +118,7 @@ const execute = async (interaction) => {
         embeds: [moveEmbed],
         components: [buttons],
       });
+      collector.stop();
       const buttonCollector =
         selectInteraction.channel.createMessageComponentCollector({
           componentType: ComponentType.Button,

@@ -12,7 +12,7 @@ const execute = async (interaction) => {
   var pokemonListe = await getPokemonFromPool(12, interaction.user.id);
   if (pokemonListe == null) {
     await interaction.reply(
-      'Du hast das tägliche Limit an Kämpfen gegen wilde Pokemon erreicht (30). Warte bis Morgen um gegen neue Pokemon eines anderen Typs anzutreten'
+      'Du hast das tägliche Limit an Kämpfen gegen wilde Pokemon erreicht (35). Warte bis Morgen um gegen neue Pokemon eines anderen Typs anzutreten'
     );
     return;
   }
@@ -97,9 +97,9 @@ async function getPokemonFromPool(number, discordid) {
       });
     });
     var forbiddenTiers;
-    if (spieler.orden == 0 || spieler.orden == 1) {
+    if (spieler.Orden == 0 || spieler.Orden == 1) {
       forbiddenTiers = ['Uber', 'OU', 'OUBL', 'UUBL', 'UU'];
-    } else if (spieler.orden == 2 || spieler.orden == 3) {
+    } else if (spieler.Orden == 2 || spieler.Orden == 3) {
       forbiddenTiers = ['Uber', 'OU', 'OUBL'];
     } else {
       forbiddenTiers = ['Uber'];
@@ -157,7 +157,7 @@ async function filterPokemonByType(type, forbiddenTiers, number, discordid) {
 
     var query =
       'Insert into pool (typ, pokemonliste, anzahl, spieler, kämpfe) VALUES(?,?,?,(Select name from spieler where discordid = ?),?)';
-    connection.query(query, [type, pokemonListeStr, anzahl, discordid, 29]);
+    connection.query(query, [type, pokemonListeStr, anzahl, discordid, 34]);
     // Rückgabe der gewünschten Anzahl von Pokémon
     return pokemonListeStr;
   } catch (err) {

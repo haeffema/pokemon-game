@@ -138,8 +138,8 @@ export async function generateBattleImage(
   );
 
   const rightSize = 150;
-  const rightX = width - rightSize - 200;
-  const rightY = 180;
+  const rightX = width - rightSize - 240;
+  const rightY = 280;
   ctx.drawImage(rightSprite, rightX, rightY, rightSize, rightSize);
   drawHealthBar(
     ctx,
@@ -381,10 +381,10 @@ async function calculateLoot(defeatedPokemonTier) {
 function getBaseGold(tier) {
   const normalizedTier = tier.trim().toUpperCase();
 
-  if (['NUBL', 'RU'].includes(normalizedTier)) return 100;
-  if (['RUBL', 'UU'].includes(normalizedTier)) return 200;
-  if (['UUBL', 'OU'].includes(normalizedTier)) return 300;
-  if (['OUBL', 'UBER'].includes(normalizedTier)) return 500;
+  if (['NUBL', 'RU'].includes(normalizedTier)) return 300;
+  if (['RUBL', 'UU'].includes(normalizedTier)) return 400;
+  if (['UUBL', 'OU'].includes(normalizedTier)) return 600;
+  if (['OUBL', 'UBER'].includes(normalizedTier)) return 1000;
 
-  return 50;
+  return 200;
 }

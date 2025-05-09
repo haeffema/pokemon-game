@@ -17,7 +17,8 @@ const commandData = new SlashCommandBuilder()
         { name: 'Lara', value: 'Lara' },
         { name: 'Luis', value: 'Luis' },
         { name: 'Tim', value: 'Tim' },
-        { name: 'Jan', value: 'Jan' }
+        { name: 'Jan', value: 'Jan' },
+        { name: 'Max', value: 'Max' }
       )
   )
   .addStringOption((option) =>
