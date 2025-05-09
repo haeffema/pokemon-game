@@ -74,6 +74,10 @@ export async function execute(interaction) {
       interaction.user.id,
       `Glückwunsch, du hast die ${arenaMapping[challenge.Orden].deutscherName} Arena erfolgreich bezwungen und den ${challenge.Orden + 1}. Orden erhalten! \nDer Arenaleiter hat dir als Belohnung ${2000 * (challenge.Orden + 1)} PokeDollar übergeben sowie ein ganz besonderes Item!`
     );
+    /*await bot.users.send(
+      "1369593938163269674",
+      `${player} hat die ${challenge.Orden + 1}. Arena bezwungen und den Orden erhalten!`
+    );*/
     var zKristall = itemData[arenaMapping[challenge.Orden].zKristall];
     const itemEmbed = new EmbedBuilder()
       .setTitle(zKristall.name)

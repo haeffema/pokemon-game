@@ -27,14 +27,10 @@ const execute = async (interaction) => {
   }
   const randomSetIndex = Math.floor(Math.random() * pokemon.sets.length);
   const randomSet = pokemon.sets[randomSetIndex];
-  const randomSetPokepaste = convertSetToPokepaste(randomSet, pokemon.name);
+  var randomSetPokepaste = convertSetToPokepaste(randomSet, pokemon.name);
   var query =
     'Select p.name, pokepaste from pokemon p inner join spieler s on p.Spieler = s.Name where discordid = ? and Lead = 1';
   connection.query(query, [interaction.user.id], async function (err, pokemon) {
-    console.log(pokemon[0].name);
-    console.log(cleanPokepaste(pokemon[0].pokepaste));
-    //TODO: pokepaste in setupBattle
-
     const battle = setupBattle(
       cleanPokepaste(pokemon[0].pokepaste),
       randomSetPokepaste
@@ -42,7 +38,18 @@ const execute = async (interaction) => {
     await interaction.reply('Ein wildes Pokemon taucht auf!');
     // runBattle braucht die user id und ruft dann irgendeine function von Jan auf
     // um dem user das log bild und neuen input zu geben
-    await runBattle(battle, interaction.user.id, randomSetPokepaste);
+
+    var shiny = false;
+    if (Math.floor(Math.random() * 8196) === 0) {
+      console.log('SHINYYYYYY');
+      shiny = true;
+      randomSetPokepaste = randomSetPokepaste.replace(
+        /(Ability: .*)\n/,
+        '$1\nShiny: Yes\n'
+      );
+      console.log(randomSetPokepaste);
+    }
+    await runBattle(battle, interaction.user.id, randomSetPokepaste, shiny);
   });
 };
 

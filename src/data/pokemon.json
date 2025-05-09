@@ -24854,6 +24854,10 @@
         "name": "tackle",
         "type": "level-up"
       },
+      "quick-attack": {
+        "name": "quick-attack",
+        "type": "event"
+      },
       "take-down": {
         "name": "take-down",
         "type": "level-up"
@@ -69287,6 +69291,10 @@
         "name": "ice-punch",
         "type": "tutor"
       },
+      "meteor-mash": {
+        "name": "meteor-mash",
+        "type": "event"
+      },
       "thunder-punch": {
         "name": "thunder-punch",
         "type": "tutor"
@@ -69566,6 +69574,10 @@
       "dazzling-gleam": {
         "name": "dazzling-gleam",
         "type": "machine"
+      },
+      "draco-meteor": {
+        "name": "draco-meteor",
+        "type": "event"
       }
     },
     "tier": "OU",
@@ -83221,6 +83233,10 @@
         "name": "protect",
         "type": "machine"
       },
+      "eruption": {
+        "name": "eruption",
+        "type": "event"
+      },
       "scary-face": {
         "name": "scary-face",
         "type": "level-up"
@@ -86170,6 +86186,10 @@
       "laser-focus": {
         "name": "laser-focus",
         "type": "tutor"
+      },
+      "v-create": {
+        "name": "v-create",
+        "type": "event"
       }
     },
     "tier": "OU",
@@ -96489,6 +96509,10 @@
       "roar": {
         "name": "roar",
         "type": "machine"
+      },
+      "sludge-bomb": {
+        "name": "sludge-bomb",
+        "type": "event"
       },
       "flamethrower": {
         "name": "flamethrower",
