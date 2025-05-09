@@ -3,6 +3,7 @@ import connection from '../utils/databaseConnection.js';
 import fetch from 'node-fetch';
 import { URLSearchParams } from 'url';
 import showdown from 'pokemon-showdown';
+import { StickerPack } from 'discord.js';
 const { Teams } = showdown;
 
 export function convertSetToPokepaste(set, name) {
@@ -57,7 +58,6 @@ export function parsePokepaste(pasteText) {
   const [namePart, itemPart] = firstLine.split(' @ ');
   var name = namePart.trim();
   name = extractPokemonName(name);
-  console.log('Zeraoras Name: ' + name);
   const item = itemPart ? itemPart.trim() : null;
 
   let ability = null;
@@ -147,6 +147,9 @@ export async function validateSet(parsedSet, userid) {
   const moveKeys = new Set(Object.keys(possibleMoves));
 
   for (const move of moves) {
+    if (move.startsWith('Hidden Power')) {
+      continue;
+    }
     const normalizedMove = normalizeMove(move);
     if (!moveKeys.has(normalizedMove)) {
       return {
