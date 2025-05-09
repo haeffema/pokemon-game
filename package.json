@@ -1,7 +1,7 @@
 {
   "name": "pokemon-game",
-  "version": "0.0.1",
-  "description": "pokemon game as discord bot.",
+  "version": "0.0.2",
+  "description": "Advanced discord bot that is a basic version of a pokemon game.",
   "type": "module",
   "scripts": {
     "pre-commit": "lint-staged",
@@ -9,6 +9,7 @@
     "lint": "eslint . ",
     "lint:fix": "eslint . --fix ",
     "bot": "node src/bot.js",
+    "sync": "node src/utils/deploy-commands.js",
     "prepare": "husky"
   },
   "keywords": [],
