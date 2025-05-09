@@ -41,7 +41,7 @@ const execute = async (interaction) => {
 
   if (challengeAktiv.length > 0) {
     interaction.editReply(
-      'Du kannst aktuell keinen Arenaleiter herausfordern weil du noch eine aktive Challenge hast oder warten musst weil du die Challenge verloren hast!'
+      'Du kannst den Arenaleiter nicht nochmal herausfordern, weil du aktuell noch eine aktive Herausforderung hast. Schließe diese zuerst ab.'
     );
     return;
   }

@@ -2,6 +2,7 @@ import { SlashCommandBuilder, EmbedBuilder } from 'discord.js';
 import connection from '../../utils/databaseConnection.js';
 import itemData from '../../data/quest_items.json' with { type: 'json' };
 import bot from '../../utils/client.js';
+import config from '../../utils/config.json' with { type: 'json' };
 
 const commandData = new SlashCommandBuilder()
   .setName('arena')
@@ -70,14 +71,26 @@ export async function execute(interaction) {
     await interaction.reply(
       `Die Herausforderung von ${challenge.spieler} war **erfolgreich**, der Arenaleiter musste sich (aufgrund von Hax) geschlagen geben. Der Spieler bekommt den Orden und kann die nächste Arena in frühestens drei Tagen herausfordern.`
     );
+
+    const { channelId } = config;
+    const channel = await bot.channels.fetch(channelId);
+
+    var desc = `Glückwunsch, ${player} hat die ${challenge.Orden + 1}. Arena bezwungen und den Orden erhalten! Aber sei gewarnt, der nächste Arenaleiter wird es dir nicht so einfach machen.`;
+    if (challenge.Orden + 1 == 8)
+      desc = `Glückwunsch, ${player} hat die ${challenge.Orden + 1}. Arena bezwungen und den Orden erhalten! Respekt, damit hast du alle Arenaleiter besiegt und kannst die Top 4 herausfordern. Stell dich auf noch intensivere Kämpfe ein als bisher, die Top 4 kennen keine Gnade...`;
+    const successEmbed = new EmbedBuilder()
+      .setTitle('Glückwunsche des Professors')
+      .setDescription(desc)
+      .setColor('Yellow')
+      .setThumbnail(
+        'https://play.pokemonshowdown.com/sprites/trainers/oak.png'
+      );
+
     await bot.users.send(
       interaction.user.id,
       `Glückwunsch, du hast die ${arenaMapping[challenge.Orden].deutscherName} Arena erfolgreich bezwungen und den ${challenge.Orden + 1}. Orden erhalten! \nDer Arenaleiter hat dir als Belohnung ${2000 * (challenge.Orden + 1)} PokeDollar übergeben sowie ein ganz besonderes Item!`
     );
-    /*await bot.users.send(
-      "1369593938163269674",
-      `${player} hat die ${challenge.Orden + 1}. Arena bezwungen und den Orden erhalten!`
-    );*/
+    await channel.send({ embeds: [successEmbed] });
     var zKristall = itemData[arenaMapping[challenge.Orden].zKristall];
     const itemEmbed = new EmbedBuilder()
       .setTitle(zKristall.name)
@@ -86,7 +99,7 @@ export async function execute(interaction) {
       .setThumbnail(zKristall.sprite);
     await bot.users.send(interaction.user.id, { embeds: [itemEmbed] });
     var query =
-      'Insert into item (name, spieler, beschreibung, sprite) Values(?,?,?,?)';
+      'Insert ignore into item (name, spieler, beschreibung, sprite) Values(?,?,?,?)';
     connection.query(query, [
       zKristall.name,
       challenge.spieler,

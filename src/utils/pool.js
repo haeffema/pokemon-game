@@ -1,5 +1,6 @@
 import connection from './databaseConnection.js';
 import { EmbedBuilder } from 'discord.js';
+import config from './config.json' with { type: 'json' };
 
 function generatePoolForPlayers() {}
 
@@ -125,7 +126,8 @@ async function sendActivatedPoolMessage(bot) {
         .setThumbnail(
           'https://play.pokemonshowdown.com/sprites/trainers/oak.png'
         );
-      const channel = await bot.channels.fetch('1369593938163269674');
+      const { channelId } = config;
+      const channel = await bot.channels.fetch(channelId);
       await channel.send({ embeds: [message] });
       return;
     });
