@@ -93,5 +93,8 @@ export async function runOneArmedBandit(userId) {
     await message.edit({ content: generateMessage(userGridData) });
     await sleep(1500);
   }
+
+  oneArmedBandit[userId] = userGridData;
+
   return calculatePayout(userGridData);
 }
