@@ -173,12 +173,6 @@ for (const folder of commandFolders) {
 }
 
 bot.on(Events.InteractionCreate, async (interaction) => {
-  if (
-    interaction.user.id != '360366344635547650' &&
-    interaction.user.id != '326305842427330560'
-  ) {
-    return;
-  }
   if (interaction.channel.type != 1) {
     return;
   }
