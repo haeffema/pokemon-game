@@ -61,23 +61,42 @@ export default {
 async function getPokemonFromPool(number, discordid) {
   //Übergabevariablen nur für Generierung neuer Pool notwendig
 
-  const today = new Date().toISOString().slice(0, 10);
+  const now = new Date();
+  const serverTimeZone = 'Europe/Berlin';
+  const year = now.toLocaleString('en-US', {
+    year: 'numeric',
+    timeZone: serverTimeZone,
+  });
+  const month = now.toLocaleString('en-US', {
+    month: '2-digit',
+    timeZone: serverTimeZone,
+  });
+  const day = now.toLocaleString('en-US', {
+    day: '2-digit',
+    timeZone: serverTimeZone,
+  });
+
+  const currentDateInServerTimeZone = `${year}-${month}-${day}`;
 
   const pokemonListe = await new Promise((resolve, reject) => {
     const query =
       'SELECT pokemonliste, kämpfe FROM pool WHERE DATE(datum) = ? and spieler = (Select name from spieler where discordid = ?)';
-    connection.query(query, [today, discordid], function (err, results) {
-      if (err) return reject(err);
-      if (results.length === 0) {
-        // Falls kein Eintrag für heute existiert
-        resolve(null);
-      } else if (results[0].kämpfe == 0) return resolve('ABBRECHEN');
-      else {
-        // Wir nehmen nur das erste Ergebnis (falls mehrere)
-        const liste = results[0].pokemonliste.split(',').map((p) => p.trim());
-        resolve(liste);
+    connection.query(
+      query,
+      [currentDateInServerTimeZone, discordid],
+      function (err, results) {
+        if (err) return reject(err);
+        if (results.length === 0) {
+          // Falls kein Eintrag für heute existiert
+          resolve(null);
+        } else if (results[0].kämpfe == 0) return resolve('ABBRECHEN');
+        else {
+          // Wir nehmen nur das erste Ergebnis (falls mehrere)
+          const liste = results[0].pokemonliste.split(',').map((p) => p.trim());
+          resolve(liste);
+        }
       }
-    });
+    );
   });
 
   if (pokemonListe === 'ABBRECHEN') {
@@ -124,13 +143,17 @@ async function getPokemonFromPool(number, discordid) {
   }
   var query =
     'Update pool set kämpfe = kämpfe - 1 where DATE(datum) = ? and spieler = (Select name from spieler where discordid = ?)';
-  connection.query(query, [today, discordid], (err, results) => {
-    if (err) {
-      console.error('Error executing query:', err);
-      return;
+  connection.query(
+    query,
+    [currentDateInServerTimeZone, discordid],
+    (err, results) => {
+      if (err) {
+        console.error('Error executing query:', err);
+        return;
+      }
+      console.log(results.affectedRows);
     }
-    console.log(results.affectedRows);
-  });
+  );
 
   return pokemonListe;
 }
