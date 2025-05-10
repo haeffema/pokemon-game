@@ -52,6 +52,11 @@ export function parsePokepaste(pasteText) {
     .trim()
     .split('   ')
     .map((line) => line.trim())
+    .filter(
+      (line) =>
+        !line.toLowerCase().startsWith('hidden power') &&
+        !line.toLowerCase().startsWith('level')
+    )
     .filter(Boolean);
   const pokePasteStringFormat = lines.join('\n');
   const firstLine = lines[0];
