@@ -47,7 +47,32 @@ function extractPokemonName(namePart) {
   }
 }
 
+function formatPokepaste(input) {
+  // Normiere Whitespace: Ersetze alle mehrfachen Leerzeichen/Tabs durch EIN Leerzeichen
+  let normalized = input.trim().replace(/\s+/g, ' ');
+
+  // Zerlege den Text in Tokens anhand bekannter Marker
+  const pattern =
+    /(Ability: [^ ]+|Shiny: [^ ]+|Level: \d+|Happiness: \d+|Hidden Power: [^ ]+|EVs: [^ ]+(?:\/[^ ]+)*|IVs: [^ ]+(?:\/[^ ]+)*|\w+ Nature|-\s[^-]+)/g;
+
+  // Finde alle "besonderen" Felder
+  const matches = normalized.match(pattern);
+
+  // Hole den Text vor dem ersten Match = erste Zeile (Name, evtl. mit Item)
+  const firstMatchIndex = normalized.search(pattern);
+  const firstLine = normalized.slice(0, firstMatchIndex).trim();
+
+  // Restliche Zeilen formatiert sammeln
+  const rest = matches ? matches.map((s) => s.trim()).join('\n') : '';
+
+  // Kombinieren und zurückgeben
+  return `${firstLine}\n${rest}`.trim();
+}
+
 export function parsePokepaste(pasteText) {
+  var formatText = formatPokepaste(pasteText);
+  console.log(formatText);
+
   const lines = pasteText
     .trim()
     .split('   ')
