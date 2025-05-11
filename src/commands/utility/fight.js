@@ -9,7 +9,7 @@ const commandData = new SlashCommandBuilder()
   .setDescription('Start a fight with a wild Pokemon');
 
 const execute = async (interaction) => {
-  var pokemonListe = await getPokemonFromPool(12, interaction.user.id);
+  var pokemonListe = await getPokemonFromPool(interaction.user.id);
   if (pokemonListe == null) {
     await interaction.reply(
       'Du hast das tägliche Limit an Kämpfen gegen wilde Pokemon erreicht (35). Warte bis Morgen um gegen neue Pokemon eines anderen Typs anzutreten'
@@ -64,7 +64,7 @@ export default {
   execute: execute,
 };
 
-async function getPokemonFromPool(number, discordid) {
+async function getPokemonFromPool(discordid) {
   const pokemonListe = await new Promise((resolve, reject) => {
     const query =
       'SELECT pokemonliste, kämpfe FROM pool WHERE aktiv = 1 and spieler = (Select name from spieler where discordid = ?)';
