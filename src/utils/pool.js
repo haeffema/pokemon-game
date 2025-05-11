@@ -1,8 +1,105 @@
 import connection from './databaseConnection.js';
 import { EmbedBuilder } from 'discord.js';
 import config from './config.json' with { type: 'json' };
+import pokemonData from '../data/pokemon.json' with { type: 'json' };
 
-function generatePoolForPlayers() {}
+const poolSize = 12;
+const maxFights = 35;
+
+async function filterPokemonByType(type, forbiddenTiers, number, discordid) {
+  try {
+    const allPokemon = Object.values(pokemonData);
+    const filtered = allPokemon.filter(
+      (p) =>
+        (!type || p.types.includes(type)) && !forbiddenTiers.includes(p.tier)
+    );
+
+    for (let i = filtered.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [filtered[i], filtered[j]] = [filtered[j], filtered[i]];
+    }
+    const selected = filtered.slice(0, number);
+
+    const pokemonListeStr = selected.map((p) => p.name).join(', ');
+    const anzahl = selected.length;
+
+    const query =
+      'Insert into pool (typ, pokemonliste, anzahl, spieler, kämpfe, aktiv) VALUES(?,?,?,(Select name from spieler where discordid = ?),?, ?)';
+    connection.query(query, [
+      type,
+      pokemonListeStr,
+      anzahl,
+      discordid,
+      maxFights - 1,
+      1,
+    ]);
+    return pokemonListeStr;
+  } catch (err) {
+    console.error('Fehler beim Laden oder Verarbeiten der Datei:', err.message);
+    return [];
+  }
+}
+
+export async function generatePoolForPlayers() {
+  const deactivateQuery = 'UPDATE pool SET aktiv = 0;';
+  connection.query(deactivateQuery, (error, results, fields) => {
+    if (error) {
+      console.error('Error executing query:', error);
+      connection.end((endErr) => {
+        if (endErr) {
+          console.error('Error closing connection:', endErr);
+        } else {
+          console.log('Connection closed.');
+        }
+      });
+      return;
+    }
+  });
+
+  const activeTypQuery = `
+    SELECT typ
+    FROM poolTag
+    WHERE aktiv = 1;
+  `;
+
+  const activeType = await new Promise((resolve, reject) => {
+    connection.query(activeTypQuery, (error, results, fields) => {
+      if (error) {
+        console.error('Error querying the database:', error);
+        return;
+      }
+      resolve(results[0].typ);
+    });
+  });
+
+  const playerQuery = `
+  SELECT discordid
+  FROM spieler;`;
+  const players = await new Promise((resolve, reject) => {
+    connection.query(playerQuery, (error, results, fields) => {
+      if (error) {
+        console.error('Error querying the database:', error);
+        return;
+      }
+      resolve(results);
+    });
+  });
+
+  players.forEach(async (player) => {
+    const discordId = player.discordid;
+
+    var forbiddenTiers;
+    if (player.Orden == 0 || player.Orden == 1) {
+      forbiddenTiers = ['Uber', 'OU', 'OUBL', 'UUBL', 'UU'];
+    } else if (player.Orden == 2 || player.Orden == 3) {
+      forbiddenTiers = ['Uber', 'OU', 'OUBL'];
+    } else {
+      forbiddenTiers = ['Uber'];
+    }
+
+    await filterPokemonByType(activeType, forbiddenTiers, poolSize, discordId);
+  });
+}
 
 export function updatePoolIfNeeded(bot) {
   const query = `
@@ -84,6 +181,9 @@ function activatePoolTag(id, bot) {
       return;
     }
   );
+
+  generatePoolForPlayers();
+  console.log('Generating pool for players...');
 }
 
 function deactivatePoolTag(id) {

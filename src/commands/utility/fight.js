@@ -59,44 +59,19 @@ export default {
 };
 
 async function getPokemonFromPool(number, discordid) {
-  //Übergabevariablen nur für Generierung neuer Pool notwendig
-
-  const now = new Date();
-  const serverTimeZone = 'Europe/Berlin';
-  const year = now.toLocaleString('en-US', {
-    year: 'numeric',
-    timeZone: serverTimeZone,
-  });
-  const month = now.toLocaleString('en-US', {
-    month: '2-digit',
-    timeZone: serverTimeZone,
-  });
-  const day = now.toLocaleString('en-US', {
-    day: '2-digit',
-    timeZone: serverTimeZone,
-  });
-
-  const currentDateInServerTimeZone = `${year}-${month}-${day}`;
-
   const pokemonListe = await new Promise((resolve, reject) => {
     const query =
-      'SELECT pokemonliste, kämpfe FROM pool WHERE DATE(datum) = ? and spieler = (Select name from spieler where discordid = ?)';
-    connection.query(
-      query,
-      [currentDateInServerTimeZone, discordid],
-      function (err, results) {
-        if (err) return reject(err);
-        if (results.length === 0) {
-          // Falls kein Eintrag für heute existiert
-          resolve(null);
-        } else if (results[0].kämpfe == 0) return resolve('ABBRECHEN');
-        else {
-          // Wir nehmen nur das erste Ergebnis (falls mehrere)
-          const liste = results[0].pokemonliste.split(',').map((p) => p.trim());
-          resolve(liste);
-        }
+      'SELECT pokemonliste, kämpfe FROM pool WHERE aktiv = 1 and spieler = (Select name from spieler where discordid = ?)';
+    connection.query(query, [discordid], function (err, results) {
+      if (err) return reject(err);
+      if (results.length === 0) {
+        resolve(null);
+      } else if (results[0].kämpfe == 0) return resolve('ABBRECHEN');
+      else {
+        const liste = results[0].pokemonliste.split(',').map((p) => p.trim());
+        resolve(liste);
       }
-    );
+    });
   });
 
   if (pokemonListe === 'ABBRECHEN') {
@@ -104,89 +79,17 @@ async function getPokemonFromPool(number, discordid) {
     return null;
   }
 
-  if (!pokemonListe) {
-    console.log('Kein Pool gefunden, generiere neuen...');
-    const spieler = await new Promise((resolve, reject) => {
-      const query = 'SELECT * FROM spieler WHERE discordid = ?';
-      connection.query(query, [discordid], function (err, results) {
-        if (err) return reject(err);
-        else {
-          resolve(results[0]);
-        }
-      });
-    });
-    var forbiddenTiers;
-    if (spieler.Orden == 0 || spieler.Orden == 1) {
-      forbiddenTiers = ['Uber', 'OU', 'OUBL', 'UUBL', 'UU'];
-    } else if (spieler.Orden == 2 || spieler.Orden == 3) {
-      forbiddenTiers = ['Uber', 'OU', 'OUBL'];
-    } else {
-      forbiddenTiers = ['Uber'];
-    }
-    const poolTag = await new Promise((resolve, reject) => {
-      const query = 'SELECT * FROM poolTag WHERE aktiv = 1';
-      connection.query(query, function (err, results) {
-        if (err) return reject(err);
-        else {
-          resolve(results[0]);
-        }
-      });
-    });
-
-    var generiertePokemonListe = await filterPokemonByType(
-      poolTag.typ,
-      forbiddenTiers,
-      number,
-      discordid
-    );
-    return generiertePokemonListe.split(', ');
-  }
   var query =
-    'Update pool set kämpfe = kämpfe - 1 where DATE(datum) = ? and spieler = (Select name from spieler where discordid = ?)';
-  connection.query(
-    query,
-    [currentDateInServerTimeZone, discordid],
-    (err, results) => {
-      if (err) {
-        console.error('Error executing query:', err);
-        return;
-      }
-      console.log(results.affectedRows);
+    'Update pool set kämpfe = kämpfe - 1 where aktiv = 1 and spieler = (Select name from spieler where discordid = ?)';
+  connection.query(query, [discordid], (err, results) => {
+    if (err) {
+      console.error('Error executing query:', err);
+      return;
     }
-  );
+    console.log(results.affectedRows);
+  });
 
   return pokemonListe;
-}
-
-async function filterPokemonByType(type, forbiddenTiers, number, discordid) {
-  try {
-    const allPokemon = Object.values(pokemonData);
-    // Filtern mit optionalem Typ
-    const filtered = allPokemon.filter(
-      (p) =>
-        (!type || p.types.includes(type)) && !forbiddenTiers.includes(p.tier)
-    );
-
-    // Mischen des Arrays mit dem Fisher-Yates-Algorithmus
-    for (let i = filtered.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [filtered[i], filtered[j]] = [filtered[j], filtered[i]];
-    }
-    const selected = filtered.slice(0, number);
-
-    // Kommagetrennte Liste erstellen
-    const pokemonListeStr = selected.map((p) => p.name).join(', ');
-    const anzahl = selected.length;
-
-    var query =
-      'Insert into pool (typ, pokemonliste, anzahl, spieler, kämpfe) VALUES(?,?,?,(Select name from spieler where discordid = ?),?)';
-    connection.query(query, [type, pokemonListeStr, anzahl, discordid, 34]);
-    // Rückgabe der gewünschten Anzahl von Pokémon
-    return pokemonListeStr;
-  } catch (err) {
-    console.error('Fehler beim Laden oder Verarbeiten der Datei:', err.message);
-    return [];
-  }
 }
 
 function cleanPokepaste(paste) {
