@@ -74,7 +74,7 @@ export async function runOneArmedBandit(userId) {
     moveColumn(userGridData, 1);
     moveColumn(userGridData, 2);
     await message.edit({ content: generateMessage(userGridData) });
-    await sleep(500);
+    await sleep(300);
   }
 
   counter = 0;
@@ -83,7 +83,7 @@ export async function runOneArmedBandit(userId) {
     moveColumn(userGridData, 1);
     moveColumn(userGridData, 2);
     await message.edit({ content: generateMessage(userGridData) });
-    await sleep(1000);
+    await sleep(500);
   }
 
   counter = 0;
@@ -91,7 +91,7 @@ export async function runOneArmedBandit(userId) {
   while (counter++ < randomSpins3) {
     moveColumn(userGridData, 2);
     await message.edit({ content: generateMessage(userGridData) });
-    await sleep(1500);
+    await sleep(750);
   }
 
   oneArmedBandit[userId] = userGridData;

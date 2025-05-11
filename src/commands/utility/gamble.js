@@ -32,7 +32,13 @@ const execute = async (interaction) => {
   spieler.Geld -= 57;
 
   const earnings = await runOneArmedBandit(interaction.user.id);
-  interaction.followUp(`Du hast ${earnings} PokeDollar gewonnen!`);
+  if (earnings === 0) {
+    interaction.followUp(
+      'Leider hast du nichts gewonnen. Versuch es nochmal, denn statistisch gesehen, hören 99% aller Spieler vor ihrem großen Gewinn auf. 😉'
+    );
+  } else {
+    interaction.followUp(`Du hast ${earnings} PokeDollar gewonnen!`);
+  }
 
   spieler.Geld += earnings;
 
