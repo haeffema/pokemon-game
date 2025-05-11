@@ -40,7 +40,7 @@ async function filterPokemonByType(type, forbiddenTiers, number, discordid) {
   }
 }
 
-export async function generatePoolForPlayers() {
+async function generatePoolForPlayers() {
   const deactivateQuery = 'UPDATE pool SET aktiv = 0;';
   connection.query(deactivateQuery, (error, results, fields) => {
     if (error) {
@@ -73,7 +73,7 @@ export async function generatePoolForPlayers() {
   });
 
   const playerQuery = `
-  SELECT discordid
+  SELECT discordid, Orden
   FROM spieler;`;
   const players = await new Promise((resolve, reject) => {
     connection.query(playerQuery, (error, results, fields) => {
