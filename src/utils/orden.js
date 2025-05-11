@@ -36,10 +36,7 @@ export async function createOrdenImage(anzahlOrden, name) {
     ctx.drawImage(img, i * widthPerOrden, 0, widthPerOrden, height);
   }
 
-  const outputPath = path.join(
-    __dirname,
-    '../data/orden/ordenleiste-' + name + '.png'
-  );
+  const outputPath = path.join(__dirname, `../data/orden/${name}.png`);
   await writeFile(outputPath, canvas.toBuffer('image/png'));
 
   console.log(`Bild gespeichert unter: ${outputPath}`);

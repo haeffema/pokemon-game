@@ -50,6 +50,14 @@ export async function execute(interaction) {
         ...Object.values(itemData),
       ];
 
+      const fights = await new Promise((resolve, reject) => {
+        const query =
+          'SELECT kämpfe FROM pool WHERE aktiv = 1 and spieler = (Select name from spieler where discordid = ?)';
+        connection.query(query, [userId], function (err, results) {
+          resolve(results[0].kämpfe);
+        });
+      });
+
       query =
         'SELECT * FROM pokemon where spieler = (Select name from spieler where discordid = ?)';
       var ownedPokemon = await new Promise((resolve, reject) => {
@@ -77,9 +85,7 @@ export async function execute(interaction) {
 
       await createOrdenImage(spieler.Orden, spieler.Name);
 
-      const imagePath = path.resolve(
-        './src/data/orden/ordenleiste-' + spieler.Name + '.png'
-      );
+      const imagePath = path.resolve(`./src/data/orden/${spieler.Name}.png`);
       const attachment = new AttachmentBuilder(imagePath, {
         name: 'orden.png',
       });
@@ -90,7 +96,7 @@ export async function execute(interaction) {
         .addFields(
           {
             name: 'Geld',
-            value: (spieler.Geld + ' PokéDollar').toString(),
+            value: new Intl.NumberFormat('de-DE').format(spieler.Geld),
             inline: true,
           },
           { name: 'Orden', value: spieler.Orden.toString(), inline: true }
@@ -104,6 +110,18 @@ export async function execute(interaction) {
           {
             name: 'Items',
             value: itemCount,
+            inline: true,
+          }
+        )
+        .addFields(
+          {
+            name: 'Kämpfe',
+            value: fights.toString(),
+            inline: true,
+          },
+          {
+            name: 'Glücksspiel',
+            value: new Intl.NumberFormat('de-DE').format(spieler.gewinn),
             inline: true,
           }
         )
