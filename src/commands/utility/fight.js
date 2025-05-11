@@ -49,7 +49,13 @@ const execute = async (interaction) => {
       );
       console.log(randomSetPokepaste);
     }
-    await runBattle(battle, interaction.user.id, randomSetPokepaste, shiny);
+    await runBattle(
+      battle,
+      interaction.user.id,
+      interaction.user.username,
+      randomSetPokepaste,
+      shiny
+    );
   });
 };
 

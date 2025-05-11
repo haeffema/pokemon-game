@@ -213,7 +213,7 @@ export async function validateSet(parsedSet, userid) {
   if (parsedSet == null) {
     return {
       success: false,
-      message: `Der Pokepaste ist in einem ungültigen Format`,
+      message: `Der Pokepaste ist in einem ungültigen Format.`,
     };
   }
   const { name, item, ability, moves, shiny } = parsedSet;
