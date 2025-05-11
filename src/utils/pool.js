@@ -30,7 +30,7 @@ async function filterPokemonByType(type, forbiddenTiers, number, discordid) {
       pokemonListeStr,
       anzahl,
       discordid,
-      maxFights - 1,
+      maxFights,
       1,
     ]);
     return pokemonListeStr;
