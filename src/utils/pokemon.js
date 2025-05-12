@@ -387,6 +387,7 @@ export function generatePokepasteForTrainer(discordId) {
           );
           return resolve(null);
         }
+        console.log(rawTeamString);
         const formattedTeam = formatPokepasteStringForWebsite(rawTeamString);
         if (!formattedTeam) {
           console.log('Team formatting failed.');
@@ -422,6 +423,7 @@ export async function uploadToPokePaste(teamData, options = {}) {
     console.error('Error: teamData cannot be empty.');
     return null;
   }
+  teamData = teamData.replace('’', "'");
   const params = new URLSearchParams();
   params.append('paste', teamData.replace(/^\s+|\s+$/g, ''));
   if (title) params.append('title', title);

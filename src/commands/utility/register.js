@@ -13,32 +13,39 @@ const commandData = new SlashCommandBuilder()
   );
 
 const execute = async (interaction) => {
-  const pokepasteText = interaction.options.getString('pokepaste');
+  try {
+    await interaction.deferReply();
+    const pokepasteText = interaction.options.getString('pokepaste');
 
-  const parsedSet = parsePokepaste(pokepasteText);
-  const validationResult = await validateSet(parsedSet, interaction.user.id);
+    const parsedSet = parsePokepaste(pokepasteText);
+    const validationResult = await validateSet(parsedSet, interaction.user.id);
 
-  if (!validationResult.success) {
-    await interaction.reply(`Validation failed: ${validationResult.message}`);
-    return;
-  }
-  var query =
-    'Update pokemon p inner join spieler s on p.Spieler = s.Name set pokepaste = ? where p.name = ? and discordid = ?';
-  connection.query(
-    query,
-    [parsedSet.pokePasteStringFormat, parsedSet.name, interaction.user.id],
-    (err, results) => {
-      if (err) {
-        console.error('Error executing query:', err);
-        return;
-      }
-      console.log(results.affectedRows);
+    if (!validationResult.success) {
+      await interaction.editReply(
+        `Validation failed: ${validationResult.message}`
+      );
+      return;
     }
-  );
+    var query =
+      'Update pokemon p inner join spieler s on p.Spieler = s.Name set pokepaste = ? where p.name = ? and discordid = ?';
+    connection.query(
+      query,
+      [parsedSet.pokePasteStringFormat, parsedSet.name, interaction.user.id],
+      (err, results) => {
+        if (err) {
+          console.error('Error executing query:', err);
+          return;
+        }
+        console.log(results.affectedRows);
+      }
+    );
 
-  await interaction.reply(
-    `Pokemon set registered! ${validationResult.message}`
-  );
+    await interaction.editReply(
+      `Pokemon set registered! ${validationResult.message}`
+    );
+  } catch (error) {
+    console.error('Mal wieder unknown interaction aber können wir ignorieren');
+  }
 };
 
 export default {
