@@ -64,7 +64,25 @@ export async function execute(interaction) {
   }
   var query = 'Update challenge set aktiv = 0, sieg = ? where id = ?';
   connection.query(query, [victory, challenge.id]);
-  const heute = new Date().toISOString().split('T')[0];
+
+  const now = new Date();
+  const serverTimeZone = 'Europe/Berlin';
+
+  const year = now.toLocaleString('en-US', {
+    year: 'numeric',
+    timeZone: serverTimeZone,
+  });
+  const month = now.toLocaleString('en-US', {
+    month: '2-digit',
+    timeZone: serverTimeZone,
+  });
+  const day = now.toLocaleString('en-US', {
+    day: '2-digit',
+    timeZone: serverTimeZone,
+  });
+  // Neues Date-Objekt in lokaler Zeit, aber auf Basis Berliner Zeit
+  const heute = new Date(`${year}-${month}-${day}`);
+
   if (victory == 'Victory') {
     var query =
       'Update spieler set Orden = Orden + 1, geld = geld + 2000*orden, delay = ? where name = ?';

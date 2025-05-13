@@ -55,11 +55,32 @@ const execute = async (interaction) => {
     });
   });
   const dbDatum = new Date(spieler.delay);
-  const heute = new Date();
-
   dbDatum.setHours(0, 0, 0, 0);
-  heute.setHours(0, 0, 0, 0);
 
+  // Heute in Berliner Zeit berechnen
+  const now = new Date();
+  const serverTimeZone = 'Europe/Berlin';
+
+  const year = now.toLocaleString('en-US', {
+    year: 'numeric',
+    timeZone: serverTimeZone,
+  });
+  const month = now.toLocaleString('en-US', {
+    month: '2-digit',
+    timeZone: serverTimeZone,
+  });
+  const day = now.toLocaleString('en-US', {
+    day: '2-digit',
+    timeZone: serverTimeZone,
+  });
+  const hour = now.toLocaleString('en-US', {
+    hour: '2-digit',
+    hour12: false,
+    timeZone: serverTimeZone,
+  });
+
+  // Neues Date-Objekt in lokaler Zeit, aber auf Basis Berliner Zeit
+  const heute = new Date(`${year}-${month}-${day}T00:00:00`);
   const erlaubtesDatum = new Date(dbDatum);
   erlaubtesDatum.setDate(erlaubtesDatum.getDate() + 3);
 
@@ -155,49 +176,90 @@ const execute = async (interaction) => {
     return;
   }
   if (allPokemon.length == 6) {
-    var query = 'SELECT * FROM spieler where discordid = ?';
-    var results = await new Promise((resolve, reject) => {
-      connection.query(query, [interaction.user.id], function (err, results) {
-        if (err) {
-          reject('Datenbankfehler: ' + err);
-        } else {
-          resolve(results);
-        }
-      });
-    });
-    if (results.length > 0) {
-      const formattedTeam = formatPokepasteStringForWebsite(
-        windowsFormattedPokepaste
-      );
-      const ordenNumber = parseInt(results[0].Orden) + 1;
-      const pokepasteUrl = await uploadToPokePaste(formattedTeam, {
-        title: `${results[0].Name}'s Team für die ${ordenNumber}. Arena`,
-        author: 'Orion',
-      });
-      var query =
-        'Insert into challenge (spieler, aktiv, arena, team) VALUES (?,?,?,?)';
-      connection.query(query, [
-        results[0].Name,
-        1,
-        arenas[results[0].Orden],
-        pokepasteUrl,
-      ]);
-      await bot.users.send(
-        '360366344635547650',
-        `${results[0].Name} hat die ${arenas[results[0].Orden]} Arena herausgefordert. Vernichten wir ihn!`
-      );
-      await bot.users.send(
-        '326305842427330560',
-        `${results[0].Name} hat die ${arenas[results[0].Orden]} Arena herausgefordert. Vernichten wir ihn!`
-      );
+    const row = new ActionRowBuilder().addComponents(
+      new ButtonBuilder()
+        .setCustomId('confirm_yes')
+        .setLabel('Sicher')
+        .setStyle(ButtonStyle.Success),
+      new ButtonBuilder()
+        .setCustomId('confirm_no')
+        .setLabel('Doch noch nicht')
+        .setStyle(ButtonStyle.Danger)
+    );
 
-      await interaction.editReply(
-        'Dein Team ist zulässig und deine Herausforderung wurde an den Arenaleiter gesendet, er wird dich in kürze kontaktieren. Viel Glück, du wirst es brauchen!'
-      );
-      await bot.users.send(
-        interaction.user.id,
-        `Dein Team für die Arena im Pokepaste Format: ${pokepasteUrl}. Du darfst nur mit diesem Team in der Arena antreten und keine Änderungen mehr vornehmen!`
-      );
+    const message = await interaction.editReply({
+      content:
+        'Dein Team ist zulässig, bist du sicher, dass du mit diesem Team gegen den Arenaleiter antreten willst? Du darfst dannach keine Änderungen mehr vornehmen.',
+      components: [row],
+    });
+    try {
+      const buttonInteraction = await message.awaitMessageComponent({
+        componentType: ComponentType.Button,
+        time: 30_000,
+        filter: (i) => i.user.id === interaction.user.id,
+      });
+      if (buttonInteraction.customId === 'confirm_yes') {
+        await buttonInteraction.deferReply();
+
+        var query = 'SELECT * FROM spieler where discordid = ?';
+        var results = await new Promise((resolve, reject) => {
+          connection.query(
+            query,
+            [interaction.user.id],
+            function (err, results) {
+              if (err) {
+                reject('Datenbankfehler: ' + err);
+              } else {
+                resolve(results);
+              }
+            }
+          );
+        });
+        if (results.length > 0) {
+          const formattedTeam = formatPokepasteStringForWebsite(
+            windowsFormattedPokepaste
+          );
+          const ordenNumber = parseInt(results[0].Orden) + 1;
+          const pokepasteUrl = await uploadToPokePaste(formattedTeam, {
+            title: `${results[0].Name}'s Team für die ${ordenNumber}. Arena`,
+            author: 'Orion',
+          });
+          var query =
+            'Insert into challenge (spieler, aktiv, arena, team) VALUES (?,?,?,?)';
+          connection.query(query, [
+            results[0].Name,
+            1,
+            arenas[results[0].Orden],
+            pokepasteUrl,
+          ]);
+          await bot.users.send(
+            '360366344635547650',
+            `${results[0].Name} hat die ${arenas[results[0].Orden]} Arena herausgefordert. Vernichten wir ihn!`
+          );
+          await bot.users.send(
+            '326305842427330560',
+            `${results[0].Name} hat die ${arenas[results[0].Orden]} Arena herausgefordert. Vernichten wir ihn!`
+          );
+
+          await buttonInteraction.editReply(
+            'Deine Herausforderung wurde an den Arenaleiter gesendet, er wird dich in kürze kontaktieren. Viel Glück, du wirst es brauchen!'
+          );
+          await bot.users.send(
+            buttonInteraction.user.id,
+            `Dein Team für die Arena im Pokepaste Format: ${pokepasteUrl}. Du darfst nur mit diesem Team in der Arena antreten und keine Änderungen mehr vornehmen!`
+          );
+        }
+      } else {
+        await buttonInteraction.reply(
+          'Die Angst hat überhand genommen und du hast die Herausforderung abgebrochen.'
+        );
+      }
+    } catch (error) {
+      await message.edit({
+        content:
+          'Keine Antwort erhalten. Vorgang abgebrochen, nutze /challenge erneut.',
+        components: [],
+      });
     }
   } else {
     const row = new ActionRowBuilder().addComponents(
@@ -279,7 +341,8 @@ const execute = async (interaction) => {
       }
     } catch (err) {
       await message.edit({
-        content: 'Keine Antwort erhalten. Vorgang abgebrochen.',
+        content:
+          'Keine Antwort erhalten. Vorgang abgebrochen, nutze /challenge erneut.',
         components: [],
       });
       return;

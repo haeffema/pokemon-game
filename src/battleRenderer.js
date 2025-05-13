@@ -272,16 +272,35 @@ async function pokemonDefeated(userid, pokepaste) {
   connection.query(
     query,
     [name, userid, pokepasteWithoutItem],
-    (err, results) => {
+    async (err, results) => {
       if (err) {
         console.error('Error executing query:', err);
         return;
       }
       console.log(results.affectedRows);
+      if (pokepaste.includes('Shiny') && results.affectedRows == 0) {
+        const pokemon = await new Promise((resolve, reject) => {
+          const query =
+            'SELECT * FROM pokemon WHERE name = ? and spieler = (Select name from spieler where discordid = ?)';
+          connection.query(query, [name, userid], function (err, results) {
+            if (err) return reject(err);
+            resolve(pokemon[0]);
+          });
+        });
+        if (!pokemon[0].pokepaste.includes('Shiny')) {
+          var shinyPokepaste = pokemon[0].pokepaste.replace(
+            /(Ability: .*)\n/,
+            '$1\nShiny: Yes\n'
+          );
+          var query =
+            'Update pokemon set pokepaste = ? where name = ? and spieler = ?';
+          connection.query(query, [shinyPokepaste, name, userid]);
+        }
+      }
     }
   );
 
-  var loot = await calculateLoot(tier);
+  var loot = await calculateLoot(tier, userid);
   console.log(loot);
 
   if (loot.item == null) {
@@ -336,7 +355,7 @@ function removeItemsFromPokepaste(pokepaste) {
     .join('\n');
 }
 
-async function calculateLoot(defeatedPokemonTier) {
+async function calculateLoot(defeatedPokemonTier, userId) {
   const baseGold = getBaseGold(defeatedPokemonTier);
   const bonus = Math.floor(Math.random() * 41) - 20;
   const gold = Math.max(0, baseGold + bonus);
@@ -347,8 +366,9 @@ async function calculateLoot(defeatedPokemonTier) {
 
   // Datenbankabfrage: Welche Items besitzt der Spieler schon?
   const ownedItems = await new Promise((resolve, reject) => {
-    const query = 'SELECT name FROM item WHERE spieler = ?';
-    connection.query(query, ['Jan'], function (err, results) {
+    const query =
+      'SELECT name FROM item WHERE spieler = (Select name from spieler where discordid = ?)';
+    connection.query(query, [userId], function (err, results) {
       if (err) return reject(err);
       const ownedNames = results.map((row) => row.name);
       resolve(ownedNames);
