@@ -1,4 +1,4 @@
-# [Normal](https://pokepast.es/a9279377ccec0f3d)
+# [Normal](https://pokepast.es/fb804780ac508cb0)
 
 2x UU
 2x RU
