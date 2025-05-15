@@ -4,7 +4,7 @@ import { runOneArmedBandit } from '../../utils/gamble.js';
 
 const commandData = new SlashCommandBuilder()
   .setName('gamble')
-  .setDescription('Gamble 57 PokeDollar and get lucky');
+  .setDescription('Gamble 57 PokeDollar and get lucky ... halbe approved!');
 
 const execute = async (interaction) => {
   var query = 'SELECT * FROM spieler where discordid = ?';

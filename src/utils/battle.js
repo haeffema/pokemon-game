@@ -58,8 +58,11 @@ async function updateBattleState(battle, username, shiny) {
   const moves = getAvailableMovesWithDescriptionForTrainer(battle);
   const roundLog = generateRoundLog(battle.log);
   const imageName = `src/data/battleImages/${username}.png`;
+  console.log('wild species', wildPokemon.species.name);
+  console.log('trainer species', trainerPokemon.species.name);
   var wildPokemonSprite =
-    pokeData[wildPokemon.species.name.toLowerCase()].sprite;
+    pokeData[wildPokemon.species.name.toLowerCase().replace('-meteor', '')]
+      .sprite;
   if (shiny) {
     wildPokemonSprite = wildPokemonSprite.replace(
       '/pokemon/',
@@ -72,7 +75,10 @@ async function updateBattleState(battle, username, shiny) {
       status: trainerPokemon.status,
       hp: trainerPokemon.hp,
       maxHp: trainerPokemon.maxhp,
-      spriteUrl: pokeData[trainerPokemon.species.name.toLowerCase()].sprite,
+      spriteUrl:
+        pokeData[
+          trainerPokemon.species.name.toLowerCase().replace('-meteor', '')
+        ].sprite,
     },
     {
       name: wildPokemon.species.name,

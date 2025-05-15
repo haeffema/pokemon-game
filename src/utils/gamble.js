@@ -51,7 +51,7 @@ function moveColumn(userGridData, colIndex) {
 
 export async function runOneArmedBandit(userId) {
   let counter = 0;
-  let randomSpins1 = Math.floor(Math.random() * 10) + 5;
+  let randomSpins1 = Math.floor(Math.random() * 9) + 8;
 
   const user = await bot.users.fetch(userId);
 
@@ -74,24 +74,24 @@ export async function runOneArmedBandit(userId) {
     moveColumn(userGridData, 1);
     moveColumn(userGridData, 2);
     await message.edit({ content: generateMessage(userGridData) });
-    await sleep(500);
+    await sleep(300);
   }
 
   counter = 0;
-  let randomSpins2 = Math.floor(Math.random() * 10) + 5;
+  let randomSpins2 = Math.floor(Math.random() * 9) + 8;
   while (counter++ < randomSpins2) {
     moveColumn(userGridData, 1);
     moveColumn(userGridData, 2);
     await message.edit({ content: generateMessage(userGridData) });
-    await sleep(1000);
+    await sleep(500);
   }
 
   counter = 0;
-  let randomSpins3 = Math.floor(Math.random() * 10) + 5;
+  let randomSpins3 = Math.floor(Math.random() * 9) + 8;
   while (counter++ < randomSpins3) {
     moveColumn(userGridData, 2);
     await message.edit({ content: generateMessage(userGridData) });
-    await sleep(1500);
+    await sleep(700);
   }
 
   oneArmedBandit[userId] = userGridData;

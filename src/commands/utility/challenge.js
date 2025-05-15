@@ -115,38 +115,39 @@ const execute = async (interaction) => {
   var windowsFormattedPokepaste = '';
   for (const pokemon of allPokemon) {
     var parsedPokemon = parsePokepaste(pokemon);
-    windowsFormattedPokepaste +=
-      parsedPokemon.pokePasteStringFormat + '\r\n\r\n';
-    var types = pokemonData[parsedPokemon.name.toLowerCase()].types;
-    var item = parsedPokemon.item;
+    if (parsedPokemon != null) {
+      windowsFormattedPokepaste +=
+        parsedPokemon.pokePasteStringFormat + '\r\n\r\n';
+      var types = pokemonData[parsedPokemon.name.toLowerCase()].types;
+      var item = parsedPokemon.item;
 
-    if (!types) {
-      // Fehlerbehandlung, falls das Pokémon nicht gefunden wird
-      console.log('No Type found');
-      continue;
-    }
+      if (!types) {
+        // Fehlerbehandlung, falls das Pokémon nicht gefunden wird
+        console.log('No Type found');
+        continue;
+      }
 
-    for (const type of types) {
-      typeCounts[type] = (typeCounts[type] || 0) + 1;
+      for (const type of types) {
+        typeCounts[type] = (typeCounts[type] || 0) + 1;
 
-      if (typeCounts[type] == 3) {
-        numberMessage += `Dein Team enthält zuviele Pokemon vom Typ '${type}'. Maximal 2 Pokemon desselben Typs sind erlaubt.\n`;
-        /*await bot.users.send(
+        if (typeCounts[type] == 3) {
+          numberMessage += `Dein Team enthält zuviele Pokemon vom Typ '${type}'. Maximal 2 Pokemon desselben Typs sind erlaubt.\n`;
+          /*await bot.users.send(
           interaction.user.id, `Too many Pokémon with the type '${type}'. Maximum 2 allowed.`
         );*/
-        erfolg--;
+          erfolg--;
+        }
+      }
+
+      if (item) {
+        itemCounts[item] = (itemCounts[item] || 0) + 1;
+
+        if (itemCounts[item] > 1) {
+          itemMessage += `Das Item '${item}' wurde mehrfach verwendet. Jedes Item darf nur einmal im Team vorkommen.\n`;
+          erfolg--;
+        }
       }
     }
-
-    if (item) {
-      itemCounts[item] = (itemCounts[item] || 0) + 1;
-
-      if (itemCounts[item] > 1) {
-        itemMessage += `Das Item '${item}' wurde mehrfach verwendet. Jedes Item darf nur einmal im Team vorkommen.\n`;
-        erfolg--;
-      }
-    }
-
     const result = await validateSet(parsedPokemon, interaction.user.id);
 
     /*await bot.users.send(
