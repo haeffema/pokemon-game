@@ -106,7 +106,7 @@ export async function execute(interaction) {
       );
 
     await bot.users.send(
-      interaction.user.id,
+      challenge.discordid,
       `Glückwunsch, du hast die ${arenaMapping[challenge.Orden].deutscherName} Arena erfolgreich bezwungen und den ${challenge.Orden + 1}. Orden erhalten! \nDer Arenaleiter hat dir als Belohnung ${2000 * (challenge.Orden + 1)} PokeDollar übergeben sowie ein ganz besonderes Item!`
     );
     await channel.send({ embeds: [successEmbed] });
@@ -132,7 +132,7 @@ export async function execute(interaction) {
       `Die Herausforderung von ${challenge.spieler} ist **gescheitert**, der Arenaleiter hat (wie vorauszusehen war) triumphiert. Der Spieler bekommt eine Sperre für 3 Tage bevor er die Arena erneut herausfordern darf.`
     );
     await bot.users.send(
-      interaction.user.id,
+      challenge.discordid,
       `Schade... leider hast du die **${arenaMapping[challenge.Orden].deutscherName} Arena** nicht bezwingen können! \nDer Arenaleiter hat dir wohl gezeigt wo der Bartel den Most holt, du musst nun drei Tage warten bevor du ihn erneut herausfordern kannst!`
     );
   }

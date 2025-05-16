@@ -59,7 +59,7 @@ function formatPokepaste(input) {
     }
 
     if (angaben.length == 1) {
-      var [ability, rest] = rest.split(angaben[0]);
+      var [ability, rest] = rest.split(new RegExp(angaben[0] + '(?! \\[)'));
       ability = 'Ability' + ability;
       var [angabe1, rest] = rest.split('EVs');
       angabe1 = angaben[0] + angabe1;
@@ -67,7 +67,7 @@ function formatPokepaste(input) {
     if (angaben.length == 2) {
       var [ability, rest] = rest.split(angaben[0]);
       ability = 'Ability' + ability;
-      var [angabe1, rest] = rest.split(angaben[1]);
+      var [angabe1, rest] = rest.split(new RegExp(angaben[1] + '(?! \\[)'));
       angabe1 = angaben[0] + angabe1;
       console.log(rest);
       var [angabe2, rest] = rest.split('EVs');
@@ -79,7 +79,7 @@ function formatPokepaste(input) {
       ability = 'Ability' + ability;
       var [angabe1, rest] = rest.split(angaben[1]);
       angabe1 = angaben[0] + angabe1;
-      var [angabe2, rest] = rest.split(angaben[2]);
+      var [angabe2, rest] = rest.split(new RegExp(angaben[2] + '(?! \\[)'));
       angabe2 = angaben[1] + angabe2;
       var [angabe3, rest] = rest.split('EVs');
       angabe3 = angaben[2] + angabe3;
@@ -91,7 +91,7 @@ function formatPokepaste(input) {
       angabe1 = angaben[0] + angabe1;
       var [angabe2, rest] = rest.split(angaben[2]);
       angabe2 = angaben[1] + angabe2;
-      var [angabe3, rest] = rest.split(angaben[3]);
+      var [angabe3, rest] = rest.split(new RegExp(angaben[3] + '(?! \\[)'));
       angabe3 = angaben[2] + angabe3;
       var [angabe4, rest] = rest.split('EVs');
       angabe4 = angaben[3] + angabe4;
@@ -113,12 +113,18 @@ function formatPokepaste(input) {
     if (moves !== undefined) string += '\n' + moves;
     return string;
   } catch (error) {
+    console.error('Parsen des Pokepaste fehlgeschlagen: ' + error);
     return null;
   }
 }
 function extractFields(input) {
   const fields = ['Level', 'Shiny', 'Happiness', 'Hidden Power'];
-  return fields.filter((field) => input.includes(field));
+  return fields.filter((field) => {
+    if (field === 'Hidden Power') {
+      return /Hidden Power(?! \[)/.test(input);
+    }
+    return input.includes(field);
+  });
 }
 
 function splitAtNature(input) {
@@ -140,7 +146,13 @@ function splitAtFirstDash(input) {
 
 function splitMovesWithDash(input) {
   // Sonderfall: U-turn oder andere Moves mit Bindestrich, die du nicht splitten willst
-  const knownMovesWithDash = ['U-turn', 'X-Scissor', 'Volt-Switch']; // Liste ggf. erweitern
+  const knownMovesWithDash = [
+    'U-turn',
+    'X-Scissor',
+    'Volt-Switch',
+    'Double-Edge',
+    'Power-Up Punch',
+  ]; // Liste ggf. erweitern
 
   // Ersetze bekannte Moves mit einem Platzhalter
   const placeholders = {};

@@ -92,6 +92,8 @@ async function generatePoolForPlayers() {
     if (player.Orden == 0 || player.Orden == 1) {
       forbiddenTiers = ['Uber', 'OU', 'OUBL', 'UUBL', 'UU'];
     } else if (player.Orden == 2 || player.Orden == 3) {
+      forbiddenTiers = ['Uber', 'OU', 'OUBL', 'UUBL'];
+    } else if (player.Orden == 4 || player.Orden == 5) {
       forbiddenTiers = ['Uber', 'OU', 'OUBL'];
     } else {
       forbiddenTiers = ['Uber'];

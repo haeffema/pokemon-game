@@ -53834,7 +53834,7 @@
       },
       "superpower": {
         "name": "superpower",
-        "type": "tutor"
+        "type": "egg"
       },
       "brick-break": {
         "name": "brick-break",
@@ -75973,7 +75973,7 @@
       },
       "thunder-punch": {
         "name": "thunder-punch",
-        "type": "tutor"
+        "type": "egg"
       },
       "jump-kick": {
         "name": "jump-kick",
