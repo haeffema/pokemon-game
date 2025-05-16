@@ -152,6 +152,7 @@ function splitMovesWithDash(input) {
     'Volt-Switch',
     'Double-Edge',
     'Power-Up Punch',
+    'Will-O-Wisp',
   ]; // Liste ggf. erweitern
 
   // Ersetze bekannte Moves mit einem Platzhalter

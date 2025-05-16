@@ -120,7 +120,7 @@ export function updatePoolIfNeeded(bot) {
       activatePoolTag(1, bot);
       return;
     }
-    results.forEach((row) => {
+    results.forEach(async (row) => {
       const currentDate = new Date();
       if (
         new Date(row.tag) <
@@ -132,11 +132,8 @@ export function updatePoolIfNeeded(bot) {
       ) {
         console.log(`Pool tag ${row.id} is outdated. Deactivating...`);
         deactivatePoolTag(row.id);
-        let id = row.id + 1;
-        while (id > 18) {
-          id -= 18;
-        }
-        activatePoolTag(id, bot);
+        const newId = await getNewPoolType();
+        activatePoolTag(newId, bot);
         return;
       }
       return;
@@ -148,6 +145,7 @@ function activatePoolTag(id, bot) {
   const query = `
       UPDATE poolTag
       SET aktiv = 1,
+          wasActive = 1,
           tag = ?
       WHERE id = ?;
     `;
@@ -235,4 +233,43 @@ async function sendActivatedPoolMessage(bot) {
     });
     return;
   });
+}
+
+async function getNewPoolType() {
+  const query = `
+    SELECT id, tag
+    FROM poolTag
+    WHERE wasActive = 0;
+  `;
+
+  const availableTypes = await new Promise((resolve, reject) => {
+    connection.query(query, (error, results) => {
+      if (error) {
+        console.error('Error querying the database:', error);
+        return;
+      }
+
+      resolve(results);
+    });
+  });
+
+  if (availableTypes.length === 0) {
+    const deactivateQuery = 'UPDATE poolTag SET wasActive = 0;';
+    connection.query(deactivateQuery, (error, results, fields) => {
+      if (error) {
+        console.error('Error executing query:', error);
+        connection.end((endErr) => {
+          if (endErr) {
+            console.error('Error closing connection:', endErr);
+          } else {
+            console.log('Connection closed.');
+          }
+        });
+        return;
+      }
+    });
+    return await getNewPoolType();
+  }
+
+  return availableTypes[Math.floor(Math.random() * availableTypes.length)].id;
 }
