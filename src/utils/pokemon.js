@@ -367,7 +367,7 @@ export async function validateSet(parsedSet, userid) {
 
   return {
     success: true,
-    message: `${name} mit der Fähigkeit "${ability}" und den angegebenen Moves ist zulässig.`,
+    message: `${name} ist zulässig.`,
   };
 }
 
