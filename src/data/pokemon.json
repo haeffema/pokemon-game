@@ -13178,6 +13178,10 @@
       "belch": {
         "name": "belch",
         "type": "egg"
+      },
+      "slack-off": {
+        "name": "slack-off",
+        "type": "level-up"
       }
     },
     "tier": "NU",

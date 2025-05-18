@@ -1,48 +1,48 @@
-# [Normal](https://pokepast.es/1eedb971fe6287d5)
+# [Normal](https://pokepast.es/34f41d6102778d19)
 
 2x UU
 2x RU
 2x NU
 
-# Feuer
+# [Feuer]()
 
 2x UU
 2x RU
 2x NU
 
-# Fighting
+# [Fighting]()
 
 1x OU
 2x UU
 2x RU
 1x NU
 
-# Ground
+# [Ground]()
 
 1x OU
 2x UU
 2x RU
 1x NU
 
-# Electric
+# [Electric]()
 
 2x OU
 2x UU
 2x RU
 
-# Dragon
+# [Dragon]()
 
 2x OU
 2x UU
 2x RU
 
-# Dark
+# [Dark]()
 
 3x OU
 2x UU
 1x RU
 
-# Ghost
+# [Ghost]()
 
 1x UBER
 2x OU
