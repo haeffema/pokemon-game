@@ -1,0 +1,209 @@
+{
+  "id": "shieldsdown",
+  "target": {
+    "m": {},
+    "baseSpecies": "[Species:minior]",
+    "species": "[Species:miniormeteor]",
+    "speciesState": {
+      "id": "minior",
+      "effectOrder": 0
+    },
+    "gender": "",
+    "dynamaxLevel": 10,
+    "gigantamax": false,
+    "moveSlots": [
+      {
+        "move": "Stealth Rock",
+        "id": "stealthrock",
+        "pp": 31,
+        "maxpp": 32,
+        "target": "foeSide",
+        "disabled": false,
+        "disabledSource": "",
+        "used": true
+      },
+      {
+        "move": "Stealth Rock",
+        "id": "stealthrock",
+        "pp": 32,
+        "maxpp": 32,
+        "target": "foeSide",
+        "disabled": false,
+        "disabledSource": "",
+        "used": false
+      },
+      {
+        "move": "Frustration",
+        "id": "frustration",
+        "pp": 32,
+        "maxpp": 32,
+        "target": "normal",
+        "disabled": true,
+        "disabledSource": "Choice Scarf",
+        "used": false
+      },
+      {
+        "move": "Iron Head",
+        "id": "ironhead",
+        "pp": 24,
+        "maxpp": 24,
+        "target": "normal",
+        "disabled": true,
+        "disabledSource": "Choice Scarf",
+        "used": false
+      }
+    ],
+    "position": 0,
+    "details": "Minior",
+    "status": "",
+    "statusState": {
+      "id": "",
+      "effectOrder": 0
+    },
+    "volatiles": {
+      "choicelock": {
+        "id": "choicelock",
+        "name": "choicelock",
+        "target": "[Pokemon:p2a]",
+        "effectOrder": 6,
+        "source": "[Pokemon:p1a]",
+        "sourceSlot": "p1a",
+        "sourceEffect": "[Item:choicescarf]",
+        "move": "stealthrock"
+      }
+    },
+    "hpType": "Dark",
+    "hpPower": 60,
+    "baseHpType": "Dark",
+    "baseHpPower": 60,
+    "baseStoredStats": {
+      "atk": 157,
+      "def": 212,
+      "spa": 219,
+      "spd": 236,
+      "spe": 240,
+      "hp": 261
+    },
+    "storedStats": {
+      "atk": 157,
+      "def": 212,
+      "spa": 219,
+      "spd": 236,
+      "spe": 240
+    },
+    "boosts": {
+      "atk": 0,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 0,
+      "accuracy": 0,
+      "evasion": 0
+    },
+    "baseAbility": "shieldsdown",
+    "ability": "shieldsdown",
+    "abilityState": {
+      "id": "shieldsdown",
+      "target": "[Pokemon:p2a]",
+      "effectOrder": 2
+    },
+    "item": "choicescarf",
+    "itemState": {
+      "id": "choicescarf",
+      "target": "[Pokemon:p2a]",
+      "effectOrder": 3
+    },
+    "lastItem": "",
+    "usedItemThisTurn": false,
+    "ateBerry": false,
+    "trapped": false,
+    "maybeTrapped": false,
+    "maybeDisabled": false,
+    "illusion": null,
+    "transformed": false,
+    "fainted": false,
+    "faintQueued": false,
+    "subFainted": null,
+    "regressionForme": false,
+    "types": ["Rock", "Flying"],
+    "baseTypes": ["Rock", "Flying"],
+    "addedType": "",
+    "knownType": true,
+    "apparentType": "Rock/Flying",
+    "teraType": "Rock",
+    "switchFlag": false,
+    "forceSwitchFlag": false,
+    "skipBeforeSwitchOutEventFlag": false,
+    "draggedIn": null,
+    "newlySwitched": false,
+    "beingCalledBack": false,
+    "lastMove": {
+      "hit": 0,
+      "move": "[Move:stealthrock]"
+    },
+    "lastMoveUsed": {
+      "hit": 0,
+      "move": "[Move:stealthrock]"
+    },
+    "moveThisTurn": "",
+    "statsRaisedThisTurn": false,
+    "statsLoweredThisTurn": false,
+    "hurtThisTurn": null,
+    "lastDamage": 0,
+    "attackedBy": [],
+    "timesAttacked": 0,
+    "isActive": true,
+    "activeTurns": 2,
+    "activeMoveActions": 1,
+    "previouslySwitchedIn": 1,
+    "truantTurn": false,
+    "swordBoost": false,
+    "shieldBoost": false,
+    "syrupTriggered": false,
+    "stellarBoostedTypes": [],
+    "isStarted": true,
+    "duringMove": false,
+    "weighthg": 400,
+    "speed": 360,
+    "canMegaEvo": null,
+    "canUltraBurst": null,
+    "canGigantamax": null,
+    "canTerastallize": null,
+    "maxhp": 261,
+    "baseMaxhp": 261,
+    "hp": 261,
+    "moveLastTurnResult": true,
+    "lastMoveTargetLoc": 1,
+    "set": {
+      "name": "Minior",
+      "species": "Minior",
+      "item": "Choice Scarf",
+      "ability": "Shields Down",
+      "moves": ["Stealth Rock", "Stealth Rock", "Frustration", "Iron Head"],
+      "nature": "Hasty",
+      "evs": {
+        "hp": 0,
+        "atk": 4,
+        "def": 0,
+        "spa": 252,
+        "spd": 0,
+        "spe": 252
+      },
+      "happiness": 0,
+      "hpType": "",
+      "pokeball": "",
+      "gigantamax": false,
+      "dynamaxLevel": 10,
+      "level": 100,
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      }
+    }
+  },
+  "effectOrder": 2
+}

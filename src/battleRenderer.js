@@ -210,6 +210,7 @@ export async function sendUserBattleState(userid, battleState, wildPokemon) {
     }
 
     // Wenn noch kein Gewinner: Buttons zeigen
+    console.log(battleState.moves);
     const moves = battleState.moves.slice(0, 4);
     const embed = new EmbedBuilder()
       .setTitle('Wähle deinen nächsten Move!')

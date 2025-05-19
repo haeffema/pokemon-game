@@ -102,18 +102,28 @@ function getAvailableMovesWithDescriptionForTrainer(battle) {
    * This function generates the move data that includes name, id, pp left and a short description for the move.
    */
   const player = battle[trainerID];
+  const moves = [];
   if (player && player.active[0]) {
-    return player.active[0].moveSlots.map((moveSlot, index) => {
+    player.active[0].moveSlots.forEach((moveSlot, index) => {
       const moveData = Dex.moves.get(moveSlot.move);
-      return {
-        id: index + 1,
-        name: moveSlot.move,
-        pp: moveSlot.pp,
-        shortDescription: moveData.shortDesc || 'No description available.',
-      };
+      if (!player.active[0].volatiles.choicelock) {
+        moves.push({
+          id: index + 1,
+          name: moveSlot.move,
+          pp: moveSlot.pp,
+          shortDescription: moveData.shortDesc || 'No description available.',
+        });
+      } else if (player.active[0].volatiles.choicelock.move === moveSlot.id) {
+        moves.push({
+          id: index + 1,
+          name: moveSlot.move,
+          pp: moveSlot.pp,
+          shortDescription: moveData.shortDesc || 'No description available.',
+        });
+      }
     });
   }
-  return [];
+  return moves;
 }
 
 function generateRoundLog(log) {
@@ -201,6 +211,10 @@ async function botChooseHighestDamageMove(battle) {
   const moves = attackerShowdown.set.moves;
   let bestMoveIndex = 0;
   let maxDamage = -1;
+  if (attackerShowdown.volatiles.twoturnmove) {
+    battle.choose(botID, 'move 1');
+    return;
+  }
   for (let i = 0; i < moves.length; i++) {
     const moveName = moves[i];
     const move = new Move(gen, moveName);
