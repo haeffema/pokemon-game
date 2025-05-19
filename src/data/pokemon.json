@@ -663,7 +663,7 @@
           "spa": 252,
           "spe": 252
         },
-        "moves": ["Flamethrower", "Air Slash", "Focus Blast", "Roost"]
+        "moves": ["Flamethrower", "Solar Beam", "Focus Blast", "Roost"]
       },
       {
         "item": "Charizardite X",
@@ -5822,7 +5822,7 @@
           "spd": 4,
           "spe": 252
         },
-        "moves": ["Nasty Plot", "Fire Blast", "Psyshock", "Hidden Power Ice"]
+        "moves": ["Nasty Plot", "Fire Blast", "Solar Beam", "Hidden Power Ice"]
       }
     ]
   },
@@ -11299,7 +11299,7 @@
           "spd": 4,
           "spe": 252
         },
-        "moves": ["Sunny Day", "Strength Sap", "Sludge Bomb", "Weather Ball"]
+        "moves": ["Sunny Day", "Solar Beam", "Sludge Bomb", "Weather Ball"]
       }
     ]
   },
@@ -17311,7 +17311,7 @@
           "spd": 4,
           "spe": 252
         },
-        "moves": ["Return", "Psychic", "Hidden Power Fire", "Sleep Powder"]
+        "moves": ["Solar Beam", "Psychic", "Hidden Power Fire", "Sleep Powder"]
       }
     ]
   },
@@ -36697,7 +36697,7 @@
           "spa": 252,
           "spd": 4
         },
-        "moves": ["Curse", "Synthesis", "Toxic", "Hidden Power Fire"]
+        "moves": ["Solar Beam", "Synthesis", "Toxic", "Hidden Power Fire"]
       }
     ]
   },
@@ -62304,7 +62304,7 @@
           "spd": 4,
           "spe": 252
         },
-        "moves": ["Weather Ball", "Shadow Ball", "Thunder", "Ice Beam"]
+        "moves": ["Weather Ball", "Solar Beam", "Thunder", "Ice Beam"]
       }
     ]
   },
@@ -63592,7 +63592,7 @@
           "def": 252,
           "spd": 4
         },
-        "moves": ["Leech Seed", "Synthesis", "Aromatherapy", "Stomping Tantrum"]
+        "moves": ["Leech Seed", "Synthesis", "Aromatherapy", "Solar Beam"]
       }
     ]
   },
@@ -75353,7 +75353,7 @@
           "spd": 4,
           "spe": 252
         },
-        "moves": ["Razor Leaf", "Weather Ball", "Hidden Power Ice", "Protect"]
+        "moves": ["Solar Beam", "Weather Ball", "Hidden Power Ice", "Protect"]
       }
     ]
   },
@@ -139459,7 +139459,7 @@
           "spd": 4,
           "spe": 252
         },
-        "moves": ["Photon Geyser", "Prismatic Laser", "Psychic", "Stealth Rock"]
+        "moves": ["Photon Geyser", "Solar Beam", "Psychic", "Stealth Rock"]
       }
     ]
   },
