@@ -106,14 +106,34 @@ function getAvailableMovesWithDescriptionForTrainer(battle) {
   if (player && player.active[0]) {
     player.active[0].moveSlots.forEach((moveSlot, index) => {
       const moveData = Dex.moves.get(moveSlot.move);
-      if (!player.active[0].volatiles.choicelock) {
-        moves.push({
-          id: index + 1,
-          name: moveSlot.move,
-          pp: moveSlot.pp,
-          shortDescription: moveData.shortDesc || 'No description available.',
-        });
-      } else if (player.active[0].volatiles.choicelock.move === moveSlot.id) {
+      if (player.active[0].volatiles.twoturnmove) {
+        if (player.active[0].volatiles.twoturnmove.move === moveSlot.id) {
+          moves.push({
+            id: 1,
+            name: moveSlot.move,
+            pp: moveSlot.pp,
+            shortDescription: moveData.shortDesc || 'No description available.',
+          });
+        }
+      } else if (player.active[0].volatiles.lockedmove) {
+        if (player.active[0].volatiles.lockedmove.move === moveSlot.id) {
+          moves.push({
+            id: 1,
+            name: moveSlot.move,
+            pp: moveSlot.pp,
+            shortDescription: moveData.shortDesc || 'No description available.',
+          });
+        }
+      } else if (player.active[0].volatiles.choicelock) {
+        if (player.active[0].volatiles.choicelock.move === moveSlot.id) {
+          moves.push({
+            id: index + 1,
+            name: moveSlot.move,
+            pp: moveSlot.pp,
+            shortDescription: moveData.shortDesc || 'No description available.',
+          });
+        }
+      } else {
         moves.push({
           id: index + 1,
           name: moveSlot.move,

@@ -7,8 +7,8 @@ Ability: Shields Down
 Happiness: 0  
 EVs: 4 Atk / 252 SpA / 252 Spe  
 Hasty Nature  
-- Stealth Rock
-- Stealth Rock  
+- Solar Beam
+- Outrage  
 - Frustration  
 - Iron Head`;
 
@@ -16,10 +16,6 @@ Hasty Nature
 
   battle.choose('p1', `move 1`);
   battle.choose('p2', `move 2`);
-  await new Promise((resolve) => setTimeout(resolve, 1000));
-
-  battle.choose('p1', `move 1`);
-  battle.choose('p2', `move 1`);
   await new Promise((resolve) => setTimeout(resolve, 1000));
 
   writeFile('battle.json', JSON.stringify(battle, null, 2));
