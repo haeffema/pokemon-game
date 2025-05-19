@@ -23,5 +23,3 @@ git pull
 timestamp=$(date +"%Y-%m-%d_%H-%M-%S")
 
 npm run bot > "logs/output_$timestamp.log" 2>&1
-
-echo "Updated bot, pulled latest changes, and started with new logs."
