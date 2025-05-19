@@ -9,3 +9,4 @@ http://85.215.60.9:40000/phpmyadmin/index.php?route=/database/structure&db=pokem
 # fyi
 
 https://sabe.io/tutorials/how-to-build-discord-bot-typescript
+
