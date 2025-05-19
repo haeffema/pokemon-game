@@ -159,7 +159,6 @@ function generateRoundLog(log) {
   let moveLog = '';
 
   if (turnIds.length == 1 && !log[log.length - 1].startsWith('|win|')) {
-    console.log('maybe oneshot?');
     return moveLog;
   }
 
@@ -198,15 +197,31 @@ function convertMoveLogToString(log) {
     p1a: 'Your',
     p2a: 'Wild',
   };
-  let moveLog = `${trainerNames[log[0].split('|')[2].split(': ')[0]]} ${log[0].split('|')[2].split(': ')[1]} used ${log[0].split('|')[3]} against ${trainerNames[log[0].split('|')[4].split(': ')[0]]} ${log[0].split('|')[4].split(': ')[1]}\n`;
-  if (log[1].startsWith('|-supereffective')) {
-    moveLog += 'It was super effective.\n';
+  console.log(log[0].split('|')[4].split(': ')[0]);
+  let moveLog = `${trainerNames[log[0].split('|')[2].split(': ')[0]]} ${log[0].split('|')[2].split(': ')[1]} used ${log[0].split('|')[3]} against ${trainerNames[log[0].split('|')[4].split(': ')[0]]} ${log[0].split('|')[4].split(': ')[1]}.\n`;
+  if (
+    log[0].split('|')[4].split(': ')[0] === '' ||
+    log[0].split('|')[4].split(': ')[0] === log[0].split('|')[2].split(': ')[0]
+  ) {
+    moveLog = `${trainerNames[log[0].split('|')[2].split(': ')[0]]} ${log[0].split('|')[2].split(': ')[1]} used ${log[0].split('|')[3]}.\n`;
   }
   if (log[1].startsWith('|-fail|')) {
     return moveLog + 'Failed.\n';
   }
   if (log[1].startsWith('|-miss|')) {
     return moveLog + 'Missed.\n';
+  }
+  if (log[1].startsWith('|-prepare|')) {
+    return moveLog + 'Preparing...\n';
+  }
+  if (log[1].startsWith('|-crit|')) {
+    moveLog += 'It was a critical hit.\n';
+  }
+  if (log[1].startsWith('|-boost|')) {
+    moveLog += `${trainerNames[log[1].split('|')[2].split(': ')[0]]} ${log[1].split('|')[2].split(': ')[1]} has boosted itself.\n`;
+  }
+  if (log[1].startsWith('|-supereffective')) {
+    moveLog += 'It was super effective.\n';
   }
   if (log[1].startsWith('|-resisted')) {
     moveLog += 'It was not very effective.\n';
