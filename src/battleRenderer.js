@@ -93,25 +93,31 @@ function drawHealthBar(ctx, x, y, width, height, hp, maxHp, name, status) {
 export async function generateBattleImage(
   leftPokemon,
   rightPokemon,
+  type = undefined,
   outputPath = 'pokemon_battle.png'
 ) {
   const canvas = createCanvas(width, height);
   const ctx = canvas.getContext('2d');
 
-  var query = `
+  let backgroundURL = `src/data/background/${type}.png`;
+
+  if (!type) {
+    var query = `
         SELECT typ from poolTag where aktiv = 1;`;
-  var poolTag = await new Promise((resolve, reject) => {
-    connection.query(query, function (err, results) {
-      if (err) {
-        reject('Datenbankfehler: ' + err);
-      } else {
-        resolve(results[0]);
-      }
+    var poolTag = await new Promise((resolve, reject) => {
+      connection.query(query, function (err, results) {
+        if (err) {
+          reject('Datenbankfehler: ' + err);
+        } else {
+          resolve(results[0]);
+        }
+      });
     });
-  });
-  //var backgroundURL = 'src/data/background/grass.png';
-  var backgroundURL =
-    'src/data/background/' + poolTag.typ.toLowerCase() + '.png';
+    // var backgroundURL = 'src/data/background/grass.png';
+    backgroundURL = 'src/data/background/' + poolTag.typ.toLowerCase() + '.png';
+  }
+
+  console.log('Background URL:', backgroundURL);
 
   const [background, leftSprite, rightSprite] = await Promise.all([
     loadImage(backgroundURL),
@@ -176,7 +182,12 @@ import {
 } from 'discord.js';
 
 import bot from './utils/client.js';
-export async function sendUserBattleState(userid, battleState, wildPokemon) {
+export async function sendUserBattleState(
+  userid,
+  battleState,
+  wildPokemon,
+  ffa
+) {
   console.log(battleState.roundLog);
   try {
     const imagePath = battleState.image;
@@ -204,8 +215,9 @@ export async function sendUserBattleState(userid, battleState, wildPokemon) {
         .setColor(battleState.winner === 'Trainer' ? 0x00ff00 : 0xff0000);
 
       await bot.users.send(userid, { embeds: [embed] });
-      if (battleState.winner === 'Trainer')
+      if (battleState.winner === 'Trainer' && !ffa) {
         pokemonDefeated(userid, wildPokemon);
+      }
       return battleState.winner;
     }
 

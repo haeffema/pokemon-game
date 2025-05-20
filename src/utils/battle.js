@@ -25,16 +25,25 @@ export function setupBattle(playerTeam, botTeam) {
   return battle;
 }
 
-export async function runBattle(battle, userId, username, wildPokemon, shiny) {
+export async function runBattle(
+  battle,
+  userId,
+  username,
+  wildPokemon,
+  shiny,
+  type = undefined,
+  ffa = false
+) {
   /**
    * This function is called with a battle object and a userId to run the battle until there is a winner.
    */
-  const battleState = await updateBattleState(battle, username, shiny);
+  const battleState = await updateBattleState(battle, username, shiny, type);
   if (!battle.ended) {
     const userResponse = await sendUserBattleState(
       userId,
       battleState,
-      wildPokemon
+      wildPokemon,
+      ffa
     );
     if (userResponse === null) {
       return;
@@ -42,13 +51,13 @@ export async function runBattle(battle, userId, username, wildPokemon, shiny) {
     battle.choose(trainerID, `move ${userResponse}`);
     await botChooseHighestDamageMove(battle);
     await new Promise((resolve) => setTimeout(resolve, 250));
-    await runBattle(battle, userId, username, wildPokemon, shiny);
+    await runBattle(battle, userId, username, wildPokemon, shiny, type, ffa);
     return;
   }
-  await sendUserBattleState(userId, battleState, wildPokemon);
+  await sendUserBattleState(userId, battleState, wildPokemon, ffa);
 }
 
-async function updateBattleState(battle, username, shiny) {
+async function updateBattleState(battle, username, shiny, type = undefined) {
   /**
    * This function is used to generate an object containing all usefull data for the user.
    */
@@ -61,8 +70,12 @@ async function updateBattleState(battle, username, shiny) {
   console.log('wild species', wildPokemon.species.name);
   console.log('trainer species', trainerPokemon.species.name);
   var wildPokemonSprite =
-    pokeData[wildPokemon.species.name.toLowerCase().replace('-meteor', '')]
-      .sprite;
+    pokeData[
+      wildPokemon.species.name
+        .toLowerCase()
+        .replace('-meteor', '')
+        .replace('-school', '')
+    ].sprite;
   if (shiny) {
     wildPokemonSprite = wildPokemonSprite.replace(
       '/pokemon/',
@@ -77,7 +90,10 @@ async function updateBattleState(battle, username, shiny) {
       maxHp: trainerPokemon.maxhp,
       spriteUrl:
         pokeData[
-          trainerPokemon.species.name.toLowerCase().replace('-meteor', '')
+          trainerPokemon.species.name
+            .toLowerCase()
+            .replace('-meteor', '')
+            .replace('-school', '')
         ].sprite,
     },
     {
@@ -87,6 +103,7 @@ async function updateBattleState(battle, username, shiny) {
       maxHp: wildPokemon.maxhp,
       spriteUrl: wildPokemonSprite,
     },
+    type,
     imageName
   );
   return {

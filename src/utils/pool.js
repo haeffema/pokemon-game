@@ -73,7 +73,7 @@ async function generatePoolForPlayers() {
   });
 
   const playerQuery = `
-  SELECT discordid, Orden
+  SELECT discordid, Orden, admin
   FROM spieler;`;
   const players = await new Promise((resolve, reject) => {
     connection.query(playerQuery, (error, results, fields) => {
@@ -86,6 +86,10 @@ async function generatePoolForPlayers() {
   });
 
   players.forEach(async (player) => {
+    if (player.admin == 1) {
+      return;
+    }
+
     const discordId = player.discordid;
 
     var forbiddenTiers;
