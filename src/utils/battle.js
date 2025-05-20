@@ -65,7 +65,10 @@ async function updateBattleState(battle, username, shiny, type = undefined) {
   const trainerPokemon = battle.p1.active[0];
   const wildPokemon = battle.p2.active[0];
   const moves = getAvailableMovesWithDescriptionForTrainer(battle);
-  const roundLog = generateRoundLog(battle.log);
+  let roundLog = generateRoundLog(battle.log);
+  if (roundLog === '') {
+    roundLog = `Equipped Item: ${trainerPokemon.set.item}`;
+  }
   const imageName = `src/data/battleImages/${username}.png`;
   console.log('wild species', wildPokemon.species.name);
   console.log('trainer species', trainerPokemon.species.name);

@@ -51616,6 +51616,10 @@
       "final-gambit": {
         "name": "final-gambit",
         "type": "egg"
+      },
+      "swords-dance": {
+        "name": "swords-dance",
+        "type": "egg"
       }
     },
     "tier": "ZU",
