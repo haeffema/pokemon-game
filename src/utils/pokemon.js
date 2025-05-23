@@ -152,6 +152,9 @@ function splitMovesWithDash(input) {
     'Volt-Switch',
     'Double-Edge',
     'Power-Up Punch',
+    'Will-O-Wisp',
+    'Multi-Attack',
+    'V-Create',
   ]; // Liste ggf. erweitern
 
   // Ersetze bekannte Moves mit einem Platzhalter
@@ -366,7 +369,7 @@ export async function validateSet(parsedSet, userid) {
 
   return {
     success: true,
-    message: `${name} mit der Fähigkeit "${ability}" und den angegebenen Moves ist zulässig.`,
+    message: `${name} ist zulässig.`,
   };
 }
 

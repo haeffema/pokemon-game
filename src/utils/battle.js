@@ -25,16 +25,25 @@ export function setupBattle(playerTeam, botTeam) {
   return battle;
 }
 
-export async function runBattle(battle, userId, username, wildPokemon, shiny) {
+export async function runBattle(
+  battle,
+  userId,
+  username,
+  wildPokemon,
+  shiny,
+  type = undefined,
+  ffa = false
+) {
   /**
    * This function is called with a battle object and a userId to run the battle until there is a winner.
    */
-  const battleState = await updateBattleState(battle, username, shiny);
+  const battleState = await updateBattleState(battle, username, shiny, type);
   if (!battle.ended) {
     const userResponse = await sendUserBattleState(
       userId,
       battleState,
-      wildPokemon
+      wildPokemon,
+      ffa
     );
     if (userResponse === null) {
       return;
@@ -42,13 +51,13 @@ export async function runBattle(battle, userId, username, wildPokemon, shiny) {
     battle.choose(trainerID, `move ${userResponse}`);
     await botChooseHighestDamageMove(battle);
     await new Promise((resolve) => setTimeout(resolve, 250));
-    await runBattle(battle, userId, username, wildPokemon, shiny);
+    await runBattle(battle, userId, username, wildPokemon, shiny, type, ffa);
     return;
   }
-  await sendUserBattleState(userId, battleState, wildPokemon);
+  await sendUserBattleState(userId, battleState, wildPokemon, ffa);
 }
 
-async function updateBattleState(battle, username, shiny) {
+async function updateBattleState(battle, username, shiny, type = undefined) {
   /**
    * This function is used to generate an object containing all usefull data for the user.
    */
@@ -56,13 +65,20 @@ async function updateBattleState(battle, username, shiny) {
   const trainerPokemon = battle.p1.active[0];
   const wildPokemon = battle.p2.active[0];
   const moves = getAvailableMovesWithDescriptionForTrainer(battle);
-  const roundLog = generateRoundLog(battle.log);
+  let roundLog = generateRoundLog(battle.log);
+  if (roundLog === '') {
+    roundLog = `Equipped Item: ${trainerPokemon.set.item}`;
+  }
   const imageName = `src/data/battleImages/${username}.png`;
   console.log('wild species', wildPokemon.species.name);
   console.log('trainer species', trainerPokemon.species.name);
   var wildPokemonSprite =
-    pokeData[wildPokemon.species.name.toLowerCase().replace('-meteor', '')]
-      .sprite;
+    pokeData[
+      wildPokemon.species.name
+        .toLowerCase()
+        .replace('-meteor', '')
+        .replace('-school', '')
+    ].sprite;
   if (shiny) {
     wildPokemonSprite = wildPokemonSprite.replace(
       '/pokemon/',
@@ -77,7 +93,10 @@ async function updateBattleState(battle, username, shiny) {
       maxHp: trainerPokemon.maxhp,
       spriteUrl:
         pokeData[
-          trainerPokemon.species.name.toLowerCase().replace('-meteor', '')
+          trainerPokemon.species.name
+            .toLowerCase()
+            .replace('-meteor', '')
+            .replace('-school', '')
         ].sprite,
     },
     {
@@ -87,6 +106,7 @@ async function updateBattleState(battle, username, shiny) {
       maxHp: wildPokemon.maxhp,
       spriteUrl: wildPokemonSprite,
     },
+    type,
     imageName
   );
   return {
@@ -102,18 +122,48 @@ function getAvailableMovesWithDescriptionForTrainer(battle) {
    * This function generates the move data that includes name, id, pp left and a short description for the move.
    */
   const player = battle[trainerID];
+  const moves = [];
   if (player && player.active[0]) {
-    return player.active[0].moveSlots.map((moveSlot, index) => {
+    player.active[0].moveSlots.forEach((moveSlot, index) => {
       const moveData = Dex.moves.get(moveSlot.move);
-      return {
-        id: index + 1,
-        name: moveSlot.move,
-        pp: moveSlot.pp,
-        shortDescription: moveData.shortDesc || 'No description available.',
-      };
+      if (player.active[0].volatiles.twoturnmove) {
+        if (player.active[0].volatiles.twoturnmove.move === moveSlot.id) {
+          moves.push({
+            id: 1,
+            name: moveSlot.move,
+            pp: moveSlot.pp,
+            shortDescription: moveData.shortDesc || 'No description available.',
+          });
+        }
+      } else if (player.active[0].volatiles.lockedmove) {
+        if (player.active[0].volatiles.lockedmove.move === moveSlot.id) {
+          moves.push({
+            id: 1,
+            name: moveSlot.move,
+            pp: moveSlot.pp,
+            shortDescription: moveData.shortDesc || 'No description available.',
+          });
+        }
+      } else if (player.active[0].volatiles.choicelock) {
+        if (player.active[0].volatiles.choicelock.move === moveSlot.id) {
+          moves.push({
+            id: index + 1,
+            name: moveSlot.move,
+            pp: moveSlot.pp,
+            shortDescription: moveData.shortDesc || 'No description available.',
+          });
+        }
+      } else {
+        moves.push({
+          id: index + 1,
+          name: moveSlot.move,
+          pp: moveSlot.pp,
+          shortDescription: moveData.shortDesc || 'No description available.',
+        });
+      }
     });
   }
-  return [];
+  return moves;
 }
 
 function generateRoundLog(log) {
@@ -129,7 +179,6 @@ function generateRoundLog(log) {
   let moveLog = '';
 
   if (turnIds.length == 1 && !log[log.length - 1].startsWith('|win|')) {
-    console.log('maybe oneshot?');
     return moveLog;
   }
 
@@ -168,15 +217,31 @@ function convertMoveLogToString(log) {
     p1a: 'Your',
     p2a: 'Wild',
   };
-  let moveLog = `${trainerNames[log[0].split('|')[2].split(': ')[0]]} ${log[0].split('|')[2].split(': ')[1]} used ${log[0].split('|')[3]} against ${trainerNames[log[0].split('|')[4].split(': ')[0]]} ${log[0].split('|')[4].split(': ')[1]}\n`;
-  if (log[1].startsWith('|-supereffective')) {
-    moveLog += 'It was super effective.\n';
+  console.log(log[0].split('|')[4].split(': ')[0]);
+  let moveLog = `${trainerNames[log[0].split('|')[2].split(': ')[0]]} ${log[0].split('|')[2].split(': ')[1]} used ${log[0].split('|')[3]} against ${trainerNames[log[0].split('|')[4].split(': ')[0]]} ${log[0].split('|')[4].split(': ')[1]}.\n`;
+  if (
+    log[0].split('|')[4].split(': ')[0] === '' ||
+    log[0].split('|')[4].split(': ')[0] === log[0].split('|')[2].split(': ')[0]
+  ) {
+    moveLog = `${trainerNames[log[0].split('|')[2].split(': ')[0]]} ${log[0].split('|')[2].split(': ')[1]} used ${log[0].split('|')[3]}.\n`;
   }
   if (log[1].startsWith('|-fail|')) {
     return moveLog + 'Failed.\n';
   }
   if (log[1].startsWith('|-miss|')) {
     return moveLog + 'Missed.\n';
+  }
+  if (log[1].startsWith('|-prepare|')) {
+    return moveLog + 'Preparing...\n';
+  }
+  if (log[1].startsWith('|-crit|')) {
+    moveLog += 'It was a critical hit.\n';
+  }
+  if (log[1].startsWith('|-boost|')) {
+    moveLog += `${trainerNames[log[1].split('|')[2].split(': ')[0]]} ${log[1].split('|')[2].split(': ')[1]} has boosted itself.\n`;
+  }
+  if (log[1].startsWith('|-supereffective')) {
+    moveLog += 'It was super effective.\n';
   }
   if (log[1].startsWith('|-resisted')) {
     moveLog += 'It was not very effective.\n';
@@ -201,6 +266,10 @@ async function botChooseHighestDamageMove(battle) {
   const moves = attackerShowdown.set.moves;
   let bestMoveIndex = 0;
   let maxDamage = -1;
+  if (attackerShowdown.volatiles.twoturnmove) {
+    battle.choose(botID, 'move 1');
+    return;
+  }
   for (let i = 0; i < moves.length; i++) {
     const moveName = moves[i];
     const move = new Move(gen, moveName);
