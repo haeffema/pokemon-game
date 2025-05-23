@@ -1,2 +1,2 @@
 npm run pre-commit
-echo 'linting only if jan fixes imports ;P'
+npm run lint:fix
