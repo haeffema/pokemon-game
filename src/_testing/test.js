@@ -1,4 +1,4 @@
-import pokemonData from './data/pokemon.json' with { type: 'json' };
+import pokemonData from '../data/pokemon.json' with { type: 'json' };
 
 const maxNewPokemon = 10;
 const maxFights = 35;
@@ -45,7 +45,7 @@ function getRandomPokemonForPlayer(userId, activeType) {
   const playerPokemonList = ['bewear', 'venusaur'];
 
   const badges = 0;
-  const catchedToday = 0
+  const catchedToday = 0;
 
   const newFights = catchedToday < maxNewPokemon;
 
@@ -86,6 +86,7 @@ function getRandomPokemonForPlayer(userId, activeType) {
     }
   }
 
+  console.log(maxFights);
   console.log(randomPokemon);
 }
 
