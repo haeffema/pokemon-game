@@ -78,6 +78,10 @@ async function updateBattleState(battle, username, shiny, type = undefined) {
         .toLowerCase()
         .replace('-meteor', '')
         .replace('-school', '')
+        .replace('-totem', '')
+        .replace('-primal', '')
+        .replace('-sky', '')
+        .replace('-blade', '')
     ].sprite;
   if (shiny) {
     wildPokemonSprite = wildPokemonSprite.replace(
@@ -97,6 +101,10 @@ async function updateBattleState(battle, username, shiny, type = undefined) {
             .toLowerCase()
             .replace('-meteor', '')
             .replace('-school', '')
+            .replace('-totem', '')
+            .replace('-primal', '')
+            .replace('-sky', '')
+            .replace('-blade', '')
         ].sprite,
     },
     {

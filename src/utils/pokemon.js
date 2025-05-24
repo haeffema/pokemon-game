@@ -155,6 +155,7 @@ function splitMovesWithDash(input) {
     'Will-O-Wisp',
     'Multi-Attack',
     'V-Create',
+    'Freeze-Dry',
   ]; // Liste ggf. erweitern
 
   // Ersetze bekannte Moves mit einem Platzhalter

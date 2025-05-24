@@ -323,6 +323,10 @@
     "types": ["Fire", "Flying"],
     "abilities": ["Blaze", "Solar Power"],
     "moves": {
+      "celebrate": {
+        "name": "celebrate",
+        "type": "event"
+      },
       "fire-punch": {
         "name": "fire-punch",
         "type": "tutor"

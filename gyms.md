@@ -4,7 +4,7 @@
 2x RU
 2x NU
 
-# [Feuer]()
+# [Feuer](https://pokepast.es/2252190cf7ffc52b)
 
 2x UU
 2x RU

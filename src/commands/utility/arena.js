@@ -116,7 +116,7 @@ export async function execute(interaction) {
       .setDescription(zKristall.description)
       .setColor('Blue')
       .setThumbnail(zKristall.sprite);
-    await bot.users.send(interaction.user.id, { embeds: [itemEmbed] });
+    await bot.users.send(challenge.discordid, { embeds: [itemEmbed] });
     var query =
       'Insert ignore into item (name, spieler, beschreibung, sprite) Values(?,?,?,?)';
     connection.query(query, [

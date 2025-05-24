@@ -73,7 +73,7 @@ async function generatePoolForPlayers() {
   });
 
   const playerQuery = `
-  SELECT discordid, Orden, admin
+  SELECT discordid, Orden, active
   FROM spieler;`;
   const players = await new Promise((resolve, reject) => {
     connection.query(playerQuery, (error, results, fields) => {
@@ -86,7 +86,7 @@ async function generatePoolForPlayers() {
   });
 
   players.forEach(async (player) => {
-    if (player.admin == 1) {
+    if (player.active == 1) {
       return;
     }
 
