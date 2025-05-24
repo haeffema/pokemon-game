@@ -1,5 +1,4 @@
 import { SlashCommandBuilder } from 'discord.js';
-import connection from '../../utils/databaseConnection.js';
 import pokemonData from '../../data/pokemon.json' with { type: 'json' };
 import { convertSetToPokepaste } from '../../utils/pokemon.js';
 import { setupBattle, runBattle } from '../../utils/battle.js';
@@ -11,19 +10,19 @@ const commandData = new SlashCommandBuilder()
   );
 
 const execute = async (interaction) => {
-  await interaction.reply('Ein wilder Kampf beginnt!');
+  await interaction.reply('aktuell deaktiviert');
+  return;
+
+  const validPokemon = Object.keys(pokemonData).filter((pokemon) => {
+    if (pokemonData[pokemon].tier === 'Uber') {
+      return pokemon;
+    }
+  });
+
   const randomWild =
-    pokemonData[
-      Object.keys(pokemonData)[
-        Math.floor(Math.random() * Object.keys(pokemonData).length)
-      ]
-    ];
+    pokemonData[validPokemon[Math.floor(Math.random() * validPokemon.length)]];
   const randomTrainer =
-    pokemonData[
-      Object.keys(pokemonData)[
-        Math.floor(Math.random() * Object.keys(pokemonData).length)
-      ]
-    ];
+    pokemonData[validPokemon[Math.floor(Math.random() * validPokemon.length)]];
   const wildSet =
     randomWild.sets[Math.floor(Math.random() * randomWild.sets.length)];
   const trainerSet =
@@ -33,12 +32,15 @@ const execute = async (interaction) => {
     trainerSet,
     randomTrainer.name
   );
+
+  const shiny = Math.random() < 0.1;
+
   await runBattle(
     setupBattle(trainerPokepaste, wildPokepaste),
     interaction.user.id,
     interaction.user.username,
     wildPokepaste,
-    false,
+    shiny,
     randomWild.types[0].toLowerCase(),
     true
   );
