@@ -136,5 +136,5 @@ dist
 .pnp.*
 
 src/utils/config.json
-src/data/battleImages/*
-!src/data/battleImages/example.png
+src/data/_generatedImages/*
+!src/data/_generatedImages/example.png
