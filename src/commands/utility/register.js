@@ -1,6 +1,6 @@
 import { SlashCommandBuilder } from 'discord.js';
-import connection from '../../utils/databaseConnection.js';
-import { parsePokepaste, validateSet } from '../../utils/pokemon.js';
+import connection from '../../database/databaseConnection.js';
+import { parsePokepaste, validateSet } from '../../pokemon/pokemon.js';
 
 const commandData = new SlashCommandBuilder()
   .setName('register')

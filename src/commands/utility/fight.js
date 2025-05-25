@@ -1,8 +1,8 @@
 import { SlashCommandBuilder } from 'discord.js';
-import connection from '../../utils/databaseConnection.js';
+import connection from '../../database/databaseConnection.js';
 import pokemonData from '../../data/pokemon.json' with { type: 'json' };
-import { convertSetToPokepaste } from '../../utils/pokemon.js';
-import { setupBattle, runBattle } from '../../utils/battle.js';
+import { convertSetToPokepaste } from '../../pokemon/pokemon.js';
+import { setupBattle, runBattle } from '../../pokemon/battle.js';
 
 const commandData = new SlashCommandBuilder()
   .setName('fight')

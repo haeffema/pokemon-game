@@ -8,7 +8,7 @@ import {
   ButtonBuilder,
   ButtonStyle,
 } from 'discord.js';
-import connection from '../../utils/databaseConnection.js';
+import connection from '../../database/databaseConnection.js';
 import pokemonData from '../../data/pokemon.json' with { type: 'json' };
 
 const commandData = new SlashCommandBuilder()

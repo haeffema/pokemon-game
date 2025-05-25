@@ -6,14 +6,14 @@ import {
   ComponentType,
   EmbedBuilder,
 } from 'discord.js';
-import connection from '../../utils/databaseConnection.js';
-import bot from '../../utils/client.js';
+import connection from '../../database/databaseConnection.js';
+import bot from '../../client/client.js';
 import {
   parsePokepaste,
   validateSet,
   uploadToPokePaste,
   formatPokepasteStringForWebsite,
-} from '../../utils/pokemon.js';
+} from '../../pokemon/pokemon.js';
 import pokemonData from '../../data/pokemon.json' with { type: 'json' };
 
 const commandData = new SlashCommandBuilder()

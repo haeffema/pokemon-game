@@ -1,5 +1,5 @@
 import { SlashCommandBuilder, EmbedBuilder } from 'discord.js';
-import connection from '../../utils/databaseConnection.js';
+import connection from '../../database/databaseConnection.js';
 
 const commandData = new SlashCommandBuilder()
   .setName('bag')

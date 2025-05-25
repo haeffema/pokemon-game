@@ -121979,7 +121979,6 @@
         "ability": "Aura Break",
         "nature": "Jolly",
         "evs": {
-          "hp": 252,
           "atk": 252,
           "def": 4,
           "spe": 252

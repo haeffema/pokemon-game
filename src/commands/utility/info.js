@@ -3,13 +3,13 @@ import {
   EmbedBuilder,
   AttachmentBuilder,
 } from 'discord.js';
-import { generatePokepasteForTrainer } from '../../utils/pokemon.js';
-import connection from '../../utils/databaseConnection.js';
+import { generatePokepasteForTrainer } from '../../pokemon/pokemon.js';
+import connection from '../../database/databaseConnection.js';
 import pokemonData from '../../data/pokemon.json' with { type: 'json' };
 import itemDataShop from '../../data/buyable_items.json' with { type: 'json' };
 import itemData from '../../data/droppable_items.json' with { type: 'json' };
 import path from 'path';
-import { createOrdenImage } from '../../utils/orden.js';
+import { createOrdenImage } from '../../pokemon/orden.js';
 
 const commandData = new SlashCommandBuilder()
   .setName('info')

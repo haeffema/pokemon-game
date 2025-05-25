@@ -1,8 +1,8 @@
 import { SlashCommandBuilder, EmbedBuilder } from 'discord.js';
-import connection from '../../utils/databaseConnection.js';
+import connection from '../../database/databaseConnection.js';
 import itemData from '../../data/quest_items.json' with { type: 'json' };
-import bot from '../../utils/client.js';
-import config from '../../utils/config.json' with { type: 'json' };
+import bot from '../../client/client.js';
+import { channelId } from '../../config.js';
 
 const commandData = new SlashCommandBuilder()
   .setName('arena')
@@ -91,7 +91,6 @@ export async function execute(interaction) {
       `Die Herausforderung von ${challenge.spieler} war **erfolgreich**, der Arenaleiter musste sich (aufgrund von Hax) geschlagen geben. Der Spieler bekommt den Orden und kann die nächste Arena in frühestens drei Tagen herausfordern.`
     );
 
-    const { channelId } = config;
     const channel = await bot.channels.fetch(channelId);
 
     var desc = `Glückwunsch, ${player} hat die ${challenge.Orden + 1}. Arena bezwungen und den Orden erhalten! Aber sei gewarnt, der nächste Arenaleiter wird es dir nicht so einfach machen.`;

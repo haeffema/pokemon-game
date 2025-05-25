@@ -9,7 +9,7 @@ import {
 } from 'discord.js';
 import fs from 'fs/promises';
 import itemData from '../../data/buyable_items.json' with { type: 'json' };
-import connection from '../../utils/databaseConnection.js';
+import connection from '../../database/databaseConnection.js';
 
 const commandData = new SlashCommandBuilder()
   .setName('shop')

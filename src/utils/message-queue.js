@@ -1,4 +1,4 @@
-import connection from './databaseConnection.js';
+import connection from '../database/databaseConnection.js';
 import { EmbedBuilder } from 'discord.js';
 
 async function sendMessage(receiverId, content, bot) {
