@@ -2,9 +2,6 @@ import connection from '../database/databaseConnection.js';
 import { EmbedBuilder } from 'discord.js';
 import pokemonData from '../data/pokemon.json' with { type: 'json' };
 
-const poolSize = 12;
-const maxFights = 35;
-
 async function filterPokemonByType(type, forbiddenTiers, number, discordid) {
   try {
     const allPokemon = Object.values(pokemonData);

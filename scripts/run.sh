@@ -2,7 +2,7 @@
 
 cd /root/pokemon-game
 
-log_folder="logs"
+log_folder="../logs"
 days_to_keep=3
 
 find "$log_folder" -type f -name "output_*.log" -print0 | while IFS= read -r -d $'\0' file; do
@@ -22,4 +22,4 @@ git pull
 
 timestamp=$(date +"%Y-%m-%d_%H-%M-%S")
 
-npm run bot > "logs/output_$timestamp.log" 2>&1
+npm run bot > "$log_folder/output_$timestamp.log" 2>&1
