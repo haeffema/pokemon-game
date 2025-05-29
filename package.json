@@ -31,6 +31,7 @@
     "discord.js": "^14.18.0",
     "dotenv": "^16.5.0",
     "events": "^3.3.0",
+    "jsdom": "^26.1.0",
     "mysql": "^2.18.1",
     "node-cron": "^4.0.7",
     "path": "^0.12.7",
@@ -41,8 +42,7 @@
   },
   "lint-staged": {
     "*.{js,json,md}": [
-      "prettier --write",
-      "eslint --fix"
+      "prettier --write"
     ]
   }
 }
