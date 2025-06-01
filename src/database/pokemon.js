@@ -3,13 +3,28 @@ import connection from './databaseConnection.js';
 export async function getAllUserPokemon(userId) {
   return new Promise((resolve, reject) => {
     connection.query(
-      'SELECT * FROM pokemon WHERE user = (SELECT name FROM user WHERE discordid = ?)',
+      'SELECT * FROM pokemon WHERE user = (SELECT name FROM user WHERE discordId = ?)',
       [userId],
       (error, results) => {
         if (error) {
           return reject(error);
         }
         resolve(results);
+      }
+    );
+  });
+}
+
+export async function getUserLeadPokemon(userId) {
+  return new Promise((resolve, reject) => {
+    connection.query(
+      'SELECT * FROM pokemon WHERE user = (SELECT name FROM user WHERE discordId = ?) AND lead = 1',
+      [userId],
+      (error, results) => {
+        if (error) {
+          return reject(error);
+        }
+        resolve(results[0]);
       }
     );
   });

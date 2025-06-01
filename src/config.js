@@ -8,6 +8,9 @@ export const channelId = process.env.MESSAGE_CHANNEL_ID;
 let rawAdminIds = process.env.ADMIN_IDS ? process.env.ADMIN_IDS.split(',') : [];
 export const adminIds = rawAdminIds.map((id) => id.trim());
 
+export const maxEncounters = 35;
+export const maxNewEncounters = 10;
+
 export const defaultSprite =
   'https://play.pokemonshowdown.com/sprites/trainers/oak.png';
 

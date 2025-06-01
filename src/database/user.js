@@ -29,10 +29,9 @@ export async function getUserById(discordId) {
 export async function updateUser(user) {
   return new Promise((resolve, reject) => {
     connection.query(
-      'UPDATE user SET name = ?, showdown = ?, badges = ?, money = ?, encounters = ?, newEncounters = ?, sprite = ?, delay = ? WHERE discordId = ?',
+      'UPDATE user SET name = ?, badges = ?, money = ?, encounters = ?, newEncounters = ?, sprite = ?, delay = ? WHERE discordId = ?',
       [
         user.name,
-        user.showdown,
         user.badges,
         user.money,
         user.encounters,

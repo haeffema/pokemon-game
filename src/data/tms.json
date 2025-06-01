@@ -1,0 +1,702 @@
+{
+  "TM01": {
+    "move": "Work Up",
+    "type": "Normal",
+    "categorie": "Status",
+    "strength": "",
+    "accuracy": ""
+  },
+  "TM02": {
+    "move": "Dragon Claw",
+    "type": "Dragon",
+    "categorie": "Physical",
+    "strength": "80",
+    "accuracy": "100"
+  },
+  "TM03": {
+    "move": "Psyshock",
+    "type": "Psychic",
+    "categorie": "Special",
+    "strength": "80",
+    "accuracy": "100"
+  },
+  "TM04": {
+    "move": "Calm Mind",
+    "type": "Psychic",
+    "categorie": "Status",
+    "strength": "",
+    "accuracy": ""
+  },
+  "TM05": {
+    "move": "Roar",
+    "type": "Normal",
+    "categorie": "Status",
+    "strength": "",
+    "accuracy": ""
+  },
+  "TM06": {
+    "move": "Toxic",
+    "type": "Poison",
+    "categorie": "Status",
+    "strength": "",
+    "accuracy": "90"
+  },
+  "TM07": {
+    "move": "Hail",
+    "type": "Ice",
+    "categorie": "Status",
+    "strength": "",
+    "accuracy": ""
+  },
+  "TM08": {
+    "move": "Bulk Up",
+    "type": "Fighting",
+    "categorie": "Status",
+    "strength": "",
+    "accuracy": ""
+  },
+  "TM09": {
+    "move": "Venoshock",
+    "type": "Poison",
+    "categorie": "Special",
+    "strength": "65",
+    "accuracy": "100"
+  },
+  "TM10": {
+    "move": "Hidden Power",
+    "type": "Normal",
+    "categorie": "Special",
+    "strength": "60",
+    "accuracy": "100"
+  },
+  "TM11": {
+    "move": "Sunny Day",
+    "type": "Fire",
+    "categorie": "Status",
+    "strength": "",
+    "accuracy": ""
+  },
+  "TM12": {
+    "move": "Taunt",
+    "type": "Dark",
+    "categorie": "Status",
+    "strength": "",
+    "accuracy": "100"
+  },
+  "TM13": {
+    "move": "Ice Beam",
+    "type": "Ice",
+    "categorie": "Special",
+    "strength": "90",
+    "accuracy": "100"
+  },
+  "TM14": {
+    "move": "Blizzard",
+    "type": "Ice",
+    "categorie": "Special",
+    "strength": "110",
+    "accuracy": "70"
+  },
+  "TM15": {
+    "move": "Hyper Beam",
+    "type": "Normal",
+    "categorie": "Special",
+    "strength": "150",
+    "accuracy": "90"
+  },
+  "TM16": {
+    "move": "Light Screen",
+    "type": "Psychic",
+    "categorie": "Status",
+    "strength": "",
+    "accuracy": ""
+  },
+  "TM17": {
+    "move": "Protect",
+    "type": "Normal",
+    "categorie": "Status",
+    "strength": "",
+    "accuracy": ""
+  },
+  "TM18": {
+    "move": "Rain Dance",
+    "type": "Water",
+    "categorie": "Status",
+    "strength": "",
+    "accuracy": ""
+  },
+  "TM19": {
+    "move": "Roost",
+    "type": "Flying",
+    "categorie": "Status",
+    "strength": "",
+    "accuracy": ""
+  },
+  "TM20": {
+    "move": "Safeguard",
+    "type": "Normal",
+    "categorie": "Status",
+    "strength": "",
+    "accuracy": ""
+  },
+  "TM21": {
+    "move": "Frustration",
+    "type": "Normal",
+    "categorie": "Physical",
+    "strength": " varies",
+    "accuracy": "100"
+  },
+  "TM22": {
+    "move": "Solar Beam",
+    "type": "Grass",
+    "categorie": "Special",
+    "strength": "120",
+    "accuracy": "100"
+  },
+  "TM23": {
+    "move": "Smack Down",
+    "type": "Rock",
+    "categorie": "Physical",
+    "strength": "50",
+    "accuracy": "100"
+  },
+  "TM24": {
+    "move": "Thunderbolt",
+    "type": "Electric",
+    "categorie": "Special",
+    "strength": "90",
+    "accuracy": "100"
+  },
+  "TM25": {
+    "move": "Thunder",
+    "type": "Electric",
+    "categorie": "Special",
+    "strength": "110",
+    "accuracy": "70"
+  },
+  "TM26": {
+    "move": "Earthquake",
+    "type": "Ground",
+    "categorie": "Physical",
+    "strength": "100",
+    "accuracy": "100"
+  },
+  "TM27": {
+    "move": "Return",
+    "type": "Normal",
+    "categorie": "Physical",
+    "strength": " varies",
+    "accuracy": "100"
+  },
+  "TM28": {
+    "move": "Leech Life",
+    "type": "Bug",
+    "categorie": "Physical",
+    "strength": "80",
+    "accuracy": "100"
+  },
+  "TM29": {
+    "move": "Psychic",
+    "type": "Psychic",
+    "categorie": "Special",
+    "strength": "90",
+    "accuracy": "100"
+  },
+  "TM30": {
+    "move": "Shadow Ball",
+    "type": "Ghost",
+    "categorie": "Special",
+    "strength": "80",
+    "accuracy": "100"
+  },
+  "TM31": {
+    "move": "Brick Break",
+    "type": "Fighting",
+    "categorie": "Physical",
+    "strength": "75",
+    "accuracy": "100"
+  },
+  "TM32": {
+    "move": "Double Team",
+    "type": "Normal",
+    "categorie": "Status",
+    "strength": "",
+    "accuracy": ""
+  },
+  "TM33": {
+    "move": "Reflect",
+    "type": "Psychic",
+    "categorie": "Status",
+    "strength": "",
+    "accuracy": ""
+  },
+  "TM34": {
+    "move": "Sludge Wave",
+    "type": "Poison",
+    "categorie": "Special",
+    "strength": "95",
+    "accuracy": "100"
+  },
+  "TM35": {
+    "move": "Flamethrower",
+    "type": "Fire",
+    "categorie": "Special",
+    "strength": "90",
+    "accuracy": "100"
+  },
+  "TM36": {
+    "move": "Sludge Bomb",
+    "type": "Poison",
+    "categorie": "Special",
+    "strength": "90",
+    "accuracy": "100"
+  },
+  "TM37": {
+    "move": "Sandstorm",
+    "type": "Rock",
+    "categorie": "Status",
+    "strength": "",
+    "accuracy": ""
+  },
+  "TM38": {
+    "move": "Fire Blast",
+    "type": "Fire",
+    "categorie": "Special",
+    "strength": "110",
+    "accuracy": "85"
+  },
+  "TM39": {
+    "move": "Rock Tomb",
+    "type": "Rock",
+    "categorie": "Physical",
+    "strength": "60",
+    "accuracy": "95"
+  },
+  "TM40": {
+    "move": "Aerial Ace",
+    "type": "Flying",
+    "categorie": "Physical",
+    "strength": "60",
+    "accuracy": ""
+  },
+  "TM41": {
+    "move": "Torment",
+    "type": "Dark",
+    "categorie": "Status",
+    "strength": "",
+    "accuracy": "100"
+  },
+  "TM42": {
+    "move": "Facade",
+    "type": "Normal",
+    "categorie": "Physical",
+    "strength": "70",
+    "accuracy": "100"
+  },
+  "TM43": {
+    "move": "Flame Charge",
+    "type": "Fire",
+    "categorie": "Physical",
+    "strength": "50",
+    "accuracy": "100"
+  },
+  "TM44": {
+    "move": "Rest",
+    "type": "Psychic",
+    "categorie": "Status",
+    "strength": "",
+    "accuracy": ""
+  },
+  "TM45": {
+    "move": "Attract",
+    "type": "Normal",
+    "categorie": "Status",
+    "strength": "",
+    "accuracy": "100"
+  },
+  "TM46": {
+    "move": "Thief",
+    "type": "Dark",
+    "categorie": "Physical",
+    "strength": "60",
+    "accuracy": "100"
+  },
+  "TM47": {
+    "move": "Low Sweep",
+    "type": "Fighting",
+    "categorie": "Physical",
+    "strength": "65",
+    "accuracy": "100"
+  },
+  "TM48": {
+    "move": "Round",
+    "type": "Normal",
+    "categorie": "Special",
+    "strength": "60",
+    "accuracy": "100"
+  },
+  "TM49": {
+    "move": "Echoed Voice",
+    "type": "Normal",
+    "categorie": "Special",
+    "strength": "40",
+    "accuracy": "100"
+  },
+  "TM50": {
+    "move": "Overheat",
+    "type": "Fire",
+    "categorie": "Special",
+    "strength": "130",
+    "accuracy": "90"
+  },
+  "TM51": {
+    "move": "Steel Wing",
+    "type": "Steel",
+    "categorie": "Physical",
+    "strength": "70",
+    "accuracy": "90"
+  },
+  "TM52": {
+    "move": "Focus Blast",
+    "type": "Fighting",
+    "categorie": "Special",
+    "strength": "120",
+    "accuracy": "70"
+  },
+  "TM53": {
+    "move": "Energy Ball",
+    "type": "Grass",
+    "categorie": "Special",
+    "strength": "90",
+    "accuracy": "100"
+  },
+  "TM54": {
+    "move": "False Swipe",
+    "type": "Normal",
+    "categorie": "Physical",
+    "strength": "40",
+    "accuracy": "100"
+  },
+  "TM55": {
+    "move": "Scald",
+    "type": "Water",
+    "categorie": "Special",
+    "strength": "80",
+    "accuracy": "100"
+  },
+  "TM56": {
+    "move": "Fling",
+    "type": "Dark",
+    "categorie": "Physical",
+    "strength": " varies",
+    "accuracy": "100"
+  },
+  "TM57": {
+    "move": "Charge Beam",
+    "type": "Electric",
+    "categorie": "Special",
+    "strength": "50",
+    "accuracy": "90"
+  },
+  "TM58": {
+    "move": "Sky Drop",
+    "type": "Flying",
+    "categorie": "Physical",
+    "strength": "60",
+    "accuracy": "100"
+  },
+  "TM59": {
+    "move": "Brutal Swing",
+    "type": "Dark",
+    "categorie": "Physical",
+    "strength": "60",
+    "accuracy": "100"
+  },
+  "TM60": {
+    "move": "Quash",
+    "type": "Dark",
+    "categorie": "Status",
+    "strength": "",
+    "accuracy": "100"
+  },
+  "TM61": {
+    "move": "Will-O-Wisp",
+    "type": "Fire",
+    "categorie": "Status",
+    "strength": "",
+    "accuracy": "85"
+  },
+  "TM62": {
+    "move": "Acrobatics",
+    "type": "Flying",
+    "categorie": "Physical",
+    "strength": "55",
+    "accuracy": "100"
+  },
+  "TM63": {
+    "move": "Embargo",
+    "type": "Dark",
+    "categorie": "Status",
+    "strength": "",
+    "accuracy": "100"
+  },
+  "TM64": {
+    "move": "Explosion",
+    "type": "Normal",
+    "categorie": "Physical",
+    "strength": "250",
+    "accuracy": "100"
+  },
+  "TM65": {
+    "move": "Shadow Claw",
+    "type": "Ghost",
+    "categorie": "Physical",
+    "strength": "70",
+    "accuracy": "100"
+  },
+  "TM66": {
+    "move": "Payback",
+    "type": "Dark",
+    "categorie": "Physical",
+    "strength": "50",
+    "accuracy": "100"
+  },
+  "TM67": {
+    "move": "Smart Strike",
+    "type": "Steel",
+    "categorie": "Physical",
+    "strength": "70",
+    "accuracy": ""
+  },
+  "TM68": {
+    "move": "Giga Impact",
+    "type": "Normal",
+    "categorie": "Physical",
+    "strength": "150",
+    "accuracy": "90"
+  },
+  "TM69": {
+    "move": "Rock Polish",
+    "type": "Rock",
+    "categorie": "Status",
+    "strength": "",
+    "accuracy": ""
+  },
+  "TM70": {
+    "move": "Aurora Veil",
+    "type": "Ice",
+    "categorie": "Status",
+    "strength": "",
+    "accuracy": ""
+  },
+  "TM71": {
+    "move": "Stone Edge",
+    "type": "Rock",
+    "categorie": "Physical",
+    "strength": "100",
+    "accuracy": "80"
+  },
+  "TM72": {
+    "move": "Volt Switch",
+    "type": "Electric",
+    "categorie": "Special",
+    "strength": "70",
+    "accuracy": "100"
+  },
+  "TM73": {
+    "move": "Thunder Wave",
+    "type": "Electric",
+    "categorie": "Status",
+    "strength": "",
+    "accuracy": "90"
+  },
+  "TM74": {
+    "move": "Gyro Ball",
+    "type": "Steel",
+    "categorie": "Physical",
+    "strength": " varies",
+    "accuracy": "100"
+  },
+  "TM75": {
+    "move": "Swords Dance",
+    "type": "Normal",
+    "categorie": "Status",
+    "strength": "",
+    "accuracy": ""
+  },
+  "TM76": {
+    "move": "Fly",
+    "type": "Flying",
+    "categorie": "Physical",
+    "strength": "90",
+    "accuracy": "95"
+  },
+  "TM77": {
+    "move": "Psych Up",
+    "type": "Normal",
+    "categorie": "Status",
+    "strength": "",
+    "accuracy": ""
+  },
+  "TM78": {
+    "move": "Bulldoze",
+    "type": "Ground",
+    "categorie": "Physical",
+    "strength": "60",
+    "accuracy": "100"
+  },
+  "TM79": {
+    "move": "Frost Breath",
+    "type": "Ice",
+    "categorie": "Special",
+    "strength": "60",
+    "accuracy": "90"
+  },
+  "TM80": {
+    "move": "Rock Slide",
+    "type": "Rock",
+    "categorie": "Physical",
+    "strength": "75",
+    "accuracy": "90"
+  },
+  "TM81": {
+    "move": "X-Scissor",
+    "type": "Bug",
+    "categorie": "Physical",
+    "strength": "80",
+    "accuracy": "100"
+  },
+  "TM82": {
+    "move": "Dragon Tail",
+    "type": "Dragon",
+    "categorie": "Physical",
+    "strength": "60",
+    "accuracy": "90"
+  },
+  "TM83": {
+    "move": "Infestation",
+    "type": "Bug",
+    "categorie": "Special",
+    "strength": "20",
+    "accuracy": "100"
+  },
+  "TM84": {
+    "move": "Poison Jab",
+    "type": "Poison",
+    "categorie": "Physical",
+    "strength": "80",
+    "accuracy": "100"
+  },
+  "TM85": {
+    "move": "Dream Eater",
+    "type": "Psychic",
+    "categorie": "Special",
+    "strength": "100",
+    "accuracy": "100"
+  },
+  "TM86": {
+    "move": "Grass Knot",
+    "type": "Grass",
+    "categorie": "Special",
+    "strength": " varies",
+    "accuracy": "100"
+  },
+  "TM87": {
+    "move": "Swagger",
+    "type": "Normal",
+    "categorie": "Status",
+    "strength": "",
+    "accuracy": "85"
+  },
+  "TM88": {
+    "move": "Sleep Talk",
+    "type": "Normal",
+    "categorie": "Status",
+    "strength": "",
+    "accuracy": ""
+  },
+  "TM89": {
+    "move": "U-turn",
+    "type": "Bug",
+    "categorie": "Physical",
+    "strength": "70",
+    "accuracy": "100"
+  },
+  "TM90": {
+    "move": "Substitute",
+    "type": "Normal",
+    "categorie": "Status",
+    "strength": "",
+    "accuracy": ""
+  },
+  "TM91": {
+    "move": "Flash Cannon",
+    "type": "Steel",
+    "categorie": "Special",
+    "strength": "80",
+    "accuracy": "100"
+  },
+  "TM92": {
+    "move": "Trick Room",
+    "type": "Psychic",
+    "categorie": "Status",
+    "strength": "",
+    "accuracy": ""
+  },
+  "TM93": {
+    "move": "Wild Charge",
+    "type": "Electric",
+    "categorie": "Physical",
+    "strength": "90",
+    "accuracy": "100"
+  },
+  "TM94": {
+    "move": "Surf",
+    "type": "Water",
+    "categorie": "Special",
+    "strength": "90",
+    "accuracy": "100"
+  },
+  "TM95": {
+    "move": "Snarl",
+    "type": "Dark",
+    "categorie": "Special",
+    "strength": "55",
+    "accuracy": "95"
+  },
+  "TM96": {
+    "move": "Nature Power",
+    "type": "Normal",
+    "categorie": "Status",
+    "strength": "",
+    "accuracy": ""
+  },
+  "TM97": {
+    "move": "Dark Pulse",
+    "type": "Dark",
+    "categorie": "Special",
+    "strength": "80",
+    "accuracy": "100"
+  },
+  "TM98": {
+    "move": "Waterfall",
+    "type": "Water",
+    "categorie": "Physical",
+    "strength": "80",
+    "accuracy": "100"
+  },
+  "TM99": {
+    "move": "Dazzling Gleam",
+    "type": "Fairy",
+    "categorie": "Special",
+    "strength": "80",
+    "accuracy": "100"
+  },
+  "TM100": {
+    "move": "Confide",
+    "type": "Normal",
+    "categorie": "Status",
+    "strength": "",
+    "accuracy": ""
+  }
+}
