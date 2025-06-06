@@ -60,7 +60,7 @@ async function getRandomEncounterForPlayer(user) {
     }
   }
   if (availablePokemon.length === 0) {
-    return await getRandomEncounterForPlayer(user.discordId);
+    return await getRandomEncounterForPlayer(user);
   }
   const randomPokemon =
     availablePokemon[Math.floor(availablePokemon.length * Math.random())];
