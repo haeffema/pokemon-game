@@ -6,15 +6,14 @@ import { calculate, Generations, Pokemon, Move, Field } from '@smogon/calc';
 import showdown from 'pokemon-showdown';
 import tierData from '../data/tierPropabilities.json' with { type: 'json' };
 import pokemonData from '../data/pokemon.json' with { type: 'json' };
+import { sendBattleImage } from './imageGenerator.js';
 
 const activeBattles = {};
 
 const trainerID = 'p1';
 const botID = 'p2';
 
-async function getRandomEncounterForPlayer(userId) {
-  const user = await getUserById(userId);
-
+async function getRandomEncounterForPlayer(user) {
   if (user.encounters >= maxEncounters) {
     return false;
   }
@@ -61,7 +60,7 @@ async function getRandomEncounterForPlayer(userId) {
     }
   }
   if (availablePokemon.length === 0) {
-    return await getRandomEncounterForPlayer(userId);
+    return await getRandomEncounterForPlayer(user.discordId);
   }
   const randomPokemon =
     availablePokemon[Math.floor(availablePokemon.length * Math.random())];
@@ -77,16 +76,21 @@ async function getRandomEncounterForPlayer(userId) {
   };
 }
 
-async function getRandomSetForPokemon(pokemon) {
+async function getRandomSetForPokemon(pokemon, user) {
   const randomPokemonData = pokemonData[pokemon];
   const sets = randomPokemonData.sets;
   const set = sets[Math.floor(Math.random() * sets.length)];
   set['name'] = '';
   set['species'] = randomPokemonData.name;
-  (set['ivs'] = { hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31 }),
-    (set['level'] = 100);
+  set['ivs'] = { hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31 };
+  set['level'] = 100;
   set['happiness'] = 255;
-  set['shiny'] = Math.floor(Math.random() * 8196) === 187;
+  if (user.badges === 8) {
+    set['shiny'] = Math.floor(Math.random() * 4098) === 187;
+  } else {
+    set['shiny'] = Math.floor(Math.random() * 8196) === 187;
+  }
+
   return set;
 }
 
@@ -96,7 +100,7 @@ async function botChooseHighestDamageMove(battle) {
    */
   const attackerShowdown = battle.p2.active[0];
   const defenderShowdown = battle.p1.active[0];
-  const gen = Generations.get(attackerShowdown.battle.gen);
+  const gen = Generations.get(battle.gen);
   const attacker = formatForCalc(attackerShowdown);
   const defender = formatForCalc(defenderShowdown);
   const moves = attackerShowdown.set.moves;
@@ -167,13 +171,14 @@ function formatForCalc(pokemon) {
 }
 
 export async function startNewBattle(userId) {
+  const user = await getUserById(userId);
   if (activeBattles[userId]) {
     return false;
   }
   const userLead = await getUserLeadPokemon(userId);
   const trainerPokemon = showdown.Teams.import(userLead.pokepaste);
-  const wildEncounter = await getRandomEncounterForPlayer(userId);
-  const wildSet = await getRandomSetForPokemon(wildEncounter.pokemon);
+  const wildEncounter = await getRandomEncounterForPlayer(user);
+  const wildSet = await getRandomSetForPokemon(wildEncounter.pokemon, user);
 
   const battle = new showdown.Battle({ formatid: 'gen7customgame' });
 
@@ -195,8 +200,10 @@ export async function runBattle(userId) {
     return false;
   }
   const battle = activeBattles[userId].battle;
+
+  await sendBattleImage(battle.p1.active[0], battle.p2.active[0], userId);
+
   if (!battle.ended) {
-    // send User status and await user response ->
     const userResponse = 1;
     battle.choose(trainerID, `move ${userResponse}`);
     await botChooseHighestDamageMove(battle);

@@ -5,7 +5,7 @@ const connection = mysql.createConnection({
   user: 'root',
   port: 3306,
   password: null,
-  database: 'pokemongame',
+  database: 'pokemon',
   multipleStatements: true,
 });
 
