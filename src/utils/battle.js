@@ -211,7 +211,7 @@ export async function runBattle(userId) {
     return;
   }
   // do some loot calcs
-  console.log(activeBattles[userId]);
+  // console.log(activeBattles[userId]);
 }
 
 await startNewBattle('360368525379895298');
