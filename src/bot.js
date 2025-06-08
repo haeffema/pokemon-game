@@ -216,6 +216,7 @@ bot.on(Events.InteractionCreate, async (interaction) => {
       });
 
       choices = items.map((item) => item.name);
+      choices.unshift('AllItems');
     } else if (category === 'tms') {
       var query =
         'SELECT * FROM tm_spieler ts inner join tm on ts.tm = tm.id where spieler = (Select name from spieler where discordid = ?)';
@@ -229,6 +230,7 @@ bot.on(Events.InteractionCreate, async (interaction) => {
         });
       });
       choices = tms.map((tm) => tm.id + ': ' + tm.attacke);
+      choices.unshift('AllTMs');
     }
 
     const filtered = choices

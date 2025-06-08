@@ -359,7 +359,7 @@ export default {
 var arenas = [
   'Normal',
   'Fire',
-  'Fighting',
+  'Water',
   'Ground',
   'Electric',
   'Dragon',

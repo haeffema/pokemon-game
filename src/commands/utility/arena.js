@@ -155,9 +155,9 @@ const arenaMapping = [
     zKristall: 'Firium Z',
   },
   {
-    typ: 'Fighting',
-    deutscherName: 'Kampf',
-    zKristall: 'Fightinium Z',
+    typ: 'Water',
+    deutscherName: 'Wasser',
+    zKristall: 'Waterium Z',
   },
   {
     typ: 'Ground',

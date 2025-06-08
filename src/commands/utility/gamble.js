@@ -7,8 +7,8 @@ const commandData = new SlashCommandBuilder()
   .setDescription('Gamble 57 PokeDollar and get lucky ... halbe approved!');
 
 const execute = async (interaction) => {
-  await interaction.reply('aktuell deaktiviert');
-  return;
+  //await interaction.reply('aktuell deaktiviert');
+  //return;
   var query = 'SELECT * FROM spieler where discordid = ?';
   var spieler = await new Promise((resolve, reject) => {
     connection.query(query, [interaction.user.id], function (err, results) {

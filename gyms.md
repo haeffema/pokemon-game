@@ -10,7 +10,7 @@
 2x RU
 2x NU
 
-# [Fighting]()
+# [Water]()
 
 1x OU
 2x UU

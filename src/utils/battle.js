@@ -72,47 +72,28 @@ async function updateBattleState(battle, username, shiny, type = undefined) {
   const imageName = `src/data/battleImages/${username}.png`;
   console.log('wild species', wildPokemon.species.name);
   console.log('trainer species', trainerPokemon.species.name);
-  var wildPokemonSprite =
-    pokeData[
-      wildPokemon.species.name
-        .toLowerCase()
-        .replace('-meteor', '')
-        .replace('-school', '')
-        .replace('-totem', '')
-        .replace('-primal', '')
-        .replace('-sky', '')
-        .replace('-blade', '')
-    ].sprite;
-  if (shiny) {
-    wildPokemonSprite = wildPokemonSprite.replace(
-      '/pokemon/',
-      '/pokemon/shiny/'
-    );
-  }
+
+  const trainerSprite = pokeData[trainerPokemon.species.name.toLowerCase()]
+    ? pokeData[trainerPokemon.species.name.toLowerCase()].sprite
+    : 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/shiny/132.png';
+  const wildSprite = pokeData[wildPokemon.species.name.toLowerCase()]
+    ? pokeData[wildPokemon.species.name.toLowerCase()].sprite
+    : 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/132.png';
+
   await generateBattleImage(
     {
       name: trainerPokemon.species.name,
       status: trainerPokemon.status,
       hp: trainerPokemon.hp,
       maxHp: trainerPokemon.maxhp,
-      spriteUrl:
-        pokeData[
-          trainerPokemon.species.name
-            .toLowerCase()
-            .replace('-meteor', '')
-            .replace('-school', '')
-            .replace('-totem', '')
-            .replace('-primal', '')
-            .replace('-sky', '')
-            .replace('-blade', '')
-        ].sprite,
+      spriteUrl: trainerSprite,
     },
     {
       name: wildPokemon.species.name,
       status: wildPokemon.status,
       hp: wildPokemon.hp,
       maxHp: wildPokemon.maxhp,
-      spriteUrl: wildPokemonSprite,
+      spriteUrl: wildSprite,
     },
     type,
     imageName
@@ -274,7 +255,10 @@ async function botChooseHighestDamageMove(battle) {
   const moves = attackerShowdown.set.moves;
   let bestMoveIndex = 0;
   let maxDamage = -1;
-  if (attackerShowdown.volatiles.twoturnmove) {
+  if (
+    attackerShowdown.volatiles.twoturnmove ||
+    attackerShowdown.volatiles.lockedmove
+  ) {
     battle.choose(botID, 'move 1');
     return;
   }

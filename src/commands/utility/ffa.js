@@ -10,7 +10,7 @@ const commandData = new SlashCommandBuilder()
   );
 
 const execute = async (interaction) => {
-  await interaction.reply('aktuell deaktiviert');
+  await interaction.reply('disabled.');
   return;
 
   const validPokemon = Object.keys(pokemonData).filter((pokemon) => {
