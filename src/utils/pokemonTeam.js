@@ -3,6 +3,7 @@ import { getPokepasteTeamFromHtml } from './pokepaste.js';
 import { getAllUserPokemon } from '../database/pokemon.js';
 import { getAllItemsForUser } from '../database/item.js';
 import { getAllTmsForUser } from '../database/tm.js';
+import { checkIfTutorMoveIsLearned } from '../database/tutor.js';
 import pokemonData from '../data/pokemon.json' with { type: 'json' };
 import tmData from '../data/tms.json' with { type: 'json' };
 
@@ -26,8 +27,7 @@ export async function validateTeam(userId, team) {
       errors[pokemon.species] = { owned: false };
     }
   }
-
-  console.log(errors);
+  return errors;
 }
 
 export async function validateSet(databaseEntry, pokemon, userId) {
@@ -60,14 +60,10 @@ export async function validateSet(databaseEntry, pokemon, userId) {
     }
     if (moveData.type === 'tutor') {
       error[move] = 'Tutor Move';
-      for (const tm of await getAllTmsForUser(userId)) {
-        if (tmData[tm.tm].move === move) {
-          delete error[move];
-          break;
-        }
+      if (await checkIfTutorMoveIsLearned(userId, databaseEntry.name, move)) {
+        delete error[move];
       }
     }
-    console.log(moveData);
   }
   return error;
 }
