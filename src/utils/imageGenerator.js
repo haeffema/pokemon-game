@@ -2,9 +2,6 @@ import { getActivePool } from '../database/pool.js';
 import { createCanvas, loadImage } from 'canvas';
 import { access, constants } from 'node:fs/promises';
 
-const width = 800;
-const height = 600;
-
 function drawHealthBar(ctx, x, y, barWidth, barHeight, pokemon) {
   const percentage = pokemon.hp / pokemon.maxhp;
   let percent = Math.round(percentage * 100);
@@ -81,6 +78,8 @@ function drawHealthBar(ctx, x, y, barWidth, barHeight, pokemon) {
 }
 
 export async function generateBattleImage(trainerPokemon, wildPokemon) {
+  const width = 800;
+  const height = 600;
   const canvas = createCanvas(width, height);
   const ctx = canvas.getContext('2d');
 
@@ -177,6 +176,37 @@ export async function generateBattleImage(trainerPokemon, wildPokemon) {
     healthBarHeight,
     wildPokemon
   );
+
+  return new Promise((resolve, reject) => {
+    canvas.toBuffer((err, buffer) => {
+      if (err) {
+        return reject(err);
+      }
+      resolve(buffer);
+    });
+  });
+}
+
+export async function generateBadgeImage(badges) {
+  const widthPerBadge = 40;
+  const height = 40;
+  const total = 8;
+
+  const canvas = createCanvas(widthPerBadge * total, height);
+  const ctx = canvas.getContext('2d');
+
+  const badgeImages = await Promise.all(
+    Array.from({ length: total }, async (_, i) => {
+      return await loadImage(`./src/data/badges/badge${i + 1}.png`);
+    })
+  );
+
+  const empty = await loadImage('./src/data/badges/empty.png');
+
+  for (let i = 0; i < total; i++) {
+    const img = i < badges ? badgeImages[i] : empty;
+    ctx.drawImage(img, i * widthPerBadge, 0, widthPerBadge, height);
+  }
 
   return new Promise((resolve, reject) => {
     canvas.toBuffer((err, buffer) => {

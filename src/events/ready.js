@@ -9,9 +9,9 @@ export const once = true;
 export async function execute(client) {
   console.info(`Logged in as ${client.user.tag}!`);
 
-  cron.schedule('* * * * *', () => {
+  /** cron.schedule('* * * * *', () => {
     console.log('Checking for messages to send...');
-  });
+  }); */
 
   cron.schedule('0 0 * * *', async () => {
     console.log('Starting daily reset...');
