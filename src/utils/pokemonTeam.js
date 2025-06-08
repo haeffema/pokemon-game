@@ -1,6 +1,6 @@
 import showdown from 'pokemon-showdown';
 import { getPokepasteTeamFromHtml } from './pokepaste.js';
-import { getAllUserPokemon } from '../database/pokemon.js';
+import { getAllUserPokemon, setPokemonPokepaste } from '../database/pokemon.js';
 import { getAllItemsForUser } from '../database/item.js';
 import { getAllTmsForUser } from '../database/tm.js';
 import { checkIfTutorMoveIsLearned } from '../database/tutor.js';
@@ -24,6 +24,13 @@ export async function validateTeam(userId, team) {
         pokemon,
         userId
       );
+      if (Object.keys(errors[pokemon.species]).length === 0) {
+        await setPokemonPokepaste(
+          userId,
+          pokemon.species,
+          showdown.Teams.export([pokemon])
+        );
+      }
     } else {
       errors[pokemon.species] = { notOwned: true };
     }
