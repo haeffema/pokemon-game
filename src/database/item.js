@@ -25,7 +25,7 @@ export async function addItemForUser(user, item) {
     connection.query(
       query,
       [item.name, user.name, item.description, item.sprite],
-      (error, results) => {
+      (error) => {
         if (error) {
           return reject(error);
         }

@@ -1,5 +1,6 @@
 import { SlashCommandBuilder } from 'discord.js';
 import itemData from '../data/items/questItems.json' with { type: 'json' };
+import gymData from '../data/gyms.json' with { type: 'json' };
 import { adminIds } from '../config.js';
 import { getAllUsers, getUserById, updateUser } from '../database/user.js';
 import { getActiveChallenge, updateChallenge } from '../database/challenge.js';
@@ -63,43 +64,67 @@ export async function execute(interaction) {
 
   await updateChallenge(activeChallenge);
 
+  const currentGym = gymData[player.badges];
+
   if (victory === 'Victory') {
     player.badges += 1;
-    const price = 2000 * player.badges;
-    player.money += price;
+    const newGym = gymData[player.badges];
+    player.money += currentGym.reward.money;
 
     const adminMessage = `Die Herausforderung von ${player.name} war **erfolgreich**, der Arenaleiter musste sich (aufgrund von Hax) geschlagen geben, der Spieler bekommt seine Belohnungen.`;
     await interaction.followUp(adminMessage);
     for (const adminId of adminIds) {
       if (adminId === interaction.user.id) continue;
-      await sendMessage(adminId, adminMessage);
+      await sendMessage(adminMessage, adminId);
     }
     await sendMessage(
-      player.discordId,
-      `Glückwunsch, du hast die ${arenaMapping[player.badges - 1].translated} Arena erfolgreich bezwungen und den Orden erhalten! \nDer Arenaleiter hat dir als Belohnung ${price} PokeDollar übergeben sowie ein ganz besonderes Item!`
+      {
+        title: `${currentGym.type} Arena geschafft.`,
+        description: `Herzlichen Glückwunsch für das Bezwingen der ${currentGym.type} Arena.\nAls Belohnung erhälst du ${currentGym.reward.money} PokeDollar sowie ein ganz besonderes Item!\n\nPokepaste: ${currentGym.pokepaste}\nDrive: ${currentGym.drive}`,
+        sprite: currentGym.sprite,
+        color: 'Green',
+      },
+      player.discordId
     );
-    const zCrystal = itemData[arenaMapping[player.badges - 1].zCrystal];
-    await sendMessage(player.discordId, {
-      title: zCrystal.name,
-      description: zCrystal.description,
-      color: 'Green',
-      sprite: zCrystal.sprite,
-    });
-    await sendMessage('channel', {
+    const zCrystal = itemData[currentGym.reward.item];
+    await sendMessage(
+      {
+        title: zCrystal.name,
+        description: zCrystal.description,
+        color: 'Green',
+        sprite: zCrystal.sprite,
+      },
+      player.discordId
+    );
+    await sendMessage({
       title: 'Glückwunsche des Professors',
       description: `Glückwunsch, ${player.name} hat die ${player.badges}. Arena bezwungen und den Orden erhalten! Aber sei gewarnt, der nächste Arenaleiter wird es dir nicht so einfach machen.`,
       color: 'Purple',
     });
+    await sendMessage(
+      {
+        title: 'Bereit für eine neue Herausforderung?',
+        description: `${newGym.text}\n\n*Du kannst nun in die ${player.badges + 1}. Arena ... wenn du dich traust.*`,
+        color: 'Blue',
+        sprite: newGym.sprite,
+      },
+      player.discordId
+    );
   } else {
-    const adminMessage = `Die Herausforderung von ${player.name} ist **gescheitert**, der Arenaleiter hat (wie vorauszusehen war) triumphiert. Der Spieler bekommt eine Sperre für 3 Tage bevor er die Arena erneut herausfordern darf.`;
+    const adminMessage = `Die Herausforderung von ${player.name} ist **gescheitert**, der Arenaleiter hat (wie vorauszusehen war) triumphiert. Der Spieler bekommt eine Sperre für drei Tage bevor er die Arena erneut herausfordern darf.`;
     await interaction.followUp(adminMessage);
     for (const adminId of adminIds) {
       if (adminId === interaction.user.id) continue;
-      await sendMessage(adminId, adminMessage);
+      await sendMessage(adminMessage, adminId);
     }
     await sendMessage(
-      player.discordId,
-      `Schade... leider hast du die **${arenaMapping[player.badges].translated} Arena** nicht bezwingen können! \nDer Arenaleiter hat dir wohl gezeigt wo der Bartel den Most holt, du musst nun drei Tage warten bevor du ihn erneut herausfordern kannst!`
+      {
+        title: `${currentGym.type} Arena nicht geschafft.`,
+        description: `Nun die ${currentGym.type} Arena ist wohl doch nicht so einfach.\nVersuche es in drei Tagen erneut ... vielleicht fällt dir bis dahin ja eine bessere Strategie ein.`,
+        sprite: currentGym.sprite,
+        color: 'Red',
+      },
+      player.discordId
     );
   }
   player.delay = 3;
@@ -129,46 +154,3 @@ export async function autocomplete(interaction) {
 
   await interaction.respond(options);
 }
-
-const arenaMapping = [
-  {
-    type: 'Normal',
-    translated: 'Normal',
-    zCrystal: 'Normalium Z',
-  },
-  {
-    type: 'Fire',
-    translated: 'Feuer',
-    zCrystal: 'Firium Z',
-  },
-  {
-    type: 'Fighting',
-    translated: 'Kampf',
-    zCrystal: 'Fightinium Z',
-  },
-  {
-    type: 'Ground',
-    translated: 'Boden',
-    zCrystal: 'Groundium Z',
-  },
-  {
-    type: 'Electric',
-    translated: 'Elektro',
-    zCrystal: 'Electrium Z',
-  },
-  {
-    type: 'Dragon',
-    translated: 'Drache',
-    zCrystal: 'Dragonium Z',
-  },
-  {
-    type: 'Dark',
-    translated: 'Unlicht',
-    zCrystal: 'Darkinium Z',
-  },
-  {
-    type: 'Ghost',
-    translated: 'Geist',
-    zCrystal: 'Ghostium Z',
-  },
-];
