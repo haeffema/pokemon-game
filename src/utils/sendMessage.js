@@ -1,33 +1,60 @@
-import { EmbedBuilder } from 'discord.js';
+import { EmbedBuilder, AttachmentBuilder } from 'discord.js';
 import { channelId, defaultSprite } from '../config.js';
 import { client } from './client.js';
 
-export async function sendMessage(receiver, content) {
+export async function sendMessage(
+  content,
+  receiver = 'channel',
+  components = []
+) {
   switch (receiver) {
     case 'channel': {
       const channel = await client.channels.fetch(channelId);
-      await _sendMessage(channel, content);
-      break;
+      return await _sendMessage(channel, content, components);
     }
     default: {
       const user = await client.users.fetch(receiver);
-      await _sendMessage(user, content);
-      break;
+      return await _sendMessage(user, content, components);
     }
   }
 }
 
-async function _sendMessage(receiver, content) {
+async function _sendMessage(receiver, content, components) {
   if (content.image) {
-    console.log('there is no image support yet');
+    const imageBuffer = content.image;
+    const attachment = new AttachmentBuilder(imageBuffer, {
+      name: 'image.png',
+    });
+
+    const messageEmbed = new EmbedBuilder()
+      .setTitle(content.title)
+      .setDescription(content.description)
+      .setColor(content.color)
+      .setImage('attachment://image.png');
+
+    return await receiver.send({
+      embeds: [messageEmbed],
+      files: [attachment],
+      components: components,
+    });
+  } else if (content.noSprite) {
+    const messageEmbed = new EmbedBuilder()
+      .setTitle(content.title)
+      .setDescription(content.description)
+      .setColor(content.color);
+
+    return await receiver.send({
+      embeds: [messageEmbed],
+      components: components,
+    });
   } else if (typeof content === 'string') {
-    await receiver.send(content);
+    return await receiver.send(content);
   } else {
     const message = new EmbedBuilder()
       .setTitle(content.title)
       .setDescription(content.description)
       .setColor(content.color || 'Blue')
       .setThumbnail(content.sprite || defaultSprite);
-    await receiver.send({ embeds: [message] });
+    return await receiver.send({ embeds: [message], components: components });
   }
 }

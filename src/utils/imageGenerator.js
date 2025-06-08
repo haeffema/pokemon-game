@@ -1,7 +1,6 @@
 import { getActivePool } from '../database/pool.js';
-import { getUserById } from '../database/user.js';
 import { createCanvas, loadImage } from 'canvas';
-import { createWriteStream } from 'fs';
+import { access, constants } from 'node:fs/promises';
 
 const width = 800;
 const height = 600;
@@ -19,7 +18,7 @@ function drawHealthBar(ctx, x, y, barWidth, barHeight, pokemon) {
   ctx.font = 'bold 18px Arial';
   ctx.textAlign = 'center';
   ctx.textBaseline = 'bottom';
-  ctx.fillText(pokemon.species.name, x + barWidth / 2, y - 5);
+  ctx.fillText(pokemon.set.name, x + barWidth / 2, y - 5);
 
   ctx.fillStyle = 'gray';
   ctx.fillRect(x, y, barWidth, barHeight);
@@ -43,6 +42,9 @@ function drawHealthBar(ctx, x, y, barWidth, barHeight, pokemon) {
 
     switch (statusUpper) {
       case 'TOX':
+        statusColor = 'purple';
+        break;
+      case 'PSN':
         statusColor = 'purple';
         break;
       case 'BRN':
@@ -78,20 +80,34 @@ function drawHealthBar(ctx, x, y, barWidth, barHeight, pokemon) {
   }
 }
 
-export async function sendBattleImage(trainerPokemon, wildPokemon, userId) {
+export async function generateBattleImage(trainerPokemon, wildPokemon) {
   const canvas = createCanvas(width, height);
   const ctx = canvas.getContext('2d');
-  const user = await getUserById(userId);
 
   const activePool = await getActivePool();
   const backgroundPath = `./src/data/background/${activePool.type}.png`;
 
   const trainerSet = trainerPokemon.set;
-  const trainerPath = `./src/data/sprites/${trainerSet.species.toLowerCase()}/${trainerSet.shiny ? 'shiny' : 'default'}/back.png`;
-
   const wildSet = wildPokemon.set;
-  const wildPath = `./src/data/sprites/${wildSet.species.toLowerCase()}/${wildSet.shiny ? 'shiny' : 'default'}/default.png`;
 
+  let trainerPath = `./src/data/sprites/${trainerSet.species.toLowerCase()}/${trainerSet.shiny ? 'shiny' : 'default'}/back.png`;
+  let wildPath = `./src/data/sprites/${wildSet.species.toLowerCase()}/${wildSet.shiny ? 'shiny' : 'default'}/default.png`;
+
+  const missingSpritePath = './src/data/sprites/missingSprite.png';
+
+  try {
+    await access(trainerPath, constants.F_OK);
+  } catch (error) {
+    console.warn(`No Sprite: ${trainerSet.species.toLowerCase()}`);
+    trainerPath = missingSpritePath;
+  }
+
+  try {
+    await access(wildPath, constants.F_OK);
+  } catch (error) {
+    console.warn(`No Sprite: ${wildSet.species.toLowerCase()}`);
+    wildPath = missingSpritePath;
+  }
   const [background, trainerSprite, wildSprite] = await Promise.all([
     loadImage(backgroundPath),
     loadImage(trainerPath),
@@ -162,14 +178,12 @@ export async function sendBattleImage(trainerPokemon, wildPokemon, userId) {
     wildPokemon
   );
 
-  const out = createWriteStream(`./src/data/_generatedImages/${user.name}.png`);
-  const stream = canvas.createPNGStream();
-  stream.pipe(out);
-
   return new Promise((resolve, reject) => {
-    out.on('finish', () => {
-      resolve();
+    canvas.toBuffer((err, buffer) => {
+      if (err) {
+        return reject(err);
+      }
+      resolve(buffer);
     });
-    out.on('error', reject);
   });
 }

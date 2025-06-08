@@ -69,3 +69,71 @@ export async function setPokemonAsLead(userId, pokemonName) {
     });
   });
 }
+
+export async function makeUserPokemonShiny(userId, pokemonName) {
+  return new Promise((resolve, reject) => {
+    const query = `
+      UPDATE pokemon
+      SET shiny = 1
+      WHERE name = ? AND user = (SELECT name FROM user WHERE discordId = ?)
+    `;
+    connection.query(query, [pokemonName, userId], (error, results) => {
+      if (error) {
+        return reject(error);
+      }
+      resolve(results.affectedRows > 0);
+    });
+  });
+}
+
+export async function setPokemonPokepaste(userId, pokemonName, pokepasteData) {
+  return new Promise((resolve, reject) => {
+    const query = `
+      UPDATE pokemon
+      SET pokepaste = ?
+      WHERE name = ? AND user = (SELECT name FROM user WHERE discordId = ?)
+    `;
+    connection.query(
+      query,
+      [pokepasteData, pokemonName, userId],
+      (error, results) => {
+        if (error) {
+          return reject(error);
+        }
+        resolve(results.affectedRows > 0);
+      }
+    );
+  });
+}
+
+export async function addNewPokemonForUser(user, pokemonData) {
+  return new Promise((resolve, reject) => {
+    const query = `
+        INSERT INTO pokemon (name, user, pokepaste, lead, shiny)
+        VALUES (?, ?, ?, ?, ?)
+      `;
+    connection.query(
+      query,
+      [
+        pokemonData.name,
+        user.name,
+        pokemonData.pokepaste,
+        pokemonData.lead,
+        pokemonData.shiny,
+      ],
+      (error, results) => {
+        if (error) {
+          if (error.code === 'ER_DUP_ENTRY') {
+            return reject(
+              new Error(
+                `Pokémon '${pokemonData.name}' already exists for this user.`
+              )
+            );
+          }
+          return reject(error);
+        }
+        resolve(results.affectedRows > 0);
+      }
+    );
+  });
+}

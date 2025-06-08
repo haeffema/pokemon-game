@@ -10,6 +10,7 @@ export const adminIds = rawAdminIds.map((id) => id.trim());
 
 export const maxEncounters = 35;
 export const maxNewEncounters = 10;
+export const itemDropRate = 0.085;
 
 export const defaultSprite =
   'https://play.pokemonshowdown.com/sprites/trainers/oak.png';

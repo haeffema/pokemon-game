@@ -1,5 +1,5 @@
 import { SlashCommandBuilder } from 'discord.js';
-import itemData from '../data/items/quest_items.json' with { type: 'json' };
+import itemData from '../data/items/questItems.json' with { type: 'json' };
 import { adminIds } from '../config.js';
 import { getAllUsers, getUserById, updateUser } from '../database/user.js';
 import { getActiveChallenge, updateChallenge } from '../database/challenge.js';

@@ -74,7 +74,7 @@ export async function setNewPool() {
   newPool.active = 1;
   newPool.wasActive = 1;
   await updatePool(newPool);
-  await sendMessage('channel', {
+  await sendMessage({
     title: 'Täglicher Bericht des Professors',
     description: newPool.message,
     color: 'Yellow',
