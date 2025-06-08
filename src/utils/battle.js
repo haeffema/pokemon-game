@@ -60,6 +60,8 @@ async function getRandomEncounterForPlayer(user) {
         if (!userPokemonNames.includes(pokemonData[pokemon].name)) {
           availablePokemon.push(pokemon);
           availablePokemon.push(pokemon);
+          availablePokemon.push(pokemon);
+          availablePokemon.push(pokemon);
         }
       }
     }
