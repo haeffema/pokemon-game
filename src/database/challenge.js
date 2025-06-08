@@ -43,3 +43,29 @@ export async function updateChallenge(challenge) {
     );
   });
 }
+
+export async function addChallenge(challengeData) {
+  return new Promise((resolve, reject) => {
+    const query = `
+      INSERT INTO challenges (user, active, gym, pokepaste)
+      VALUES (?, 1, ?, ?)
+    `;
+    connection.query(
+      query,
+      [challengeData.user, challengeData.gym, challengeData.pokepaste],
+      (err, results) => {
+        if (err) {
+          if (err.code === 'ER_NO_REFERENCED_ROW_2') {
+            return reject(
+              new Error(
+                `User '${challengeData.user}' does not exist in the database.`
+              )
+            );
+          }
+          return reject(err);
+        }
+        resolve(results.insertId);
+      }
+    );
+  });
+}

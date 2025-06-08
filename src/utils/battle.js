@@ -364,7 +364,7 @@ export async function runBattle(userId) {
         image: battleImageBuffer,
         title: `${trainerPokemon.species.name} vs. ${wildPokemon.species.name}`,
         description: logString,
-        color: 'Blue',
+        noSprite: true,
       },
       userId,
       [actionRow]
@@ -382,7 +382,7 @@ export async function runBattle(userId) {
       image: battleImageBuffer,
       title: `${trainerPokemon.species.name} vs. ${wildPokemon.species.name}`,
       description: logString,
-      color: 'Blue',
+      noSprite: true,
     },
     userId
   );

@@ -4,10 +4,11 @@ import { getAllUserPokemon } from '../database/pokemon.js';
 import { getAllItemsForUser } from '../database/item.js';
 import { getAllTmsForUser } from '../database/tm.js';
 import { checkIfTutorMoveIsLearned } from '../database/tutor.js';
+import { sendMessage } from './sendMessage.js';
 import pokemonData from '../data/pokemon.json' with { type: 'json' };
 import tmData from '../data/tms.json' with { type: 'json' };
 
-async function pokepasteToTeam(pokepasteUrl) {
+export async function pokepasteToTeam(pokepasteUrl) {
   const rawTeamString = await getPokepasteTeamFromHtml(pokepasteUrl);
   return showdown.Teams.import(rawTeamString);
 }
@@ -24,13 +25,13 @@ export async function validateTeam(userId, team) {
         userId
       );
     } else {
-      errors[pokemon.species] = { owned: false };
+      errors[pokemon.species] = { notOwned: true };
     }
   }
   return errors;
 }
 
-export async function validateSet(databaseEntry, pokemon, userId) {
+async function validateSet(databaseEntry, pokemon, userId) {
   const error = {};
   const databaseSet = showdown.Teams.import(databaseEntry.pokepaste)[0];
   const userItems = await getAllItemsForUser(userId);
@@ -68,11 +69,60 @@ export async function validateSet(databaseEntry, pokemon, userId) {
   return error;
 }
 
-let test = await pokepasteToTeam('https://pokepast.es/f36ab1c6bb7bb120');
+export async function validateTeamWithMessages(
+  user,
+  pokepaste,
+  teamSize = undefined
+) {
+  const team = await pokepasteToTeam(pokepaste);
 
-await validateTeam('326305842427330560', test);
-/**  
-test = await pokepasteToTeam('https://pokepast.es/bb32bc663a73066c');
+  if (teamSize) {
+    if (team.length > teamSize) {
+      await sendMessage(
+        {
+          noSprite: true,
+          title: 'OVERLOAD',
+          description: `Du kannst maximal ${teamSize} Pokemon mitnehmen.`,
+          color: 'Red',
+        },
+        user.discordId
+      );
+      return { valid: false };
+    }
+  }
 
-await validateTeam('326305842427330560', test);
-*/
+  const errors = await validateTeam(user.discordId, team);
+  let errorCounter = 0;
+
+  for (const error of Object.keys(errors)) {
+    if (Object.keys(errors[error]).length !== 0) {
+      errorCounter += 1;
+      if (errors[error].notOwned) {
+        await sendMessage(
+          {
+            noSprite: true,
+            title: error,
+            description: 'Du besitzt dieses Pokemon nicht.',
+            color: 'Red',
+          },
+          user.discordId
+        );
+      } else {
+        let errorString = '';
+        for (const errorType of Object.keys(errors[error])) {
+          errorString += `${errorType}: ${errors[error][errorType]}\n`;
+        }
+        await sendMessage(
+          {
+            noSprite: true,
+            title: error,
+            description: errorString,
+            color: 'Red',
+          },
+          user.discordId
+        );
+      }
+    }
+  }
+  return { valid: errorCounter === 0, teamSize: team.length };
+}

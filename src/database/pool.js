@@ -15,7 +15,7 @@ export async function getAllPools() {
 export async function getAllAvailablePools() {
   return new Promise((resolve, reject) => {
     connection.query(
-      'SELECT * FROM pools WHERE pool.wasActive = 0',
+      'SELECT * FROM pools WHERE pools.wasActive = 0',
       (error, results) => {
         if (error) {
           return reject(error);
@@ -29,7 +29,7 @@ export async function getAllAvailablePools() {
 export async function getActivePool() {
   return new Promise((resolve, reject) => {
     connection.query(
-      'SELECT * FROM pools WHERE pool.active = 1',
+      'SELECT * FROM pools WHERE pools.active = 1',
       (error, results) => {
         if (error) {
           return reject(error);

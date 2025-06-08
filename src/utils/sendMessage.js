@@ -20,41 +20,29 @@ export async function sendMessage(
 }
 
 async function _sendMessage(receiver, content, components) {
-  if (content.image) {
-    const imageBuffer = content.image;
-    const attachment = new AttachmentBuilder(imageBuffer, {
-      name: 'image.png',
-    });
-
-    const messageEmbed = new EmbedBuilder()
-      .setTitle(content.title)
-      .setDescription(content.description)
-      .setColor(content.color)
-      .setImage('attachment://image.png');
-
-    return await receiver.send({
-      embeds: [messageEmbed],
-      files: [attachment],
-      components: components,
-    });
-  } else if (content.noSprite) {
-    const messageEmbed = new EmbedBuilder()
-      .setTitle(content.title)
-      .setDescription(content.description)
-      .setColor(content.color);
-
-    return await receiver.send({
-      embeds: [messageEmbed],
-      components: components,
-    });
-  } else if (typeof content === 'string') {
-    return await receiver.send(content);
-  } else {
-    const message = new EmbedBuilder()
-      .setTitle(content.title)
-      .setDescription(content.description)
-      .setColor(content.color || 'Blue')
-      .setThumbnail(content.sprite || defaultSprite);
-    return await receiver.send({ embeds: [message], components: components });
+  const sendableContent = {};
+  if (components.length > 0) {
+    sendableContent.components = components;
   }
+  if (typeof content === 'string') {
+    sendableContent.content = content;
+  } else {
+    const embed = new EmbedBuilder()
+      .setTitle(content.title)
+      .setDescription(content.description)
+      .setColor(content.color || 'Blue');
+    if (!content.noSprite) {
+      embed.setThumbnail(content.sprite || defaultSprite);
+    }
+    if (content.image) {
+      const imageBuffer = content.image;
+      const attachment = new AttachmentBuilder(imageBuffer, {
+        name: 'image.png',
+      });
+      embed.setImage('attachment://image.png');
+      sendableContent.files = [attachment];
+    }
+    sendableContent.embeds = [embed];
+  }
+  return await receiver.send(sendableContent);
 }
