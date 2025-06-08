@@ -22,14 +22,14 @@ export async function execute(interaction) {
 
   if (!(await checkIfUserHasPokemon(discordId, chosenPokemon))) {
     await interaction.reply({
-      content: `❌ Ungültige Auswahl: Das Pokemon ${chosenPokemon} existiert nicht oder du hast es noch nicht gefangen.`,
+      content: `Ungültige Auswahl: Das Pokemon ${chosenPokemon} existiert nicht oder du hast es noch nicht gefangen.`,
     });
     return;
   }
 
   await setPokemonAsLead(discordId, chosenPokemon);
   await interaction.reply({
-    content: `✅ Das Pokemon ${chosenPokemon} wurde als dein Lead-Pokemon festgelegt.`,
+    content: `Das Pokemon ${chosenPokemon} wurde als dein Lead-Pokemon festgelegt.`,
   });
 }
 

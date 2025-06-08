@@ -3,7 +3,7 @@ import connection from './databaseConnection.js';
 export async function getAllUserPokemon(userId) {
   return new Promise((resolve, reject) => {
     connection.query(
-      'SELECT * FROM pokemon WHERE user = (SELECT name FROM user WHERE discordId = ?)',
+      'SELECT * FROM pokemon WHERE user = (SELECT name FROM users WHERE discordId = ?)',
       [userId],
       (error, results) => {
         if (error) {
@@ -18,7 +18,7 @@ export async function getAllUserPokemon(userId) {
 export async function getUserLeadPokemon(userId) {
   return new Promise((resolve, reject) => {
     connection.query(
-      'SELECT * FROM pokemon WHERE user = (SELECT name FROM user WHERE discordId = ?) AND lead = 1',
+      'SELECT * FROM pokemon WHERE user = (SELECT name FROM users WHERE discordId = ?) AND lead = 1',
       [userId],
       (error, results) => {
         if (error) {
@@ -33,7 +33,7 @@ export async function getUserLeadPokemon(userId) {
 export async function checkIfUserHasPokemon(userId, pokemonName) {
   return new Promise((resolve, reject) => {
     connection.query(
-      'SELECT * FROM pokemon WHERE user = (SELECT name FROM user WHERE discordid = ?) AND name = ?',
+      'SELECT * FROM pokemon WHERE user = (SELECT name FROM users WHERE discordid = ?) AND name = ?',
       [userId, pokemonName],
       (error, results) => {
         if (error) {
@@ -50,13 +50,13 @@ export async function setPokemonAsLead(userId, pokemonName) {
     const resetQuery = `
       UPDATE pokemon 
       SET lead = 0 
-      WHERE user = (SELECT name FROM user WHERE discordid = ?)
+      WHERE user = (SELECT name FROM users WHERE discordid = ?)
     `;
 
     const setQuery = `
       UPDATE pokemon 
       SET lead = 1 
-      WHERE name = ? AND user = (SELECT name FROM user WHERE discordid = ?)
+      WHERE name = ? AND user = (SELECT name FROM users WHERE discordid = ?)
     `;
 
     connection.query(resetQuery, [userId], (err) => {
@@ -75,7 +75,7 @@ export async function makeUserPokemonShiny(userId, pokemonName) {
     const query = `
       UPDATE pokemon
       SET shiny = 1
-      WHERE name = ? AND user = (SELECT name FROM user WHERE discordId = ?)
+      WHERE name = ? AND user = (SELECT name FROM users WHERE discordId = ?)
     `;
     connection.query(query, [pokemonName, userId], (error, results) => {
       if (error) {
@@ -91,7 +91,7 @@ export async function setPokemonPokepaste(userId, pokemonName, pokepasteData) {
     const query = `
       UPDATE pokemon
       SET pokepaste = ?
-      WHERE name = ? AND user = (SELECT name FROM user WHERE discordId = ?)
+      WHERE name = ? AND user = (SELECT name FROM users WHERE discordId = ?)
     `;
     connection.query(
       query,

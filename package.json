@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "pre-commit": "lint-staged",
-    "format": "prettier --write .",
+    "format": "prettier --write \"**/*.js\" \"**/*.json\"",
     "lint": "eslint . ",
     "lint:fix": "eslint . --fix ",
     "bot": "node src/main.js",

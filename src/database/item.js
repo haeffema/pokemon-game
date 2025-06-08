@@ -3,7 +3,7 @@ import connection from './databaseConnection.js';
 export async function getAllItemsForUser(userId) {
   return new Promise((resolve, reject) => {
     connection.query(
-      'SELECT * FROM item WHERE user = (SELECT name FROM user WHERE discordid = ?)',
+      'SELECT * FROM items WHERE user = (SELECT name FROM users WHERE discordid = ?)',
       [userId],
       (error, results) => {
         if (error) {
@@ -18,7 +18,7 @@ export async function getAllItemsForUser(userId) {
 export async function addItemForUser(user, item) {
   return new Promise((resolve, reject) => {
     const query = `
-      INSERT INTO item (name, user, description, sprite)
+      INSERT INTO items (name, user, description, sprite)
       VALUES (?, ?, ?, ?)
     `;
 

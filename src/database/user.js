@@ -2,7 +2,7 @@ import connection from './databaseConnection.js';
 
 export async function getAllUsers() {
   return new Promise((resolve, reject) => {
-    connection.query('SELECT * FROM user', (error, results) => {
+    connection.query('SELECT * FROM users', (error, results) => {
       if (error) {
         return reject(error);
       }
@@ -14,7 +14,7 @@ export async function getAllUsers() {
 export async function getUserById(discordId) {
   return new Promise((resolve, reject) => {
     connection.query(
-      'SELECT * FROM user WHERE discordId = ?',
+      'SELECT * FROM users WHERE discordId = ?',
       [discordId],
       (error, results) => {
         if (error) {
@@ -29,7 +29,7 @@ export async function getUserById(discordId) {
 export async function updateUser(user) {
   return new Promise((resolve, reject) => {
     connection.query(
-      'UPDATE user SET name = ?, badges = ?, money = ?, encounters = ?, newEncounters = ?, sprite = ?, delay = ? WHERE discordId = ?',
+      'UPDATE users SET name = ?, badges = ?, money = ?, encounters = ?, newEncounters = ?, sprite = ?, delay = ? WHERE discordId = ?',
       [
         user.name,
         user.badges,

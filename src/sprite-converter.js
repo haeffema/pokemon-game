@@ -5,7 +5,7 @@ import { promisify } from 'util';
 
 const execAsync = promisify(exec);
 
-// Path to your magick.exe on Windows
+// funktioniert aktuell nur local bei Max
 const MAGICK_PATH = `"D:/magick/magick.exe"`;
 
 const baseDir = './src/data/sprites';
@@ -26,11 +26,10 @@ async function convertFirstGifFrameToPng(dir) {
       const outputPath = path.join(dir, pngName);
 
       try {
-        // Convert only the first frame
         await execAsync(`${MAGICK_PATH} "${fullPath}[0]" "${outputPath}"`);
-        console.log(`✅ Saved first frame: ${fullPath} → ${outputPath}`);
+        console.log(`Saved first frame: ${fullPath} → ${outputPath}`);
       } catch (error) {
-        console.error(`❌ Failed to convert: ${fullPath}`, error.message);
+        console.error(`Failed to convert: ${fullPath}`, error.message);
       }
     }
   }
@@ -38,8 +37,6 @@ async function convertFirstGifFrameToPng(dir) {
 
 convertFirstGifFrameToPng(baseDir)
   .then(() =>
-    console.log(
-      '🎉 All back.gif and default.gif first frames converted to PNGs'
-    )
+    console.log('All back.gif and default.gif first frames converted to PNGs')
   )
-  .catch((err) => console.error('⚠️ Error during conversion:', err));
+  .catch((err) => console.error('Error during conversion:', err));

@@ -3,7 +3,7 @@ import { sendMessage } from '../utils/sendMessage.js';
 
 export async function getAllPools() {
   return new Promise((resolve, reject) => {
-    connection.query('SELECT * FROM pool', (error, results) => {
+    connection.query('SELECT * FROM pools', (error, results) => {
       if (error) {
         return reject(error);
       }
@@ -15,7 +15,7 @@ export async function getAllPools() {
 export async function getAllAvailablePools() {
   return new Promise((resolve, reject) => {
     connection.query(
-      'SELECT * FROM pool WHERE pool.wasActive = 0',
+      'SELECT * FROM pools WHERE pool.wasActive = 0',
       (error, results) => {
         if (error) {
           return reject(error);
@@ -29,7 +29,7 @@ export async function getAllAvailablePools() {
 export async function getActivePool() {
   return new Promise((resolve, reject) => {
     connection.query(
-      'SELECT * FROM pool WHERE pool.active = 1',
+      'SELECT * FROM pools WHERE pool.active = 1',
       (error, results) => {
         if (error) {
           return reject(error);
@@ -43,7 +43,7 @@ export async function getActivePool() {
 export async function updatePool(pool) {
   return new Promise((resolve, reject) => {
     connection.query(
-      'UPDATE pool SET type = ?, active = ?, wasActive = ?, message = ? WHERE id = ?',
+      'UPDATE pools SET type = ?, active = ?, wasActive = ?, message = ? WHERE id = ?',
       [pool.type, pool.active, pool.wasActive, pool.message, pool.id],
       (error, results) => {
         if (error) {

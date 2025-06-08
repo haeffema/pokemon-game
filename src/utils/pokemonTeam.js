@@ -2,7 +2,9 @@ import showdown from 'pokemon-showdown';
 import { getPokepasteTeamFromHtml } from './pokepaste.js';
 import { getAllUserPokemon } from '../database/pokemon.js';
 import { getAllItemsForUser } from '../database/item.js';
+import { getAllTmsForUser } from '../database/tm.js';
 import pokemonData from '../data/pokemon.json' with { type: 'json' };
+import tmData from '../data/tms.json' with { type: 'json' };
 
 async function pokepasteToTeam(pokepasteUrl) {
   const rawTeamString = await getPokepasteTeamFromHtml(pokepasteUrl);
@@ -44,12 +46,26 @@ export async function validateSet(databaseEntry, pokemon, userId) {
       continue;
     }
     const moveData =
-      pokemonData[pokemon.species.toLowerCase()].moves[move.toLowerCase()];
+      pokemonData[pokemon.species.toLowerCase()].moves[
+        move.toLowerCase().replace(' ', '-')
+      ];
     if (moveData.type === 'machine') {
-      // check tms
+      error[move] = 'TM not owned';
+      for (const tm of await getAllTmsForUser(userId)) {
+        if (tmData[tm.tm].move === move) {
+          delete error[move];
+          break;
+        }
+      }
     }
     if (moveData.type === 'tutor') {
-      // check tutor
+      error[move] = 'Tutor Move';
+      for (const tm of await getAllTmsForUser(userId)) {
+        if (tmData[tm.tm].move === move) {
+          delete error[move];
+          break;
+        }
+      }
     }
     console.log(moveData);
   }
