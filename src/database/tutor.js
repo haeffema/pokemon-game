@@ -17,6 +17,22 @@ export async function checkIfTutorMoveIsLearned(userId, pokemonName, move) {
   });
 }
 
+export async function getAllLearnedMovesForPokemon(userId, pokemonName) {
+  return new Promise((resolve, reject) => {
+    const query = `
+      SELECT * FROM tutorMoves
+      WHERE user = (SELECT name FROM users WHERE discordId = ?)
+      AND pokemon = ?
+    `;
+    connection.query(query, [userId, pokemonName], (error, results) => {
+      if (error) {
+        return reject(error);
+      }
+      resolve(results);
+    });
+  });
+}
+
 export async function addTutorMove(userId, pokemonName, move) {
   return new Promise((resolve, reject) => {
     const query = `

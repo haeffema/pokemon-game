@@ -1,4 +1,4 @@
-import { SlashCommandBuilder } from 'discord.js';
+/**import { SlashCommandBuilder } from 'discord.js';
 import connection from '../../utils/databaseConnection.js';
 import pokemonData from '../../data/pokemon.json' with { type: 'json' };
 import { convertSetToPokepaste } from '../../utils/pokemon.js';
@@ -37,3 +37,4 @@ export default {
   data: commandData,
   execute: execute,
 };
+*/

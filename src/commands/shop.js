@@ -7,11 +7,8 @@ import {
   ButtonBuilder,
   ButtonStyle,
 } from 'discord.js';
-import fs from 'fs/promises';
-import itemData from '../../data/buyable_items.json' with { type: 'json' };
-import connection from '../../database/databaseConnection.js';
 
-const commandData = new SlashCommandBuilder()
+export const data = new SlashCommandBuilder()
   .setName('shop')
   .setDescription('Buy special Items and TMs for Battle')
   .addStringOption((option) =>
@@ -437,8 +434,3 @@ export async function execute(interaction) {
     });
   }
 }
-
-export default {
-  data: commandData,
-  execute: execute,
-};
