@@ -12475,7 +12475,7 @@
       },
       "surf": {
         "name": "surf",
-        "type": "machine"
+        "type": "level-up"
       },
       "ice-beam": {
         "name": "ice-beam",
@@ -44392,6 +44392,10 @@
       "roar": {
         "name": "roar",
         "type": "level-up"
+      },
+      "extreme-speed": {
+        "name": "extreme-speed",
+        "type": "event"
       },
       "ember": {
         "name": "ember",
@@ -94147,7 +94151,7 @@
     "sets": [
       {
         "item": "Choice Scarf",
-        "ability": "Zen Mode",
+        "ability": "Sheer Force",
         "nature": "Adamant",
         "evs": {
           "atk": 252,
