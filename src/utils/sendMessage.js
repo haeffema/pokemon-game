@@ -7,19 +7,24 @@ export async function sendMessage(
   receiver = 'channel',
   components = []
 ) {
-  switch (receiver) {
-    case 'channel': {
-      const channel = await client.channels.fetch(channelId);
-      return await _sendMessage(channel, content, components);
-    }
-    default: {
-      const user = await client.users.fetch(receiver);
-      return await _sendMessage(user, content, components);
-    }
+  if (typeof receiver !== 'string') {
+    return await _sendMessage(receiver, content, components, true);
+  }
+  if (receiver === 'channel') {
+    const channel = await client.channels.fetch(channelId);
+    return await _sendMessage(channel, content, components);
+  } else {
+    const user = await client.users.fetch(receiver);
+    return await _sendMessage(user, content, components);
   }
 }
 
-async function _sendMessage(receiver, content, components) {
+async function _sendMessage(
+  receiver,
+  content,
+  components,
+  interaction = false
+) {
   const sendableContent = {};
   if (components.length > 0) {
     sendableContent.components = components;
@@ -43,6 +48,9 @@ async function _sendMessage(receiver, content, components) {
       sendableContent.files = [attachment];
     }
     sendableContent.embeds = [embed];
+  }
+  if (interaction) {
+    return await receiver.followUp(sendableContent);
   }
   return await receiver.send(sendableContent);
 }

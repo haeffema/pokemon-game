@@ -88,7 +88,7 @@ export async function execute(interaction) {
   const message = await sendMessage(
     {
       title: 'Tutor',
-      description: `Der Tutor kann deinem ${chosenPokemon} den Move **${chosenMove}** beibringen.\n\n💰 Der Preis hierfür beträgt 5000 PokéDollar, aber dein ${chosenPokemon} kann sich dafür für den Rest seines Lebens daran erinnern.`,
+      description: `Der Tutor kann deinem ${chosenPokemon} den Move **${chosenMove}** beibringen.\n\nDer Preis hierfür beträgt 5.000 PokéDollar, aber dein ${chosenPokemon} kann sich dafür für den Rest seines Lebens daran erinnern.`,
       sprite:
         'https://play.pokemonshowdown.com/sprites/trainers/blackbelt-gen7.png',
     },
@@ -112,6 +112,8 @@ export async function autocomplete(interaction) {
   const focusedValue = interaction.options.getFocused(true);
   const discordId = interaction.user.id;
 
+  const user = await getUserById(discordId);
+
   switch (focusedValue.name) {
     case 'pokemon': {
       const userPokemon = await getAllUserPokemon(discordId);
@@ -128,6 +130,11 @@ export async function autocomplete(interaction) {
       break;
     }
     case 'move': {
+      if (user.money < 5000) {
+        await interaction.respond([]);
+        return;
+      }
+
       const chosenPokemon = interaction.options.getString('pokemon');
 
       const pokemon = pokemonData[chosenPokemon.toLowerCase()];
