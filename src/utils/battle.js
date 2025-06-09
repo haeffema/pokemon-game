@@ -43,7 +43,7 @@ async function getRandomEncounterForPlayer(user) {
   const activePool = await getActivePool();
 
   for (const pokemon of Object.keys(pokemonData)) {
-    if (user.newEncounters >= maxNewEncounters) {
+    if (user.newEncounters > maxNewEncounters) {
       if (
         pokemonData[pokemon].tier === randomTier &&
         pokemonData[pokemon].types.includes(activePool.type) &&
