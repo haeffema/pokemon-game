@@ -1,9 +1,6 @@
 import {
   SlashCommandBuilder,
-  EmbedBuilder,
   ActionRowBuilder,
-  StringSelectMenuBuilder,
-  ComponentType,
   ButtonBuilder,
   ButtonStyle,
 } from 'discord.js';
