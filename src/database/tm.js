@@ -1,21 +1,19 @@
 import connection from './databaseConnection.js';
 
-export async function addTmForUser(userId, tmId) {
+export async function addTmForUser(username, tmId) {
   return new Promise((resolve, reject) => {
     const query = `
-      INSERT INTO tms (user, tm)
-      VALUES ((SELECT name FROM users WHERE discordId = ?), ?)
+      INSERT INTO tms (tm, user)
+      VALUES (?, ?)
     `;
-    connection.query(query, [userId, tmId], (error, results) => {
+    connection.query(query, [tmId, username], (error, results) => {
       if (error) {
         if (error.code === 'ER_DUP_ENTRY') {
           return reject(new Error(`User already has TM: ${tmId}`));
         }
         if (error.code === 'ER_NO_REFERENCED_ROW_2') {
           return reject(
-            new Error(
-              `User with discordId '${userId}' not found for adding TM.`
-            )
+            new Error(`User with name '${username}' not found for adding TM.`)
           );
         }
         return reject(error);

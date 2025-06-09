@@ -147,7 +147,7 @@ export async function execute(interaction) {
       if (response === 'yes') {
         user.money -= 10000;
         await updateUser(user);
-        await addTmForUser(userId, product);
+        await addTmForUser(user.name, product);
         await sendMessage('Einkauf erfolgreich.', interaction);
         return;
       }

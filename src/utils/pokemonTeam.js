@@ -44,7 +44,7 @@ async function validateSet(databaseEntry, pokemon, userId) {
   const userItems = await getAllItemsForUser(userId);
   const validItem = userItems.find((item) => item.name === pokemon.item);
   if (!validItem && pokemon.item !== '') {
-    error['item'] = pokemon.item;
+    error['Item'] = pokemon.item;
   }
   if (databaseEntry.shiny === 0 && pokemon.shiny) {
     error['shiny'] = false;
