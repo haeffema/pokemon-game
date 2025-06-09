@@ -1,18 +1,19 @@
 {
   "name": "pokemon-game",
-  "version": "0.0.1",
-  "description": "pokemon game as discord bot.",
+  "version": "0.2.0",
+  "description": "Discord bot that simulates a simplified version of a pokemon game.",
   "type": "module",
   "scripts": {
     "pre-commit": "lint-staged",
-    "format": "prettier --write .",
+    "format": "prettier --write \"**/*.js\" \"**/*.json\"",
     "lint": "eslint . ",
     "lint:fix": "eslint . --fix ",
-    "bot": "node src/bot.js",
+    "bot": "node src/main.js",
+    "sync": "node src/deploy-commands.js",
     "prepare": "husky"
   },
   "keywords": [],
-  "author": "",
+  "author": "Jan and Max",
   "license": "ISC",
   "devDependencies": {
     "@eslint/js": "^9.23.0",
@@ -30,7 +31,9 @@
     "discord.js": "^14.18.0",
     "dotenv": "^16.5.0",
     "events": "^3.3.0",
+    "jsdom": "^26.1.0",
     "mysql": "^2.18.1",
+    "node-cron": "^4.0.7",
     "path": "^0.12.7",
     "pokemon-showdown": "^0.11.10",
     "prompt-sync": "^4.2.0",
@@ -39,7 +42,8 @@
   },
   "lint-staged": {
     "*.{js,json,md}": [
-      "prettier --write"
+      "prettier --write",
+      "eslint . "
     ]
   }
 }

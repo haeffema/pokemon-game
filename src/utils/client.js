@@ -1,38 +1,10 @@
-import { Client, GatewayIntentBits, Partials } from 'discord.js';
-import config from './config.json' with { type: 'json' };
-import { checkForMessagesToSend } from './message-queue.js';
-import { updatePoolIfNeeded } from './pool.js';
+import { Client, GatewayIntentBits } from 'discord.js';
 
-const { token } = config;
-
-const bot = new Client({
+export const client = new Client({
   intents: [
-    GatewayIntentBits.DirectMessages,
     GatewayIntentBits.Guilds,
     GatewayIntentBits.GuildMessages,
     GatewayIntentBits.MessageContent,
     GatewayIntentBits.GuildMembers,
-    GatewayIntentBits.GuildModeration,
-    GatewayIntentBits.GuildIntegrations,
-    GatewayIntentBits.GuildPresences,
   ],
-  partials: [Partials.Channel],
 });
-
-bot.login(token);
-
-bot.once('ready', () => {
-  console.info(`Logged in as ${bot.user.tag}!`);
-  checkForMessagesToSend(bot);
-  updatePoolIfNeeded(bot);
-  setInterval(
-    () => {
-      checkForMessagesToSend(bot);
-      updatePoolIfNeeded(bot);
-    },
-    1000 * 60 * 5
-  ); // -> alle 5 Minuten
-});
-
-// Exportiere den Bot
-export default bot;

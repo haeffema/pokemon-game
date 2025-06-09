@@ -134,7 +134,3 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
-
-src/utils/config.json
-src/data/battleImages/*
-!src/data/battleImages/example.png

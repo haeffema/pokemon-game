@@ -1,0 +1,90 @@
+[
+  {
+    "type": "Normal",
+    "text": "Ein neuer Herausforderer nähert sich, getragen von der Hoffnung – oder vielleicht von der Arroganz – hier einen leichten Sieg zu erringen? Viele kamen schon, angelockt von der trügerischen Aura des... Alltäglichen. Sie sahen nur die Oberfläche, das scheinbar Unkomplizierte, und wähnten sich bereits als Sieger.\n\nDoch die wahre Meisterschaft liegt nicht im Spektakulären, sondern in der Perfektion des Fundamentalen. Jeder von ihnen scheiterte, zerschmettert an einer Kraft, die keine Verkleidung braucht, die in ihrer reinen Form existiert und triumphiert. Sie unterschätzten die Anpassungsfähigkeit, die Tiefe, die in der vermeintlichen Schlichtheit verborgen liegt.\n\nWenn du also glaubst, du seist anders, wenn du bereit bist, das Offensichtliche zu hinterfragen und die verborgene Komplexität zu meistern, die andere als 'simpel' abtaten, dann wage dich vor. Beweise, dass du die Essenz des Kampfes verstehst, jenseits von Glanz und Gloria. Zeige mir, dass du das Außergewöhnliche im Kern aller Dinge erkennen kannst. Meine Tore stehen offen. Überzeuge mich.",
+    "sprite": "https://play.pokemonshowdown.com/sprites/trainers/acetrainer-gen6xy.png",
+    "pokepaste": "https://pokepast.es/34f41d6102778d19",
+    "drive": "https://drive.google.com/drive/folders/1uNQ844Mvc-X0sZEZocrn_x_0iK4g3rbq?usp=sharing",
+    "reward": {
+      "money": 2000,
+      "item": "Normalium Z"
+    }
+  },
+  {
+    "type": "Feuer",
+    "text": "Der erste von euch hat es also geschafft… mein Kollege aus der Normal Arena hat mich eben informiert, dass einer von euch so kühn war und seine *alltägliche* Herausforderung bestanden hat. Nun wollt ihr euch also den 2. Orden verdienen? Na schön, ihr habt es nicht anders gewollt, dann werdet ihr euch in meiner Arena beweisen müssen. Ich hoffe ihr kocht nicht nur mit Wasser (oder wahlweise Sand) sondern habt einiges auf dem Kasten, denn das erwarte ich von euch. Nicht eiskalte Strategie, sondern vor allem ein ausgeklügeltes Team können euch hier zum Sieg führen. Aber macht euch keine falschen Illusionen, das wird nicht einfach. Nun gut, ich will euch auch noch nicht zu viel verraten und gehe davon aus, dass der Funke sowieso schon übergesprungen ist. Also genieße ich die Abendsonne und warte darauf, dass mich einer von euch herausfordert…",
+    "sprite": "https://play.pokemonshowdown.com/sprites/trainers/dragontamer-gen6.png",
+    "pokepaste": "https://pokepast.es/2252190cf7ffc52b",
+    "drive": "https://drive.google.com/drive/folders/19MlnF4tAdbDUGvJnWWjiZa2P70wX_JHD?usp=sharing",
+    "reward": {
+      "money": 4000,
+      "item": "Firium Z"
+    }
+  },
+  {
+    "type": "Wasser",
+    "text": "Ah, der gefeierte Sieger der letzten Arena. Ja, ich habe davon gehört. Eine Leistung, gewiss – aber sei versichert, diese Hürde hätte auch ich mühelos übersprungen. Vergiss also, was du zu wissen glaubst, denn das Aufwärmen ist nun endgültig vorbei.\n\nHier gelten andere Massstäbe. Hier wird sich zeigen, ob dein Können wirklich Substanz hat oder nur oberflächlicher Glanz ist. Ich will die wahre Tiefe deines Verständnisses sehen, nicht nur auswendig gelernte Züge, die beim ersten Gegenwind umfallen.\n\nKannst du dem Strom meiner Taktik standhalten, oder wirst du einfach mitgerissen, bevor du überhaupt begreifst, was geschieht? Zeig mir, dass du dieser Herausforderung wirklich gewachsen bist!",
+    "sprite": "https://play.pokemonshowdown.com/sprites/trainers/cheren.png",
+    "pokepaste": "",
+    "drive": "https://drive.google.com/drive/folders/13MaJCt5CF4Q88q21A0cv2pMgGCVXFDkp?usp=sharing",
+    "reward": {
+      "money": 6000,
+      "item": "Waterium Z"
+    }
+  },
+  {
+    "type": "Boden",
+    "text": "",
+    "sprite": "",
+    "pokepaste": "",
+    "drive": "https://drive.google.com/drive/folders/11318jjFHEn9MuiVmbRV582WgOEg2-P1f?usp=sharing",
+    "reward": {
+      "money": 8000,
+      "item": "Groundium Z"
+    }
+  },
+  {
+    "type": "Elektro",
+    "text": "",
+    "sprite": "",
+    "pokepaste": "",
+    "drive": "https://drive.google.com/drive/folders/1CVA6FloNWTJUkzi6-DiqwHucPIJ41xZc?usp=sharing",
+    "reward": {
+      "money": 10000,
+      "item": "Electrium Z"
+    }
+  },
+  {
+    "type": "Drache",
+    "text": "",
+    "sprite": "",
+    "pokepaste": "",
+    "drive": "https://drive.google.com/drive/folders/1ZaoFw1YWA8KpowOX4SYT1wNzGcDPE0J-?usp=sharing",
+    "reward": {
+      "money": 12000,
+      "item": "Dragonium Z"
+    }
+  },
+  {
+    "type": "Unlicht",
+    "text": "",
+    "sprite": "",
+    "pokepaste": "",
+    "drive": "https://drive.google.com/drive/folders/1A7FL6Rc8ROon1J8lCcI8iGn9W_niAsPa?usp=sharing",
+    "reward": {
+      "money": 14000,
+      "item": "Darkinium Z"
+    }
+  },
+  {
+    "type": "Geist",
+    "text": "",
+    "sprite": "",
+    "pokepaste": "",
+    "drive": "https://drive.google.com/drive/folders/1uxivTxVRfKAFbz6TewgTHn9fH1YW9ziX?usp=sharing",
+    "reward": {
+      "money": 16000,
+      "item": "Ghostium Z"
+    }
+  }
+]
