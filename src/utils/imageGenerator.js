@@ -97,14 +97,14 @@ export async function generateBattleImage(trainerPokemon, wildPokemon) {
   try {
     await access(trainerPath, constants.F_OK);
   } catch (error) {
-    console.warn(`No Sprite: ${trainerSet.species.toLowerCase()}`);
+    console.warn(`No Sprite: ${trainerSet.species.toLowerCase()}\n${error}`);
     trainerPath = missingSpritePath;
   }
 
   try {
     await access(wildPath, constants.F_OK);
   } catch (error) {
-    console.warn(`No Sprite: ${wildSet.species.toLowerCase()}`);
+    console.warn(`No Sprite: ${wildSet.species.toLowerCase()}\n${error}`);
     wildPath = missingSpritePath;
   }
   const [background, trainerSprite, wildSprite] = await Promise.all([
