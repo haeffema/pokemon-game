@@ -2,7 +2,7 @@
 
 cd /root/pokemon-game
 
-log_folder="../logs"
+log_folder="logs"
 days_to_keep=3
 
 find "$log_folder" -type f -name "output_*.log" -print0 | while IFS= read -r -d $'\0' file; do

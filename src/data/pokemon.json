@@ -61820,6 +61820,10 @@
         "name": "bind",
         "type": "tutor"
       },
+      "whirlpool": {
+        "name": "wrap",
+        "type": "event"
+      },
       "wrap": {
         "name": "wrap",
         "type": "level-up"

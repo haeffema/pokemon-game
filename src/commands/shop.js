@@ -163,8 +163,6 @@ export async function autocomplete(interaction) {
   const category = interaction.options.getString('category');
   const discordId = interaction.user.id;
 
-  const user = await getUserById(discordId);
-
   switch (category) {
     case 'items': {
       const userItems = await getAllItemsForUser(discordId);
@@ -174,7 +172,6 @@ export async function autocomplete(interaction) {
       const filteredItemNames = itemNames.filter(
         (item) =>
           !userItemNames.includes(item.toLowerCase()) &&
-          itemData[item].price <= user.money &&
           item.toLowerCase().startsWith(focusedValue.toLowerCase())
       );
 
@@ -186,11 +183,6 @@ export async function autocomplete(interaction) {
       return;
     }
     case 'tms': {
-      if (user.money < 10000) {
-        await interaction.respond([]);
-        return;
-      }
-
       const tmNumbers = Object.keys(tmData);
       const userTMs = await getAllTmsForUser(discordId);
       const mappedUserTMs = userTMs.map((tm) => tm.tm);

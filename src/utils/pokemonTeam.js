@@ -43,7 +43,7 @@ async function validateSet(databaseEntry, pokemon, userId) {
   const databaseSet = showdown.Teams.import(databaseEntry.pokepaste)[0];
   const userItems = await getAllItemsForUser(userId);
   const validItem = userItems.find((item) => item.name === pokemon.item);
-  if (!validItem) {
+  if (!validItem && pokemon.item !== '') {
     error['item'] = pokemon.item;
   }
   if (databaseEntry.shiny === 0 && pokemon.shiny) {
@@ -57,8 +57,12 @@ async function validateSet(databaseEntry, pokemon, userId) {
       pokemonData[pokemon.species.toLowerCase()].moves[
         move.toLowerCase().replace(' ', '-')
       ];
+    if (!moveData) {
+      error[move] = 'wird nicht gelernt -> wende dich an jan und max';
+      break;
+    }
     if (moveData.type === 'machine') {
-      error[move] = 'TM not owned';
+      error[move] = 'TM nicht gekauft';
       for (const tm of await getAllTmsForUser(userId)) {
         if (tmData[tm.tm].move === move) {
           delete error[move];

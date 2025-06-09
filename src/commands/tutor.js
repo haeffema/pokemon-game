@@ -112,8 +112,6 @@ export async function autocomplete(interaction) {
   const focusedValue = interaction.options.getFocused(true);
   const discordId = interaction.user.id;
 
-  const user = await getUserById(discordId);
-
   switch (focusedValue.name) {
     case 'pokemon': {
       const userPokemon = await getAllUserPokemon(discordId);
@@ -130,11 +128,6 @@ export async function autocomplete(interaction) {
       break;
     }
     case 'move': {
-      if (user.money < 5000) {
-        await interaction.respond([]);
-        return;
-      }
-
       const chosenPokemon = interaction.options.getString('pokemon');
 
       const pokemon = pokemonData[chosenPokemon.toLowerCase()];

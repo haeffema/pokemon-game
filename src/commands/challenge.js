@@ -56,8 +56,11 @@ export async function execute(interaction) {
   }
 
   let response = '';
-
+  let answer =
+    'Die Challenge wurde bestätigt, der Arenaleiter meldet sich bald bei dir.\n\n*Viel Glück! ... Du wirst es brauchen.*';
   if (valid.teamSize < 6) {
+    answer =
+      'Deine Herausforderung mit weniger als **6 Pokemon!!!!** wurde an den Arenaleiter gesendet, er wird dich in kürze kontaktieren. Du wirst diesmal Glück mehr als alles andere brauchen, also möge dein Eisstrahl das Yveltal einfrieren!';
     const selectionButtons = new ActionRowBuilder().addComponents(
       new ButtonBuilder()
         .setCustomId('yes')
@@ -69,7 +72,7 @@ export async function execute(interaction) {
         .setStyle(ButtonStyle.Danger)
     );
     const message = await sendMessage(
-      `Nur ${valid.teamSize} Pokemon? Da ist wohl jemand übermotiviert.\nBestätige bitte deine Challenge, danach gibt es kein zurück mehr und das Team darf nicht mehr verändert werden.`,
+      `Dein Team ist zulässig, aber bist du sicher, dass du mit weniger als 6 Pokémon gegen den Arenaleiter antreten willst? Der Kampf wird auch mit 6 schon schwer genug 😉`,
       user.discordId,
       [selectionButtons]
     );
@@ -103,10 +106,7 @@ export async function execute(interaction) {
     return;
   }
 
-  await sendMessage(
-    'Die Challenge wurde bestätigt, der Arenaleiter meldet sich bald bei dir.\n\n*Viel Glück! ... Du wirst es brauchen.*',
-    user.discordId
-  );
+  await sendMessage(answer, user.discordId);
 
   const type = gymData[user.badges].type;
 

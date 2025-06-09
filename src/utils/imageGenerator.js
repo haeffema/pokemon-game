@@ -84,7 +84,7 @@ export async function generateBattleImage(trainerPokemon, wildPokemon) {
   const ctx = canvas.getContext('2d');
 
   const activePool = await getActivePool();
-  const backgroundPath = `./src/data/background/${activePool.type}.png`;
+  const backgroundPath = `./src/data/background/${activePool.type.toLowerCase()}.png`;
 
   const trainerSet = trainerPokemon.set;
   const wildSet = wildPokemon.set;

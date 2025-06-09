@@ -306,7 +306,7 @@ export async function startNewBattle(userId) {
   if (activeBattles[userId]) {
     return false;
   }
-  const userLead = await getUserLeadPokemon(userId);
+  const userLead = await getUserLeadPokemon(user.name);
   const trainerPokemon = showdown.Teams.import(userLead.pokepaste);
   const wildEncounter = await getRandomEncounterForPlayer(user);
 

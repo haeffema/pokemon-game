@@ -15,11 +15,11 @@ export async function getAllUserPokemon(userId) {
   });
 }
 
-export async function getUserLeadPokemon(userId) {
+export async function getUserLeadPokemon(username) {
   return new Promise((resolve, reject) => {
     connection.query(
-      'SELECT * FROM pokemon WHERE user = (SELECT name FROM users WHERE discordId = ?) AND lead = 1',
-      [userId],
+      'SELECT * FROM pokemon WHERE user = ? AND lead = 1',
+      [username],
       (error, results) => {
         if (error) {
           return reject(error);
