@@ -1,6 +1,22 @@
 import { EmbedBuilder, AttachmentBuilder } from 'discord.js';
 import { channelId, defaultSprite } from '../config.js';
 import { client } from './client.js';
+import { getUnsentMessages, markMessagesAsSent } from '../database/messages.js';
+
+export async function sendQueuedMessages() {
+  const unsentMessages = await getUnsentMessages();
+
+  if (unsentMessages && unsentMessages.length > 0) {
+    console.log('Unsent messages found: ', unsentMessages.length);
+
+    const messageIdsToMarkAsSent = unsentMessages.map((msg) => msg.id);
+
+    for (const message of unsentMessages) {
+      await sendMessage(message, message.receiver);
+    }
+    await markMessagesAsSent(messageIdsToMarkAsSent);
+  }
+}
 
 export async function sendMessage(
   content,
