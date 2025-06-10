@@ -43,15 +43,7 @@ async function getRandomEncounterForPlayer(user) {
   const activePool = await getActivePool();
 
   for (const pokemon of Object.keys(pokemonData)) {
-    if (user.newEncounters > maxNewEncounters) {
-      if (
-        pokemonData[pokemon].tier === randomTier &&
-        pokemonData[pokemon].types.includes(activePool.type) &&
-        !userPokemonNames.includes(pokemonData[pokemon].name)
-      ) {
-        availablePokemon.push(pokemon);
-      }
-    } else {
+    if (user.newEncounters < maxNewEncounters) {
       if (
         pokemonData[pokemon].tier === randomTier &&
         pokemonData[pokemon].types.includes(activePool.type)
@@ -63,6 +55,14 @@ async function getRandomEncounterForPlayer(user) {
           availablePokemon.push(pokemon);
           availablePokemon.push(pokemon);
         }
+      }
+    } else {
+      if (
+        pokemonData[pokemon].tier === randomTier &&
+        pokemonData[pokemon].types.includes(activePool.type) &&
+        userPokemonNames.includes(pokemonData[pokemon].name)
+      ) {
+        availablePokemon.push(pokemon);
       }
     }
   }
@@ -364,7 +364,7 @@ export async function runBattle(userId, interaction) {
     const message = await sendMessage(
       {
         image: battleImageBuffer,
-        title: `${trainerPokemon.species.name} vs. ${wildPokemon.species.name}`,
+        title: `${trainerPokemon.species.name} vs. ${wildPokemon.species.name}${activeBattles[userId].encounter.set.shiny ? ' ⭐' : ''}`,
         description: logString,
         noSprite: true,
       },
@@ -382,7 +382,7 @@ export async function runBattle(userId, interaction) {
   await sendMessage(
     {
       image: battleImageBuffer,
-      title: `${trainerPokemon.species.name} vs. ${wildPokemon.species.name}`,
+      title: `${trainerPokemon.species.name} vs. ${wildPokemon.species.name}${activeBattles[userId].encounter.set.shiny ? ' ⭐' : ''}`,
       description: logString,
       noSprite: true,
     },
