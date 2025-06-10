@@ -3,7 +3,7 @@ import cron from 'node-cron';
 import { dailyReset, getAllUsers } from '../database/user.js';
 import { getActivePool, setNewPool } from '../database/pool.js';
 import { sendMessage, sendQueuedMessages } from '../utils/sendMessage.js';
-import { maxEncounters } from '../config.js';
+import { adminIds, maxEncounters } from '../config.js';
 
 export const name = Events.ClientReady;
 export const once = true;
@@ -24,6 +24,9 @@ export async function execute(client) {
   cron.schedule('0 16 * * *', async () => {
     const users = await getAllUsers();
     for (const user of users) {
+      if (adminIds.includes(user.discordId)) {
+        continue;
+      }
       if (user.encounters < maxEncounters) {
         await sendMessage(
           {
@@ -40,6 +43,9 @@ export async function execute(client) {
   cron.schedule('0 20 * * *', async () => {
     const users = await getAllUsers();
     for (const user of users) {
+      if (adminIds.includes(user.discordId)) {
+        continue;
+      }
       if (user.encounters < maxEncounters) {
         await sendMessage(
           {
@@ -57,6 +63,9 @@ export async function execute(client) {
     const users = await getAllUsers();
     const activePool = await getActivePool();
     for (const user of users) {
+      if (adminIds.includes(user.discordId)) {
+        continue;
+      }
       if (user.encounters < maxEncounters) {
         await sendMessage(
           {
@@ -73,6 +82,9 @@ export async function execute(client) {
     const users = await getAllUsers();
     const activePool = await getActivePool();
     for (const user of users) {
+      if (adminIds.includes(user.discordId)) {
+        continue;
+      }
       if (user.encounters < maxEncounters) {
         await sendMessage(
           {
