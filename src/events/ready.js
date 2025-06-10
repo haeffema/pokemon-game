@@ -29,7 +29,7 @@ export async function execute(client) {
           {
             title: 'Erinnerung!',
             description:
-              'Hey, es ist 16 Uhr. Vergiss nicht deine Kämpfe. Die Belohnungen jeden Tag zu holen ist sehr wichtig.',
+              'Hey, es ist 16 Uhr. Vergiss nicht deine Kämpfe, die Belohnungen jeden Tag zu holen ist sehr wichtig.',
           },
           user.discordId
         );
@@ -45,7 +45,7 @@ export async function execute(client) {
           {
             title: 'Erneute Erinnerung!',
             description:
-              'Hey, es ist schon 20 Uhr. Ich sagte dir doch du sollst an deine Kämpfe denken. Es ist wirklich wichtig diese jeden Tag zu bestreiten.',
+              'Hey, es ist schon 20 Uhr. Ich sagte dir doch du sollst an deine Kämpfe denken, es ist wirklich wichtig diese jeden Tag zu bestreiten.',
           },
           user.discordId
         );
@@ -77,7 +77,7 @@ export async function execute(client) {
         await sendMessage(
           {
             title: 'LETZE ERINNERUNG!',
-            description: `Hast du etwa ein Problem ${activePool.type} Pokemon? Wenn es schlecht läuft kommen sie in in mehreren Wochen erst wieder. Nutze also lieber diese Chance.`,
+            description: `Hast du etwa ein Problem mit ${activePool.type} Pokemon? Wenn es schlecht läuft kommen sie erst in einigen Tagen wieder. Nutze also diese Chance bevor es zu spät ist.`,
           },
           user.discordId
         );
