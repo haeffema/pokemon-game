@@ -15,23 +15,25 @@ export const data = new SlashCommandBuilder()
   .setDescription('Starts a fight agains an random, wild pokemon.');
 
 export async function execute(interaction) {
-  const user = await getUserById(interaction.user.id);
   await interaction.deferReply();
+  const user = await getUserById(interaction.user.id);
   if (user.encounters >= maxEncounters) {
-    await interaction.followUp(
-      `Du hast das heutige fight limit von ${maxEncounters} schon erreicht.`
+    await sendMessage(
+      `Du hast das heutige fight limit von ${maxEncounters} schon erreicht.`,
+      interaction
     );
     return;
   }
   const newFight = await startNewBattle(user.discordId);
   if (!newFight) {
-    await interaction.followUp(
-      'Es ist bereits ein Kampf gestartet, beende deinen aktiven Kampf zuerst.'
+    await sendMessage(
+      'Es ist bereits ein Kampf gestartet, beende deinen aktiven Kampf zuerst.',
+      interaction
     );
     return;
   }
-  await interaction.followUp('Ein neuer Kampf beginnt.');
-  const battle = await runBattle(user.discordId);
+  await sendMessage('Ein neuer Kampf beginnt.', interaction);
+  const battle = await runBattle(user.discordId, interaction);
   user.encounters += 1;
   if (battle.winner) {
     if (battle.new) {
@@ -59,7 +61,7 @@ export async function execute(interaction) {
           color: 'Green',
           noSprite: true,
         },
-        user.discordId
+        interaction
       );
       await sendMessage(
         {
@@ -68,7 +70,7 @@ export async function execute(interaction) {
           color: 'Green',
           sprite: loot.item.sprite,
         },
-        user.discordId
+        interaction
       );
       await addItemForUser(user, loot.item);
     } else {
@@ -79,7 +81,7 @@ export async function execute(interaction) {
           color: 'Green',
           noSprite: true,
         },
-        user.discordId
+        interaction
       );
     }
   } else {
@@ -91,7 +93,7 @@ export async function execute(interaction) {
         color: 'Red',
         noSprite: true,
       },
-      user.discordId
+      interaction
     );
   }
   await updateUser(user);

@@ -1,8 +1,9 @@
-import { SlashCommandBuilder, EmbedBuilder } from 'discord.js';
+import { SlashCommandBuilder } from 'discord.js';
 import { getAllItemsForUser } from '../database/item.js';
 import { getAllTmsForUser } from '../database/tm.js';
 import tmData from '../data/tms.json' with { type: 'json' };
 import { getUserById } from '../database/user.js';
+import { sendMessage } from '../utils/sendMessage.js';
 
 export const data = new SlashCommandBuilder()
   .setName('bag')
@@ -26,6 +27,7 @@ export const data = new SlashCommandBuilder()
   );
 
 export async function execute(interaction) {
+  await interaction.deferReply();
   const category = interaction.options.getString('category');
   const selected = interaction.options.getString('item-tm');
   const userId = interaction.user.id;
@@ -36,7 +38,7 @@ export async function execute(interaction) {
     case 'items': {
       const userItems = await getAllItemsForUser(userId);
       if (selected === 'all') {
-        await interaction.reply('List wird erstellt ...');
+        await sendMessage('List wird erstellt ...', interaction);
         const descriptions = [''];
 
         for (const item of userItems) {
@@ -53,12 +55,14 @@ export async function execute(interaction) {
         }
 
         for (const description of descriptions) {
-          const itemEmbed = new EmbedBuilder()
-            .setTitle('Alle Items')
-            .setDescription(description)
-            .setThumbnail(user.sprite)
-            .setColor('Blue');
-          await interaction.followUp({ embeds: [itemEmbed] });
+          await sendMessage(
+            {
+              title: 'Alle Items',
+              description: description,
+              sprite: user.sprite,
+            },
+            interaction
+          );
         }
 
         return;
@@ -68,25 +72,27 @@ export async function execute(interaction) {
       );
 
       if (item.length !== 1) {
-        await interaction.reply({
-          content: `Ungültige Auswahl: Das Item ${selected} existiert nicht oder du besitzt es noch nicht.`,
-        });
+        await sendMessage(
+          `Ungültige Auswahl: Das Item ${selected} existiert nicht oder du besitzt es noch nicht.`,
+          interaction
+        );
         return;
       }
 
-      const itemEmbed = new EmbedBuilder()
-        .setTitle(item[0].name)
-        .setDescription(item[0].description)
-        .setThumbnail(item[0].sprite)
-        .setColor('Blue');
-      await interaction.reply({ embeds: [itemEmbed] });
-
-      break;
+      await sendMessage(
+        {
+          title: item[0].name,
+          description: item[0].description,
+          sprite: item[0].sprite,
+        },
+        interaction
+      );
+      return;
     }
     case 'tms': {
       const userTMs = await getAllTmsForUser(userId);
       if (selected === 'all') {
-        await interaction.reply('List wird erstellt ...');
+        await sendMessage('List wird erstellt ...', interaction);
         const descriptions = [''];
 
         for (const tm of userTMs) {
@@ -103,14 +109,15 @@ export async function execute(interaction) {
         }
 
         for (const description of descriptions) {
-          const itemEmbed = new EmbedBuilder()
-            .setTitle("Alle TM's")
-            .setDescription(description)
-            .setThumbnail(user.sprite)
-            .setColor('Blue');
-          await interaction.followUp({ embeds: [itemEmbed] });
+          await sendMessage(
+            {
+              title: "All TM's",
+              description: description,
+              sprite: user.sprite,
+            },
+            interaction
+          );
         }
-
         return;
       }
       const tm = userTMs.filter(
@@ -118,28 +125,25 @@ export async function execute(interaction) {
       );
 
       if (tm.length !== 1) {
-        await interaction.reply({
-          content: `Ungültige Auswahl: Die TM ${selected} existiert nicht oder du besitzt sie noch nicht.`,
-        });
+        await sendMessage(
+          `Ungültige Auswahl: Die TM ${selected} existiert nicht oder du besitzt sie noch nicht.`,
+          interaction
+        );
         return;
       }
       const selectedTMData = tmData[tm[0].tm];
-      const itemEmbed = new EmbedBuilder()
-        .setTitle(tm[0].tm)
-        .setDescription(`${selectedTMData.move}: ${selectedTMData.type}`)
-        .setThumbnail(
-          `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/tm-${selectedTMData.type.toLowerCase()}.png`
-        )
-        .setColor('Blue');
-      await interaction.reply({ embeds: [itemEmbed] });
-
-      break;
+      await sendMessage(
+        {
+          title: tm[0].tm,
+          description: `${selectedTMData.move}: ${selectedTMData.type}`,
+          sprite: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/tm-${selectedTMData.type.toLowerCase()}.png`,
+        },
+        interaction
+      );
+      return;
     }
-    default:
-      await interaction.reply('Kategorie existiert nicht.');
   }
-
-  return;
+  await sendMessage('Kategorie existiert nicht.', interaction);
 }
 
 export async function autocomplete(interaction) {

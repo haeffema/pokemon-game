@@ -4,6 +4,7 @@ import {
   checkIfUserHasPokemon,
   setPokemonAsLead,
 } from '../database/pokemon.js';
+import { sendMessage } from '../utils/sendMessage.js';
 
 export const data = new SlashCommandBuilder()
   .setName('lead')
@@ -17,20 +18,23 @@ export const data = new SlashCommandBuilder()
   );
 
 export async function execute(interaction) {
+  await interaction.deferReply();
   const discordId = interaction.user.id;
   const chosenPokemon = interaction.options.getString('pokemon');
 
   if (!(await checkIfUserHasPokemon(discordId, chosenPokemon))) {
-    await interaction.reply({
-      content: `Ungültige Auswahl: Das Pokemon ${chosenPokemon} existiert nicht oder du hast es noch nicht gefangen.`,
-    });
+    await sendMessage(
+      `Ungültige Auswahl: Das Pokemon ${chosenPokemon} existiert nicht oder du hast es noch nicht gefangen.`,
+      interaction
+    );
     return;
   }
 
   await setPokemonAsLead(discordId, chosenPokemon);
-  await interaction.reply({
-    content: `Das Pokemon ${chosenPokemon} wurde als dein Lead-Pokemon festgelegt.`,
-  });
+  await sendMessage(
+    `Das Pokemon ${chosenPokemon} wurde als dein Lead-Pokemon festgelegt.`,
+    interaction
+  );
 }
 
 export async function autocomplete(interaction) {

@@ -40,13 +40,12 @@ export const data = new SlashCommandBuilder()
   );
 
 export async function execute(interaction) {
+  await interaction.deferReply();
   const category = interaction.options.getString('category');
   const product = interaction.options.getString('product');
   const userId = interaction.user.id;
 
   const user = await getUserById(userId);
-
-  await interaction.deferReply();
 
   switch (category) {
     case 'items': {

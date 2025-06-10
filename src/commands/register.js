@@ -1,6 +1,7 @@
 import { SlashCommandBuilder } from 'discord.js';
 import { getUserById } from '../database/user.js';
 import { validateTeamWithMessages } from '../utils/pokemonTeam.js';
+import { sendMessage } from '../utils/sendMessage.js';
 
 export const data = new SlashCommandBuilder()
   .setName('register')
@@ -17,14 +18,15 @@ export async function execute(interaction) {
 
   const user = await getUserById(interaction.user.id);
 
-  await interaction.followUp('Team wird überprüft...');
+  await sendMessage('Team wird überprüft...', interaction);
 
   await validateTeamWithMessages(
     user,
     interaction.options.getString('pokepaste')
   );
 
-  await interaction.followUp(
-    'Überprüfung fertig, alle validen Sets registriert.'
+  await sendMessage(
+    'Überprüfung fertig, alle validen Sets registriert.',
+    interaction
   );
 }

@@ -34,12 +34,14 @@ export const data = new SlashCommandBuilder()
   );
 
 export async function execute(interaction) {
+  await interaction.deferReply();
   if (!adminIds.includes(interaction.user.id)) {
     const user = await getUserById(interaction.user.id);
     user.money--;
     await updateUser(user);
-    await interaction.reply(
-      'Dieser Befehl kann nur von den **Arenaleitern** eingesetzt werden um über den Ausgang einer Arena Challenge zu entscheiden. Dir wurde 1 PokeDollar abegezogen!'
+    await sendMessage(
+      'Dieser Befehl kann nur von den **Arenaleitern** eingesetzt werden um über den Ausgang einer Arena Challenge zu entscheiden. Dir wurde 1 PokeDollar abegezogen!',
+      interaction
     );
     return;
   }
@@ -48,13 +50,12 @@ export async function execute(interaction) {
   const replay = interaction.options.getString('replay');
 
   if (!player) {
-    await interaction.reply(
-      'Der Spieler existiert nicht, oder hat keine aktive challenge.'
+    await sendMessage(
+      'Der Spieler existiert nicht, oder hat keine aktive challenge.',
+      interaction
     );
     return;
   }
-
-  await interaction.deferReply();
 
   const activeChallenge = await getActiveChallenge(player.name);
 
@@ -71,11 +72,8 @@ export async function execute(interaction) {
     const newGym = gymData[player.badges];
     player.money += currentGym.reward.money;
 
-    const delay = 2 + Math.floor(player.badges / 2);
-    player.delay = delay;
-
-    const adminMessage = `Die Herausforderung von ${player.name} war **erfolgreich**, der Arenaleiter musste sich (aufgrund von Hax) geschlagen geben, der Spieler bekommt seine Belohnungen und eine Sperre von ${delay} Tagen.`;
-    await interaction.followUp(adminMessage);
+    const adminMessage = `Die Herausforderung von ${player.name} war **erfolgreich**, der Arenaleiter musste sich (aufgrund von Hax) geschlagen geben, der Spieler bekommt seine Belohnungen und eine Sperre von drei Tagen.`;
+    await sendMessage(adminMessage, interaction);
     for (const adminId of adminIds) {
       if (adminId === interaction.user.id) continue;
       await sendMessage(adminMessage, adminId);
@@ -83,7 +81,7 @@ export async function execute(interaction) {
     await sendMessage(
       {
         title: `${currentGym.type} Arena geschafft.`,
-        description: `Herzlichen Glückwunsch für das Bezwingen der ${currentGym.type} Arena.\nAls Belohnung erhälst du ${currentGym.reward.money} PokeDollar sowie ein ganz besonderes Item!\n\nPokepaste: ${currentGym.pokepaste}\nDrive: ${currentGym.drive}\nDelay: ${delay} Tage`,
+        description: `Herzlichen Glückwunsch für das Bezwingen der ${currentGym.type} Arena.\nAls Belohnung erhälst du ${currentGym.reward.money} PokeDollar sowie ein ganz besonderes Item!\n\nPokepaste: ${currentGym.pokepaste}\nDrive: ${currentGym.drive}`,
         sprite: currentGym.sprite,
         color: 'Green',
       },
@@ -114,11 +112,8 @@ export async function execute(interaction) {
       player.discordId
     );
   } else {
-    const delay = 2 + Math.floor(player.badges / 2);
-    player.delay = delay;
-
-    const adminMessage = `Die Herausforderung von ${player.name} ist **gescheitert**, der Arenaleiter hat (wie vorauszusehen war) triumphiert. Der Spieler bekommt eine Sperre für ${delay} Tage bevor er die Arena erneut herausfordern darf.`;
-    await interaction.followUp(adminMessage);
+    const adminMessage = `Die Herausforderung von ${player.name} ist **gescheitert**, der Arenaleiter hat (wie vorauszusehen war) triumphiert. Der Spieler bekommt eine Sperre für drei Tage bevor er die Arena erneut herausfordern darf.`;
+    await sendMessage(adminMessage, interaction);
     for (const adminId of adminIds) {
       if (adminId === interaction.user.id) continue;
       await sendMessage(adminMessage, adminId);
@@ -126,13 +121,14 @@ export async function execute(interaction) {
     await sendMessage(
       {
         title: `${currentGym.type} Arena nicht geschafft.`,
-        description: `Nun die ${currentGym.type} Arena ist wohl doch nicht so einfach.\nVersuche es in ${delay} Tagen erneut ... vielleicht fällt dir bis dahin ja eine bessere Strategie ein.`,
+        description: `Schade... leider hast du die **${currentGym.type}** Arena nicht bezwingen können! \nDer Arenaleiter hat dir wohl gezeigt wo der Bartel den Most holt, du musst nun drei Tage warten bevor du ihn erneut herausfordern darfst!`,
         sprite: currentGym.sprite,
         color: 'Red',
       },
       player.discordId
     );
   }
+  player.delay = 3;
   await updateUser(player);
 }
 

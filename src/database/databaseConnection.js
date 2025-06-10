@@ -7,6 +7,7 @@ const connection = mysql.createConnection({
   password: null,
   database: 'pokemon',
   multipleStatements: true,
+  connectionLimit: 50,
 });
 
 connection.connect((err) => {

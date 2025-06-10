@@ -34,10 +34,12 @@ async function _sendMessage(
   } else {
     const embed = new EmbedBuilder()
       .setTitle(content.title)
-      .setDescription(content.description)
       .setColor(content.color || 'Blue');
     if (!content.noSprite) {
       embed.setThumbnail(content.sprite || defaultSprite);
+    }
+    if (content.description) {
+      embed.setDescription(content.description);
     }
     if (content.image) {
       const imageBuffer = content.image;
@@ -46,6 +48,11 @@ async function _sendMessage(
       });
       embed.setImage('attachment://image.png');
       sendableContent.files = [attachment];
+    }
+    if (content.fields) {
+      for (const field of content.fields) {
+        embed.addFields(field);
+      }
     }
     sendableContent.embeds = [embed];
   }

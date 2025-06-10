@@ -1,14 +1,11 @@
-import {
-  SlashCommandBuilder,
-  EmbedBuilder,
-  AttachmentBuilder,
-} from 'discord.js';
+import { SlashCommandBuilder } from 'discord.js';
 import { getUserById } from '../database/user.js';
 import { getAllUserPokemon } from '../database/pokemon.js';
 import { maxEncounters } from '../config.js';
 import { getAllItemsForUser } from '../database/item.js';
 import { generateBadgeImage } from '../utils/imageGenerator.js';
 import { generatePokepasteForTrainer } from '../utils/pokepaste.js';
+import { sendMessage } from '../utils/sendMessage.js';
 import pokemonData from '../data/pokemon.json' with { type: 'json' };
 import dropItems from '../data/items/dropItems.json' with { type: 'json' };
 import questItems from '../data/items/questItems.json' with { type: 'json' };
@@ -31,6 +28,7 @@ export const data = new SlashCommandBuilder()
   );
 
 export async function execute(interaction) {
+  await interaction.deferReply();
   const category = interaction.options.getString('category');
   const userId = interaction.user.id;
 
@@ -47,50 +45,45 @@ export async function execute(interaction) {
         ...Object.keys(shopItems),
       ];
       const ordenImageBuffer = await generateBadgeImage(user.badges);
-      const attachment = new AttachmentBuilder(ordenImageBuffer, {
-        name: 'image.png',
-      });
-      const overviewEmbed = new EmbedBuilder()
-        .setTitle(`Überblick für ${user.name}`)
-        .setThumbnail(user.sprite)
-        .setColor('Blue')
-        .addFields(
-          {
-            name: 'Geld',
-            value: `${new Intl.NumberFormat('de-DE').format(user.money)} PokeDollar`,
-            inline: true,
-          },
-          {
-            name: 'Kämpfe',
-            value: `${user.encounters}/${maxEncounters}`,
-            inline: true,
-          },
-          { name: ' ', value: ' ', inline: false }
-        )
-        .addFields(
-          {
-            name: 'Pokemon',
-            value: `${userPokemon.length}/${Object.keys(pokemonData).length}`,
-            inline: true,
-          },
-          {
-            name: 'Items',
-            value: `${userItems.length}/${Object.keys(allItems).length}`,
-            inline: true,
-          }
-        )
-        .setImage('attachment://image.png');
-      await interaction.reply({ embeds: [overviewEmbed], files: [attachment] });
+      await sendMessage(
+        {
+          title: `Überblick für ${user.name}`,
+          sprite: user.sprite,
+          fields: [
+            {
+              name: 'Geld',
+              value: `${new Intl.NumberFormat('de-DE').format(user.money)} PokeDollar`,
+              inline: true,
+            },
+            {
+              name: 'Kämpfe',
+              value: `${user.encounters}/${maxEncounters}`,
+              inline: true,
+            },
+            { name: ' ', value: ' ', inline: false },
+            {
+              name: 'Pokemon',
+              value: `${userPokemon.length}/${Object.keys(pokemonData).length}`,
+              inline: true,
+            },
+            {
+              name: 'Items',
+              value: `${userItems.length}/${Object.keys(allItems).length}`,
+              inline: true,
+            },
+          ],
+          image: ordenImageBuffer,
+        },
+        interaction
+      );
       return;
     }
     case 'pokedex': {
       const pokedexInfo = await generatePokepasteForTrainer(userId);
-      await interaction.reply(`Your Pokedex: ${pokedexInfo}`);
+      await sendMessage(`Your Pokedex: ${pokedexInfo}`, interaction);
       return;
     }
   }
 
-  await interaction.reply('Keine Kategorie ausgewählt.');
-
-  return;
+  await sendMessage('Keine Kategorie ausgewählt.', interaction);
 }

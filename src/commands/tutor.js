@@ -46,8 +46,9 @@ export async function execute(interaction) {
   const user = await getUserById(userId);
 
   if (user.money < 5000) {
-    await interaction.followUp(
-      'Du hast nicht genug Geld für einen Tutor Move.'
+    await sendMessage(
+      'Du hast nicht genug Geld für einen Tutor Move.',
+      interaction
     );
     return;
   }
@@ -55,8 +56,9 @@ export async function execute(interaction) {
   const pokemon = pokemonData[chosenPokemon.toLowerCase()];
 
   if (!(await checkIfUserHasPokemon(userId, chosenPokemon)) || !pokemon) {
-    await interaction.followUp(
-      'Das Pokemon existiert nicht oder du hast es noch nicht gefangen.'
+    await sendMessage(
+      'Das Pokemon existiert nicht oder du hast es noch nicht gefangen.',
+      interaction
     );
     return;
   }
@@ -68,8 +70,9 @@ export async function execute(interaction) {
   const allTutorMoveNames = alltutorMoves.map((move) => formatLabel(move.name));
 
   if (!allTutorMoveNames.includes(chosenMove)) {
-    await interaction.followUp(
-      'Der Move existiert nicht oder das Pokemon kann diesen bereits.'
+    await sendMessage(
+      'Der Move existiert nicht oder das Pokemon kann diesen bereits.',
+      interaction
     );
     return;
   }
@@ -92,16 +95,16 @@ export async function execute(interaction) {
       sprite:
         'https://play.pokemonshowdown.com/sprites/trainers/blackbelt-gen7.png',
     },
-    userId,
+    interaction,
     [actionRow]
   );
 
   const response = await awaitInteraction(userId, message);
 
   if (response === 'no') {
-    await interaction.followUp('Der Kaufvorgang wurde abgebrochen.');
+    await sendMessage('Der Kaufvorgang wurde abgebrochen.', interaction);
   } else {
-    await interaction.followUp('Glückwunsch, der Einkauf war erfolgreich.');
+    await sendMessage('Glückwunsch, der Einkauf war erfolgreich.', interaction);
     user.money -= 5000;
     await updateUser(user);
     await addTutorMove(userId, chosenPokemon, chosenMove);

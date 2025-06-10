@@ -30,20 +30,22 @@ export async function execute(interaction) {
   const activeChallenge = await getActiveChallenge(user.name);
 
   if (activeChallenge) {
-    await interaction.followUp(
-      'Beende zuerst deine aktive Challenge um eine neue zu starten.'
+    await sendMessage(
+      'Beende zuerst deine aktive Challenge um eine neue zu starten.',
+      interaction
     );
     return;
   }
 
   if (user.delay !== 0) {
-    await interaction.followUp(
-      `Du musst noch ${user.delay} Tage warten bis du erneut kämpfen kannst.`
+    await sendMessage(
+      `Du musst noch ${user.delay} Tage warten bis du erneut kämpfen kannst.`,
+      interaction
     );
     return;
   }
 
-  await interaction.followUp('Team wird überprüft...');
+  await sendMessage('Team wird überprüft...', interaction);
 
   const valid = await validateTeamWithMessages(
     user,
@@ -73,7 +75,7 @@ export async function execute(interaction) {
     );
     const message = await sendMessage(
       `Dein Team ist zulässig, aber bist du sicher, dass du mit weniger als 6 Pokémon gegen den Arenaleiter antreten willst? Der Kampf wird auch mit 6 schon schwer genug 😉`,
-      user.discordId,
+      interaction,
       [selectionButtons]
     );
 
@@ -91,7 +93,7 @@ export async function execute(interaction) {
     );
     const message = await sendMessage(
       'Bestätige bitte deine Challenge, danach gibt es kein zurück mehr und das Team darf nicht mehr verändert werden.',
-      user.discordId,
+      interaction,
       [selectionButtons]
     );
 
@@ -101,12 +103,12 @@ export async function execute(interaction) {
   if (response === 'no') {
     await sendMessage(
       'Die Challenge wurde abgebrochen ... das ist wahrscheinlich auch besser so. Komm wieder wenn du dir sicher bist!',
-      user.discordId
+      interaction
     );
     return;
   }
 
-  await sendMessage(answer, user.discordId);
+  await sendMessage(answer, interaction);
 
   const type = gymData[user.badges].type;
 

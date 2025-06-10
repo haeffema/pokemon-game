@@ -336,7 +336,7 @@ export async function startNewBattle(userId) {
   return true;
 }
 
-export async function runBattle(userId) {
+export async function runBattle(userId, interaction) {
   if (!activeBattles[userId]) {
     return false;
   }
@@ -368,7 +368,7 @@ export async function runBattle(userId) {
         description: logString,
         noSprite: true,
       },
-      userId,
+      interaction,
       [actionRow]
     );
 
@@ -376,7 +376,7 @@ export async function runBattle(userId) {
 
     battle.choose(trainerID, `move ${response}`);
     await botChooseHighestDamageMove(battle);
-    return await runBattle(userId);
+    return await runBattle(userId, interaction);
   }
 
   await sendMessage(
@@ -386,7 +386,7 @@ export async function runBattle(userId) {
       description: logString,
       noSprite: true,
     },
-    userId
+    interaction
   );
   const encounter = activeBattles[userId].encounter;
   encounter.winner = battle.winner === 'Trainer';
