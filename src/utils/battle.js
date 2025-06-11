@@ -213,6 +213,12 @@ function generateMovesButtons(pokemon) {
       );
     }
   });
+  moves.push(
+    new ButtonBuilder()
+      .setCustomId('ff')
+      .setLabel('Aufgeben')
+      .setStyle(ButtonStyle.Danger)
+  );
   return moves;
 }
 
@@ -372,6 +378,13 @@ export async function runBattle(userId, interaction) {
     );
 
     const response = await awaitInteraction(userId, message);
+
+    if (response === 'ff') {
+      const encounter = activeBattles[userId].encounter;
+      encounter.winner = false;
+      delete activeBattles[userId];
+      return encounter;
+    }
 
     battle.choose(trainerID, `move ${response}`);
     await botChooseHighestDamageMove(battle);
