@@ -97,7 +97,6 @@ async function getRandomSetForPokemon(pokemon, user) {
   } else {
     set['shiny'] = Math.floor(Math.random() * 8196) === 187;
   }
-
   return set;
 }
 
@@ -144,6 +143,10 @@ async function botChooseHighestDamageMove(battle) {
       }
     }
   });
+  if (attackerShowdown.canMegaEvo) {
+    battle.choose(botID, `move ${bestMoveIndex + 1} mega`);
+    return;
+  }
   battle.choose(botID, `move ${bestMoveIndex + 1}`);
 }
 
@@ -364,7 +367,7 @@ export async function runBattle(userId, interaction) {
     const message = await sendMessage(
       {
         image: battleImageBuffer,
-        title: `${trainerPokemon.species.name} vs. ${wildPokemon.species.name}${activeBattles[userId].encounter.set.shiny ? ' ⭐' : ''}`,
+        title: `${trainerPokemon.species.name}${trainerPokemon.set.shiny ? ' ⭐' : ''} vs. ${wildPokemon.species.name}${wildPokemon.set.shiny ? ' ⭐' : ''}`,
         description: logString,
         noSprite: true,
       },
@@ -382,7 +385,7 @@ export async function runBattle(userId, interaction) {
   await sendMessage(
     {
       image: battleImageBuffer,
-      title: `${trainerPokemon.species.name} vs. ${wildPokemon.species.name}${activeBattles[userId].encounter.set.shiny ? ' ⭐' : ''}`,
+      title: `${trainerPokemon.species.name}${trainerPokemon.set.shiny ? ' ⭐' : ''} vs. ${wildPokemon.species.name}${wildPokemon.set.shiny ? ' ⭐' : ''}`,
       description: logString,
       noSprite: true,
     },

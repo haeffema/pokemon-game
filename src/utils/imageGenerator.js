@@ -15,7 +15,7 @@ function drawHealthBar(ctx, x, y, barWidth, barHeight, pokemon) {
   ctx.font = 'bold 18px Arial';
   ctx.textAlign = 'center';
   ctx.textBaseline = 'bottom';
-  ctx.fillText(pokemon.set.name, x + barWidth / 2, y - 5);
+  ctx.fillText(pokemon.species.name, x + barWidth / 2, y - 5);
 
   ctx.fillStyle = 'gray';
   ctx.fillRect(x, y, barWidth, barHeight);
@@ -89,22 +89,26 @@ export async function generateBattleImage(trainerPokemon, wildPokemon) {
   const trainerSet = trainerPokemon.set;
   const wildSet = wildPokemon.set;
 
-  let trainerPath = `./src/data/sprites/${trainerSet.species.toLowerCase()}/${trainerSet.shiny ? 'shiny' : 'default'}/back.png`;
-  let wildPath = `./src/data/sprites/${wildSet.species.toLowerCase()}/${wildSet.shiny ? 'shiny' : 'default'}/default.png`;
+  let trainerPath = `./src/data/sprites/${trainerPokemon.species.name.toLowerCase()}/${trainerSet.shiny ? 'shiny' : 'default'}/back.png`;
+  let wildPath = `./src/data/sprites/${wildPokemon.species.name.toLowerCase()}/${wildSet.shiny ? 'shiny' : 'default'}/default.png`;
 
   const missingSpritePath = './src/data/sprites/missingSprite.png';
 
   try {
     await access(trainerPath, constants.F_OK);
   } catch (error) {
-    console.warn(`No Sprite: ${trainerSet.species.toLowerCase()}\n${error}`);
+    console.warn(
+      `No Sprite: ${trainerPokemon.species.name.toLowerCase()}\n${error}`
+    );
     trainerPath = missingSpritePath;
   }
 
   try {
     await access(wildPath, constants.F_OK);
   } catch (error) {
-    console.warn(`No Sprite: ${wildSet.species.toLowerCase()}\n${error}`);
+    console.warn(
+      `No Sprite: ${wildPokemon.species.name.toLowerCase()}\n${error}`
+    );
     wildPath = missingSpritePath;
   }
   const [background, trainerSprite, wildSprite] = await Promise.all([
