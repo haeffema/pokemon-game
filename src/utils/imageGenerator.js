@@ -89,8 +89,8 @@ export async function generateBattleImage(trainerPokemon, wildPokemon) {
   const trainerSet = trainerPokemon.set;
   const wildSet = wildPokemon.set;
 
-  let trainerPath = `./src/data/sprites/${trainerPokemon.species.name.toLowerCase()}/${trainerSet.shiny ? 'shiny' : 'default'}/back.png`;
-  let wildPath = `./src/data/sprites/${wildPokemon.species.name.toLowerCase()}/${wildSet.shiny ? 'shiny' : 'default'}/default.png`;
+  let trainerPath = `./src/data/sprites/${trainerPokemon.species.name.toLowerCase().replace('%', '')}/${trainerSet.shiny ? 'shiny' : 'default'}/back.png`;
+  let wildPath = `./src/data/sprites/${wildPokemon.species.name.toLowerCase().replace('%', '')}/${wildSet.shiny ? 'shiny' : 'default'}/default.png`;
 
   const missingSpritePath = './src/data/sprites/missingSprite.png';
 
