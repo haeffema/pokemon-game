@@ -182,7 +182,7 @@ function generateMovesButtons(pokemon) {
       if (pokemon.volatiles.twoturnmove.move === moveSlot.id) {
         moves.push(
           new ButtonBuilder()
-            .setCustomId(String(index + 1))
+            .setCustomId(String(1))
             .setLabel(moveSlot.move)
             .setStyle(ButtonStyle.Primary)
         );
@@ -191,7 +191,7 @@ function generateMovesButtons(pokemon) {
       if (pokemon.volatiles.lockedmove.move === moveSlot.id) {
         moves.push(
           new ButtonBuilder()
-            .setCustomId(String(index + 1))
+            .setCustomId(String(1))
             .setLabel(moveSlot.move)
             .setStyle(ButtonStyle.Primary)
         );
