@@ -69,7 +69,7 @@ export async function execute(interaction) {
             },
             {
               name: 'Shiny',
-              value: `${shinyUserPokemon.length}/{Object.keys(pokemonData).length}`,
+              value: `${shinyUserPokemon.length}/${Object.keys(pokemonData).length}`,
               inline: true,
             },
             {

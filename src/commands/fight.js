@@ -28,7 +28,7 @@ export async function execute(interaction) {
   }
   await sendMessage('Ein neuer Kampf beginnt.', interaction);
   const battle = await runBattle(user.discordId, interaction);
-  if (user.encounters === maxEncounters) {
+  if (user.encounters >= maxEncounters) {
     if (battle.set.shiny) {
       await sendMessage({
         title: 'Besonderes Ereignis!',
@@ -59,6 +59,7 @@ export async function execute(interaction) {
         interaction
       );
     }
+    return;
   }
   user.encounters += 1;
   if (battle.winner) {
