@@ -17,13 +17,7 @@ export const data = new SlashCommandBuilder()
 export async function execute(interaction) {
   await interaction.deferReply();
   const user = await getUserById(interaction.user.id);
-  if (user.encounters >= maxEncounters) {
-    await sendMessage(
-      `Du hast das heutige fight limit von ${maxEncounters} schon erreicht.`,
-      interaction
-    );
-    return;
-  }
+
   const newFight = await startNewBattle(user.discordId);
   if (!newFight) {
     await sendMessage(
@@ -34,6 +28,38 @@ export async function execute(interaction) {
   }
   await sendMessage('Ein neuer Kampf beginnt.', interaction);
   const battle = await runBattle(user.discordId, interaction);
+  if (user.encounters === maxEncounters) {
+    if (battle.set.shiny) {
+      await sendMessage({
+        title: 'Besonderes Ereignis!',
+        description: `${user.name} hat gerade ein Shiny ${battle.set.species} gefangen!\nHerzlichen Glückwunsch!`,
+        color: 'Green',
+      });
+      await makeUserPokemonShiny(user.discordId, battle.set.species);
+    }
+    if (battle.winner) {
+      await sendMessage(
+        {
+          title: 'Kampf gewonnen!',
+          description: `Du hast den Kampf gewonnen, da das Limit erreicht ist gibt es keine Belohnungen mehr.`,
+          color: 'Green',
+          noSprite: true,
+        },
+        interaction
+      );
+    } else {
+      await sendMessage(
+        {
+          title: 'Kampf verloren!',
+          description:
+            'Du hast den Kampf verloren, da das Limit schon erreicht ist hätte es sowieso keine Belohnungen mehr gegeben.',
+          color: 'Red',
+          noSprite: true,
+        },
+        interaction
+      );
+    }
+  }
   user.encounters += 1;
   if (battle.winner) {
     if (battle.new) {

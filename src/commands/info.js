@@ -35,6 +35,7 @@ export async function execute(interaction) {
   const user = await getUserById(userId);
 
   const userPokemon = await getAllUserPokemon(userId);
+  const shinyUserPokemon = userPokemon.filter((pokemon) => pokemon.shiny === 1);
 
   switch (category) {
     case 'overview': {
@@ -60,10 +61,15 @@ export async function execute(interaction) {
               value: `${user.encounters}/${maxEncounters}`,
               inline: true,
             },
-            { name: ' ', value: ' ', inline: false },
+            { name: 'Delay', value: `${user.delay} Tage`, inline: true },
             {
               name: 'Pokemon',
               value: `${userPokemon.length}/${Object.keys(pokemonData).length}`,
+              inline: true,
+            },
+            {
+              name: 'Shiny',
+              value: `${shinyUserPokemon.length}/{Object.keys(pokemonData).length}`,
               inline: true,
             },
             {

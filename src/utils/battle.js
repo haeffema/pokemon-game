@@ -19,10 +19,6 @@ const trainerID = 'p1';
 const botID = 'p2';
 
 async function getRandomEncounterForPlayer(user) {
-  if (user.encounters >= maxEncounters) {
-    return false;
-  }
-
   const userPokemon = await getAllUserPokemon(user.discordId);
   const userPokemonNames = userPokemon.map((pokemon) => pokemon.name);
 
@@ -43,7 +39,10 @@ async function getRandomEncounterForPlayer(user) {
   const activePool = await getActivePool();
 
   for (const pokemon of Object.keys(pokemonData)) {
-    if (user.newEncounters < maxNewEncounters) {
+    if (
+      user.newEncounters < maxNewEncounters &&
+      user.encounters < maxEncounters
+    ) {
       if (
         pokemonData[pokemon].tier === randomTier &&
         pokemonData[pokemon].types.includes(activePool.type)
@@ -83,7 +82,7 @@ async function getRandomEncounterForPlayer(user) {
   };
 }
 
-async function getRandomSetForPokemon(pokemon, user) {
+async function getRandomSetForPokemon(pokemon) {
   const randomPokemonData = pokemonData[pokemon];
   const sets = randomPokemonData.sets;
   const set = sets[Math.floor(Math.random() * sets.length)];
@@ -92,11 +91,8 @@ async function getRandomSetForPokemon(pokemon, user) {
   set['ivs'] = { hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31 };
   set['level'] = 100;
   set['happiness'] = 255;
-  if (user.badges === 8) {
-    set['shiny'] = Math.floor(Math.random() * 4098) === 187;
-  } else {
-    set['shiny'] = Math.floor(Math.random() * 8196) === 187;
-  }
+  set['shiny'] = Math.floor(Math.random() * 4069) === 187;
+  // TODO: check with shiny pin
   return set;
 }
 
@@ -314,10 +310,10 @@ export async function startNewBattle(userId) {
   const wildEncounter = await getRandomEncounterForPlayer(user);
 
   if (!wildEncounter) {
-    return false; // this is catched in /fight but just in case ;)
+    return false;
   }
 
-  const wildSet = await getRandomSetForPokemon(wildEncounter.pokemon, user);
+  const wildSet = await getRandomSetForPokemon(wildEncounter.pokemon);
 
   const battle = new showdown.Battle({ formatid: 'gen7customgame' });
 
