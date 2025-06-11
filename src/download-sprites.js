@@ -7,7 +7,6 @@ const OUTPUT_BASE_DIR = './src/data/sprites/';
 
 const POKEMON_IDS = [];
 
-
 async function downloadSprite(
   pokemonId,
   spriteSourceType,
