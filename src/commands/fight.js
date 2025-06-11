@@ -45,9 +45,21 @@ export async function execute(interaction) {
         lead: 0,
         shiny: battle.set.shiny ? 1 : 0,
       };
+      if (battle.set.shiny) {
+        await sendMessage({
+          title: 'Besonderes Ereignis!',
+          description: `${user.name} hat gerade ein Shiny ${battle.set.species} gefangen!\nHerzlichen Glückwunsch!`,
+          color: 'Green',
+        });
+      }
       await addNewPokemonForUser(user, pokemonData);
     } else {
       if (battle.set.shiny) {
+        await sendMessage({
+          title: 'Besonderes Ereignis!',
+          description: `${user.name} hat gerade ein Shiny ${battle.set.species} gefangen!\nHerzlichen Glückwunsch!`,
+          color: 'Green',
+        });
         await makeUserPokemonShiny(user.discordId, battle.set.species);
       }
     }
