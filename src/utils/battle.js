@@ -386,7 +386,10 @@ export async function runBattle(userId, interaction) {
       return encounter;
     }
 
-    battle.choose(trainerID, `move ${response}`);
+    battle.choose(
+      trainerID,
+      `move ${response}${trainerPokemon.canMegaEvo ? ' mega' : ''}`
+    );
     await botChooseHighestDamageMove(battle);
     return await runBattle(userId, interaction);
   }
@@ -406,8 +409,10 @@ export async function runBattle(userId, interaction) {
   return encounter;
 }
 
-export async function calculateLoot(pokemonName, userId) {
+export async function calculateLoot(pokemonName, userId, mega) {
   const loot = {};
+
+  console.log(mega);
 
   const tier = pokemonData[pokemonName.toLowerCase()].tier;
 
@@ -479,6 +484,10 @@ export async function calculateLoot(pokemonName, userId) {
     const randomItem =
       validItems[Math.floor(Math.random() * validItems.length)];
     loot.item = droppableItems[randomItem];
+  }
+
+  if (mega) {
+    loot.money *= 2;
   }
 
   return loot;

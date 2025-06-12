@@ -90,7 +90,11 @@ export async function execute(interaction) {
         await makeUserPokemonShiny(user.discordId, battle.set.species);
       }
     }
-    const loot = await calculateLoot(battle.set.species, user.discordId);
+    const loot = await calculateLoot(
+      battle.set.species,
+      user.discordId,
+      battle.set.item.endsWith('ite') && battle.set.item != 'Eviolite'
+    );
     user.money += loot.money;
     if (loot.item) {
       await sendMessage(
