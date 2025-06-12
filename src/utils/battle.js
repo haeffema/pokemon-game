@@ -208,7 +208,9 @@ function generateMovesButtons(pokemon) {
       moves.push(
         new ButtonBuilder()
           .setCustomId(String(index + 1))
-          .setLabel(moveSlot.move)
+          .setLabel(
+            `${moveSlot.move}${moveSlot.move === 'Hidden Power' ? ` ${pokemon.hpType}` : ''}`
+          )
           .setStyle(ButtonStyle.Primary)
       );
     }
