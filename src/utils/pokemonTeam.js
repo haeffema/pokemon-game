@@ -77,10 +77,7 @@ async function validateSet(databaseEntry, pokemon, userId) {
     }
     const moveData =
       pokemonData[pokemon.species.toLowerCase()].moves[
-        move
-          .toLowerCase()
-          .replace(' ', '-')
-          .replace(/ ?\[.*?\]/g, '')
+        move.toLowerCase().replace(' ', '-').split(' ')[0]
       ];
     if (!moveData) {
       error[move] = 'wird nicht gelernt -> wende dich an jan und max';
@@ -89,7 +86,10 @@ async function validateSet(databaseEntry, pokemon, userId) {
     if (moveData.type === 'machine') {
       error[move] = 'TM nicht gekauft';
       for (const tm of await getAllTmsForUser(userId)) {
-        if (tmData[tm.tm].move === move) {
+        if (
+          tmData[tm.tm].move ===
+          `${move.startsWith('Hidden Power') ? 'Hidden Power' : move}`
+        ) {
           delete error[move];
           break;
         }
