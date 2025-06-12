@@ -1,33 +1,47 @@
-import { readdir } from 'fs/promises';
+import { readdir, unlink, stat } from 'fs/promises';
 import { exec } from 'child_process';
 import path from 'path';
 import { promisify } from 'util';
 
 const execAsync = promisify(exec);
 
-// funktioniert aktuell nur local bei Max
-const MAGICK_PATH = `"D:/magick/magick.exe"`;
+const MAGICK_PATH = `"convert"`;
 
 const baseDir = './src/data/sprites';
 
-async function convertFirstGifFrameToPng(dir) {
+async function deleteFileIfExists(filePath) {
+  try {
+    await stat(filePath);
+    await unlink(filePath);
+    console.log(`Deleted existing file: ${filePath}`);
+  } catch (error) {
+    if (error.code !== 'ENOENT') {
+      console.error(`Failed to delete file ${filePath}:`, error.message);
+    }
+  }
+}
+
+async function convertGifFramesToPngs(dir) {
   const entries = await readdir(dir, { withFileTypes: true });
 
   for (const entry of entries) {
     const fullPath = path.join(dir, entry.name);
 
     if (entry.isDirectory()) {
-      await convertFirstGifFrameToPng(fullPath);
+      await convertGifFramesToPngs(fullPath);
     } else if (
       entry.isFile() &&
       (entry.name === 'back.gif' || entry.name === 'default.gif')
     ) {
-      const pngName = entry.name.replace('.gif', '.png');
-      const outputPath = path.join(dir, pngName);
+      const pngBaseName = entry.name.replace('.gif', '');
+      const outputPathPattern = path.join(dir, `${pngBaseName}-%d.png`);
+      const oldPngPath = path.join(dir, `${pngBaseName}.png`);
+
+      await deleteFileIfExists(oldPngPath);
 
       try {
-        await execAsync(`${MAGICK_PATH} "${fullPath}[0]" "${outputPath}"`);
-        console.log(`Saved first frame: ${fullPath} → ${outputPath}`);
+        await execAsync(`${MAGICK_PATH} "${fullPath}" "${outputPathPattern}"`);
+        console.log(`Converted all frames: ${fullPath} → ${outputPathPattern}`);
       } catch (error) {
         console.error(`Failed to convert: ${fullPath}`, error.message);
       }
@@ -35,8 +49,10 @@ async function convertFirstGifFrameToPng(dir) {
   }
 }
 
-convertFirstGifFrameToPng(baseDir)
+convertGifFramesToPngs(baseDir)
   .then(() =>
-    console.log('All back.gif and default.gif first frames converted to PNGs')
+    console.log(
+      'All back.gif and default.gif frames converted to PNGs, and old single PNGs deleted.'
+    )
   )
   .catch((err) => console.error('Error during conversion:', err));
