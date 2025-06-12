@@ -45,6 +45,14 @@ export async function execute(interaction) {
     return;
   }
 
+  if (user.badges === 8) {
+    await sendMessage(
+      `Die Top 4 sind noch nicht implementiert, wende dich an Jan und Max.`,
+      interaction
+    );
+    return;
+  }
+
   await sendMessage('Team wird überprüft...', interaction);
 
   const valid = await validateTeamWithMessages(

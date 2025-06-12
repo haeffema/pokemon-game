@@ -102,15 +102,17 @@ export async function execute(interaction) {
       description: `Glückwunsch, ${player.name} hat die ${player.badges}. Arena bezwungen und den Orden erhalten! Aber sei gewarnt, der nächste Arenaleiter wird es dir nicht so einfach machen.`,
       color: 'Purple',
     });
-    await sendMessage(
-      {
-        title: 'Bereit für eine neue Herausforderung?',
-        description: `${newGym.text}\n\n*Du kannst nun in die ${player.badges + 1}. Arena ... wenn du dich traust.*`,
-        color: 'Blue',
-        sprite: newGym.sprite,
-      },
-      player.discordId
-    );
+    if (newGym) {
+      await sendMessage(
+        {
+          title: 'Bereit für eine neue Herausforderung?',
+          description: `${newGym.text}\n\n*Du kannst nun in die ${player.badges + 1}. Arena ... wenn du dich traust.*`,
+          color: 'Blue',
+          sprite: newGym.sprite,
+        },
+        player.discordId
+      );
+    }
   } else {
     const adminMessage = `Die Herausforderung von ${player.name} ist **gescheitert**, der Arenaleiter hat (wie vorauszusehen war) triumphiert. Der Spieler bekommt eine Sperre für drei Tage bevor er die Arena erneut herausfordern darf.`;
     await sendMessage(adminMessage, interaction);
