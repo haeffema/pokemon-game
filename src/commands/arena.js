@@ -137,6 +137,11 @@ export async function execute(interaction) {
 export async function autocomplete(interaction) {
   const focusedValue = interaction.options.getFocused();
 
+  if (!adminIds.includes(interaction.user.id)) {
+    await interaction.respond([]);
+    return;
+  }
+
   const users = await getAllUsers();
 
   const filteredUsers = [];

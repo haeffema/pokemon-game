@@ -69,3 +69,19 @@ export async function addChallenge(challengeData) {
     );
   });
 }
+
+export async function getAllChallengesForUser(username) {
+  return new Promise((resolve, reject) => {
+    const query = `
+      SELECT c.* FROM challenges c 
+      INNER JOIN users u ON c.user = u.name 
+      WHERE u.name = ?
+    `;
+    connection.query(query, [username], (err, results) => {
+      if (err) {
+        return reject(err);
+      }
+      resolve(results);
+    });
+  });
+}
