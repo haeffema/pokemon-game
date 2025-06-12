@@ -75,15 +75,12 @@ async function validateSet(databaseEntry, pokemon, userId) {
     if (databaseSet.moves.includes(move)) {
       continue;
     }
-    const moveData =
-      pokemonData[pokemon.species.toLowerCase()].moves[
-        move.toLowerCase().replace(' ', '-').split(' ')[0]
-      ];
+    const moveData = pokemonData[pokemon.species.toLowerCase()].moves[move];
     if (!moveData) {
       error[move] = 'wird nicht gelernt -> wende dich an jan und max';
       break;
     }
-    if (moveData.type === 'machine') {
+    if (moveData['learn-method'] === 'TM') {
       error[move] = 'TM nicht gekauft';
       for (const tm of await getAllTmsForUser(userId)) {
         if (
@@ -95,7 +92,7 @@ async function validateSet(databaseEntry, pokemon, userId) {
         }
       }
     }
-    if (moveData.type === 'tutor') {
+    if (moveData['learn-method'] === 'Tutor') {
       error[move] = 'Tutor Move';
       if (await checkIfTutorMoveIsLearned(userId, databaseEntry.name, move)) {
         delete error[move];

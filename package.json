@@ -24,6 +24,7 @@
     "prettier": "^3.5.3"
   },
   "dependencies": {
+    "@pkmn/dex": "^0.9.35",
     "@smogon/calc": "^0.10.0",
     "canvas": "^3.1.0",
     "child_process": "^1.0.2",
