@@ -412,8 +412,6 @@ export async function runBattle(userId, interaction) {
 export async function calculateLoot(pokemonName, userId, mega) {
   const loot = {};
 
-  console.log(mega);
-
   const tier = pokemonData[pokemonName.toLowerCase()].tier;
 
   const randomFactor = -20 + Math.floor(Math.random() * 41);
