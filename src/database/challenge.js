@@ -3,9 +3,8 @@ import connection from './databaseConnection.js';
 export async function getActiveChallenge(username) {
   return new Promise((resolve, reject) => {
     const query = `
-      SELECT * FROM challenges c 
-      INNER JOIN users u ON c.user = u.name 
-      WHERE u.name = ? AND c.active = 1
+      SELECT * FROM challenges
+      WHERE user = ? AND active = 1
     `;
     connection.query(query, [username], (err, results) => {
       if (err) {
@@ -73,9 +72,8 @@ export async function addChallenge(challengeData) {
 export async function getAllChallengesForUser(username) {
   return new Promise((resolve, reject) => {
     const query = `
-      SELECT c.* FROM challenges c 
-      INNER JOIN users u ON c.user = u.name 
-      WHERE u.name = ?
+      SELECT * FROM challenges
+      WHERE user = ?
     `;
     connection.query(query, [username], (err, results) => {
       if (err) {
