@@ -55,14 +55,14 @@
     }
   },
   {
-    "type": "Drache",
+    "type": "Elektro",
     "text": "",
     "sprite": "",
     "pokepaste": "",
     "drive": "https://drive.google.com/drive/folders/1ZaoFw1YWA8KpowOX4SYT1wNzGcDPE0J-?usp=sharing",
     "reward": {
       "money": 12000,
-      "item": "Dragonium Z"
+      "item": "Electrium Z"
     }
   },
   {

@@ -17,8 +17,30 @@ export async function validateTeam(userId, team) {
   const errors = {};
   const userPokemon = await getAllUserPokemon(userId);
   const pokemonNames = userPokemon.map((p) => p.name);
+  const items = [];
+  const types = {};
   for (const pokemon of team) {
     if (pokemonNames.includes(pokemon.species)) {
+      if (items.includes(pokemon.item)) {
+        if (!errors['Doppelte Items']) {
+          errors['Doppelte Items'] = {};
+        }
+        errors['Doppelte Items'][pokemon.item] = 'Jedes Item nur einmal!';
+      }
+      items.push(pokemon.item);
+      for (const type of pokemonData[pokemon.species.toLowerCase()].types) {
+        if (Object.keys(types).includes(type)) {
+          types[type] += 1;
+          if (types[type] > 2) {
+            if (!errors['Typ']) {
+              errors['Typ'] = {};
+            }
+            errors['Typ'][type] = 'Jeden Typ maximal zweimal.';
+          }
+        } else {
+          types[type] = 1;
+        }
+      }
       errors[pokemon.species] = await validateSet(
         userPokemon.find((p) => p.name === pokemon.species),
         pokemon,
@@ -104,6 +126,11 @@ export async function validateTeamWithMessages(
 
   const errors = await validateTeam(user.discordId, team);
   let errorCounter = 0;
+
+  if (!teamSize) {
+    delete errors['Typ'];
+    delete errors['Doppelte Items'];
+  }
 
   for (const error of Object.keys(errors)) {
     if (Object.keys(errors[error]).length !== 0) {
