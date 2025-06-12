@@ -77,7 +77,10 @@ async function validateSet(databaseEntry, pokemon, userId) {
     }
     const moveData =
       pokemonData[pokemon.species.toLowerCase()].moves[
-        move.toLowerCase().replace(' ', '-')
+        move
+          .toLowerCase()
+          .replace(' ', '-')
+          .replace(/ ?\[.*?\]/g, '')
       ];
     if (!moveData) {
       error[move] = 'wird nicht gelernt -> wende dich an jan und max';
