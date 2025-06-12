@@ -37,6 +37,27 @@ async function convertGifFramesToPngs(dir) {
       const outputPathPattern = path.join(dir, `${pngBaseName}-%d.png`);
       const oldPngPath = path.join(dir, `${pngBaseName}.png`);
 
+      const expectedFirstFrame = path.join(dir, `${pngBaseName}-0.png`);
+      let alreadyConverted = false;
+      try {
+        await stat(expectedFirstFrame);
+        alreadyConverted = true;
+      } catch (error) {
+        if (error.code !== 'ENOENT') {
+          console.error(
+            `Error checking for existing PNG frames in ${dir}:`,
+            error.message
+          );
+        }
+      }
+
+      if (alreadyConverted) {
+        console.log(
+          `Skipping ${entry.name} in ${dir}: PNG frames already exist.`
+        );
+        continue;
+      }
+
       await deleteFileIfExists(oldPngPath);
 
       try {
@@ -52,7 +73,7 @@ async function convertGifFramesToPngs(dir) {
 convertGifFramesToPngs(baseDir)
   .then(() =>
     console.log(
-      'All back.gif and default.gif frames converted to PNGs, and old single PNGs deleted.'
+      'All back.gif and default.gif frames converted to PNGs (if not already converted), and old single PNGs deleted.'
     )
   )
   .catch((err) => console.error('Error during conversion:', err));
