@@ -1,6 +1,29 @@
 import { getActivePool } from '../database/pool.js';
 import { createCanvas, loadImage } from 'canvas';
-import { access, constants } from 'node:fs/promises';
+import { access, constants, readdir } from 'node:fs/promises';
+import path from 'path';
+
+async function getRandomSpriteFilename(spriteDir, prefix) {
+  try {
+    const files = await readdir(spriteDir);
+    const filteredFiles = files.filter(
+      (file) => file.startsWith(`${prefix}-`) && file.endsWith('.png')
+    );
+
+    if (filteredFiles.length === 0) {
+      console.warn(
+        `No sprites found matching "${prefix}-*.png" in ${spriteDir}`
+      );
+      return null;
+    }
+
+    const randomIndex = Math.floor(Math.random() * filteredFiles.length);
+    return filteredFiles[randomIndex];
+  } catch (error) {
+    console.error(`Error reading sprite directory ${spriteDir}:`, error);
+    return null;
+  }
+}
 
 function drawHealthBar(ctx, x, y, barWidth, barHeight, pokemon) {
   const percentage = pokemon.hp / pokemon.maxhp;
@@ -15,7 +38,7 @@ function drawHealthBar(ctx, x, y, barWidth, barHeight, pokemon) {
   ctx.font = 'bold 18px Arial';
   ctx.textAlign = 'center';
   ctx.textBaseline = 'bottom';
-  ctx.fillText(pokemon.set.name, x + barWidth / 2, y - 5);
+  ctx.fillText(pokemon.species.name, x + barWidth / 2, y - 5);
 
   ctx.fillStyle = 'gray';
   ctx.fillRect(x, y, barWidth, barHeight);
@@ -89,28 +112,59 @@ export async function generateBattleImage(trainerPokemon, wildPokemon) {
   const trainerSet = trainerPokemon.set;
   const wildSet = wildPokemon.set;
 
-  let trainerPath = `./src/data/sprites/${trainerPokemon.species.name.toLowerCase()}/${trainerSet.shiny ? 'shiny' : 'default'}/back.png`;
-  let wildPath = `./src/data/sprites/${wildPokemon.species.name.toLowerCase()}/${wildSet.shiny ? 'shiny' : 'default'}/default.png`;
+  const trainerSpriteDir = `./src/data/sprites/${trainerPokemon.species.name.toLowerCase()}/${trainerSet.shiny ? 'shiny' : 'default'}`;
+  const wildSpriteDir = `./src/data/sprites/${wildPokemon.species.name.toLowerCase()}/${wildSet.shiny ? 'shiny' : 'default'}`;
+
+  let trainerSpriteFilename = await getRandomSpriteFilename(
+    trainerSpriteDir,
+    'back'
+  );
+  let wildSpriteFilename = await getRandomSpriteFilename(
+    wildSpriteDir,
+    'default'
+  );
+
+  let trainerPath = trainerSpriteFilename
+    ? path.join(trainerSpriteDir, trainerSpriteFilename)
+    : null;
+  let wildPath = wildSpriteFilename
+    ? path.join(wildSpriteDir, wildSpriteFilename)
+    : null;
 
   const missingSpritePath = './src/data/sprites/missingSprite.png';
 
-  try {
-    await access(trainerPath, constants.F_OK);
-  } catch (error) {
+  if (!trainerPath) {
     console.warn(
-      `No Sprite: ${trainerPokemon.species.name.toLowerCase()}\n${error}`
+      `No random back sprite found for ${trainerPokemon.species.name.toLowerCase()}. Using missing sprite.`
     );
     trainerPath = missingSpritePath;
+  } else {
+    try {
+      await access(trainerPath, constants.F_OK);
+    } catch (error) {
+      console.warn(
+        `Randomly selected trainer sprite ${trainerPath} not found:\n${error}`
+      );
+      trainerPath = missingSpritePath;
+    }
   }
 
-  try {
-    await access(wildPath, constants.F_OK);
-  } catch (error) {
+  if (!wildPath) {
     console.warn(
-      `No Sprite: ${wildPokemon.species.name.toLowerCase()}\n${error}`
+      `No random default sprite found for ${wildPokemon.species.name.toLowerCase()}. Using missing sprite.`
     );
     wildPath = missingSpritePath;
+  } else {
+    try {
+      await access(wildPath, constants.F_OK);
+    } catch (error) {
+      console.warn(
+        `Randomly selected wild sprite ${wildPath} not found:\n${error}`
+      );
+      wildPath = missingSpritePath;
+    }
   }
+
   const [background, trainerSprite, wildSprite] = await Promise.all([
     loadImage(backgroundPath),
     loadImage(trainerPath),
