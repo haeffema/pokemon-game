@@ -1,7 +1,12 @@
 import { getUserById } from '../database/user.js';
 import { getAllUserPokemon, getUserLeadPokemon } from '../database/pokemon.js';
 import { getActivePool } from '../database/pool.js';
-import { itemDropRate, maxEncounters, maxNewEncounters } from '../config.js';
+import {
+  itemDropRate,
+  maxEncounters,
+  maxNewEncounters,
+  minNewEncounters,
+} from '../config.js';
 import { calculate, Generations, Pokemon, Move, Field } from '@smogon/calc';
 import showdown from 'pokemon-showdown';
 import tierData from '../data/tierPropabilities.json' with { type: 'json' };
@@ -22,51 +27,50 @@ async function getRandomEncounterForPlayer(user) {
   const userPokemon = await getAllUserPokemon(user.discordId);
   const userPokemonNames = userPokemon.map((pokemon) => pokemon.name);
 
-  const availablePokemon = [];
-
-  const userTierData = tierData[user.badges];
-
-  const randomNumber = Math.random();
-  let randomTier = 'ZU';
-
-  for (const tier of Object.keys(userTierData)) {
-    if (userTierData[tier] >= randomNumber) {
-      randomTier = tier;
-      break;
-    }
-  }
-
   const activePool = await getActivePool();
 
+  const availablePokemon = [];
+  const userTierData = tierData[user.badges];
+
   for (const pokemon of Object.keys(pokemonData)) {
+    const pokeData = pokemonData[pokemon];
+
     if (
-      user.newEncounters < maxNewEncounters &&
+      user.newEncounters < minNewEncounters &&
+      user.encounters % 2 !== 0 &&
       user.encounters < maxEncounters
     ) {
       if (
-        pokemonData[pokemon].tier === randomTier &&
-        pokemonData[pokemon].types.includes(activePool.type)
+        pokeData.types.includes(activePool.type) &&
+        !userPokemonNames.includes(pokeData.name)
       ) {
-        availablePokemon.push(pokemon);
-        if (!userPokemonNames.includes(pokemonData[pokemon].name)) {
+        for (let i = 0; i < userTierData[pokeData.tier]; i++) {
           availablePokemon.push(pokemon);
-          availablePokemon.push(pokemon);
-          availablePokemon.push(pokemon);
+        }
+      }
+    } else if (
+      user.newEncounters < maxNewEncounters &&
+      user.encounters < maxEncounters
+    ) {
+      if (pokeData.types.includes(activePool.type)) {
+        for (let i = 0; i < userTierData[pokeData.tier]; i++) {
           availablePokemon.push(pokemon);
         }
       }
     } else {
       if (
-        pokemonData[pokemon].tier === randomTier &&
-        pokemonData[pokemon].types.includes(activePool.type) &&
-        userPokemonNames.includes(pokemonData[pokemon].name)
+        pokeData.types.includes(activePool.type) &&
+        userPokemonNames.includes(pokeData.name)
       ) {
-        availablePokemon.push(pokemon);
+        for (let i = 0; i < userTierData[pokeData.tier]; i++) {
+          availablePokemon.push(pokemon);
+        }
       }
     }
   }
+
   if (availablePokemon.length === 0) {
-    return await getRandomEncounterForPlayer(user);
+    return undefined;
   }
   const randomPokemon =
     availablePokemon[Math.floor(availablePokemon.length * Math.random())];
