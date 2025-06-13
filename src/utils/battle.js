@@ -70,6 +70,20 @@ async function getRandomEncounterForPlayer(user) {
   }
 
   if (availablePokemon.length === 0) {
+    for (const pokemon of Object.keys(pokemonData)) {
+      const pokeData = pokemonData[pokemon];
+      if (
+        pokeData.types.includes(activePool.type) &&
+        userPokemonNames.includes(pokeData.name)
+      ) {
+        for (let i = 0; i < userTierData[pokeData.tier]; i++) {
+          availablePokemon.push(pokemon);
+        }
+      }
+    }
+  }
+
+  if (availablePokemon.length === 0) {
     return undefined;
   }
   const randomPokemon =
