@@ -6,6 +6,7 @@ import {
   maxEncounters,
   maxNewEncounters,
   minNewEncounters,
+  shinyRate,
 } from '../config.js';
 import { calculate, Generations, Pokemon, Move, Field } from '@smogon/calc';
 import showdown from 'pokemon-showdown';
@@ -104,10 +105,10 @@ async function getRandomSetForPokemon(pokemon) {
   const set = sets[Math.floor(Math.random() * sets.length)];
   set['name'] = '';
   set['species'] = randomPokemonData.name;
-  set['ivs'] = { hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31 };
+  set['ivs'] = randomPokemonData.ivs;
   set['level'] = 100;
   set['happiness'] = 255;
-  set['shiny'] = Math.floor(Math.random() * 4069) === 187;
+  set['shiny'] = Math.floor(Math.random() * shinyRate) === 187;
   // TODO: check with shiny pin
   return set;
 }

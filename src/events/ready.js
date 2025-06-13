@@ -21,7 +21,7 @@ export async function execute(client) {
     await setNewPool();
   });
 
-  cron.schedule('0 16 * * *', async () => {
+  cron.schedule('0 18 * * *', async () => {
     const users = await getAllUsers();
     for (const user of users) {
       if (adminIds.includes(user.discordId)) {
@@ -32,7 +32,7 @@ export async function execute(client) {
           {
             title: 'Erinnerung!',
             description:
-              'Hey, es ist 16 Uhr. Vergiss nicht deine Kämpfe, die Belohnungen jeden Tag zu holen ist sehr wichtig.',
+              'Hey, es ist 18 Uhr. Vergiss nicht deine Kämpfe, die Belohnungen jeden Tag zu holen ist sehr wichtig.',
           },
           user.discordId
         );

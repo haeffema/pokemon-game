@@ -12,6 +12,7 @@ export const maxEncounters = 35;
 export const minNewEncounters = 3;
 export const maxNewEncounters = 10;
 export const itemDropRate = 0.15;
+export const shinyRate = 4096;
 
 export const defaultSprite =
   'https://play.pokemonshowdown.com/sprites/trainers/oak.png';
