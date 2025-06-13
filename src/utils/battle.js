@@ -194,8 +194,12 @@ function formatForCalc(pokemon) {
 
 function generateMovesButtons(pokemon) {
   const moves = [];
-  // console.log(pokemon)
   pokemon.moveSlots.forEach((moveSlot, index) => {
+    if (pokemon.volatiles.disable) {
+      if (pokemon.volatiles.disable.move === moveSlot.id) {
+        return;
+      }
+    }
     if (pokemon.volatiles.twoturnmove) {
       if (pokemon.volatiles.twoturnmove.move === moveSlot.id) {
         moves.push(
@@ -234,6 +238,16 @@ function generateMovesButtons(pokemon) {
       );
     }
   });
+
+  if (moves.length === 0) {
+    moves.push(
+      new ButtonBuilder()
+        .setCustomId('1')
+        .setLabel('Struggle')
+        .setStyle(ButtonStyle.Secondary)
+    );
+  }
+
   moves.push(
     new ButtonBuilder()
       .setCustomId('ff')
