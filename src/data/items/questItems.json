@@ -1,18 +1,83 @@
 {
-  "Shiny Charm": {
-    "name": "Shiny Charm",
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/shiny-charm.png",
-    "description": "A shiny charm said to increase the chance of finding a Shiny Pokémon in the wild."
+  "Abomasite": {
+    "name": "Abomasite",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/abomasite.png",
+    "description": "One variety of the mysterious Mega Stones. Have Abomasnow hold it, and this stone will enable it to Mega Evolve during battle."
   },
-  "Kangaskhanite": {
-    "name": "Kangaskhanite",
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/kangaskhanite.png",
-    "description": "One variety of the mysterious Mega Stones. Have Kangaskhan hold it, and this stone will enable it to Mega Evolve during battle."
+  "Absolite": {
+    "name": "Absolite",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/absolite.png",
+    "description": "One variety of the mysterious Mega Stones. Have Absol hold it, and this stone will enable it to Mega Evolve during battle."
   },
-  "Galladite": {
-    "name": "Galladite",
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/galladite.png",
-    "description": "One of a variety of mysterious Mega Stones. Have Gallade hold it, and this stone will enable it to Mega Evolve during battle."
+  "Aerodactylite": {
+    "name": "Aerodactylite",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/aerodactylite.png",
+    "description": "One variety of the mysterious Mega Stones. Have Aerodactyl hold it, and this stone will enable it to Mega Evolve during battle."
+  },
+  "Aggronite": {
+    "name": "Aggronite",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/aggronite.png",
+    "description": "One variety of the mysterious Mega Stones. Have Aggron hold it, and this stone will enable it to Mega Evolve during battle."
+  },
+  "Alakazite": {
+    "name": "Alakazite",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/alakazite.png",
+    "description": "One variety of the mysterious Mega Stones. Have Alakazam hold it, and this stone will enable it to Mega Evolve during battle."
+  },
+  "Aloraichium Z": {
+    "name": "Aloraichium Z",
+    "sprite": "https://archives.bulbagarden.net/media/upload/e/ee/Bag_Aloraichium_Z_Sprite.png",
+    "description": "Lets Alolan Raichu use the exclusive Z-Move 'Stoked Sparksurfer'."
+  },
+  "Altarianite": {
+    "name": "Altarianite",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/altarianite.png",
+    "description": "One of a variety of mysterious Mega Stones. Have Altaria hold it, and this stone will enable it to Mega Evolve during battle."
+  },
+  "Ampharosite": {
+    "name": "Ampharosite",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/ampharosite.png",
+    "description": "One variety of the mysterious Mega Stones. Have Ampharos hold it, and this stone will enable it to Mega Evolve during battle."
+  },
+  "Audinite": {
+    "name": "Audinite",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/audinite.png",
+    "description": "One of a variety of mysterious Mega Stones. Have Audino hold it, and this stone will enable it to Mega Evolve during battle."
+  },
+  "Banettite": {
+    "name": "Banettite",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/banettite.png",
+    "description": "One variety of the mysterious Mega Stones. Have Banette hold it, and this stone will enable it to Mega Evolve during battle."
+  },
+  "Beedrillite": {
+    "name": "Beedrillite",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/beedrillite.png",
+    "description": "One of a variety of mysterious Mega Stones. Have Beedrill hold it, and this stone will enable it to Mega Evolve during battle."
+  },
+  "Blastoisinite": {
+    "name": "Blastoisinite",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/blastoisinite.png",
+    "description": "One variety of the mysterious Mega Stones. Have Blastoise hold it, and this stone will enable it to Mega Evolve during battle."
+  },
+  "Blazikenite": {
+    "name": "Blazikenite",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/blazikenite.png",
+    "description": "One variety of the mysterious Mega Stones. Have Blaziken hold it, and this stone will enable it to Mega Evolve during battle."
+  },
+  "Blue Orb": {
+    "name": "Blue Orb",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/blue-orb.png",
+    "description": "A blue, glowing orb said to contain an ancient power."
+  },
+  "Buginium Z": {
+    "name": "Buginium Z",
+    "sprite": "https://archives.bulbagarden.net/media/upload/6/66/Bag_Buginium_Z_Sprite.png",
+    "description": "Converts a Bug-type move into a Bug-type Z-Move. Compatible with Bug-type Pokémon."
+  },
+  "Cameruptite": {
+    "name": "Cameruptite",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/cameruptite.png",
+    "description": "One of a variety of mysterious Mega Stones. Have Camerupt hold it, and this stone will enable it to Mega Evolve during battle."
   },
   "Charizardite X": {
     "name": "Charizardite X",
@@ -24,25 +89,30 @@
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/charizardite-y.png",
     "description": "One variety of the mysterious Mega Stones. Have Charizard hold it, and this stone will enable it to Mega Evolve during battle."
   },
-  "Lopunnite": {
-    "name": "Lopunnite",
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/lopunnite.png",
-    "description": "One of a variety of mysterious Mega Stones. Have Lopunny hold it, and this stone will enable it to Mega Evolve during battle."
-  },
-  "Buginium Z": {
-    "name": "Buginium Z",
-    "sprite": "https://archives.bulbagarden.net/media/upload/6/66/Bag_Buginium_Z_Sprite.png",
-    "description": "Converts a Bug-type move into a Bug-type Z-Move. Compatible with Bug-type Pokémon."
-  },
   "Darkinium Z": {
     "name": "Darkinium Z",
     "sprite": "https://archives.bulbagarden.net/media/upload/4/41/Bag_Darkinium_Z_Sprite.png",
     "description": "Converts a Dark-type move into a Dark-type Z-Move. Compatible with Dark-type Pokémon."
   },
+  "Decidium Z": {
+    "name": "Decidium Z",
+    "sprite": "https://archives.bulbagarden.net/media/upload/8/86/Bag_Decidium_Z_Sprite.png",
+    "description": "Lets Decidueye use the exclusive Z-Move 'Sinister Arrow Raid'."
+  },
+  "Diancite": {
+    "name": "Diancite",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/diancite.png",
+    "description": "One of a variety of mysterious Mega Stones. Have Diancie hold it, and this stone will enable it to Mega Evolve during battle."
+  },
   "Dragonium Z": {
     "name": "Dragonium Z",
     "sprite": "https://archives.bulbagarden.net/media/upload/5/5a/Bag_Dragonium_Z_Sprite.png",
     "description": "Converts a Dragon-type move into a Dragon-type Z-Move. Compatible with Dragon-type Pokémon."
+  },
+  "Eevium Z": {
+    "name": "Eevium Z",
+    "sprite": "https://archives.bulbagarden.net/media/upload/0/0f/Bag_Eevium_Z_Sprite.png",
+    "description": "Lets Eevee use the exclusive Z-Move 'Extreme Evoboost'."
   },
   "Electrium Z": {
     "name": "Electrium Z",
@@ -69,10 +139,35 @@
     "sprite": "https://archives.bulbagarden.net/media/upload/3/33/Bag_Flyinium_Z_Sprite.png",
     "description": "Converts a Flying-type move into a Flying-type Z-Move. Compatible with Flying-type Pokémon."
   },
+  "Galladite": {
+    "name": "Galladite",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/galladite.png",
+    "description": "One of a variety of mysterious Mega Stones. Have Gallade hold it, and this stone will enable it to Mega Evolve during battle."
+  },
+  "Garchompite": {
+    "name": "Garchompite",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/garchompite.png",
+    "description": "One variety of the mysterious Mega Stones. Have Garchomp hold it, and this stone will enable it to Mega Evolve during battle."
+  },
+  "Gardevoirite": {
+    "name": "Gardevoirite",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/gardevoirite.png",
+    "description": "One variety of the mysterious Mega Stones. Have Gardevoir hold it, and this stone will enable it to Mega Evolve during battle."
+  },
+  "Gengarite": {
+    "name": "Gengarite",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/gengarite.png",
+    "description": "One variety of the mysterious Mega Stones. Have Gengar hold it, and this stone will enable it to Mega Evolve during battle."
+  },
   "Ghostium Z": {
     "name": "Ghostium Z",
     "sprite": "https://archives.bulbagarden.net/media/upload/2/23/Bag_Ghostium_Z_Sprite.png",
     "description": "Converts a Ghost-type move into a Ghost-type Z-Move. Compatible with Ghost-type Pokémon."
+  },
+  "Glalitite": {
+    "name": "Glalitite",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/glalitite.png",
+    "description": "One of a variety of mysterious Mega Stones. Have Glalie hold it, and this stone will enable it to Mega Evolve during battle."
   },
   "Grassium Z": {
     "name": "Grassium Z",
@@ -84,65 +179,60 @@
     "sprite": "https://archives.bulbagarden.net/media/upload/9/96/Bag_Groundium_Z_Sprite.png",
     "description": "Converts a Ground-type move into a Ground-type Z-Move. Compatible with Ground-type Pokémon."
   },
+  "Gyaradosite": {
+    "name": "Gyaradosite",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/gyaradosite.png",
+    "description": "One variety of the mysterious Mega Stones. Have Gyarados hold it, and this stone will enable it to Mega Evolve during battle."
+  },
+  "Heracronite": {
+    "name": "Heracronite",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/heracronite.png",
+    "description": "One variety of the mysterious Mega Stones. Have Heracross hold it, and this stone will enable it to Mega Evolve during battle."
+  },
+  "Houndoominite": {
+    "name": "Houndoominite",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/houndoominite.png",
+    "description": "One variety of the mysterious Mega Stones. Have Houndoom hold it, and this stone will enable it to Mega Evolve during battle."
+  },
   "Icium Z": {
     "name": "Icium Z",
     "sprite": "https://archives.bulbagarden.net/media/upload/f/f2/Bag_Icium_Z_Sprite.png",
     "description": "Converts an Ice-type move into an Ice-type Z-Move. Compatible with Ice-type Pokémon."
-  },
-  "Normalium Z": {
-    "name": "Normalium Z",
-    "sprite": "https://archives.bulbagarden.net/media/upload/9/91/Bag_Normalium_Z_Sprite.png",
-    "description": "Converts a Normal-type move into a Normal-type Z-Move. Compatible with all Pokémon."
-  },
-  "Poisonium Z": {
-    "name": "Poisonium Z",
-    "sprite": "https://archives.bulbagarden.net/media/upload/4/4a/Bag_Poisonium_Z_Sprite.png",
-    "description": "Converts a Poison-type move into a Poison-type Z-Move. Compatible with Poison-type Pokémon."
-  },
-  "Psychium Z": {
-    "name": "Psychium Z",
-    "sprite": "https://archives.bulbagarden.net/media/upload/f/fd/Bag_Psychium_Z_Sprite.png",
-    "description": "Converts a Psychic-type move into a Psychic-type Z-Move. Compatible with Psychic-type Pokémon."
-  },
-  "Rockium Z": {
-    "name": "Rockium Z",
-    "sprite": "https://archives.bulbagarden.net/media/upload/f/fc/Bag_Rockium_Z_Sprite.png",
-    "description": "Converts a Rock-type move into a Rock-type Z-Move. Compatible with Rock-type Pokémon."
-  },
-  "Steelium Z": {
-    "name": "Steelium Z",
-    "sprite": "https://archives.bulbagarden.net/media/upload/1/18/Bag_Steelium_Z_Sprite.png",
-    "description": "Converts a Steel-type move into a Steel-type Z-Move. Compatible with Steel-type Pokémon."
-  },
-  "Waterium Z": {
-    "name": "Waterium Z",
-    "sprite": "https://archives.bulbagarden.net/media/upload/a/a4/Bag_Waterium_Z_Sprite.png",
-    "description": "Converts a Water-type move into a Water-type Z-Move. Compatible with Water-type Pokémon."
-  },
-  "Aloraichium Z": {
-    "name": "Aloraichium Z",
-    "sprite": "https://archives.bulbagarden.net/media/upload/e/ee/Bag_Aloraichium_Z_Sprite.png",
-    "description": "Lets Alolan Raichu use the exclusive Z-Move 'Stoked Sparksurfer'."
-  },
-  "Decidium Z": {
-    "name": "Decidium Z",
-    "sprite": "https://archives.bulbagarden.net/media/upload/8/86/Bag_Decidium_Z_Sprite.png",
-    "description": "Lets Decidueye use the exclusive Z-Move 'Sinister Arrow Raid'."
-  },
-  "Eevium Z": {
-    "name": "Eevium Z",
-    "sprite": "https://archives.bulbagarden.net/media/upload/0/0f/Bag_Eevium_Z_Sprite.png",
-    "description": "Lets Eevee use the exclusive Z-Move 'Extreme Evoboost'."
   },
   "Incinium Z": {
     "name": "Incinium Z",
     "sprite": "https://archives.bulbagarden.net/media/upload/d/d6/Bag_Incinium_Z_Sprite.png",
     "description": "Lets Incineroar use the exclusive Z-Move 'Malicious Moonsault'."
   },
+  "Kangaskhanite": {
+    "name": "Kangaskhanite",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/kangaskhanite.png",
+    "description": "One variety of the mysterious Mega Stones. Have Kangaskhan hold it, and this stone will enable it to Mega Evolve during battle."
+  },
   "Kommonium Z": {
     "name": "Kommonium Z",
     "sprite": "https://archives.bulbagarden.net/media/upload/5/5c/Bag_Kommonium_Z_Sprite.png",
     "description": "Lets Kommo-o use the exclusive Z-Move 'Clangorous Soulblaze'."
+  },
+  "Latiasite": {
+    "name": "Latiasite",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/latiasite.png",
+    "description": "One of a variety of mysterious Mega Stones. Have Latias hold it, and this stone will enable it to Mega Evolve during battle."
+  },
+  "Latiosite": {
+    "name": "Latiosite",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/latiosite.png",
+    "description": "One of a variety of mysterious Mega Stones. Have Latios hold it, and this stone will enable it to Mega Evolve during battle."
+  },
+  "Lopunnite": {
+    "name": "Lopunnite",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/lopunnite.png",
+    "description": "One of a variety of mysterious Mega Stones. Have Lopunny hold it, and this stone will enable it to Mega Evolve during battle."
+  },
+  "Lucarionite": {
+    "name": "Lucarionite",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/lucarionite.png",
+    "description": "One variety of the mysterious Mega Stones. Have Lucario hold it, and this stone will enable it to Mega Evolve during battle."
   },
   "Lunalium Z": {
     "name": "Lunalium Z",
@@ -154,20 +244,60 @@
     "sprite": "https://archives.bulbagarden.net/media/upload/a/a9/Bag_Lycanium_Z_Sprite.png",
     "description": "Lets Lycanroc use the exclusive Z-Move 'Splintered Stormshards'."
   },
+  "Manectite": {
+    "name": "Manectite",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/manectite.png",
+    "description": "One variety of the mysterious Mega Stones. Have Manectric hold it, and this stone will enable it to Mega Evolve during battle."
+  },
   "Marshadium Z": {
     "name": "Marshadium Z",
     "sprite": "https://archives.bulbagarden.net/media/upload/a/a4/Bag_Marshadium_Z_Sprite.png",
     "description": "Lets Marshadow use the exclusive Z-Move 'Soul-Stealing 7-Star Strike'."
+  },
+  "Mawilite": {
+    "name": "Mawilite",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/mawilite.png",
+    "description": "One variety of the mysterious Mega Stones. Have Mawile hold it, and this stone will enable it to Mega Evolve during battle."
+  },
+  "Medichamite": {
+    "name": "Medichamite",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/medichamite.png",
+    "description": "One variety of the mysterious Mega Stones. Have Medicham hold it, and this stone will enable it to Mega Evolve during battle."
+  },
+  "Metagrossite": {
+    "name": "Metagrossite",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/metagrossite.png",
+    "description": "One of a variety of mysterious Mega Stones. Have Metagross hold it, and this stone will enable it to Mega Evolve during battle."
   },
   "Mewnium Z": {
     "name": "Mewnium Z",
     "sprite": "https://archives.bulbagarden.net/media/upload/3/3b/Bag_Mewnium_Z_Sprite.png",
     "description": "Lets Mew use the exclusive Z-Move 'Genesis Supernova'."
   },
+  "Mewtwonite X": {
+    "name": "Mewtwonite X",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/mewtwonite-x.png",
+    "description": "One variety of the mysterious Mega Stones. Have Mewtwo hold it, and this stone will enable it to Mega Evolve during battle."
+  },
+  "Mewtwonite Y": {
+    "name": "Mewtwonite Y",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/mewtwonite-y.png",
+    "description": "One variety of the mysterious Mega Stones. Have Mewtwo hold it, and this stone will enable it to Mega Evolve during battle."
+  },
   "Mimikium Z": {
     "name": "Mimikium Z",
     "sprite": "https://archives.bulbagarden.net/media/upload/5/50/Bag_Mimikium_Z_Sprite.png",
     "description": "Lets Mimikyu use the exclusive Z-Move 'Let's Snuggle Forever'."
+  },
+  "Normalium Z": {
+    "name": "Normalium Z",
+    "sprite": "https://archives.bulbagarden.net/media/upload/9/91/Bag_Normalium_Z_Sprite.png",
+    "description": "Converts a Normal-type move into a Normal-type Z-Move. Compatible with all Pokémon."
+  },
+  "Pidgeotite": {
+    "name": "Pidgeotite",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/pidgeotite.png",
+    "description": "One of a variety of mysterious Mega Stones. Have Pidgeot hold it, and this stone will enable it to Mega Evolve during battle."
   },
   "Pikanium Z": {
     "name": "Pikanium Z",
@@ -179,10 +309,70 @@
     "sprite": "https://archives.bulbagarden.net/media/upload/c/c8/Bag_Pikashunium_Z_Sprite.png",
     "description": "Lets Pikachu in cap form use the exclusive Z-Move '10,000,000 Volt Thunderbolt'."
   },
+  "Pinsirite": {
+    "name": "Pinsirite",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/pinsirite.png",
+    "description": "One variety of the mysterious Mega Stones. Have Pinsir hold it, and this stone will enable it to Mega Evolve during battle."
+  },
+  "Poisonium Z": {
+    "name": "Poisonium Z",
+    "sprite": "https://archives.bulbagarden.net/media/upload/4/4a/Bag_Poisonium_Z_Sprite.png",
+    "description": "Converts a Poison-type move into a Poison-type Z-Move. Compatible with Poison-type Pokémon."
+  },
   "Primarium Z": {
     "name": "Primarium Z",
     "sprite": "https://archives.bulbagarden.net/media/upload/3/3f/Bag_Primarium_Z_Sprite.png",
     "description": "Lets Primarina use the exclusive Z-Move 'Oceanic Operetta'."
+  },
+  "Psychium Z": {
+    "name": "Psychium Z",
+    "sprite": "https://archives.bulbagarden.net/media/upload/f/fd/Bag_Psychium_Z_Sprite.png",
+    "description": "Converts a Psychic-type move into a Psychic-type Z-Move. Compatible with Psychic-type Pokémon."
+  },
+  "Red Orb": {
+    "name": "Red Orb",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/red-orb.png",
+    "description": "A red, glowing orb said to contain an ancient power."
+  },
+  "Rockium Z": {
+    "name": "Rockium Z",
+    "sprite": "https://archives.bulbagarden.net/media/upload/f/fc/Bag_Rockium_Z_Sprite.png",
+    "description": "Converts a Rock-type move into a Rock-type Z-Move. Compatible with Rock-type Pokémon."
+  },
+  "Sablenite": {
+    "name": "Sablenite",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/sablenite.png",
+    "description": "One of a variety of mysterious Mega Stones. Have Sableye hold it, and this stone will enable it to Mega Evolve during battle."
+  },
+  "Salamencite": {
+    "name": "Salamencite",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/salamencite.png",
+    "description": "One of a variety of mysterious Mega Stones. Have Salamence hold it, and this stone will enable it to Mega Evolve during battle."
+  },
+  "Sceptilite": {
+    "name": "Sceptilite",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/sceptilite.png",
+    "description": "One of a variety of mysterious Mega Stones. Have Sceptile hold it, and this stone will enable it to Mega Evolve during battle."
+  },
+  "Scizorite": {
+    "name": "Scizorite",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/scizorite.png",
+    "description": "One variety of the mysterious Mega Stones. Have Scizor hold it, and this stone will enable it to Mega Evolve during battle."
+  },
+  "Sharpedonite": {
+    "name": "Sharpedonite",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/sharpedonite.png",
+    "description": "One of a variety of mysterious Mega Stones. Have Sharpedo hold it, and this stone will enable it to Mega Evolve during battle."
+  },
+  "Shiny Charm": {
+    "name": "Shiny Charm",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/shiny-charm.png",
+    "description": "A shiny charm said to increase the chance of finding a Shiny Pokémon in the wild."
+  },
+  "Slowbronite": {
+    "name": "Slowbronite",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/slowbronite.png",
+    "description": "One of a variety of mysterious Mega Stones. Have Slowbro hold it, and this stone will enable it to Mega Evolve during battle."
   },
   "Snorlium Z": {
     "name": "Snorlium Z",
@@ -194,14 +384,44 @@
     "sprite": "https://archives.bulbagarden.net/media/upload/e/ee/Bag_Solganium_Z_Sprite.png",
     "description": "Lets Solgaleo use the exclusive Z-Move 'Searing Sunraze Smash'."
   },
+  "Steelium Z": {
+    "name": "Steelium Z",
+    "sprite": "https://archives.bulbagarden.net/media/upload/1/18/Bag_Steelium_Z_Sprite.png",
+    "description": "Converts a Steel-type move into a Steel-type Z-Move. Compatible with Steel-type Pokémon."
+  },
+  "Steelixite": {
+    "name": "Steelixite",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/steelixite.png",
+    "description": "One of a variety of mysterious Mega Stones. Have Steelix hold it, and this stone will enable it to Mega Evolve during battle."
+  },
+  "Swampertite": {
+    "name": "Swampertite",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/swampertite.png",
+    "description": "One of a variety of mysterious Mega Stones. Have Swampert hold it, and this stone will enable it to Mega Evolve during battle."
+  },
   "Tapunium Z": {
     "name": "Tapunium Z",
     "sprite": "https://archives.bulbagarden.net/media/upload/4/47/Bag_Tapunium_Z_Sprite.png",
     "description": "Lets Tapu Pokémon use the exclusive Z-Move 'Guardian of Alola'."
   },
+  "Tyranitarite": {
+    "name": "Tyranitarite",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/tyranitarite.png",
+    "description": "One variety of the mysterious Mega Stones. Have Tyranitar hold it, and this stone will enable it to Mega Evolve during battle."
+  },
   "Ultranecrozium Z": {
     "name": "Ultranecrozium Z",
     "sprite": "https://archives.bulbagarden.net/media/upload/a/aa/Bag_Ultranecrozium_Z_Sprite.png",
     "description": "Enables Necrozma to fuse and use the Z-Move 'Light That Burns the Sky'."
+  },
+  "Venusaurite": {
+    "name": "Venusaurite",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/venusaurite.png",
+    "description": "One variety of the mysterious Mega Stones. Have Venusaur hold it, and this stone will enable it to Mega Evolve during battle."
+  },
+  "Waterium Z": {
+    "name": "Waterium Z",
+    "sprite": "https://archives.bulbagarden.net/media/upload/a/a4/Bag_Waterium_Z_Sprite.png",
+    "description": "Converts a Water-type move into a Water-type Z-Move. Compatible with Water-type Pokémon."
   }
 }

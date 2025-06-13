@@ -14,15 +14,40 @@
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/apicot-berry.png",
     "description": "A hold item that raises SP. DEF in a pinch."
   },
+  "Armor Fossil": {
+    "name": "Armor Fossil",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/armor-fossil.png",
+    "description": "A fossil from a prehistoric Pokémon that lived on the land. It appears to be part of a collar."
+  },
+  "Aspear Berry": {
+    "name": "Aspear Berry",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/aspear-berry.png",
+    "description": "A hold item that defrosts POKéMON in battle."
+  },
   "Babiri Berry": {
     "name": "Babiri Berry",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/babiri-berry.png",
     "description": "A Poffin ingredient. If held by a Pokémon, it weakens a foe’s supereffective Steel-type attack."
   },
+  "Beast Ball": {
+    "name": "Beast Ball",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/beast-ball.png",
+    "description": "A special Poké Ball designed to catch Ultra Beasts. It has a low success rate for catching others."
+  },
   "Berry Juice": {
     "name": "Berry Juice",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/berry-juice.png",
     "description": "A 100% pure juice that restores HP by 20 points."
+  },
+  "Big Nugget": {
+    "name": "Big Nugget",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/big-nugget.png",
+    "description": "A big nugget of pure gold that gives off a lustrous gleam. A maniac will buy it for a high price."
+  },
+  "Binding Band": {
+    "name": "Binding Band",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/binding-band.png",
+    "description": "A band that increases the power of binding moves when held."
   },
   "Black Belt": {
     "name": "Black Belt",
@@ -39,10 +64,35 @@
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/black-sludge.png",
     "description": "A hold item that gradually restores the HP of Poison-type Pokémon. It inflicts damage on all other types."
   },
+  "Bluk Berry": {
+    "name": "Bluk Berry",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/bluk-berry.png",
+    "description": "POKéBLOCK ingredient. Plant in loamy soil to grow BLUK."
+  },
+  "Bottle Cap": {
+    "name": "Bottle Cap",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/bottle-cap.png",
+    "description": "A beautiful bottle cap that gives off a silver gleam. Some people are happy to receive one."
+  },
   "Bright Powder": {
     "name": "Bright Powder",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/bright-powder.png",
     "description": "A hold item that casts a glare to reduce accuracy."
+  },
+  "Bug Gem": {
+    "name": "Bug Gem",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/bug-gem.png",
+    "description": "A gem with an insect-like essence. When held, it strengthens the power of a Bug-type move only once."
+  },
+  "Bug Memory": {
+    "name": "Bug Memory",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/bug-memory.png",
+    "description": "A memory disc that contains Bug-type data. It changes the type of the holder if held by a certain species of Pokémon."
+  },
+  "Burn Drive": {
+    "name": "Burn Drive",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/burn-drive.png",
+    "description": "A cassette to be held by Genesect. It changes Techno Blast to a Fire-type move."
   },
   "Cell Battery": {
     "name": "Cell Battery",
@@ -59,6 +109,16 @@
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/charti-berry.png",
     "description": "A Poffin ingredient. If held by a Pokémon, it weakens a foe’s supereffective Rock-type attack."
   },
+  "Cheri Berry": {
+    "name": "Cheri Berry",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/cheri-berry.png",
+    "description": "A hold item that heals paralysis in battle."
+  },
+  "Cherish Ball": {
+    "name": "Cherish Ball",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/cherish-ball.png",
+    "description": "A quite rare Poké Ball that has been specially crafted to commemorate an occasion of some sort."
+  },
   "Chesto Berry": {
     "name": "Chesto Berry",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/chesto-berry.png",
@@ -69,10 +129,20 @@
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/chilan-berry.png",
     "description": "A Poffin ingredient. If held by a Pokémon, it weakens a foe’s Normal-type attack."
   },
+  "Chill Drive": {
+    "name": "Chill Drive",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/chill-drive.png",
+    "description": "A cassette to be held by Genesect. It changes Techno Blast to an Ice-type move."
+  },
   "Chople Berry": {
     "name": "Chople Berry",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/chople-berry.png",
     "description": "A Poffin ingredient. If held by a Pokémon, it weakens a foe’s supereffective Fighting-type attack."
+  },
+  "Claw Fossil": {
+    "name": "Claw Fossil",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/claw-fossil.png",
+    "description": "A fossil of an ancient, seafloor- dwelling POKéMON."
   },
   "Coba Berry": {
     "name": "Coba Berry",
@@ -84,6 +154,16 @@
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/colbur-berry.png",
     "description": "A Poffin ingredient. If held by a Pokémon, it weakens a foe’s supereffective Dark-type attack."
   },
+  "Cornn Berry": {
+    "name": "Cornn Berry",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/cornn-berry.png",
+    "description": "POKéBLOCK ingredient. Plant in loamy soil to grow CORNN."
+  },
+  "Cover Fossil": {
+    "name": "Cover Fossil",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/cover-fossil.png",
+    "description": "A fossil of an ancient Pokémon that lived in the sea in ancient times. It appears to be part of its back."
+  },
   "Custap Berry": {
     "name": "Custap Berry",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/custap-berry.png",
@@ -93,6 +173,51 @@
     "name": "Damp Rock",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/damp-rock.png",
     "description": "A Pokémon hold item that extends the duration of the move Rain Dance used by the holder."
+  },
+  "Dark Gem": {
+    "name": "Dark Gem",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/dark-gem.png",
+    "description": "A gem with an essence of darkness. When held, it strengthens the power of a Dark-type move only once."
+  },
+  "Dark Memory": {
+    "name": "Dark Memory",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/dark-memory.png",
+    "description": "A memory disc that contains Dark-type data. It changes the type of the holder if held by a certain species of Pokémon."
+  },
+  "Dawn Stone": {
+    "name": "Dawn Stone",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/dawn-stone.png",
+    "description": "A peculiar stone that makes certain species of Pokémon evolve. It sparkles like eyes."
+  },
+  "Deep Sea Scale": {
+    "name": "Deep Sea Scale",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/deep-sea-scale.png",
+    "description": "A hold item that raises the SP. DEF of CLAMPERL."
+  },
+  "Deep Sea Tooth": {
+    "name": "Deep Sea Tooth",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/deep-sea-tooth.png",
+    "description": "A hold item that raises the SP. ATK of CLAMPERL."
+  },
+  "Destiny Knot": {
+    "name": "Destiny Knot",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/destiny-knot.png",
+    "description": "A long, thin, bright red string to be held by a Pokémon. If the holder becomes infatuated, the foe does too."
+  },
+  "Dive Ball": {
+    "name": "Dive Ball",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/dive-ball.png",
+    "description": "A BALL that works better on POKéMON on the ocean floor."
+  },
+  "Dome Fossil": {
+    "name": "Dome Fossil",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/dome-fossil.png",
+    "description": "A piece of an ancient marine POKéMON’s shell."
+  },
+  "Douse Drive": {
+    "name": "Douse Drive",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/douse-drive.png",
+    "description": "A cassette to be held by Genesect. It changes Techno Blast to a Water-type move."
   },
   "Draco Plate": {
     "name": "Draco Plate",
@@ -104,10 +229,50 @@
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/dragon-fang.png",
     "description": "A hold item that raises the power of DRAGON-type moves."
   },
+  "Dragon Gem": {
+    "name": "Dragon Gem",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/dragon-gem.png",
+    "description": "A gem with a draconic essence.  When held, it strengthens the power of a Dragon-type move only once."
+  },
+  "Dragon Memory": {
+    "name": "Dragon Memory",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/dragon-memory.png",
+    "description": "A memory disc that contains Dragon-type data. It changes the type of the holder if held by a certain species of Pokémon."
+  },
+  "Dragon Scale": {
+    "name": "Dragon Scale",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/dragon-scale.png",
+    "description": "A strange scale held by DRAGON- type POKéMON."
+  },
   "Dread Plate": {
     "name": "Dread Plate",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/dread-plate.png",
     "description": "An item to be held by a Pokémon. It is a stone tablet that boosts the power of Dark-type moves."
+  },
+  "Dream Ball": {
+    "name": "Dream Ball",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/dream-ball.png",
+    "description": "A special Poké Ball that appears out of nowhere in a bag at the Entree Forest. It can catch any Pokémon."
+  },
+  "Dubious Disc": {
+    "name": "Dubious Disc",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/dubious-disc.png",
+    "description": "A transparent device overflowing with dubious data. Its producer is unknown."
+  },
+  "Durin Berry": {
+    "name": "Durin Berry",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/durin-berry.png",
+    "description": "POKéBLOCK ingredient. Plant in loamy soil to grow DURIN."
+  },
+  "Dusk Ball": {
+    "name": "Dusk Ball",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/dusk-ball.png",
+    "description": "A somewhat different Poké Ball that makes it easier to catch wild Pokémon at night or in dark places like caves."
+  },
+  "Dusk Stone": {
+    "name": "Dusk Stone",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/dusk-stone.png",
+    "description": "A peculiar stone that makes certain species of Pokémon evolve. It is as dark as dark can be."
   },
   "Earth Plate": {
     "name": "Earth Plate",
@@ -119,10 +284,70 @@
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/eject-button.png",
     "description": "If the holder is hit by an attack, it will switch with another Pokémon in your party."
   },
+  "Electirizer": {
+    "name": "Electirizer",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/electirizer.png",
+    "description": "A box packed with a tremendous amount of electric energy. It is loved by a certain Pokémon."
+  },
+  "Electric Gem": {
+    "name": "Electric Gem",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/electric-gem.png",
+    "description": "A gem with an essence of electricity. When held, it strengthens the power of an Electric-type move only once."
+  },
+  "Electric Memory": {
+    "name": "Electric Memory",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/electric-memory.png",
+    "description": "A memory disc that contains Electric-type data. It changes the type of the holder if held by a certain species of Pokémon."
+  },
   "Electric Seed": {
     "name": "Electric Seed",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/electric-seed.png",
     "description": "An item to be held by a Pokémon. It boosts Defense on Electric Terrain. It can only be used once."
+  },
+  "Enigma Berry": {
+    "name": "Enigma Berry",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/enigma-berry.png",
+    "description": "POKéBLOCK ingredient. Plant in loamy soil to grow a mystery."
+  },
+  "Fairy Gem": {
+    "name": "Fairy Gem",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/fairy-gem.png",
+    "description": "A gem with an essence of the fey. When held, it strengthens the power of a Fairy-type move one time."
+  },
+  "Fairy Memory": {
+    "name": "Fairy Memory",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/fairy-memory.png",
+    "description": "A memory disc that contains Fairy-type data. It changes the type of the holder if held by a certain species of Pokémon."
+  },
+  "Fast Ball": {
+    "name": "Fast Ball",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/fast-ball.png",
+    "description": "A Poké Ball that makes it easier to catch fast Pokémon."
+  },
+  "Fighting Gem": {
+    "name": "Fighting Gem",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/fighting-gem.png",
+    "description": "A gem with an essence of combat. When held, it strengthens the power of a Fighting-type move only once."
+  },
+  "Fighting Memory": {
+    "name": "Fighting Memory",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/fighting-memory.png",
+    "description": "A memory disc that contains Fighting-type data. It changes the type of the holder if held by a certain species of Pokémon."
+  },
+  "Fire Gem": {
+    "name": "Fire Gem",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/fire-gem.png",
+    "description": "A gem with an essence of fire. When held, it strengthens the power of a Fire-type move only once."
+  },
+  "Fire Memory": {
+    "name": "Fire Memory",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/fire-memory.png",
+    "description": "A memory disc that contains Fire-type data. It changes the type of the holder if held by a certain species of Pokémon."
+  },
+  "Fire Stone": {
+    "name": "Fire Stone",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/fire-stone.png",
+    "description": "Makes certain species of POKéMON evolve."
   },
   "Fist Plate": {
     "name": "Fist Plate",
@@ -139,6 +364,31 @@
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/flame-plate.png",
     "description": "An item to be held by a Pokémon. It is a stone tablet that boosts the power of Fire-type moves."
   },
+  "Float Stone": {
+    "name": "Float Stone",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/float-stone.png",
+    "description": "A very light stone. It reduces the weight of a Pokémon when held."
+  },
+  "Flying Gem": {
+    "name": "Flying Gem",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/flying-gem.png",
+    "description": "A gem with an essence of air. When held, it strengthens the power of a Flying-type move only once."
+  },
+  "Flying Memory": {
+    "name": "Flying Memory",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/flying-memory.png",
+    "description": "A memory disc that contains Flying-type data. It changes the type of the holder if held by a certain species of Pokémon."
+  },
+  "Focus Band": {
+    "name": "Focus Band",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/focus-band.png",
+    "description": "A hold item that occasionally prevents fainting."
+  },
+  "Friend Ball": {
+    "name": "Friend Ball",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/friend-ball.png",
+    "description": "A Poké Ball that makes caught Pokémon more friendly."
+  },
   "Full Incense": {
     "name": "Full Incense",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/full-incense.png",
@@ -149,10 +399,40 @@
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/ganlon-berry.png",
     "description": "A hold item that raises DEFENSE in a pinch."
   },
+  "Ghost Gem": {
+    "name": "Ghost Gem",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/ghost-gem.png",
+    "description": "A gem with a spectral essence. When held, it strengthens the power of a Ghost-type move only once."
+  },
+  "Ghost Memory": {
+    "name": "Ghost Memory",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/ghost-memory.png",
+    "description": "A memory disc that contains Ghost-type data. It changes the type of the holder if held by a certain species of Pokémon."
+  },
+  "Gold Bottle Cap": {
+    "name": "Gold Bottle Cap",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/gold-bottle-cap.png",
+    "description": "A beautiful bottle cap that gives off a golden gleam. Some people are happy to receive one."
+  },
+  "Grass Gem": {
+    "name": "Grass Gem",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/grass-gem.png",
+    "description": "A gem with an essence of nature. When held, it strengthens the power of a Grass-type move only once."
+  },
+  "Grass Memory": {
+    "name": "Grass Memory",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/grass-memory.png",
+    "description": "A memory disc that contains Grass-type data. It changes the type of the holder if held by a certain species of Pokémon."
+  },
   "Grassy Seed": {
     "name": "Grassy Seed",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/grassy-seed.png",
     "description": "An item to be held by a Pokémon. It boosts Defense on Grassy Terrain. It can only be used once."
+  },
+  "Great Ball": {
+    "name": "Great Ball",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/great-ball.png",
+    "description": "A good BALL with a higher catch rate than a POKé BALL."
   },
   "Grepa Berry": {
     "name": "Grepa Berry",
@@ -164,6 +444,16 @@
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/grip-claw.png",
     "description": "A Pokémon hold item that extends the duration of multiturn attacks like Bind and Wrap."
   },
+  "Ground Gem": {
+    "name": "Ground Gem",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/ground-gem.png",
+    "description": "A gem with an essence of land. When held, it strengthens the power of a Ground-type move only once."
+  },
+  "Ground Memory": {
+    "name": "Ground Memory",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/ground-memory.png",
+    "description": "A memory disc that contains Ground-type data. It changes the type of the holder if held by a certain species of Pokémon."
+  },
   "Haban Berry": {
     "name": "Haban Berry",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/haban-berry.png",
@@ -174,10 +464,45 @@
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/hard-stone.png",
     "description": "A hold item that raises the power of ROCK-type moves."
   },
+  "Heal Ball": {
+    "name": "Heal Ball",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/heal-ball.png",
+    "description": "A remedial Poké Ball that restores the caught Pokémon’s HP and eliminates any status problem."
+  },
   "Heat Rock": {
     "name": "Heat Rock",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/heat-rock.png",
     "description": "A Pokémon hold item that extends the duration of the move Sunny Day used by the holder."
+  },
+  "Heavy Ball": {
+    "name": "Heavy Ball",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/heavy-ball.png",
+    "description": "A Poké Ball for catching very heavy Pokémon."
+  },
+  "Helix Fossil": {
+    "name": "Helix Fossil",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/helix-fossil.png",
+    "description": "A piece of an ancient marine POKéMON’s seashell."
+  },
+  "Hondew Berry": {
+    "name": "Hondew Berry",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/hondew-berry.png",
+    "description": "POKéBLOCK ingredient. Plant in loamy soil to grow HONDEW."
+  },
+  "Ice Gem": {
+    "name": "Ice Gem",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/ice-gem.png",
+    "description": "A gem with an essence of ice. When held, it strengthens the power of an Ice-type move only once."
+  },
+  "Ice Memory": {
+    "name": "Ice Memory",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/ice-memory.png",
+    "description": "A memory disc that contains Ice-type data. It changes the type of the holder if held by a certain species of Pokémon."
+  },
+  "Ice Stone": {
+    "name": "Ice Stone",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/ice-stone.png",
+    "description": "A peculiar stone that can make certain species of Pokémon evolve. It has an unmistakable snowflake pattern."
   },
   "Icicle Plate": {
     "name": "Icicle Plate",
@@ -194,10 +519,25 @@
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/insect-plate.png",
     "description": "An item to be held by a Pokémon. It is a stone tablet that boosts the power of Bug-type moves."
   },
+  "Iron Ball": {
+    "name": "Iron Ball",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/iron-ball.png",
+    "description": "A Pokémon hold item that cuts Speed. It makes Flying-type and levitating holders susceptible to Ground moves."
+  },
   "Iron Plate": {
     "name": "Iron Plate",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/iron-plate.png",
     "description": "An item to be held by a Pokémon. It is a stone tablet that boosts the power of Steel-type moves."
+  },
+  "Jaboca Berry": {
+    "name": "Jaboca Berry",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/jaboca-berry.png",
+    "description": "A Poffin ingredient. If held by a Pokémon, and if a foe’s physical attack lands, the foe also takes damage."
+  },
+  "Jaw Fossil": {
+    "name": "Jaw Fossil",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/jaw-fossil.png",
+    "description": "A fossil from a prehistoric Pokémon that once lived on the land. It looks as if it could be a piece of a large jaw."
   },
   "Kasib Berry": {
     "name": "Kasib Berry",
@@ -239,20 +579,45 @@
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/lax-incense.png",
     "description": "A hold item that slightly lowers the foe’s accuracy."
   },
+  "Leaf Stone": {
+    "name": "Leaf Stone",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/leaf-stone.png",
+    "description": "Makes certain species of POKéMON evolve."
+  },
   "Leppa Berry": {
     "name": "Leppa Berry",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/leppa-berry.png",
     "description": "A hold item that restores 10 PP in battle."
+  },
+  "Level Ball": {
+    "name": "Level Ball",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/level-ball.png",
+    "description": "A Poké Ball for catching Pokémon that are a lower level than your own."
   },
   "Liechi Berry": {
     "name": "Liechi Berry",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/liechi-berry.png",
     "description": "A hold item that raises ATTACK in a pinch."
   },
+  "Light Ball": {
+    "name": "Light Ball",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/light-ball.png",
+    "description": "A hold item that raises the SP. ATK of PIKACHU."
+  },
   "Light Clay": {
     "name": "Light Clay",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/light-clay.png",
     "description": "A Pokémon hold item that extends the duration of barrier moves like Light Screen and Reflect used by the holder."
+  },
+  "Love Ball": {
+    "name": "Love Ball",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/love-ball.png",
+    "description": "Poké Ball for catching Pokémon that are the opposite gender of your Pokémon."
+  },
+  "Lucky Punch": {
+    "name": "Lucky Punch",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/lucky-punch.png",
+    "description": "A hold item that raises CHANSEY’s critical-hit rate."
   },
   "Lum Berry": {
     "name": "Lum Berry",
@@ -264,15 +629,45 @@
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/luminous-moss.png",
     "description": "An item to be held by a Pokémon. It boosts Sp. Def if hit with a Water- type attack. It can only be used once."
   },
+  "Lure Ball": {
+    "name": "Lure Ball",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/lure-ball.png",
+    "description": "A Poké Ball for catching Pokémon hooked by a Rod when fishing."
+  },
+  "Luxury Ball": {
+    "name": "Luxury Ball",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/luxury-ball.png",
+    "description": "A cozy BALL that makes POKéMON more friendly."
+  },
+  "Macho Brace": {
+    "name": "Macho Brace",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/macho-brace.png",
+    "description": "A hold item that promotes growth, but reduces SPEED."
+  },
+  "Magmarizer": {
+    "name": "Magmarizer",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/magmarizer.png",
+    "description": "A box packed with a tremendous amount of magma energy. It is loved by a certain Pokémon."
+  },
   "Magnet": {
     "name": "Magnet",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/magnet.png",
     "description": "A hold item that boosts ELECTRIC- type moves."
   },
+  "Magost Berry": {
+    "name": "Magost Berry",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/magost-berry.png",
+    "description": "A Berry which is very rare in the Unova region. A maniac will buy it for a high price."
+  },
   "Maranga Berry": {
     "name": "Maranga Berry",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/maranga-berry.png",
     "description": "If held by a Pokémon, this Berry will increase the holder’s Sp. Def if it’s hit with a special move."
+  },
+  "Master Ball": {
+    "name": "Master Ball",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/master-ball.png",
+    "description": "The best BALL that catches a POKéMON without fail."
   },
   "Meadow Plate": {
     "name": "Meadow Plate",
@@ -283,6 +678,11 @@
     "name": "Metal Coat",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/metal-coat.png",
     "description": "A hold item that raises the power of STEEL-type moves."
+  },
+  "Metal Powder": {
+    "name": "Metal Powder",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/metal-powder.png",
+    "description": "A hold item that raises DEFENSE."
   },
   "Metronome": {
     "name": "Metronome",
@@ -309,6 +709,16 @@
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/misty-seed.png",
     "description": "An item to be held by a Pokémon. It boosts Sp. Def on Misty Terrain. It can only be used once."
   },
+  "Moon Ball": {
+    "name": "Moon Ball",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/moon-ball.png",
+    "description": "A Poké Ball for catching Pokémon that evolve using the Moon Stone."
+  },
+  "Moon Stone": {
+    "name": "Moon Stone",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/moon-stone.png",
+    "description": "Makes certain species of POKéMON evolve."
+  },
   "Muscle Band": {
     "name": "Muscle Band",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/muscle-band.png",
@@ -319,10 +729,30 @@
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/mystic-water.png",
     "description": "A hold item that raises the power of WATER-type moves."
   },
+  "Nanab Berry": {
+    "name": "Nanab Berry",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/nanab-berry.png",
+    "description": "POKéBLOCK ingredient. Plant in loamy soil to grow NANAB."
+  },
+  "Nest Ball": {
+    "name": "Nest Ball",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/nest-ball.png",
+    "description": "A BALL that works better on weaker POKéMON."
+  },
+  "Net Ball": {
+    "name": "Net Ball",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/net-ball.png",
+    "description": "A BALL that works well on WATER- and BUG-type POKéMON."
+  },
   "Never-Melt Ice": {
     "name": "Never-Melt Ice",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/never-melt-ice.png",
     "description": "A hold item that raises the power of ICE-type moves."
+  },
+  "Nomel Berry": {
+    "name": "Nomel Berry",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/nomel-berry.png",
+    "description": "POKéBLOCK ingredient. Plant in loamy soil to grow NOMEL."
   },
   "Normal Gem": {
     "name": "Normal Gem",
@@ -339,6 +769,31 @@
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/odd-incense.png",
     "description": "An item to be held by a Pokémon. It is an exotic-smelling incense that boosts the power of Psychic-type moves."
   },
+  "Old Amber": {
+    "name": "Old Amber",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/old-amber.png",
+    "description": "A stone containing the genes of an ancient POKéMON."
+  },
+  "Oran Berry": {
+    "name": "Oran Berry",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/oran-berry.png",
+    "description": "A hold item that restores 10 HP in battle."
+  },
+  "Oval Stone": {
+    "name": "Oval Stone",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/oval-stone.png",
+    "description": "A peculiar stone that makes certain species of Pokémon evolve. It is shaped like an egg."
+  },
+  "Pamtre Berry": {
+    "name": "Pamtre Berry",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/pamtre-berry.png",
+    "description": "POKéBLOCK ingredient. Plant in loamy soil to grow PAMTRE."
+  },
+  "Park Ball": {
+    "name": "Park Ball",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/park-ball.png",
+    "description": "A special Poké Ball for the Pal Park."
+  },
   "Passho Berry": {
     "name": "Passho Berry",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/passho-berry.png",
@@ -349,35 +804,160 @@
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/payapa-berry.png",
     "description": "A Poffin ingredient. If held by a Pokémon, it weakens a foe’s supereffective Psychic-type attack."
   },
+  "Pecha Berry": {
+    "name": "Pecha Berry",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/pecha-berry.png",
+    "description": "A hold item that heals poisoning in battle."
+  },
+  "Persim Berry": {
+    "name": "Persim Berry",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/persim-berry.png",
+    "description": "A hold item that heals confusion in battle."
+  },
   "Petaya Berry": {
     "name": "Petaya Berry",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/petaya-berry.png",
     "description": "A hold item that raises SP. ATK in a pinch."
+  },
+  "Pinap Berry": {
+    "name": "Pinap Berry",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/pinap-berry.png",
+    "description": "POKéBLOCK ingredient. Plant in loamy soil to grow PINAP."
   },
   "Pixie Plate": {
     "name": "Pixie Plate",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/pixie-plate.png",
     "description": "An item to be held by a Pokémon. It is a stone tablet that boosts the power of Fairy-type moves."
   },
+  "Plume Fossil": {
+    "name": "Plume Fossil",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/plume-fossil.png",
+    "description": "A fossil of an ancient Pokémon that flew in the sky in ancient times. It appears to be part of its wing."
+  },
   "Poison Barb": {
     "name": "Poison Barb",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poison-barb.png",
     "description": "A hold item that raises the power of POISON-type moves."
+  },
+  "Poison Gem": {
+    "name": "Poison Gem",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poison-gem.png",
+    "description": "A gem with an essence of poison. When held, it strengthens the power of a Poison-type move only once."
+  },
+  "Poison Memory": {
+    "name": "Poison Memory",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poison-memory.png",
+    "description": "A memory disc that contains Poison-type data. It changes the type of the holder if held by a certain species of Pokémon."
+  },
+  "Poke Ball": {
+    "name": "Poke Ball",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png",
+    "description": "A tool used for catching wild POKéMON."
+  },
+  "Pomeg Berry": {
+    "name": "Pomeg Berry",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/pomeg-berry.png",
+    "description": "A Berry to be consumed by Pokémon. Using it on a Pokémon makes it more friendly but lowers its base HP."
+  },
+  "Power Anklet": {
+    "name": "Power Anklet",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/power-anklet.png",
+    "description": "A Pokémon hold item that promotes Speed gain on leveling, but reduces the Speed stat."
+  },
+  "Power Band": {
+    "name": "Power Band",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/power-band.png",
+    "description": "A Pokémon hold item that promotes Sp. Def gain on leveling, but reduces the Speed stat."
+  },
+  "Power Belt": {
+    "name": "Power Belt",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/power-belt.png",
+    "description": "A Pokémon hold item that promotes Defense gain on leveling, but reduces the Speed stat."
+  },
+  "Power Bracer": {
+    "name": "Power Bracer",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/power-bracer.png",
+    "description": "A Pokémon hold item that promotes Attack gain on leveling, but reduces the Speed stat."
+  },
+  "Power Lens": {
+    "name": "Power Lens",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/power-lens.png",
+    "description": "A Pokémon hold item that promotes Sp. Atk gain on leveling, but reduces the Speed stat."
+  },
+  "Power Weight": {
+    "name": "Power Weight",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/power-weight.png",
+    "description": "A Pokémon hold item that promotes HP gain on leveling, but reduces the Speed stat."
+  },
+  "Premier Ball": {
+    "name": "Premier Ball",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/premier-ball.png",
+    "description": "A rare BALL made in commemoration of some event."
+  },
+  "Prism Scale": {
+    "name": "Prism Scale",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/prism-scale.png",
+    "description": "A mysterious scale that evolves certain Pokémon. It shines in rainbow colors."
   },
   "Protective Pads": {
     "name": "Protective Pads",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/protective-pads.png",
     "description": "An item to be held by a Pokémon. These pads protect the holder from effects caused by making direct contact with the target."
   },
+  "Protector": {
+    "name": "Protector",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/protector.png",
+    "description": "A protective item of some sort. It is extremely stiff and heavy. It is loved by a certain Pokémon."
+  },
+  "Psychic Gem": {
+    "name": "Psychic Gem",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/psychic-gem.png",
+    "description": "A gem with an essence of the mind. When held, it strengthens the power of a Psychic-type move only once."
+  },
+  "Psychic Memory": {
+    "name": "Psychic Memory",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/psychic-memory.png",
+    "description": "A memory disc that contains Psychic-type data. It changes the type of the holder if held by a certain species of Pokémon."
+  },
   "Psychic Seed": {
     "name": "Psychic Seed",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/psychic-seed.png",
     "description": "An item to be held by a Pokémon. It boosts Sp. Def on Psychic Terrain. It can only be used once."
   },
+  "Qualot Berry": {
+    "name": "Qualot Berry",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/qualot-berry.png",
+    "description": "POKéBLOCK ingredient. Plant in loamy soil to grow QUALOT."
+  },
+  "Quick Ball": {
+    "name": "Quick Ball",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/quick-ball.png",
+    "description": "A somewhat different Poké Ball that provides a better catch rate if it is used at the start of a wild encounter."
+  },
   "Quick Claw": {
     "name": "Quick Claw",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/quick-claw.png",
     "description": "A hold item that occasionally allows the first strike."
+  },
+  "Quick Powder": {
+    "name": "Quick Powder",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/quick-powder.png",
+    "description": "An item to be held by DITTO. Extremely fine yet hard, this odd powder boosts the Speed stat."
+  },
+  "Rabuta Berry": {
+    "name": "Rabuta Berry",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/rabuta-berry.png",
+    "description": "POKéBLOCK ingredient. Plant in loamy soil to grow RABUTA."
+  },
+  "Rare Bone": {
+    "name": "Rare Bone",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/rare-bone.png",
+    "description": "A bone that is extremely valuable for Pokémon archaeology. It can be sold for a high price to shops."
+  },
+  "Rawst Berry": {
+    "name": "Rawst Berry",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/rawst-berry.png",
+    "description": "A hold item that heals a burn in battle."
   },
   "Razor Claw": {
     "name": "Razor Claw",
@@ -389,20 +969,55 @@
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/razor-fang.png",
     "description": "An item to be held by a Pokémon. It may cause the foe to flinch when the holder inflicts damage."
   },
+  "Razz Berry": {
+    "name": "Razz Berry",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/razz-berry.png",
+    "description": "POKéBLOCK ingredient. Plant in loamy soil to grow RAZZ."
+  },
+  "Reaper Cloth": {
+    "name": "Reaper Cloth",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/reaper-cloth.png",
+    "description": "A cloth imbued with horrifyingly strong spiritual energy. It is loved by a certain Pokémon."
+  },
   "Red Card": {
     "name": "Red Card",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/red-card.png",
     "description": "A card with a mysterious power. When the holder is struck by a foe, the attacker is removed from battle."
+  },
+  "Repeat Ball": {
+    "name": "Repeat Ball",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/repeat-ball.png",
+    "description": "A BALL that works better on POKéMON caught before."
   },
   "Rindo Berry": {
     "name": "Rindo Berry",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/rindo-berry.png",
     "description": "A Poffin ingredient. If held by a Pokémon, it weakens a foe’s supereffective Grass-type attack."
   },
+  "Ring Target": {
+    "name": "Ring Target",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/ring-target.png",
+    "description": "Moves that would otherwise have no effect will land on the Pokémon that holds it."
+  },
+  "Rock Gem": {
+    "name": "Rock Gem",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/rock-gem.png",
+    "description": "A gem with an essence of rock. When held, it strengthens the power of a Rock-type move only once."
+  },
   "Rock Incense": {
     "name": "Rock Incense",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/rock-incense.png",
     "description": "An item to be held by a Pokémon. It is an exotic-smelling incense that boosts the power of Rock-type moves."
+  },
+  "Rock Memory": {
+    "name": "Rock Memory",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/rock-memory.png",
+    "description": "A memory disc that contains Rock-type data. It changes the type of the holder if held by a certain species of Pokémon."
+  },
+  "Root Fossil": {
+    "name": "Root Fossil",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/root-fossil.png",
+    "description": "A fossil of an ancient, seafloor- dwelling POKéMON."
   },
   "Rose Incense": {
     "name": "Rose Incense",
@@ -414,10 +1029,30 @@
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/roseli-berry.png",
     "description": "If held by a Pokémon, this Berry will lessen the damage taken from one supereffective Fairy-type attack."
   },
+  "Rowap Berry": {
+    "name": "Rowap Berry",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/rowap-berry.png",
+    "description": "A Poffin ingredient. If held by a Pokémon, and if a foe’s special attack lands, the foe also takes damage."
+  },
+  "Sachet": {
+    "name": "Sachet",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/sachet.png",
+    "description": "A sachet filled with fragrant perfumes that are just slightly too overwhelming. Yet it’s loved by a certain Pokémon."
+  },
+  "Safari Ball": {
+    "name": "Safari Ball",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/safari-ball.png",
+    "description": "A special BALL that is used only in the SAFARI ZONE."
+  },
   "Safety Goggles": {
     "name": "Safety Goggles",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/safety-goggles.png",
     "description": "An item to be held by a Pokémon. These goggles protect the holder from both weather-related damage and powder."
+  },
+  "Sail Fossil": {
+    "name": "Sail Fossil",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/sail-fossil.png",
+    "description": "A fossil from a prehistoric Pokémon that once lived on the land. It looks like the impression from a skin sail."
   },
   "Scope Lens": {
     "name": "Scope Lens",
@@ -444,6 +1079,16 @@
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/shell-bell.png",
     "description": "A hold item that restores HP upon striking the foe."
   },
+  "Shiny Stone": {
+    "name": "Shiny Stone",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/shiny-stone.png",
+    "description": "A peculiar stone that makes certain species of Pokémon evolve. It shines with a dazzling light."
+  },
+  "Shock Drive": {
+    "name": "Shock Drive",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/shock-drive.png",
+    "description": "A cassette to be held by Genesect. It changes Techno Blast to an Electric-type move."
+  },
   "Shuca Berry": {
     "name": "Shuca Berry",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/shuca-berry.png",
@@ -463,6 +1108,11 @@
     "name": "Sitrus Berry",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/sitrus-berry.png",
     "description": "A hold item that restores 30 HP in battle."
+  },
+  "Skull Fossil": {
+    "name": "Skull Fossil",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/skull-fossil.png",
+    "description": "A fossil from a prehistoric Pokémon that lived on the land. It appears to be part of a head."
   },
   "Sky Plate": {
     "name": "Sky Plate",
@@ -489,6 +1139,11 @@
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/spell-tag.png",
     "description": "A hold item that raises the power of GHOST-type moves."
   },
+  "Spelon Berry": {
+    "name": "Spelon Berry",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/spelon-berry.png",
+    "description": "POKéBLOCK ingredient. Plant in loamy soil to grow SPELON."
+  },
   "Splash Plate": {
     "name": "Splash Plate",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/splash-plate.png",
@@ -499,10 +1154,30 @@
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/spooky-plate.png",
     "description": "An item to be held by a Pokémon. It is a stone tablet that boosts the power of Ghost-type moves."
   },
+  "Sport Ball": {
+    "name": "Sport Ball",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/sport-ball.png",
+    "description": "A special Poké Ball for the Bug-Catching Contest."
+  },
   "Starf Berry": {
     "name": "Starf Berry",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/starf-berry.png",
     "description": "A hold item that sharply boosts a stat in a pinch."
+  },
+  "Steel Gem": {
+    "name": "Steel Gem",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/steel-gem.png",
+    "description": "A gem with an essence of steel. When held, it strengthens the power of a Steel-type move only once."
+  },
+  "Steel Memory": {
+    "name": "Steel Memory",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/steel-memory.png",
+    "description": "A memory disc that contains Steel-type data. It changes the type of the holder if held by a certain species of Pokémon."
+  },
+  "Stick": {
+    "name": "Stick",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/stick.png",
+    "description": "A stick of leek. It can be sold cheaply."
   },
   "Sticky Barb": {
     "name": "Sticky Barb",
@@ -514,6 +1189,16 @@
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/stone-plate.png",
     "description": "An item to be held by a Pokémon. It is a stone tablet that boosts the power of Rock-type moves."
   },
+  "Sun Stone": {
+    "name": "Sun Stone",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/sun-stone.png",
+    "description": "Makes certain species of POKéMON evolve."
+  },
+  "Tamato Berry": {
+    "name": "Tamato Berry",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/tamato-berry.png",
+    "description": "POKéBLOCK ingredient. Plant in loamy soil to grow TAMATO."
+  },
   "Tanga Berry": {
     "name": "Tanga Berry",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/tanga-berry.png",
@@ -523,6 +1208,21 @@
     "name": "Terrain Extender",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/terrain-extender.png",
     "description": "An item to be held by a Pokémon. It extends the duration of the terrain caused by the holder’s move or Ability."
+  },
+  "Thick Club": {
+    "name": "Thick Club",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/thick-club.png",
+    "description": "A bone of some sort. It can be sold cheaply."
+  },
+  "Thunder Stone": {
+    "name": "Thunder Stone",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/thunder-stone.png",
+    "description": "Makes certain species of POKéMON evolve."
+  },
+  "Timer Ball": {
+    "name": "Timer Ball",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/timer-ball.png",
+    "description": "More effective as more turns are taken in battle."
   },
   "Toxic Orb": {
     "name": "Toxic Orb",
@@ -539,10 +1239,40 @@
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/twisted-spoon.png",
     "description": "A hold item that boosts PSYCHIC- type moves."
   },
+  "Ultra Ball": {
+    "name": "Ultra Ball",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/ultra-ball.png",
+    "description": "A better BALL with a higher catch rate than a GREAT BALL."
+  },
+  "Up-Grade": {
+    "name": "Up-Grade",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/up-grade.png",
+    "description": "A peculiar box made by SILPH CO."
+  },
   "Wacan Berry": {
     "name": "Wacan Berry",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/wacan-berry.png",
     "description": "A Poffin ingredient. If held by a Pokémon, it weakens a foe’s supereffective Electric-type attack."
+  },
+  "Water Gem": {
+    "name": "Water Gem",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/water-gem.png",
+    "description": "A gem with an essence of water. When held, it strengthens the power of a Water-type move only once."
+  },
+  "Water Memory": {
+    "name": "Water Memory",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/water-memory.png",
+    "description": "A memory disc that contains Water-type data. It changes the type of the holder if held by a certain species of Pokémon."
+  },
+  "Water Stone": {
+    "name": "Water Stone",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/water-stone.png",
+    "description": "Makes certain species of POKéMON evolve."
+  },
+  "Watmel Berry": {
+    "name": "Watmel Berry",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/watmel-berry.png",
+    "description": "POKéBLOCK ingredient. Plant in loamy soil to grow WATMEL."
   },
   "Wave Incense": {
     "name": "Wave Incense",
@@ -553,6 +1283,16 @@
     "name": "Weakness Policy",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/weakness-policy.png",
     "description": "An item to be held by a Pokémon. Attack and Sp. Atk sharply increase if the holder is hit with a move it’s weak to."
+  },
+  "Wepear Berry": {
+    "name": "Wepear Berry",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/wepear-berry.png",
+    "description": "POKéBLOCK ingredient. Plant in loamy soil to grow WEPEAR."
+  },
+  "Whipped Dream": {
+    "name": "Whipped Dream",
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/whipped-dream.png",
+    "description": "A soft and sweet treat made of fluffy, puffy, whipped and whirled cream. It’s loved by a certain Pokémon."
   },
   "White Herb": {
     "name": "White Herb",
