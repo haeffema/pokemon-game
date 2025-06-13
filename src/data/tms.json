@@ -698,5 +698,68 @@
     "categorie": "Status",
     "strength": "",
     "accuracy": ""
+  },
+  "HM01": {
+    "move": "Cut",
+    "type": "Normal",
+    "categorie": "Physical",
+    "strength": "50",
+    "accuracy": "95"
+  },
+  "HM02": {
+    "move": "Fly",
+    "type": "Flying",
+    "categorie": "Physical",
+    "strength": "90",
+    "accuracy": "95"
+  },
+  "HM03": {
+    "move": "Surf",
+    "type": "Water",
+    "categorie": "Special",
+    "strength": "90",
+    "accuracy": "100"
+  },
+  "HM04": {
+    "move": "Strength",
+    "type": "Normal",
+    "categorie": "Physical",
+    "strength": "80",
+    "accuracy": "100"
+  },
+  "HM05": {
+    "move": "Flash",
+    "type": "Normal",
+    "categorie": "Status",
+    "strength": "",
+    "accuracy": ""
+  },
+  "HM06": {
+    "move": "Rock Smash",
+    "type": "Fighting",
+    "categorie": "Physical",
+    "strength": "40",
+    "accuracy": "100"
+  },
+  "HM07": {
+    "move": "Waterfall",
+    "type": "Water",
+    "categorie": "Physical",
+    "strength": "80",
+    "accuracy": "100"
+  },
+  "HM08": {
+    "move": "Rock Climb",
+    "type": "Normal",
+    "categorie": "Physical",
+    "strength": "90",
+    "accuracy": "85"
+  },
+  "HM09": {
+    "move": "Dive",
+    "type": "Water",
+    "categorie": "Physical",
+    "strength": "80",
+    "accuracy": "100"
   }
 }
