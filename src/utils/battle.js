@@ -9,7 +9,7 @@ import {
 } from '../config.js';
 import { calculate, Generations, Pokemon, Move, Field } from '@smogon/calc';
 import showdown from 'pokemon-showdown';
-import tierData from '../data/tierPropabilities.json' with { type: 'json' };
+import tierData from '../data/tierAmounts.json' with { type: 'json' };
 import pokemonData from '../data/pokemon.json' with { type: 'json' };
 import droppableItems from '../data/items/dropItems.json' with { type: 'json' };
 import { generateBattleImage } from './imageGenerator.js';
@@ -69,13 +69,11 @@ async function getRandomEncounterForPlayer(user) {
     }
   }
 
+  // user has all pokemon of the type
   if (availablePokemon.length === 0) {
     for (const pokemon of Object.keys(pokemonData)) {
       const pokeData = pokemonData[pokemon];
-      if (
-        pokeData.types.includes(activePool.type) &&
-        userPokemonNames.includes(pokeData.name)
-      ) {
+      if (pokeData.types.includes(activePool.type)) {
         for (let i = 0; i < userTierData[pokeData.tier]; i++) {
           availablePokemon.push(pokemon);
         }

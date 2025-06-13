@@ -63,11 +63,9 @@ export async function execute(interaction) {
     return;
   }
 
-  const alltutorMoves = Object.values(pokemon.moves).filter(
-    (move) => move.type === 'tutor'
-  );
+  const alltutorMoves = Object.values(pokemon.moves).filter();
 
-  const allTutorMoveNames = alltutorMoves.map((move) => formatLabel(move.name));
+  const allTutorMoveNames = alltutorMoves.map((move) => move.name);
 
   if (!allTutorMoveNames.includes(chosenMove)) {
     await sendMessage(
@@ -141,7 +139,7 @@ export async function autocomplete(interaction) {
       }
 
       const alltutorMoves = Object.values(pokemon.moves).filter(
-        (move) => move.type === 'tutor'
+        (move) => move['learn-method'] === 'Tutor'
       );
 
       const learnedMoves = await getAllLearnedMovesForPokemon(
@@ -149,35 +147,20 @@ export async function autocomplete(interaction) {
         chosenPokemon
       );
 
-      const learnedMoveNames = learnedMoves.map((move) => {
-        return move.move.toLowerCase().replace(' ', '-');
-      });
-
       const availableMoves = alltutorMoves.filter(
-        (move) => !learnedMoveNames.includes(move.name)
+        (move) => !learnedMoves.includes(move.name)
       );
 
-      const availableMovenames = availableMoves.map((move) =>
-        formatLabel(move.name)
+      const filteredAvailableMoves = availableMoves.filter((move) =>
+        move.name.toLowerCase().startsWith(focusedValue.value.toLowerCase())
       );
 
-      const filteredAvailableMoveNames = availableMovenames.filter((name) =>
-        name.toLowerCase().startsWith(focusedValue.value.toLowerCase())
-      );
-
-      const options = filteredAvailableMoveNames.slice(0, 25).map((name) => ({
-        name: name,
-        value: name,
+      const options = filteredAvailableMoves.slice(0, 25).map((move) => ({
+        name: move.name,
+        value: move.name,
       }));
       await interaction.respond(options);
       break;
     }
   }
 }
-
-const formatLabel = (name) => {
-  return name
-    .split('-')
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(' ');
-};
