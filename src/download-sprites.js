@@ -5,7 +5,7 @@ import fetch from 'node-fetch';
 const BASE_URL = 'https://play.pokemonshowdown.com/sprites/';
 const OUTPUT_BASE_DIR = './src/data/sprites/';
 
-const POKEMON_IDS = ['mimikyu-busted'];
+const POKEMON_IDS = [];
 
 async function downloadSprite(
   pokemonId,

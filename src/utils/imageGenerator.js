@@ -100,7 +100,11 @@ function drawHealthBar(ctx, x, y, barWidth, barHeight, pokemon) {
   }
 }
 
-export async function generateBattleImage(trainerPokemon, wildPokemon) {
+export async function generateBattleImage(
+  trainerPokemon,
+  wildPokemon,
+  newPokemon
+) {
   const width = 800;
   const height = 600;
   const canvas = createCanvas(width, height);
@@ -131,7 +135,11 @@ export async function generateBattleImage(trainerPokemon, wildPokemon) {
     ? path.join(wildSpriteDir, wildSpriteFilename)
     : null;
 
-  const missingSpritePath = './src/data/sprites/missingSprite.png';
+  if (newPokemon) {
+    wildPath = './src/data/sprites/poke-ball.png';
+  }
+
+  const missingSpritePath = './src/data/sprites/missing-sprite.png';
 
   if (!trainerPath) {
     console.warn(

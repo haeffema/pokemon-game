@@ -10,6 +10,7 @@
     "lint:fix": "eslint . --fix ",
     "bot": "node src/main.js",
     "sync": "node src/deploy-commands.js",
+    "sprites": "node src/download-sprites.js && node src/sprite-converter.js",
     "prepare": "husky"
   },
   "keywords": [],

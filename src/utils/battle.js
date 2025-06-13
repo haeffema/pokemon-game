@@ -176,6 +176,7 @@ function formatForCalc(pokemon) {
 
 function generateMovesButtons(pokemon) {
   const moves = [];
+  // console.log(pokemon)
   pokemon.moveSlots.forEach((moveSlot, index) => {
     if (pokemon.volatiles.twoturnmove) {
       if (pokemon.volatiles.twoturnmove.move === moveSlot.id) {
@@ -354,7 +355,8 @@ export async function runBattle(userId, interaction) {
 
   const battleImageBuffer = await generateBattleImage(
     trainerPokemon,
-    wildPokemon
+    wildPokemon,
+    activeBattles[userId].encounter.new && battle.winner === 'Trainer'
   );
 
   const log = generateRoundLog(battle.log);
