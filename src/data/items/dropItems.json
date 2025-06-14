@@ -49,11 +49,6 @@
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/black-sludge.png",
     "description": "A hold item that gradually restores the HP of Poison-type Pokémon. It inflicts damage on all other types."
   },
-  "Bright Powder": {
-    "name": "Bright Powder",
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/bright-powder.png",
-    "description": "A hold item that casts a glare to reduce accuracy."
-  },
   "Bug Gem": {
     "name": "Bug Gem",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/bug-gem.png",
@@ -443,11 +438,6 @@
     "name": "Lansat Berry",
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/lansat-berry.png",
     "description": "A hold item that ups the critical- hit rate in a pinch."
-  },
-  "Lax Incense": {
-    "name": "Lax Incense",
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/lax-incense.png",
-    "description": "A hold item that slightly lowers the foe’s accuracy."
   },
   "Leppa Berry": {
     "name": "Leppa Berry",

@@ -18,8 +18,16 @@ export async function validateTeam(userId, team) {
   const userPokemon = await getAllUserPokemon(userId);
   const pokemonNames = userPokemon.map((p) => p.name);
   const items = [];
+  const pokemonList = [];
   const types = {};
   for (const pokemon of team) {
+    if (pokemonList.includes(pokemon.species)) {
+      if (!errors['Pokemon Doppelt']) {
+        errors['Pokemon Doppelt'] = {};
+      }
+      errors['Pokemon Doppelt'][pokemon.species] = 'Jedes Pokemon nur einmal';
+    }
+    pokemonList.push(pokemon.species);
     if (pokemonNames.includes(pokemon.species)) {
       if (items.includes(pokemon.item)) {
         if (!errors['Doppelte Items']) {
@@ -99,6 +107,44 @@ async function validateSet(databaseEntry, pokemon, userId) {
       }
     }
   }
+  if (
+    (pokemon.item === 'Gengarite' && pokemon.species === 'Gengar') ||
+    pokemon.ability === 'Shadow Tag'
+  ) {
+    error['Mega-Gengar'] = 'Shadow Tag ist nicht erlaubt!';
+  }
+  if (['Bright Powder', 'Lax Incense'].includes(pokemon.item)) {
+    error['Illegales Item'] = 'Lax Incence und Bright Powder sind verboten.';
+  }
+  if (
+    ['Sand Veil', 'Snow Cloak', 'Tangled Feet', 'Wonder Skin'].includes(
+      pokemon.ability
+    )
+  ) {
+    error['Illegale Ability'] =
+      'Keine Ability die Fluchtwert steigert oder Genauigkeit senkt.';
+  }
+  for (const illegalMove of [
+    'Double Team',
+    'Minimize',
+    'Acupressure',
+    'Sand Attack',
+    'Smokescreen',
+    'Kinesis',
+    'Flash',
+    'Mud-Slap',
+    'Mud Bomb',
+    'Muddy Water',
+    'Sweet Scent',
+    'Mirror Shot',
+    'Octazooka',
+  ]) {
+    if (pokemon.moves.includes(illegalMove)) {
+      error[illegalMove] =
+        'Keine Moves die Fluchtwert steigert oder Genauigkeit senken.';
+    }
+  }
+  console.log(pokemon);
   return error;
 }
 
