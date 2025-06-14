@@ -43,7 +43,7 @@
     "util": "^0.12.5"
   },
   "lint-staged": {
-    "*.{js,json,md}": [
+    "*.{js,json}": [
       "prettier --write",
       "eslint . "
     ]
