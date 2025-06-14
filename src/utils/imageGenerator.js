@@ -192,8 +192,6 @@ export async function generateBattleImage(
   const canvas = createCanvas(width, height);
   const ctx = canvas.getContext('2d');
 
-  console.log(trainerPokemon);
-
   const activePool = await getActivePool();
   const backgroundPath = `./src/data/background/${activePool.type.toLowerCase()}.png`;
 
