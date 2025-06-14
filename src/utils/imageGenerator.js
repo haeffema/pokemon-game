@@ -122,7 +122,7 @@ function drawHealthBar(ctx, x, y, barWidth, barHeight, pokemon) {
   ctx.font = 'bold 18px Arial';
   ctx.textAlign = 'center';
   ctx.textBaseline = 'bottom';
-  ctx.fillText(pokemon.species.name, x + barWidth / 2, y - 5);
+  ctx.fillText(pokemon.set.name, x + barWidth / 2, y - 5);
 
   ctx.fillStyle = 'gray';
   ctx.fillRect(x, y, barWidth, barHeight);
