@@ -98,7 +98,9 @@ export async function autocomplete(interaction) {
       });
 
       const availableItemNames = Object.keys(questItems).filter(
-        (item) => !mappedUserItems.includes(item)
+        (item) =>
+          !mappedUserItems.includes(item) &&
+          item.toLowerCase().startsWith(focusedValue.value.toLowerCase())
       );
 
       const options = availableItemNames.slice(0, 25).map((item) => ({

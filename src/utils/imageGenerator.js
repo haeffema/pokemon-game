@@ -192,6 +192,8 @@ export async function generateBattleImage(
   const canvas = createCanvas(width, height);
   const ctx = canvas.getContext('2d');
 
+  console.log(trainerPokemon);
+
   const activePool = await getActivePool();
   const backgroundPath = `./src/data/background/${activePool.type.toLowerCase()}.png`;
 
@@ -199,13 +201,26 @@ export async function generateBattleImage(
 
   const trainerGifPath = `./src/data/sprites/${trainerPokemon.species.name.toLowerCase()}/${trainerPokemon.set.shiny ? 'shiny' : 'default'}/back.gif`;
   let trainerImageBuffer;
-  try {
-    trainerImageBuffer = await getRandomGifFrameAsPngBuffer(trainerGifPath);
-  } catch (error) {
-    console.warn(
-      `Could not get random back sprite for ${trainerPokemon.species.name.toLowerCase()}: ${error.message}. Using missing sprite.`
-    );
-    trainerImageBuffer = await fs.readFile(missingSpritePath); // Read missing sprite directly from file system
+
+  if (trainerPokemon.volatiles.substitute) {
+    const subBackPath = './src/data/sprites/sub-back.png';
+    try {
+      trainerImageBuffer = await fs.readFile(subBackPath);
+    } catch (error) {
+      console.warn(
+        `Could not load Sub Back sprite from ${subBackPath}: ${error.message}. Falling back to missing sprite.`
+      );
+      trainerImageBuffer = await fs.readFile(missingSpritePath);
+    }
+  } else {
+    try {
+      trainerImageBuffer = await getRandomGifFrameAsPngBuffer(trainerGifPath);
+    } catch (error) {
+      console.warn(
+        `Could not get random back sprite for ${trainerPokemon.species.name.toLowerCase()}: ${error.message}. Using missing sprite.`
+      );
+      trainerImageBuffer = await fs.readFile(missingSpritePath);
+    }
   }
 
   let wildImageBuffer;
@@ -216,6 +231,16 @@ export async function generateBattleImage(
     } catch (error) {
       console.warn(
         `Could not load Poké Ball sprite from ${pokeBallPath}: ${error.message}. Falling back to missing sprite.`
+      );
+      wildImageBuffer = await fs.readFile(missingSpritePath);
+    }
+  } else if (wildPokemon.volatiles.substitute) {
+    const subDefaultPath = './src/data/sprites/sub-default.png';
+    try {
+      wildImageBuffer = await fs.readFile(subDefaultPath);
+    } catch (error) {
+      console.warn(
+        `Could not load Sub Default sprite from ${subDefaultPath}: ${error.message}. Falling back to missing sprite.`
       );
       wildImageBuffer = await fs.readFile(missingSpritePath);
     }
