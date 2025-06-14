@@ -1,27 +1,111 @@
-import { getActivePool } from '../database/pool.js';
 import { createCanvas, loadImage } from 'canvas';
-import { access, constants, readdir } from 'node:fs/promises';
-import path from 'path';
+import { spawn } from 'child_process';
+import { promises as fs } from 'node:fs';
+import { getActivePool } from '../database/pool.js';
 
-async function getRandomSpriteFilename(spriteDir, prefix) {
+async function getRandomGifFrameAsPngBuffer(gifPath) {
+  let totalFrames;
+
   try {
-    const files = await readdir(spriteDir);
-    const filteredFiles = files.filter(
-      (file) => file.startsWith(`${prefix}-`) && file.endsWith('.png')
-    );
+    const ffprobeProcess = spawn('ffprobe', [
+      '-v',
+      'error',
+      '-select_streams',
+      'v:0',
+      '-show_entries',
+      'stream=nb_frames',
+      '-of',
+      'default=noprint_wrappers=1:nokey=1',
+      gifPath,
+    ]);
 
-    if (filteredFiles.length === 0) {
-      console.warn(
-        `No sprites found matching "${prefix}-*.png" in ${spriteDir}`
+    let frameCountOutput = '';
+    ffprobeProcess.stdout.on('data', (data) => {
+      frameCountOutput += data.toString();
+    });
+
+    await new Promise((resolve, reject) => {
+      ffprobeProcess.on('close', (code) => {
+        if (code === 0) {
+          resolve();
+        } else {
+          reject(
+            new Error(
+              `ffprobe exited with code ${code} for ${gifPath}. Stderr: ${frameCountOutput}`
+            )
+          );
+        }
+      });
+      ffprobeProcess.on('error', (err) => {
+        reject(new Error(`Failed to start ffprobe: ${err.message}`));
+      });
+    });
+
+    totalFrames = parseInt(frameCountOutput.trim(), 10);
+    if (isNaN(totalFrames) || totalFrames <= 0) {
+      throw new Error(
+        `Could not determine valid frame count for GIF: ${gifPath}`
       );
-      return null;
     }
-
-    const randomIndex = Math.floor(Math.random() * filteredFiles.length);
-    return filteredFiles[randomIndex];
   } catch (error) {
-    console.error(`Error reading sprite directory ${spriteDir}:`, error);
-    return null;
+    console.error(`Error getting frame count for ${gifPath}:`, error.message);
+    throw new Error(`Failed to get GIF frame count: ${error.message}`);
+  }
+
+  const randomFrameIndex = Math.floor(Math.random() * totalFrames);
+
+  try {
+    const ffmpegProcess = spawn('ffmpeg', [
+      '-i',
+      gifPath,
+      '-vf',
+      `select=eq(n\\,${randomFrameIndex})`,
+      '-vframes',
+      '1',
+      '-f',
+      'image2pipe',
+      '-vcodec',
+      'png',
+      '-',
+    ]);
+
+    let imageBuffer = Buffer.alloc(0);
+    ffmpegProcess.stdout.on('data', (data) => {
+      imageBuffer = Buffer.concat([imageBuffer, data]);
+    });
+
+    const stderrChunks = [];
+    ffmpegProcess.stderr.on('data', (data) => {
+      stderrChunks.push(data);
+    });
+
+    return new Promise((resolve, reject) => {
+      ffmpegProcess.on('close', (code) => {
+        if (code === 0) {
+          if (imageBuffer.length > 0) {
+            resolve(imageBuffer);
+          } else {
+            reject(
+              new Error(
+                `FFmpeg produced an empty image buffer for ${gifPath}. Stderr: ${Buffer.concat(stderrChunks).toString()}`
+              )
+            );
+          }
+        } else {
+          reject(
+            new Error(
+              `FFmpeg exited with code ${code} for ${gifPath}. Stderr: ${Buffer.concat(stderrChunks).toString()}`
+            )
+          );
+        }
+      });
+      ffmpegProcess.on('error', (err) => {
+        reject(new Error(`Failed to start FFmpeg process: ${err.message}`));
+      });
+    });
+  } catch (error) {
+    console.error(`Error extracting frame from ${gifPath}:`, error.message);
+    throw new Error(`Failed to extract random frame: ${error.message}`);
   }
 }
 
@@ -62,8 +146,6 @@ function drawHealthBar(ctx, x, y, barWidth, barHeight, pokemon) {
 
     switch (statusUpper) {
       case 'TOX':
-        statusColor = 'purple';
-        break;
       case 'PSN':
         statusColor = 'purple';
         break;
@@ -113,76 +195,51 @@ export async function generateBattleImage(
   const activePool = await getActivePool();
   const backgroundPath = `./src/data/background/${activePool.type.toLowerCase()}.png`;
 
-  const trainerSet = trainerPokemon.set;
-  const wildSet = wildPokemon.set;
-
-  const trainerSpriteDir = `./src/data/sprites/${trainerPokemon.species.name.toLowerCase()}/${trainerSet.shiny ? 'shiny' : 'default'}`;
-  const wildSpriteDir = `./src/data/sprites/${wildPokemon.species.name.toLowerCase()}/${wildSet.shiny ? 'shiny' : 'default'}`;
-
-  let trainerSpriteFilename = await getRandomSpriteFilename(
-    trainerSpriteDir,
-    'back'
-  );
-  let wildSpriteFilename = await getRandomSpriteFilename(
-    wildSpriteDir,
-    'default'
-  );
-
-  let trainerPath = trainerSpriteFilename
-    ? path.join(trainerSpriteDir, trainerSpriteFilename)
-    : null;
-  let wildPath = wildSpriteFilename
-    ? path.join(wildSpriteDir, wildSpriteFilename)
-    : null;
-
-  if (newPokemon) {
-    wildPath = './src/data/sprites/poke-ball.png';
-  }
-
   const missingSpritePath = './src/data/sprites/missing-sprite.png';
 
-  if (!trainerPath) {
+  const trainerGifPath = `./src/data/sprites/${trainerPokemon.species.name.toLowerCase()}/${trainerPokemon.set.shiny ? 'shiny' : 'default'}/back.gif`;
+  let trainerImageBuffer;
+  try {
+    trainerImageBuffer = await getRandomGifFrameAsPngBuffer(trainerGifPath);
+  } catch (error) {
     console.warn(
-      `No random back sprite found for ${trainerPokemon.species.name.toLowerCase()}. Using missing sprite.`
+      `Could not get random back sprite for ${trainerPokemon.species.name.toLowerCase()}: ${error.message}. Using missing sprite.`
     );
-    trainerPath = missingSpritePath;
-  } else {
-    try {
-      await access(trainerPath, constants.F_OK);
-    } catch (error) {
-      console.warn(
-        `Randomly selected trainer sprite ${trainerPath} not found:\n${error}`
-      );
-      trainerPath = missingSpritePath;
-    }
+    trainerImageBuffer = await fs.readFile(missingSpritePath); // Read missing sprite directly from file system
   }
 
-  if (!wildPath) {
-    console.warn(
-      `No random default sprite found for ${wildPokemon.species.name.toLowerCase()}. Using missing sprite.`
-    );
-    wildPath = missingSpritePath;
-  } else {
+  let wildImageBuffer;
+  if (newPokemon) {
+    const pokeBallPath = './src/data/sprites/poke-ball.png';
     try {
-      await access(wildPath, constants.F_OK);
+      wildImageBuffer = await fs.readFile(pokeBallPath);
     } catch (error) {
       console.warn(
-        `Randomly selected wild sprite ${wildPath} not found:\n${error}`
+        `Could not load Poké Ball sprite from ${pokeBallPath}: ${error.message}. Falling back to missing sprite.`
       );
-      wildPath = missingSpritePath;
+      wildImageBuffer = await fs.readFile(missingSpritePath);
+    }
+  } else {
+    const wildGifPath = `./src/data/sprites/${wildPokemon.species.name.toLowerCase()}/${wildPokemon.set.shiny ? 'shiny' : 'default'}/default.gif`;
+    try {
+      wildImageBuffer = await getRandomGifFrameAsPngBuffer(wildGifPath);
+    } catch (error) {
+      console.warn(
+        `Could not get random default sprite for ${wildPokemon.species.name.toLowerCase()}: ${error.message}. Using missing sprite.`
+      );
+      wildImageBuffer = await fs.readFile(missingSpritePath);
     }
   }
 
   const [background, trainerSprite, wildSprite] = await Promise.all([
     loadImage(backgroundPath),
-    loadImage(trainerPath),
-    loadImage(wildPath),
+    loadImage(trainerImageBuffer),
+    loadImage(wildImageBuffer),
   ]);
 
   ctx.drawImage(background, 0, 0, width, height);
 
   const healthBarPadding = 10;
-
   const healthBarWidth = 180;
   const healthBarHeight = 25;
 
