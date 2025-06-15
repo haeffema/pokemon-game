@@ -117,12 +117,16 @@ async function validateSet(databaseEntry, pokemon, userId) {
     error['Illegales Item'] = 'Lax Incence und Bright Powder sind verboten.';
   }
   if (
-    ['Sand Veil', 'Snow Cloak', 'Tangled Feet', 'Wonder Skin'].includes(
-      pokemon.ability
-    )
+    [
+      'Sand Veil',
+      'Snow Cloak',
+      'Tangled Feet',
+      'Wonder Skin',
+      'Moody',
+    ].includes(pokemon.ability)
   ) {
     error['Illegale Ability'] =
-      'Keine Ability die Fluchtwert steigert oder Genauigkeit senkt.';
+      'Keine Ability die Fluchtwert steigert oder gegnerische Genauigkeit senkt.';
   }
   for (const illegalMove of [
     'Double Team',
@@ -141,7 +145,7 @@ async function validateSet(databaseEntry, pokemon, userId) {
   ]) {
     if (pokemon.moves.includes(illegalMove)) {
       error[illegalMove] =
-        'Keine Moves die Fluchtwert steigert oder Genauigkeit senken.';
+        'Keine Moves die Fluchtwert steigert oder gegnerische Genauigkeit senken.';
     }
   }
   console.log(pokemon);
