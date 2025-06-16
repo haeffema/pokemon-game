@@ -148,7 +148,6 @@ async function validateSet(databaseEntry, pokemon, userId) {
         'Keine Moves die Fluchtwert steigert oder gegnerische Genauigkeit senken.';
     }
   }
-  console.log(pokemon);
   return error;
 }
 

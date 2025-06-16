@@ -20,6 +20,15 @@ export async function execute(interaction) {
 
   await sendMessage('Team wird überprüft...', interaction);
 
+  if (
+    !interaction.options
+      .getString('pokepaste')
+      .startsWith('https://pokepast.es/')
+  ) {
+    await sendMessage('Falscher Input.', interaction);
+    return;
+  }
+
   await validateTeamWithMessages(
     user,
     interaction.options.getString('pokepaste')

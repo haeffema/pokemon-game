@@ -52,6 +52,13 @@ export async function execute(interaction) {
 
   await sendMessage('Team wird überprüft...', interaction);
 
+  if (
+    !interaction.options.getString('team').startsWith('https://pokepast.es/')
+  ) {
+    await sendMessage('Falscher Input.', interaction);
+    return;
+  }
+
   const valid = await validateTeamWithMessages(
     user,
     interaction.options.getString('team'),

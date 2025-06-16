@@ -63,7 +63,9 @@ export async function execute(interaction) {
     return;
   }
 
-  const alltutorMoves = Object.values(pokemon.moves).filter();
+  const alltutorMoves = Object.values(pokemon.moves).filter((move) => {
+    return move['learn-method'] === 'Tutor';
+  });
 
   const allTutorMoveNames = alltutorMoves.map((move) => move.name);
 
