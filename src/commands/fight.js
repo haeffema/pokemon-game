@@ -24,7 +24,6 @@ export async function execute(interaction) {
       'Es ist bereits ein Kampf gestartet, beende deinen aktiven Kampf zuerst.',
       interaction
     );
-    return;
   }
   const battle = await runBattle(user.discordId, interaction);
   if (user.encounters >= maxEncounters) {

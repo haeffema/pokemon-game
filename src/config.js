@@ -11,7 +11,7 @@ export const adminIds = rawAdminIds.map((id) => id.trim());
 export const maxEncounters = 35;
 export const minNewEncounters = 3;
 export const maxNewEncounters = 10;
-export const itemDropRate = 0.15;
+export const itemDropRate = 0.2222;
 export const shinyRate = 4096;
 
 export const defaultSprite =
