@@ -30,16 +30,13 @@ export async function execute(interaction) {
   const activeChallenge = await getActiveChallenge(user.name);
 
   if (activeChallenge) {
-    await sendMessage(
-      'Beende zuerst deine aktive Challenge um eine neue zu starten.',
-      interaction
-    );
+    await sendMessage('Beende zuerst deine aktive Challenge.', interaction);
     return;
   }
 
   if (user.delay !== 0) {
     await sendMessage(
-      `Du musst noch ${user.delay} Tage warten bis du erneut kämpfen kannst.`,
+      `Du musst noch ${user.delay} ${user.delay === 1 ? 'Tag' : 'Tage'} warten bis du erneut kämpfen kannst.`,
       interaction
     );
     return;
@@ -62,6 +59,10 @@ export async function execute(interaction) {
   );
 
   if (!valid.valid) {
+    await sendMessage(
+      'Behebe die Fehler in dem Team und vordere dann die Arena erneut heraus.',
+      interaction
+    );
     return;
   }
 

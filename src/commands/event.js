@@ -1,11 +1,13 @@
 import { SlashCommandBuilder } from 'discord.js';
 import pokemonData from '../data/pokemon.json' with { type: 'json' };
+import { sendMessage } from '../utils/sendMessage.js';
 
 export const data = new SlashCommandBuilder()
   .setName('event')
   .setDescription('Start an Event Fight');
 
 export async function execute(interaction) {
+  await interaction.deferReply();
   var randomPokemon = 'Glalie';
 
   const pokemon = pokemonData[randomPokemon.toLowerCase()];
@@ -29,7 +31,8 @@ export async function execute(interaction) {
   } else {
     console.log(`Kein passendes Item im Set für ${pokemon.name} gefunden.`);
   }
-  await interaction.reply(
-    'Der Event Befehl befindet sich derzeit in Arbeit. Wenn du Vorschläge für coole Events hast dann wende dich an Jan.'
+  await sendMessage(
+    'Der Event Befehl befindet sich derzeit in Arbeit. Wenn du Vorschläge für coole Events hast dann wende dich an Jan.',
+    interaction
   );
 }

@@ -191,7 +191,7 @@ function formatForCalc(pokemon) {
   });
 }
 
-function generateMovesButtons(pokemon) {
+function generateMovesButtons(pokemon, encounter) {
   const moves = [];
   pokemon.moveSlots.forEach((moveSlot, index) => {
     if (pokemon.volatiles.disable) {
@@ -247,12 +247,15 @@ function generateMovesButtons(pokemon) {
     );
   }
 
-  moves.push(
-    new ButtonBuilder()
-      .setCustomId('ff')
-      .setLabel('Aufgeben')
-      .setStyle(ButtonStyle.Danger)
-  );
+  if (!encounter.set.shiny) {
+    moves.push(
+      new ButtonBuilder()
+        .setCustomId('ff')
+        .setLabel('Aufgeben')
+        .setStyle(ButtonStyle.Danger)
+    );
+  }
+
   return moves;
 }
 
@@ -397,7 +400,10 @@ export async function runBattle(userId, interaction) {
   }
 
   if (!battle.ended) {
-    const moves = generateMovesButtons(trainerPokemon);
+    const moves = generateMovesButtons(
+      trainerPokemon,
+      activeBattles[userId].encounter
+    );
 
     const actionRow = new ActionRowBuilder().addComponents(moves);
 

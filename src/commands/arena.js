@@ -37,10 +37,10 @@ export async function execute(interaction) {
   await interaction.deferReply();
   if (!adminIds.includes(interaction.user.id)) {
     const user = await getUserById(interaction.user.id);
-    user.money--;
+    user.money -= 1000;
     await updateUser(user);
     await sendMessage(
-      'Dieser Befehl kann nur von den **Arenaleitern** eingesetzt werden um über den Ausgang einer Arena Challenge zu entscheiden. Dir wurde 1 PokeDollar abegezogen!',
+      'Dieser Befehl kann nur von den **Arenaleitern** eingesetzt werden um über den Ausgang einer Arena Challenge zu entscheiden. Dir wurden 1.000 PokeDollar abegezogen!',
       interaction
     );
     return;
@@ -51,7 +51,7 @@ export async function execute(interaction) {
 
   if (!player) {
     await sendMessage(
-      'Der Spieler existiert nicht, oder hat keine aktive challenge.',
+      'Der Spieler existiert nicht, oder hat keine aktive Challenge.',
       interaction
     );
     return;

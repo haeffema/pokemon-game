@@ -26,7 +26,6 @@ export async function execute(interaction) {
     );
     return;
   }
-  await sendMessage('Ein neuer Kampf beginnt.', interaction);
   const battle = await runBattle(user.discordId, interaction);
   if (user.encounters >= maxEncounters) {
     if (battle.winner) {
@@ -127,6 +126,16 @@ export async function execute(interaction) {
           'Du hast den Kampf verloren, das wilde Pokemon ist geflohen.',
         color: 'Red',
         noSprite: true,
+      },
+      interaction
+    );
+  }
+  if (user.encounters === maxEncounters) {
+    await sendMessage(
+      {
+        title: 'Maximale Anzahl an Kämpfen erreicht.',
+        description:
+          'Ab sofort bekommst du keine Belohnungen mehr, jetzt geht es nur noch um Shiny Pokemon.\nViel Erfolg!',
       },
       interaction
     );
