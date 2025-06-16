@@ -154,11 +154,6 @@
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/gardevoirite.png",
     "description": "One variety of the mysterious Mega Stones. Have Gardevoir hold it, and this stone will enable it to Mega Evolve during battle."
   },
-  "Gengarite": {
-    "name": "Gengarite",
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/gengarite.png",
-    "description": "One variety of the mysterious Mega Stones. Have Gengar hold it, and this stone will enable it to Mega Evolve during battle."
-  },
   "Ghostium Z": {
     "name": "Ghostium Z",
     "sprite": "https://archives.bulbagarden.net/media/upload/2/23/Bag_Ghostium_Z_Sprite.png",
