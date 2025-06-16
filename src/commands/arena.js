@@ -4,6 +4,7 @@ import gymData from '../data/gyms.json' with { type: 'json' };
 import { adminIds } from '../config.js';
 import { getAllUsers, getUserById, updateUser } from '../database/user.js';
 import { getActiveChallenge, updateChallenge } from '../database/challenge.js';
+import { addItemForUser } from '../database/item.js';
 import { sendMessage } from '../utils/sendMessage.js';
 
 export const data = new SlashCommandBuilder()
@@ -97,6 +98,7 @@ export async function execute(interaction) {
       },
       player.discordId
     );
+    await addItemForUser(player, zCrystal);
     await sendMessage({
       title: 'Glückwunsche des Professors',
       description: `Glückwunsch, ${player.name} hat die ${player.badges}. Arena bezwungen und den Orden erhalten! Aber sei gewarnt, der nächste Arenaleiter wird es dir nicht so einfach machen.`,
