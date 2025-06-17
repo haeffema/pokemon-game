@@ -36,7 +36,7 @@
     "type": "Boden",
     "text": "Ich bin gerade erst aus meinem Urlaub in Memphis zurückgekommen und schon erfahre ich, dass du es mittlerweile geschafft hast, drei meiner Kollegen zu besiegen? Ich bin beeindruckt, es bis hierhin zu schaffen ist eine Leistung, die selbst mir nicht leichtgefallen wäre. Ich hoffe der Erfolg steigt dir jetzt nicht zu Kopf und du bleibst auf dem Boden der Tatsachen, denn auch ich werde es dir nicht einfach machen.\n\nMeine Pokémon sind schon heiß auf einen elektrisierenden Kampf, der den Himmel auf die Erde krachen lässt. Ich bin gespannt, ob du das Zeug dazu hast, die tausenden Wellen an Attacken, die meine Pokémon für dich vorbereitet haben zu überstehen und meine eiserne Defensive ins Wanken zu bringen, denn nur dann wird dir ein Sieg vergönnt sein. Jetzt muss ich aber meine Pokémon, die gerade noch die beiden Sonnenuntergänge genießen, auf den Kampf vorbereiten. Ich freue mich in Kürze auf deine Herausforderung.",
     "sprite": "https://play.pokemonshowdown.com/sprites/trainers/cyrus-masters.png",
-    "pokepaste": "",
+    "pokepaste": "https://pokepast.es/de31bc792593356c",
     "drive": "https://drive.google.com/drive/folders/11318jjFHEn9MuiVmbRV582WgOEg2-P1f?usp=sharing",
     "reward": {
       "money": 8000,
@@ -44,14 +44,14 @@
     }
   },
   {
-    "type": "Elektro",
-    "text": "",
-    "sprite": "",
+    "type": "Gift",
+    "text": "Willkommen, Bodenbezwinger, tretet ein –\ndoch erwartet hier kein leichtes Sein.\nWas wie ein Geschenk euch scheint zu sein,\nbirgt Schatten tief und scharfen Schein.\n\nMein Star erscheint – so flink, so klug,\nein Stich, ein Flug – kein Aufruhr, kein Trug.\nEr passt sich an, er schlägt euch blind,\nkennt Schwächen, die kein Licht ergründ’.\n\nWas bleibt, das schweigt, doch nagt sich tief,\nein Flüstern, das die Seele rief.\nIhr spürt es kaum, doch bald, da wisst,\ndies Spiel ist aus – und ihr vermisst.\n\nIhr kommt mit List, mit Psychospiel?\nWie nett – doch hier verlischt das Ziel.\nDies ist mein Reich, mein dunkles Spiel,\nund euer Ende? Mein teuflisch’ Stil.",
+    "sprite": "https://play.pokemonshowdown.com/sprites/trainers/bellelba.png",
     "pokepaste": "",
     "drive": "https://drive.google.com/drive/folders/1CVA6FloNWTJUkzi6-DiqwHucPIJ41xZc?usp=sharing",
     "reward": {
       "money": 10000,
-      "item": "Electrium Z"
+      "item": "Poisonium Z"
     }
   },
   {
