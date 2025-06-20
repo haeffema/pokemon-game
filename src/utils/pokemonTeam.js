@@ -109,9 +109,10 @@ async function validateSet(databaseEntry, pokemon, userId) {
   }
   if (
     (pokemon.item === 'Gengarite' && pokemon.species === 'Gengar') ||
-    pokemon.ability === 'Shadow Tag'
+    pokemon.ability === 'Shadow Tag' ||
+    pokemon.ability === 'Arena Trap'
   ) {
-    error['Mega-Gengar'] = 'Shadow Tag ist nicht erlaubt!';
+    error['Illegale Ability'] = 'Shadow Tag/Arena Trap ist nicht erlaubt!';
   }
   if (['Bright Powder', 'Lax Incense'].includes(pokemon.item)) {
     error['Illegales Item'] = 'Lax Incence und Bright Powder sind verboten.';

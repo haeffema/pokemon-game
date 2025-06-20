@@ -71,6 +71,7 @@ export async function setNewPool() {
   await updatePool(activePool);
   const newPool =
     availablePools[Math.floor(Math.random() * availablePools.length)];
+
   newPool.active = 1;
   newPool.wasActive = 1;
   await updatePool(newPool);
