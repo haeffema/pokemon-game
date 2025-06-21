@@ -458,7 +458,7 @@ export async function calculateLoot(pokemonName, userId, mega) {
 
   const tier = pokemonData[pokemonName.toLowerCase()].tier;
 
-  const randomFactor = -20 + Math.floor(Math.random() * 41);
+  const randomFactor = -25 + Math.floor(Math.random() * 51);
 
   switch (tier) {
     case 'ZU': {

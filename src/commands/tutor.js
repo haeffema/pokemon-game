@@ -13,10 +13,12 @@ import pokemonData from '../data/pokemon.json' with { type: 'json' };
 import {
   addTutorMove,
   getAllLearnedMovesForPokemon,
+  checkIfTutorMoveIsLearned,
 } from '../database/tutor.js';
 import { sendMessage } from '../utils/sendMessage.js';
 import { awaitInteraction } from '../utils/componentManager.js';
 import { getUserById, updateUser } from '../database/user.js';
+import { getAllTutorMovesForPokemon } from '../utils/pokemonTeam.js';
 
 export const data = new SlashCommandBuilder()
   .setName('tutor')
@@ -63,15 +65,14 @@ export async function execute(interaction) {
     return;
   }
 
-  const alltutorMoves = Object.values(pokemon.moves).filter((move) => {
-    return move['learn-method'] === 'Tutor';
-  });
+  const allTutorMoves = getAllTutorMovesForPokemon(pokemon.name);
 
-  const allTutorMoveNames = alltutorMoves.map((move) => move.name);
-
-  if (!allTutorMoveNames.includes(chosenMove)) {
+  if (
+    !allTutorMoves.includes(chosenMove) ||
+    (await checkIfTutorMoveIsLearned(userId, chosenPokemon, chosenMove))
+  ) {
     await sendMessage(
-      'Der Move existiert nicht oder das Pokemon kann diesen bereits.',
+      'Der Move existiert nicht, ist kein Tutor Move oder du hast ihn bereits erlernt.',
       interaction
     );
     return;
@@ -140,26 +141,26 @@ export async function autocomplete(interaction) {
         break;
       }
 
-      const alltutorMoves = Object.values(pokemon.moves).filter(
-        (move) => move['learn-method'] === 'Tutor'
-      );
+      const allTutorMoves = getAllTutorMovesForPokemon(pokemon.name);
 
       const learnedMoves = await getAllLearnedMovesForPokemon(
         discordId,
         chosenPokemon
       );
 
-      const availableMoves = alltutorMoves.filter(
-        (move) => !learnedMoves.includes(move.name)
+      const mappedLearnedMoves = learnedMoves.map((move) => move.move);
+
+      const availableMoves = allTutorMoves.filter(
+        (move) => !mappedLearnedMoves.includes(move)
       );
 
       const filteredAvailableMoves = availableMoves.filter((move) =>
-        move.name.toLowerCase().startsWith(focusedValue.value.toLowerCase())
+        move.toLowerCase().startsWith(focusedValue.value.toLowerCase())
       );
 
       const options = filteredAvailableMoves.slice(0, 25).map((move) => ({
-        name: move.name,
-        value: move.name,
+        name: move,
+        value: move,
       }));
       await interaction.respond(options);
       break;

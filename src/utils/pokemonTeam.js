@@ -83,28 +83,51 @@ async function validateSet(databaseEntry, pokemon, userId) {
     if (databaseSet.moves.includes(move)) {
       continue;
     }
-    const moveData = pokemonData[pokemon.species.toLowerCase()].moves[move];
-    if (!moveData) {
-      error[move] = 'wird nicht gelernt -> wende dich an jan und max';
-      break;
-    }
-    if (moveData['learn-method'] === 'TM') {
-      error[move] = 'TM nicht gekauft';
-      for (const tm of await getAllTmsForUser(userId)) {
-        if (
-          tmData[tm.tm].move ===
-          `${move.startsWith('Hidden Power') ? 'Hidden Power' : move}`
-        ) {
+    switch (getLearnMethod(databaseEntry.name, move)) {
+      case 'tutor': {
+        error[move] = 'Tutor Move';
+        if (await checkIfTutorMoveIsLearned(userId, databaseEntry.name, move)) {
           delete error[move];
-          break;
         }
+        break;
+      }
+      case 'machine': {
+        error[move] = 'TM nicht gekauft';
+        for (const tm of await getAllTmsForUser(userId)) {
+          if (
+            tmData[tm.tm].move ===
+            `${move.startsWith('Hidden Power') ? 'Hidden Power' : move}`
+          ) {
+            delete error[move];
+            break;
+          }
+        }
+        break;
+      }
+      case null: {
+        error[move] = 'wird nicht gelernt -> wende dich an jan und max';
+        break;
       }
     }
-    if (moveData['learn-method'] === 'Tutor') {
-      error[move] = 'Tutor Move';
-      if (await checkIfTutorMoveIsLearned(userId, databaseEntry.name, move)) {
-        delete error[move];
-      }
+    if (
+      [
+        'Double Team',
+        'Minimize',
+        'Acupressure',
+        'Sand Attack',
+        'Smokescreen',
+        'Kinesis',
+        'Flash',
+        'Mud-Slap',
+        'Mud Bomb',
+        'Muddy Water',
+        'Sweet Scent',
+        'Mirror Shot',
+        'Octazooka',
+      ].includes(move)
+    ) {
+      error[move] =
+        'Keine Moves die Fluchtwert steigert oder gegnerische Genauigkeit senken.';
     }
   }
   if (
@@ -115,7 +138,7 @@ async function validateSet(databaseEntry, pokemon, userId) {
     error['Illegale Ability'] = 'Shadow Tag/Arena Trap ist nicht erlaubt!';
   }
   if (['Bright Powder', 'Lax Incense'].includes(pokemon.item)) {
-    error['Illegales Item'] = 'Lax Incence und Bright Powder sind verboten.';
+    error['Illegales Item'] = 'Lax Incense und Bright Powder sind verboten.';
   }
   if (
     [
@@ -129,27 +152,68 @@ async function validateSet(databaseEntry, pokemon, userId) {
     error['Illegale Ability'] =
       'Keine Ability die Fluchtwert steigert oder gegnerische Genauigkeit senkt.';
   }
-  for (const illegalMove of [
-    'Double Team',
-    'Minimize',
-    'Acupressure',
-    'Sand Attack',
-    'Smokescreen',
-    'Kinesis',
-    'Flash',
-    'Mud-Slap',
-    'Mud Bomb',
-    'Muddy Water',
-    'Sweet Scent',
-    'Mirror Shot',
-    'Octazooka',
-  ]) {
-    if (pokemon.moves.includes(illegalMove)) {
-      error[illegalMove] =
-        'Keine Moves die Fluchtwert steigert oder gegnerische Genauigkeit senken.';
+  return error;
+}
+
+function getLearnMethod(pokemonName, moveName) {
+  const move = showdown.Dex.mod('gen7').moves.get(moveName);
+  if (!move.exists) {
+    return null;
+  }
+  const normalizedMoveId = move.id;
+
+  for (let genNum = 7; genNum >= 1; genNum--) {
+    const gen = `gen${genNum}`;
+    const dex = showdown.Dex.mod(gen);
+
+    const initialPokemon = dex.species.get(pokemonName);
+    if (!initialPokemon.exists) {
+      continue;
+    }
+
+    let currentPokemon = initialPokemon;
+
+    while (currentPokemon && currentPokemon.exists) {
+      const learnset = dex.data.Learnsets[currentPokemon.id];
+
+      if (
+        learnset &&
+        learnset.learnset &&
+        learnset.learnset[normalizedMoveId]
+      ) {
+        const methods = learnset.learnset[normalizedMoveId];
+
+        for (const methodCode of methods) {
+          const learnGen = parseInt(methodCode[0], 10);
+          const learnMethodChar = methodCode[1];
+
+          if (learnGen === genNum) {
+            switch (learnMethodChar) {
+              case 'L':
+              case 'E':
+              case 'S':
+              default:
+                return true;
+              case 'T':
+                return 'tutor';
+              case 'M':
+                return 'machine';
+            }
+          }
+        }
+      }
+
+      if (currentPokemon.changesFrom) {
+        currentPokemon = dex.species.get(currentPokemon.changesFrom);
+      } else if (currentPokemon.prevo !== '') {
+        currentPokemon = dex.species.get(currentPokemon.prevo);
+      } else {
+        currentPokemon = null;
+      }
     }
   }
-  return error;
+
+  return null;
 }
 
 export async function validateTeamWithMessages(
@@ -213,4 +277,57 @@ export async function validateTeamWithMessages(
     }
   }
   return { valid: errorCounter === 0, teamSize: team.length };
+}
+
+export function getAllTutorMovesForPokemon(pokemonName) {
+  const gen = 'gen7';
+  const dex = showdown.Dex.mod(gen);
+
+  const initialPokemon = dex.species.get(pokemonName);
+
+  if (!initialPokemon.exists) {
+    console.warn(`Pokémon '${pokemonName}' not found in Generation 7 data.`);
+    return [];
+  }
+
+  const allLearnedMoves = new Set();
+  let currentPokemon = initialPokemon;
+
+  while (currentPokemon && currentPokemon.exists) {
+    const learnsetEntry = dex.data.Learnsets[currentPokemon.id];
+
+    if (learnsetEntry && learnsetEntry.learnset) {
+      for (const moveId in learnsetEntry.learnset) {
+        if (
+          Object.prototype.hasOwnProperty.call(learnsetEntry.learnset, moveId)
+        ) {
+          const methods = learnsetEntry.learnset[moveId];
+          const moveAvailableInGen7 = methods.some((methodCode) => {
+            return parseInt(methodCode[0], 10) === 7;
+          });
+
+          if (moveAvailableInGen7) {
+            const move = dex.moves.get(moveId);
+            if (
+              move.exists &&
+              move.name &&
+              getLearnMethod(pokemonName, move.name) === 'tutor'
+            ) {
+              allLearnedMoves.add(move.name);
+            }
+          }
+        }
+      }
+    }
+
+    if (currentPokemon.changesFrom) {
+      currentPokemon = dex.species.get(currentPokemon.changesFrom);
+    } else if (currentPokemon.prevo !== '') {
+      currentPokemon = dex.species.get(currentPokemon.prevo);
+    } else {
+      currentPokemon = null;
+    }
+  }
+
+  return Array.from(allLearnedMoves).sort();
 }
