@@ -9,8 +9,8 @@ let rawAdminIds = process.env.ADMIN_IDS ? process.env.ADMIN_IDS.split(',') : [];
 export const adminIds = rawAdminIds.map((id) => id.trim());
 
 export const maxEncounters = 35;
-export const minNewEncounters = 3;
-export const maxNewEncounters = 10;
+export const minNewEncounters = 2;
+export const maxNewEncounters = 5;
 export const itemDropRate = 0.2222;
 export const shinyRate = 4096;
 

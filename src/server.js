@@ -1,5 +1,6 @@
 import express from 'express';
 import cors from 'cors';
+import showdown from 'pokemon-showdown';
 import { getUserById } from './database/user.js';
 import { getAllUserPokemon } from './database/pokemon.js';
 import pokemonData from './data/pokemon.json' with { type: 'json' };
@@ -36,11 +37,16 @@ app.get('/pokedex/:userId', async (req, res) => {
       name: pokemonData[pokeId].name,
       caught: false,
       shiny: false,
+      set: undefined,
     };
     for (const userPokeData of userPokemon) {
       if (pokemonData[pokeId].name === userPokeData.name) {
         data.caught = true;
         data.shiny = userPokeData.shiny === 1;
+        const set = showdown.Teams.import(userPokeData.pokepaste);
+        if (set.length > 0) {
+          data.set = set[0];
+        }
       }
     }
     response.push(data);

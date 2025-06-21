@@ -80,6 +80,9 @@ async function getRandomEncounterForPlayer(user) {
         }
       }
     }
+    if (user.newEncounters < minNewEncounters) {
+      user.newEncounters = 99;
+    }
   }
 
   if (availablePokemon.length === 0) {
