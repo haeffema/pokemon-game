@@ -431,10 +431,16 @@ export async function runBattle(userId, interaction) {
       [actionRow]
     );
 
-    const response = await awaitInteraction(userId, message);
+    let response = await awaitInteraction(userId, message);
+
+    while (response === null) {
+      response = await awaitInteraction(userId, message);
+    }
 
     if (response === 'ff') {
-      const encounter = activeBattles[userId].encounter;
+      const encounter = activeBattles[userId].encounter
+        ? activeBattles[userId].encounter
+        : {};
       encounter.winner = false;
       delete activeBattles[userId];
       return encounter;
