@@ -5,7 +5,7 @@ import fetch from 'node-fetch';
 const BASE_URL = 'https://play.pokemonshowdown.com/sprites/';
 const OUTPUT_BASE_DIR = './src/data/sprites/';
 
-const POKEMON_IDS = [];
+const POKEMON_IDS = ['wishiwashi-school'];
 
 async function downloadSprite(
   pokemonId,
