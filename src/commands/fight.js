@@ -25,6 +25,9 @@ export async function execute(interaction) {
       interaction
     );
   }
+
+  console.log('new battle started for user:', user.name);
+
   const battle = await runBattle(user.discordId, interaction);
   if (user.encounters >= maxEncounters) {
     if (battle.winner) {

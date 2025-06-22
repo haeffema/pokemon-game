@@ -1,7 +1,7 @@
 import showdown from 'pokemon-showdown';
 import { getPokepasteTeamFromHtml } from './pokepaste.js';
 import { getAllUserPokemon, setPokemonPokepaste } from '../database/pokemon.js';
-import { getAllItemsForUser } from '../database/item.js';
+import { userHasItem } from '../database/item.js';
 import { getAllTmsForUser } from '../database/tm.js';
 import { checkIfTutorMoveIsLearned } from '../database/tutor.js';
 import { sendMessage } from './sendMessage.js';
@@ -71,11 +71,6 @@ export async function validateTeam(userId, team) {
 async function validateSet(databaseEntry, pokemon, userId) {
   const error = {};
   const databaseSet = showdown.Teams.import(databaseEntry.pokepaste)[0];
-  const userItems = await getAllItemsForUser(userId);
-  const validItem = userItems.find((item) => item.name === pokemon.item);
-  if (!validItem && pokemon.item !== '') {
-    error['Item'] = pokemon.item;
-  }
   if (databaseEntry.shiny === 0 && pokemon.shiny) {
     error['shiny'] = false;
   }
@@ -151,6 +146,9 @@ async function validateSet(databaseEntry, pokemon, userId) {
   ) {
     error['Illegale Ability'] =
       'Keine Ability die Fluchtwert steigert oder gegnerische Genauigkeit senkt.';
+  }
+  if (!(await userHasItem(userId, pokemon.item))) {
+    error[pokemon.item] = 'Du besitzt dieses Item nicht.';
   }
   return error;
 }

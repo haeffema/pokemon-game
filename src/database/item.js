@@ -34,3 +34,18 @@ export async function addItemForUser(user, item) {
     );
   });
 }
+
+export async function userHasItem(userId, itemName) {
+  return new Promise((resolve, reject) => {
+    connection.query(
+      'SELECT COUNT(*) AS count FROM items WHERE user = (SELECT name FROM users WHERE discordid = ?) AND name = ?',
+      [userId, itemName],
+      (error, results) => {
+        if (error) {
+          return reject(error);
+        }
+        resolve(results[0].count > 0);
+      }
+    );
+  });
+}

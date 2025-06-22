@@ -1,6 +1,7 @@
 import { getUserById } from '../database/user.js';
 import { getAllUserPokemon, getUserLeadPokemon } from '../database/pokemon.js';
 import { getActivePool } from '../database/pool.js';
+import { userHasItem } from '../database/item.js';
 import {
   itemDropRate,
   maxEncounters,
@@ -80,9 +81,6 @@ async function getRandomEncounterForPlayer(user) {
         }
       }
     }
-    if (user.newEncounters < minNewEncounters) {
-      user.newEncounters = 99;
-    }
   }
 
   if (availablePokemon.length === 0) {
@@ -102,7 +100,7 @@ async function getRandomEncounterForPlayer(user) {
   };
 }
 
-async function getRandomSetForPokemon(pokemon) {
+async function getRandomSetForPokemon(userId, pokemon) {
   const randomPokemonData = pokemonData[pokemon];
   const sets = randomPokemonData.sets;
   const set = sets[Math.floor(Math.random() * sets.length)];
@@ -111,8 +109,11 @@ async function getRandomSetForPokemon(pokemon) {
   set['ivs'] = randomPokemonData.ivs;
   set['level'] = 100;
   set['happiness'] = 255;
-  set['shiny'] = Math.floor(Math.random() * shinyRate) === 187;
-  // TODO: check with shiny pin
+  if (await userHasItem(userId, set.item)) {
+    set['shiny'] = Math.floor(Math.random() * (shinyRate / 2)) === 187;
+  } else {
+    set['shiny'] = Math.floor(Math.random() * shinyRate) === 187;
+  }
   return set;
 }
 
@@ -367,7 +368,7 @@ export async function startNewBattle(userId) {
     return false;
   }
 
-  const wildSet = await getRandomSetForPokemon(wildEncounter.pokemon);
+  const wildSet = await getRandomSetForPokemon(userId, wildEncounter.pokemon);
 
   const battle = new showdown.Battle({ formatid: 'gen7customgame' });
 
