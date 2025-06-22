@@ -122225,15 +122225,6 @@
       }
     ]
   },
-  "keldeo-resolute": {
-    "id": 647,
-    "name": "Keldeo-Resolute",
-    "types": ["Water", "Fighting"],
-    "abilities": ["Justified"],
-    "tier": "OU",
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10024.png",
-    "sets": []
-  },
   "meloetta": {
     "id": 648,
     "name": "Meloetta",

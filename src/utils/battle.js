@@ -104,6 +104,7 @@ async function getRandomSetForPokemon(userId, pokemon) {
   const randomPokemonData = pokemonData[pokemon];
   const sets = randomPokemonData.sets;
   const set = sets[Math.floor(Math.random() * sets.length)];
+  console.log(pokemon);
   set['name'] = '';
   set['species'] = randomPokemonData.name;
   set['ivs'] = randomPokemonData.ivs;
