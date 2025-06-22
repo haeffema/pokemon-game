@@ -1,6 +1,6 @@
 import showdown from 'pokemon-showdown';
 import { SlashCommandBuilder } from 'discord.js';
-import { startNewBattle, runBattle, calculateLoot } from '../utils/battle.js';
+import { startNewBattle, calculateLoot } from '../utils/battle.js';
 import { getUserById, updateUser } from '../database/user.js';
 import { maxEncounters } from '../config.js';
 import {
@@ -18,17 +18,14 @@ export async function execute(interaction) {
   await interaction.deferReply();
   const user = await getUserById(interaction.user.id);
 
-  const newFight = await startNewBattle(user.discordId);
-  if (!newFight) {
+  const battle = await startNewBattle(user.discordId, interaction);
+  if (!battle) {
     await sendMessage(
       'Es ist bereits ein Kampf gestartet, beende deinen aktiven Kampf zuerst.',
       interaction
     );
   }
 
-  console.log('new battle started for user:', user.name);
-
-  const battle = await runBattle(user.discordId, interaction);
   if (user.encounters >= maxEncounters) {
     if (battle.winner) {
       if (battle.set.shiny) {

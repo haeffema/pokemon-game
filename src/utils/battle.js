@@ -98,7 +98,6 @@ async function getRandomSetForPokemon(userId, pokemon) {
   const randomPokemonData = pokemonData[pokemon];
   const sets = randomPokemonData.sets;
   const set = sets[Math.floor(Math.random() * sets.length)];
-  console.log(pokemon);
   set['name'] = '';
   set['species'] = randomPokemonData.name;
   set['ivs'] = randomPokemonData.ivs;
@@ -108,6 +107,9 @@ async function getRandomSetForPokemon(userId, pokemon) {
     set['shiny'] = Math.floor(Math.random() * (shinyRate / 2)) === 187;
   } else {
     set['shiny'] = Math.floor(Math.random() * shinyRate) === 187;
+  }
+  if (set.shiny) {
+    console.log(`Shiny ${set.species} generated for user ${userId}`);
   }
   return set;
 }
@@ -350,7 +352,7 @@ function convertMoveLogToString(log) {
   return moveLog;
 }
 
-export async function startNewBattle(userId) {
+export async function startNewBattle(userId, interaction) {
   const user = await getUserById(userId);
   if (activeBattles[userId]) {
     return false;
@@ -382,10 +384,10 @@ export async function startNewBattle(userId) {
     encounter: encounter,
     battle: battle,
   };
-  return true;
+  return await runBattle(userId, interaction);
 }
 
-export async function runBattle(userId, interaction) {
+async function runBattle(userId, interaction) {
   if (!activeBattles[userId]) {
     return false;
   }
