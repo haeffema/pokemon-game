@@ -6,7 +6,6 @@ import {
   itemDropRate,
   maxEncounters,
   maxNewEncounters,
-  minNewEncounters,
   shinyRate,
 } from '../config.js';
 import { calculate, Generations, Pokemon, Move, Field } from '@smogon/calc';
@@ -37,26 +36,21 @@ async function getRandomEncounterForPlayer(user) {
   for (const pokemon of Object.keys(pokemonData)) {
     const pokeData = pokemonData[pokemon];
 
-    if (
-      user.newEncounters < minNewEncounters &&
-      user.encounters % 2 !== 0 &&
-      user.encounters < maxEncounters
-    ) {
-      if (
-        pokeData.types.includes(activePool.type) &&
-        !userPokemonNames.includes(pokeData.name)
-      ) {
-        for (let i = 0; i < userTierData[pokeData.tier]; i++) {
-          availablePokemon.push(pokemon);
+    if (user.encounters < maxEncounters) {
+      if ((user.encounters + 1) % 5 === 0) {
+        if (
+          pokeData.types.includes(activePool.type) &&
+          !userPokemonNames.includes(pokeData.name)
+        ) {
+          for (let i = 0; i < userTierData[pokeData.tier]; i++) {
+            availablePokemon.push(pokemon);
+          }
         }
-      }
-    } else if (
-      user.newEncounters < maxNewEncounters &&
-      user.encounters < maxEncounters
-    ) {
-      if (pokeData.types.includes(activePool.type)) {
-        for (let i = 0; i < userTierData[pokeData.tier]; i++) {
-          availablePokemon.push(pokemon);
+      } else if (user.newEncounters < maxNewEncounters) {
+        if (pokeData.types.includes(activePool.type)) {
+          for (let i = 0; i < userTierData[pokeData.tier]; i++) {
+            availablePokemon.push(pokemon);
+          }
         }
       }
     } else {

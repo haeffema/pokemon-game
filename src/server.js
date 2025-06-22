@@ -4,6 +4,7 @@ import showdown from 'pokemon-showdown';
 import { getUserById } from './database/user.js';
 import { getAllUserPokemon } from './database/pokemon.js';
 import pokemonData from './data/pokemon.json' with { type: 'json' };
+import tierData from './data/tierAmounts.json' with { type: 'json' };
 
 const app = express();
 const port = 3000;
@@ -30,6 +31,12 @@ app.get('/pokedex/:userId', async (req, res) => {
   if (!userId) {
     return res.status(400).send('invalid userid');
   }
+
+  const user = await getUserById(userId);
+  if (!user) {
+    return res.status(400).send('invalid user');
+  }
+
   const response = [];
   const userPokemon = await getAllUserPokemon(userId);
   for (const pokeId of Object.keys(pokemonData)) {
@@ -49,7 +56,9 @@ app.get('/pokedex/:userId', async (req, res) => {
         }
       }
     }
-    response.push(data);
+    if (Object.keys(tierData[user.badges]).includes(pokemonData[pokeId].tier)) {
+      response.push(data);
+    }
   }
   res.send(response);
 });
