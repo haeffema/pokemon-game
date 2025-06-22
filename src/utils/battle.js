@@ -125,12 +125,20 @@ async function botChooseHighestDamageMove(battle) {
   const moves = attackerShowdown.moveSlots;
   let bestMoveIndex = 0;
   let maxDamage = -1;
-  if (attackerShowdown.volatiles.twoturnmove) {
+  if (
+    attackerShowdown.volatiles.twoturnmove ||
+    attackerShowdown.volatiles.lockedmove
+  ) {
     battle.choose(botID, 'move 1');
     return;
   }
   moves.forEach((moveSlot, i) => {
-    if (moveSlot.pp === 0 || moveSlot.disabled) {
+    if (
+      moveSlot.pp === 0 ||
+      moveSlot.disabled ||
+      (attackerShowdown.volatiles.choicelock &&
+        attackerShowdown.volatiles.choicelock.move !== moveSlot.id)
+    ) {
       return;
     }
 
@@ -429,6 +437,8 @@ export async function runBattle(userId, interaction) {
       delete activeBattles[userId];
       return encounter;
     }
+
+    console.log(userId, response);
 
     battle.choose(
       trainerID,
