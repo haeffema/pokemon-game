@@ -33,27 +33,12 @@ async function getRandomEncounterForPlayer(user) {
   const availablePokemon = [];
   const userTierData = tierData[user.badges];
 
-  for (const pokemon of Object.keys(pokemonData)) {
-    const pokeData = pokemonData[pokemon];
-
-    if (user.encounters < maxEncounters) {
-      if ((user.encounters + 1) % 5 === 0) {
-        if (
-          pokeData.types.includes(activePool.type) &&
-          !userPokemonNames.includes(pokeData.name)
-        ) {
-          for (let i = 0; i < userTierData[pokeData.tier]; i++) {
-            availablePokemon.push(pokemon);
-          }
-        }
-      } else if (user.newEncounters < maxNewEncounters) {
-        if (pokeData.types.includes(activePool.type)) {
-          for (let i = 0; i < userTierData[pokeData.tier]; i++) {
-            availablePokemon.push(pokemon);
-          }
-        }
-      }
-    } else {
+  if (
+    user.encounters >= maxEncounters ||
+    user.newEncounters >= maxNewEncounters
+  ) {
+    for (const pokemon of Object.keys(pokemonData)) {
+      const pokeData = pokemonData[pokemon];
       if (
         pokeData.types.includes(activePool.type) &&
         userPokemonNames.includes(pokeData.name)
@@ -63,15 +48,27 @@ async function getRandomEncounterForPlayer(user) {
         }
       }
     }
-  }
-
-  // user has all pokemon of the type
-  if (availablePokemon.length === 0) {
-    for (const pokemon of Object.keys(pokemonData)) {
-      const pokeData = pokemonData[pokemon];
-      if (pokeData.types.includes(activePool.type)) {
-        for (let i = 0; i < userTierData[pokeData.tier]; i++) {
-          availablePokemon.push(pokemon);
+  } else {
+    if ((user.encounters + 1) % 10 === 0) {
+      for (const pokemon of Object.keys(pokemonData)) {
+        const pokeData = pokemonData[pokemon];
+        if (
+          pokeData.types.includes(activePool.type) &&
+          !userPokemonNames.includes(pokeData.name)
+        ) {
+          for (let i = 0; i < userTierData[pokeData.tier]; i++) {
+            availablePokemon.push(pokemon);
+          }
+        }
+      }
+    }
+    if (availablePokemon.length === 0) {
+      for (const pokemon of Object.keys(pokemonData)) {
+        const pokeData = pokemonData[pokemon];
+        if (pokeData.types.includes(activePool.type)) {
+          for (let i = 0; i < userTierData[pokeData.tier]; i++) {
+            availablePokemon.push(pokemon);
+          }
         }
       }
     }
@@ -441,8 +438,6 @@ async function runBattle(userId, interaction) {
       delete activeBattles[userId];
       return encounter;
     }
-
-    console.log(userId, response);
 
     battle.choose(
       trainerID,
