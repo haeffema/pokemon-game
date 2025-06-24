@@ -100,13 +100,97 @@ async function getRandomSetForPokemon(userId, pokemon) {
   set['ivs'] = randomPokemonData.ivs;
   set['level'] = 100;
   set['happiness'] = 255;
-  if (await userHasItem(userId, set.item)) {
-    set['shiny'] = Math.floor(Math.random() * (shinyRate / 2)) === 187;
+  const randomNames = [
+    'Jan',
+    'Max',
+    randomPokemonData.name,
+    randomPokemonData.name,
+    randomPokemonData.name,
+    randomPokemonData.name,
+    randomPokemonData.name,
+    randomPokemonData.name,
+    randomPokemonData.name,
+    randomPokemonData.name,
+    randomPokemonData.name,
+    randomPokemonData.name,
+    randomPokemonData.name,
+    randomPokemonData.name,
+    randomPokemonData.name,
+    randomPokemonData.name,
+    randomPokemonData.name,
+    randomPokemonData.name,
+    randomPokemonData.name,
+    randomPokemonData.name,
+    randomPokemonData.name,
+    randomPokemonData.name,
+    randomPokemonData.name,
+    randomPokemonData.name,
+    randomPokemonData.name,
+    randomPokemonData.name,
+    randomPokemonData.name,
+    randomPokemonData.name,
+    randomPokemonData.name,
+    randomPokemonData.name,
+    randomPokemonData.name,
+    randomPokemonData.name,
+    randomPokemonData.name,
+    randomPokemonData.name,
+    randomPokemonData.name,
+    randomPokemonData.name,
+    randomPokemonData.name,
+    randomPokemonData.name,
+    randomPokemonData.name,
+    randomPokemonData.name,
+    randomPokemonData.name,
+    randomPokemonData.name,
+    randomPokemonData.name,
+    randomPokemonData.name,
+    randomPokemonData.name,
+    randomPokemonData.name,
+    randomPokemonData.name,
+    randomPokemonData.name,
+    randomPokemonData.name,
+    randomPokemonData.name,
+    randomPokemonData.name,
+    randomPokemonData.name,
+    randomPokemonData.name,
+    randomPokemonData.name,
+    randomPokemonData.name,
+    randomPokemonData.name,
+    randomPokemonData.name,
+    randomPokemonData.name,
+    randomPokemonData.name,
+    randomPokemonData.name,
+    randomPokemonData.name,
+    randomPokemonData.name,
+    randomPokemonData.name,
+    randomPokemonData.name,
+    randomPokemonData.name,
+    randomPokemonData.name,
+    randomPokemonData.name,
+    randomPokemonData.name,
+    randomPokemonData.name,
+    randomPokemonData.name,
+    randomPokemonData.name,
+    randomPokemonData.name,
+    randomPokemonData.name,
+    randomPokemonData.name,
+    randomPokemonData.name,
+    randomPokemonData.name,
+    randomPokemonData.name,
+    randomPokemonData.name,
+    randomPokemonData.name,
+    randomPokemonData.name,
+    randomPokemonData.name,
+  ];
+  set['name'] = randomNames[Math.floor(Math.random() * randomNames.length)];
+  if (await userHasItem(userId, 'Shiny Charm')) {
+    set['shiny'] = Math.floor(Math.random() * (shinyRate / 2)) === 0;
   } else {
-    set['shiny'] = Math.floor(Math.random() * shinyRate) === 187;
+    set['shiny'] = Math.floor(Math.random() * shinyRate) === 0;
   }
   if (set.shiny) {
-    console.log(`Shiny ${set.species} generated for user ${userId}`);
+    console.log(`Shiny ${set.species}`);
   }
   return set;
 }

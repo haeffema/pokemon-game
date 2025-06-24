@@ -71,7 +71,7 @@ async function main() {
     await new Promise((resolve) => setTimeout(resolve, 100));
   }
 
-  console.log('All Mega Pokémon sprite downloads attempted.');
+  console.log('All sprite downloads attempted.');
 }
 
 main();
