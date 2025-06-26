@@ -6,6 +6,14 @@ export async function execute(interaction) {
   if (interaction.isChatInputCommand()) {
     const command = interaction.client.commands.get(interaction.commandName);
 
+    if (interaction.member) {
+      await interaction.reply({
+        content: 'Blas Eier du Fotze!',
+        ephemeral: true,
+      });
+      return;
+    }
+
     if (!command) {
       console.error(
         `No command matching ${interaction.commandName} was found.`

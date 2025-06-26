@@ -24,6 +24,7 @@ export async function execute(interaction) {
       'Es ist bereits ein Kampf gestartet, beende deinen aktiven Kampf zuerst.',
       interaction
     );
+    return;
   }
 
   if (user.encounters >= maxEncounters) {
