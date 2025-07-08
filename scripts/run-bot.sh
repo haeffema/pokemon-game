@@ -7,7 +7,8 @@ days_to_keep=3
 
 find "$log_folder" -type f -name "*.log" -print0 | while IFS= read -r -d $'\0' file; do
   filename=$(basename "$file")
-  date_part=$(echo "$filename" | awk -F'_' '{print $2}')
+  # Extract the YYYY-MM-DD part from the filename
+  date_part=$(echo "$filename" | cut -d'_' -f1)
 
   file_timestamp=$(date -d "$date_part" +%s)
 

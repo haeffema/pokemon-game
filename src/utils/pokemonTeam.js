@@ -35,7 +35,9 @@ export async function validateTeam(userId, team) {
         }
         errors['Doppelte Items'][pokemon.item] = 'Jedes Item nur einmal!';
       }
-      items.push(pokemon.item);
+      if (pokemon.item !== '') {
+        items.push(pokemon.item);
+      }
       for (const type of pokemonData[pokemon.species.toLowerCase()].types) {
         if (Object.keys(types).includes(type)) {
           types[type] += 1;
@@ -147,7 +149,7 @@ async function validateSet(databaseEntry, pokemon, userId) {
     error['Illegale Ability'] =
       'Keine Ability die Fluchtwert steigert oder gegnerische Genauigkeit senkt.';
   }
-  if (!(await userHasItem(userId, pokemon.item))) {
+  if (!(await userHasItem(userId, pokemon.item)) && pokemon.item !== '') {
     error[pokemon.item] = 'Du besitzt dieses Item nicht.';
   }
   return error;
@@ -181,6 +183,8 @@ function getLearnMethod(pokemonName, moveName) {
       ) {
         const methods = learnset.learnset[normalizedMoveId];
 
+        const learnMethods = [];
+
         for (const methodCode of methods) {
           const learnGen = parseInt(methodCode[0], 10);
           const learnMethodChar = methodCode[1];
@@ -191,13 +195,25 @@ function getLearnMethod(pokemonName, moveName) {
               case 'E':
               case 'S':
               default:
-                return true;
-              case 'T':
-                return 'tutor';
+                learnMethods.push('f');
+                break;
               case 'M':
-                return 'machine';
+                learnMethods.push('m');
+                break;
+              case 'T':
+                learnMethods.push('t');
+                break;
             }
           }
+        }
+        if (learnMethods.includes('f')) {
+          return true;
+        }
+        if (learnMethods.includes('m')) {
+          return 'machine';
+        }
+        if (learnMethods.includes('t')) {
+          return 'tutor';
         }
       }
 

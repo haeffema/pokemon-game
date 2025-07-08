@@ -18,6 +18,14 @@ export async function execute(interaction) {
   await interaction.deferReply();
   const user = await getUserById(interaction.user.id);
 
+  if (user.encounters >= maxEncounters) {
+    await sendMessage(
+      'Deaktiviert bis Max zuhause fixen kann, Jule grinded den bot kaputt!',
+      interaction
+    );
+    return;
+  }
+
   const battle = await startNewBattle(user.discordId, interaction);
   if (!battle) {
     await sendMessage(
@@ -81,11 +89,11 @@ export async function execute(interaction) {
         color: 'Green',
       });
     }
-    const loot = await calculateLoot(
-      battle.set.species,
-      user.discordId,
-      battle.set.item.endsWith('ite') && battle.set.item != 'Eviolite'
-    );
+    let mega = false;
+    if (battle.set.item) {
+      mega = battle.set.item.endsWith('ite') && battle.set.item != 'Eviolite';
+    }
+    const loot = await calculateLoot(battle.set.species, user.discordId, mega);
     user.money += loot.money;
     if (loot.item) {
       await sendMessage(

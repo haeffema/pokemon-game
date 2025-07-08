@@ -100,8 +100,21 @@ async function getRandomSetForPokemon(userId, pokemon) {
   set['ivs'] = randomPokemonData.ivs;
   set['level'] = 100;
   set['happiness'] = 255;
-  if (Math.floor(Math.random() * 100) === 0) {
-    set['name'] = ['Jan', 'Max'][Math.floor(Math.random() * 2)];
+  if (Math.floor(Math.random() * 50) === 0) {
+    const names = [
+      'Jan',
+      'Max',
+      'Wieland Welte Sexgott aus Bonn',
+      'Ralf Schuhmacher',
+      'Hermione Potter',
+      'Ronsti',
+      'Wonsti',
+      'MOIN LEUTE TRYMACS HIER',
+      'Nillls',
+      'COLAAAA',
+      'Maggus Röhl',
+    ];
+    set['name'] = names[Math.floor(Math.random() * names.length)];
   }
 
   if (await userHasItem(userId, 'Shiny Charm')) {
