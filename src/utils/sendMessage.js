@@ -1,4 +1,8 @@
-import { EmbedBuilder, AttachmentBuilder } from 'discord.js';
+import {
+  EmbedBuilder,
+  AttachmentBuilder,
+  ChatInputCommandInteraction,
+} from 'discord.js';
 import { channelId, defaultSprite } from '../config.js';
 import { client } from './client.js';
 import { getUnsentMessages, markMessagesAsSent } from '../database/messages.js';
@@ -8,7 +12,6 @@ export async function sendQueuedMessages() {
 
   if (unsentMessages && unsentMessages.length > 0) {
     console.log('Unsent messages found: ', unsentMessages.length);
-
     const messageIdsToMarkAsSent = unsentMessages.map((msg) => msg.id);
 
     for (const message of unsentMessages) {
@@ -24,8 +27,9 @@ export async function sendMessage(
   components = []
 ) {
   if (typeof receiver !== 'string') {
-    return await _sendMessage(receiver, content, components, true);
+    return await _sendMessage(receiver, content, components);
   }
+
   if (receiver === 'channel') {
     const channel = await client.channels.fetch(channelId);
     return await _sendMessage(channel, content, components);
@@ -35,45 +39,57 @@ export async function sendMessage(
   }
 }
 
-async function _sendMessage(
-  receiver,
-  content,
-  components,
-  interaction = false
-) {
+async function _sendMessage(receiver, content, components) {
   const sendableContent = {};
+
   if (components.length > 0) {
     sendableContent.components = components;
   }
+
   if (typeof content === 'string') {
     sendableContent.content = content;
   } else {
     const embed = new EmbedBuilder()
       .setTitle(content.title)
       .setColor(content.color || 'Blue');
+
     if (!content.noSprite) {
       embed.setThumbnail(content.sprite || defaultSprite);
     }
+
     if (content.description) {
       embed.setDescription(content.description);
     }
+
     if (content.image) {
-      const imageBuffer = content.image;
-      const attachment = new AttachmentBuilder(imageBuffer, {
+      const attachment = new AttachmentBuilder(content.image, {
         name: 'image.png',
       });
       embed.setImage('attachment://image.png');
       sendableContent.files = [attachment];
     }
+
     if (content.fields) {
-      for (const field of content.fields) {
-        embed.addFields(field);
-      }
+      embed.addFields(...content.fields);
     }
+
     sendableContent.embeds = [embed];
   }
-  if (interaction) {
-    return await receiver.followUp(sendableContent);
+
+  try {
+    if (receiver instanceof ChatInputCommandInteraction) {
+      if (receiver.deferred || receiver.replied) {
+        return await receiver.followUp({
+          ...sendableContent,
+        });
+      } else {
+        return await receiver.reply({
+          ...sendableContent,
+        });
+      }
+    }
+    return await receiver.send(sendableContent);
+  } catch (error) {
+    console.error('Failed to send message:', error);
   }
-  return await receiver.send(sendableContent);
 }
