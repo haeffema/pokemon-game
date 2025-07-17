@@ -28473,6 +28473,34 @@
       }
     ]
   },
+  "ditto": {
+    "id": 132,
+    "name": "Ditto",
+    "types": ["Normal"],
+    "abilities": ["Limber", "Imposter"],
+    "tier": "ZU",
+    "sets": [
+      {
+        "item": "Choice Scarf",
+        "ability": "Imposter",
+        "nature": "Relaxed",
+        "evs": {
+          "hp": 252,
+          "def": 252,
+          "spd": 4
+        },
+        "ivs": {
+          "hp": 31,
+          "atk": 31,
+          "def": 31,
+          "spa": 31,
+          "spd": 31,
+          "spe": 31
+        },
+        "moves": ["Transform"]
+      }
+    ]
+  },
   "vaporeon": {
     "id": 134,
     "name": "Vaporeon",

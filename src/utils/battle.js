@@ -48,6 +48,9 @@ async function getRandomEncounterForPlayer(user) {
         }
       }
     }
+    if (userPokemonNames.includes('Ditto') && activePool.type !== 'Normal') {
+      availablePokemon.push('ditto');
+    }
   } else {
     if ((user.encounters + 1) % 10 === 0) {
       for (const pokemon of Object.keys(pokemonData)) {
@@ -71,6 +74,9 @@ async function getRandomEncounterForPlayer(user) {
           }
         }
       }
+      if (activePool.type !== 'Normal') {
+        availablePokemon.push('ditto');
+      }
     }
   }
 
@@ -93,6 +99,7 @@ async function getRandomEncounterForPlayer(user) {
 
 async function getRandomSetForPokemon(userId, pokemon) {
   const randomPokemonData = pokemonData[pokemon];
+
   const sets = randomPokemonData.sets;
   const set = sets[Math.floor(Math.random() * sets.length)];
   set['name'] = '';
@@ -105,14 +112,26 @@ async function getRandomSetForPokemon(userId, pokemon) {
       'Jan',
       'Max',
       'Wieland Welte Sexgott aus Bonn',
-      'Ralf Schuhmacher',
-      'Hermione Potter',
-      'Ronsti',
-      'Wonsti',
+      'Ralf Schuhmacher! Du willst wissen wie viel dein Auto wert ist?',
       'MOIN LEUTE TRYMACS HIER',
-      'Nillls',
-      'COLAAAA',
-      'Maggus Röhl',
+      'Nils',
+      'Cola',
+      'Cola Zero',
+      'Maggus Rühl',
+      'Bob Tschigerillo',
+      'SCHWERTFEGER',
+      'Herr Amann',
+      'Frau Heimers',
+      'Papaplatte',
+      'Supreme Leader Snoke',
+      'Kylo Ren ohne Helm',
+      'Ren Skywalker',
+      'Gandalf',
+      'Helmut',
+      'Wuis',
+      'TT',
+      'larasopheinse',
+      'Hier könnte ihre Werbung stehen!',
     ];
     set['name'] = names[Math.floor(Math.random() * names.length)];
   }
@@ -418,6 +437,9 @@ async function runBattle(userId, interaction) {
 
   const log = generateRoundLog(battle.log);
   let logString = `Item: ${trainerPokemon.set.item}`;
+  if (wildPokemon.set.item === 'Air Balloon') {
+    logString += '\nThe opposing Pokemon is floating!';
+  }
   if (log !== '') {
     logString = log;
   }
