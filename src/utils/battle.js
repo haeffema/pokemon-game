@@ -112,7 +112,7 @@ async function getRandomSetForPokemon(userId, pokemon) {
       'Jan',
       'Max',
       'Wieland Welte Sexgott aus Bonn',
-      'Ralf Schuhmacher! Du willst wissen wie viel dein Auto wert ist?',
+      'Ralf Schuhmacher',
       'MOIN LEUTE TRYMACS HIER',
       'Nils',
       'Cola',
