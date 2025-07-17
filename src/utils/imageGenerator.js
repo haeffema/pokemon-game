@@ -118,10 +118,16 @@ function drawHealthBar(ctx, x, y, barWidth, barHeight, pokemon) {
 
   const percentText = `${percent}%`;
 
-  ctx.fillStyle = 'white';
   ctx.font = 'bold 18px Arial';
   ctx.textAlign = 'center';
   ctx.textBaseline = 'bottom';
+
+  ctx.strokeStyle = 'black';
+  ctx.lineWidth = 2.5;
+  ctx.strokeText(pokemon.set.name, x + barWidth / 2, y - 5);
+
+  // Fill
+  ctx.fillStyle = 'white';
   ctx.fillText(pokemon.set.name, x + barWidth / 2, y - 5);
 
   ctx.fillStyle = 'gray';
@@ -131,6 +137,7 @@ function drawHealthBar(ctx, x, y, barWidth, barHeight, pokemon) {
   ctx.fillStyle = percentage > 0.5 ? 'green' : 'red';
   ctx.fillRect(x, y, fillWidth, barHeight);
 
+  ctx.lineWidth = 1;
   ctx.strokeStyle = 'black';
   ctx.strokeRect(x, y, barWidth, barHeight);
 
