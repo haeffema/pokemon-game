@@ -10,6 +10,7 @@ import { sendMessage } from '../utils/sendMessage.js';
 import { awaitInteraction } from '../utils/componentManager.js';
 import tmData from '../data/tms.json' with { type: 'json' };
 import itemData from '../data/items/shopItems.json' with { type: 'json' };
+import questItemData from '../data/items/questItems.json' with { type: 'json' };
 import { addItemForUser, getAllItemsForUser } from '../database/item.js';
 
 export const data = new SlashCommandBuilder()
@@ -49,7 +50,15 @@ export async function execute(interaction) {
 
   switch (category) {
     case 'items': {
-      const productData = itemData[product];
+      let productData = itemData[product];
+
+      if (!productData && user.badges === 8) {
+        productData = questItemData[product];
+        if (productData) {
+          productData.price = 30000;
+        }
+      }
+
       const userItems = await getAllItemsForUser(userId);
       const userItemNames = userItems.map((item) => item.name.toLowerCase());
       if (!productData || userItemNames.includes(product.toLowerCase())) {
@@ -162,12 +171,18 @@ export async function autocomplete(interaction) {
   const category = interaction.options.getString('category');
   const discordId = interaction.user.id;
 
+  const user = await getUserById(discordId);
+
   switch (category) {
     case 'items': {
       const userItems = await getAllItemsForUser(discordId);
       const userItemNames = userItems.map((item) => item.name.toLowerCase());
 
-      const itemNames = Object.keys(itemData);
+      let itemNames = Object.keys(itemData);
+
+      if (user.badges === 8) {
+        itemNames = [...itemNames, ...Object.keys(questItemData)];
+      }
       const filteredItemNames = itemNames.filter(
         (item) =>
           !userItemNames.includes(item.toLowerCase()) &&
