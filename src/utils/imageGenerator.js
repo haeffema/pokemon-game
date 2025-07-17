@@ -109,7 +109,15 @@ async function getRandomGifFrameAsPngBuffer(gifPath) {
   }
 }
 
-function drawHealthBar(ctx, x, y, barWidth, barHeight, pokemon) {
+function drawHealthBar(
+  ctx,
+  x,
+  y,
+  barWidth,
+  barHeight,
+  pokemon,
+  darkFont = true
+) {
   const percentage = pokemon.hp / pokemon.maxhp;
   let percent = Math.round(percentage * 100);
   if (pokemon.hp > 0 && percent === 0) {
@@ -118,30 +126,41 @@ function drawHealthBar(ctx, x, y, barWidth, barHeight, pokemon) {
 
   const percentText = `${percent}%`;
 
-  ctx.font = 'bold 18px Arial';
+  ctx.font = 'bold 18px Roboto';
   ctx.textAlign = 'center';
   ctx.textBaseline = 'bottom';
 
   ctx.strokeStyle = 'black';
+  ctx.fillStyle = 'white';
+
+  if (darkFont) {
+    ctx.strokeStyle = 'white';
+    ctx.fillStyle = 'black';
+  }
+
   ctx.lineWidth = 1;
   ctx.strokeText(pokemon.set.name, x + barWidth / 2, y - 5);
 
-  // Fill
-  ctx.fillStyle = 'white';
   ctx.fillText(pokemon.set.name, x + barWidth / 2, y - 5);
 
   ctx.fillStyle = 'gray';
   ctx.fillRect(x, y, barWidth, barHeight);
 
   const fillWidth = percentage * barWidth;
-  ctx.fillStyle = percentage > 0.5 ? 'green' : 'red';
+  ctx.fillStyle = 'green';
+  if (percentage < 0.5) {
+    ctx.fillStyle = 'orange';
+  }
+  if (percentage < 0.2) {
+    ctx.fillStyle = 'red';
+  }
   ctx.fillRect(x, y, fillWidth, barHeight);
 
   ctx.strokeStyle = 'black';
   ctx.strokeRect(x, y, barWidth, barHeight);
 
   ctx.fillStyle = 'white';
-  ctx.font = '16px Arial';
+  ctx.font = '16px Roboto';
   ctx.textAlign = 'right';
   ctx.textBaseline = 'middle';
   ctx.fillText(percentText, x + barWidth - 5, y + barHeight / 2);
@@ -292,13 +311,25 @@ export async function generateBattleImage(
   const trainerBarX =
     trainerSpriteX + scaledTrainerWidth / 2 - healthBarWidth / 2;
   const trainerBarY = trainerSpriteY - healthBarPadding - healthBarHeight;
+
+  const darkFontBackgrounds = [
+    'Electric',
+    'Flying',
+    'Grass',
+    'Ice',
+    'Normal',
+    'Rock',
+  ];
+  const darkFont = darkFontBackgrounds.includes(activePool.type);
+
   drawHealthBar(
     ctx,
     trainerBarX,
     trainerBarY,
     healthBarWidth,
     healthBarHeight,
-    trainerPokemon
+    trainerPokemon,
+    darkFont
   );
 
   const wildScaleFactor = 1.45;
@@ -326,7 +357,8 @@ export async function generateBattleImage(
     wildBarY,
     healthBarWidth,
     healthBarHeight,
-    wildPokemon
+    wildPokemon,
+    darkFont
   );
 
   return new Promise((resolve, reject) => {
