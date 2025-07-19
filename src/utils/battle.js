@@ -13,7 +13,7 @@ import showdown from 'pokemon-showdown';
 import tierData from '../data/tierAmounts.json' with { type: 'json' };
 import pokemonData from '../data/pokemon.json' with { type: 'json' };
 import droppableItems from '../data/items/dropItems.json' with { type: 'json' };
-import { generateBattleImage } from './imageGenerator.js';
+import { generateBattleGif, generateBattleImage } from './imageGenerator.js';
 import { sendMessage } from './sendMessage.js';
 import { ActionRowBuilder, ButtonBuilder, ButtonStyle } from 'discord.js';
 import { awaitInteraction } from './componentManager.js';
@@ -391,7 +391,7 @@ function convertMoveLogToString(log) {
   return moveLog;
 }
 
-export async function startNewBattle(userId, interaction) {
+export async function startNewBattle(userId, interaction, shinyFight) {
   const user = await getUserById(userId);
   if (activeBattles[userId]) {
     return false;
@@ -423,10 +423,10 @@ export async function startNewBattle(userId, interaction) {
     encounter: encounter,
     battle: battle,
   };
-  return await runBattle(userId, interaction);
+  return await runBattle(userId, interaction, shinyFight);
 }
 
-async function runBattle(userId, interaction) {
+async function runBattle(userId, interaction, shinyFight) {
   if (!activeBattles[userId]) {
     return false;
   }
@@ -435,11 +435,20 @@ async function runBattle(userId, interaction) {
   const trainerPokemon = battle.p1.active[0];
   const wildPokemon = battle.p2.active[0];
 
-  const battleImageBuffer = await generateBattleImage(
-    trainerPokemon,
-    wildPokemon,
-    activeBattles[userId].encounter.new && battle.winner === 'Trainer'
-  );
+  let battleImageBuffer;
+  if (shinyFight) {
+    battleImageBuffer = await generateBattleGif(
+      trainerPokemon,
+      wildPokemon,
+      activeBattles[userId].encounter.new && battle.winner === 'Trainer'
+    );
+  } else {
+    battleImageBuffer = await generateBattleImage(
+      trainerPokemon,
+      wildPokemon,
+      activeBattles[userId].encounter.new && battle.winner === 'Trainer'
+    );
+  }
 
   const log = generateRoundLog(battle.log);
   let logString = `Item: ${trainerPokemon.set.item}`;
@@ -458,16 +467,31 @@ async function runBattle(userId, interaction) {
 
     const actionRow = new ActionRowBuilder().addComponents(moves);
 
-    const message = await sendMessage(
-      {
-        image: battleImageBuffer,
-        title: `${trainerPokemon.species.name}${trainerPokemon.set.shiny ? ' ⭐' : ''} vs. ${wildPokemon.species.name}${wildPokemon.set.shiny ? ' ⭐' : ''}`,
-        description: logString,
-        noSprite: true,
-      },
-      interaction,
-      [actionRow]
-    );
+    let message;
+
+    if (shinyFight) {
+      message = await sendMessage(
+        {
+          gif: battleImageBuffer,
+          title: `${trainerPokemon.species.name}${trainerPokemon.set.shiny ? ' ⭐' : ''} vs. ${wildPokemon.species.name}${wildPokemon.set.shiny ? ' ⭐' : ''}`,
+          description: logString,
+          noSprite: true,
+        },
+        interaction,
+        [actionRow]
+      );
+    } else {
+      message = await sendMessage(
+        {
+          image: battleImageBuffer,
+          title: `${trainerPokemon.species.name}${trainerPokemon.set.shiny ? ' ⭐' : ''} vs. ${wildPokemon.species.name}${wildPokemon.set.shiny ? ' ⭐' : ''}`,
+          description: logString,
+          noSprite: true,
+        },
+        interaction,
+        [actionRow]
+      );
+    }
 
     let response = await awaitInteraction(userId, message);
 
@@ -489,18 +513,31 @@ async function runBattle(userId, interaction) {
       `move ${response}${trainerPokemon.canMegaEvo ? ' mega' : ''}`
     );
     await botChooseHighestDamageMove(battle);
-    return await runBattle(userId, interaction);
+    return await runBattle(userId, interaction, shinyFight);
   }
 
-  await sendMessage(
-    {
-      image: battleImageBuffer,
-      title: `${trainerPokemon.species.name}${trainerPokemon.set.shiny ? ' ⭐' : ''} vs. ${wildPokemon.species.name}${wildPokemon.set.shiny ? ' ⭐' : ''}`,
-      description: logString,
-      noSprite: true,
-    },
-    interaction
-  );
+  if (shinyFight) {
+    await sendMessage(
+      {
+        gif: battleImageBuffer,
+        title: `${trainerPokemon.species.name}${trainerPokemon.set.shiny ? ' ⭐' : ''} vs. ${wildPokemon.species.name}${wildPokemon.set.shiny ? ' ⭐' : ''}`,
+        description: logString,
+        noSprite: true,
+      },
+      interaction
+    );
+  } else {
+    await sendMessage(
+      {
+        image: battleImageBuffer,
+        title: `${trainerPokemon.species.name}${trainerPokemon.set.shiny ? ' ⭐' : ''} vs. ${wildPokemon.species.name}${wildPokemon.set.shiny ? ' ⭐' : ''}`,
+        description: logString,
+        noSprite: true,
+      },
+      interaction
+    );
+  }
+
   const encounter = activeBattles[userId].encounter;
   encounter.winner = battle.winner === 'Trainer';
   delete activeBattles[userId];

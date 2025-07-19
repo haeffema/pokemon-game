@@ -2,6 +2,11 @@ import { createCanvas, loadImage } from 'canvas';
 import { spawn } from 'child_process';
 import { promises as fs } from 'node:fs';
 import { getActivePool } from '../database/pool.js';
+import ffmpeg from 'fluent-ffmpeg';
+import path from 'path';
+import { tmpdir } from 'os';
+import { v4 as uuidv4 } from 'uuid';
+import { exec } from 'child_process';
 
 async function getRandomGifFrameAsPngBuffer(gifPath) {
   let totalFrames;
@@ -111,13 +116,56 @@ async function getRandomGifFrameAsPngBuffer(gifPath) {
 
 function drawHealthBar(
   ctx,
-  x,
-  y,
-  barWidth,
-  barHeight,
+  spriteX,
+  spriteY,
+  scaledSpriteWidth,
+  scaledSpriteHeight,
   pokemon,
-  darkFont = true
+  activePoolType,
+  isGif = false
 ) {
+  let healthBarPadding;
+  let healthBarWidth;
+  let healthBarHeight;
+  let nameFontSize;
+  let percentFontSize;
+  let statusFontSize;
+  let statusBoxWidth;
+  let statusBoxHeight;
+
+  if (isGif) {
+    healthBarPadding = 15;
+    healthBarWidth = 250;
+    healthBarHeight = 35;
+    nameFontSize = 24;
+    percentFontSize = 20;
+    statusFontSize = 18;
+    statusBoxWidth = 70;
+    statusBoxHeight = 25;
+  } else {
+    healthBarPadding = 10;
+    healthBarWidth = 180;
+    healthBarHeight = 25;
+    nameFontSize = 18;
+    percentFontSize = 16;
+    statusFontSize = 14;
+    statusBoxWidth = 50;
+    statusBoxHeight = 20;
+  }
+
+  const barX = spriteX + scaledSpriteWidth / 2 - healthBarWidth / 2;
+  const barY = spriteY - healthBarPadding - healthBarHeight;
+
+  const darkFontBackgrounds = [
+    'Electric',
+    'Flying',
+    'Grass',
+    'Ice',
+    'Normal',
+    'Rock',
+  ];
+  const darkFont = darkFontBackgrounds.includes(activePoolType);
+
   const percentage = pokemon.hp / pokemon.maxhp;
   let percent = Math.round(percentage * 100);
   if (pokemon.hp > 0 && percent === 0) {
@@ -126,7 +174,7 @@ function drawHealthBar(
 
   const percentText = `${percent}%`;
 
-  ctx.font = 'bold 18px Roboto';
+  ctx.font = `bold ${nameFontSize}px Roboto`;
   ctx.textAlign = 'center';
   ctx.textBaseline = 'bottom';
 
@@ -139,14 +187,13 @@ function drawHealthBar(
   }
 
   ctx.lineWidth = 1;
-  ctx.strokeText(pokemon.set.name, x + barWidth / 2, y - 5);
-
-  ctx.fillText(pokemon.set.name, x + barWidth / 2, y - 5);
+  ctx.strokeText(pokemon.set.name, barX + healthBarWidth / 2, barY - 5);
+  ctx.fillText(pokemon.set.name, barX + healthBarWidth / 2, barY - 5);
 
   ctx.fillStyle = 'gray';
-  ctx.fillRect(x, y, barWidth, barHeight);
+  ctx.fillRect(barX, barY, healthBarWidth, healthBarHeight);
 
-  const fillWidth = percentage * barWidth;
+  const fillWidth = percentage * healthBarWidth;
   ctx.fillStyle = 'green';
   if (percentage < 0.5) {
     ctx.fillStyle = 'orange';
@@ -154,16 +201,20 @@ function drawHealthBar(
   if (percentage < 0.2) {
     ctx.fillStyle = 'red';
   }
-  ctx.fillRect(x, y, fillWidth, barHeight);
+  ctx.fillRect(barX, barY, fillWidth, healthBarHeight);
 
   ctx.strokeStyle = 'black';
-  ctx.strokeRect(x, y, barWidth, barHeight);
+  ctx.strokeRect(barX, barY, healthBarWidth, healthBarHeight);
 
   ctx.fillStyle = 'white';
-  ctx.font = '16px Roboto';
+  ctx.font = `${percentFontSize}px Roboto`;
   ctx.textAlign = 'right';
   ctx.textBaseline = 'middle';
-  ctx.fillText(percentText, x + barWidth - 5, y + barHeight / 2);
+  ctx.fillText(
+    percentText,
+    barX + healthBarWidth - 5,
+    barY + healthBarHeight / 2
+  );
 
   if (pokemon.status !== '') {
     const statusUpper = pokemon.status.toUpperCase();
@@ -190,19 +241,17 @@ function drawHealthBar(
         statusColor = 'gray';
     }
 
-    const statusBoxWidth = 50;
-    const statusBoxHeight = 20;
     ctx.fillStyle = statusColor;
-    ctx.fillRect(x, y + barHeight, statusBoxWidth, statusBoxHeight);
+    ctx.fillRect(barX, barY + healthBarHeight, statusBoxWidth, statusBoxHeight);
 
     ctx.fillStyle = 'white';
-    ctx.font = 'bold 14px Arial';
+    ctx.font = `bold ${statusFontSize}px Arial`;
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
     ctx.fillText(
       statusUpper,
-      x + statusBoxWidth / 2,
-      y + barHeight + statusBoxHeight / 2
+      barX + statusBoxWidth / 2,
+      barY + healthBarHeight + statusBoxHeight / 2
     );
   }
 }
@@ -287,10 +336,6 @@ export async function generateBattleImage(
 
   ctx.drawImage(background, 0, 0, width, height);
 
-  const healthBarPadding = 10;
-  const healthBarWidth = 180;
-  const healthBarHeight = 25;
-
   const trainerScaleFactor = 2.0;
   const scaledTrainerWidth = trainerSprite.width * trainerScaleFactor;
   const scaledTrainerHeight = trainerSprite.height * trainerScaleFactor;
@@ -308,28 +353,15 @@ export async function generateBattleImage(
     scaledTrainerHeight
   );
 
-  const trainerBarX =
-    trainerSpriteX + scaledTrainerWidth / 2 - healthBarWidth / 2;
-  const trainerBarY = trainerSpriteY - healthBarPadding - healthBarHeight;
-
-  const darkFontBackgrounds = [
-    'Electric',
-    'Flying',
-    'Grass',
-    'Ice',
-    'Normal',
-    'Rock',
-  ];
-  const darkFont = darkFontBackgrounds.includes(activePool.type);
-
   drawHealthBar(
     ctx,
-    trainerBarX,
-    trainerBarY,
-    healthBarWidth,
-    healthBarHeight,
+    trainerSpriteX,
+    trainerSpriteY,
+    scaledTrainerWidth,
+    scaledTrainerHeight,
     trainerPokemon,
-    darkFont
+    activePool.type,
+    false
   );
 
   const wildScaleFactor = 1.45;
@@ -349,16 +381,15 @@ export async function generateBattleImage(
     scaledWildHeight
   );
 
-  const wildBarX = wildSpriteX + scaledWildWidth / 2 - healthBarWidth / 2;
-  const wildBarY = wildSpriteY - healthBarPadding - healthBarHeight;
   drawHealthBar(
     ctx,
-    wildBarX,
-    wildBarY,
-    healthBarWidth,
-    healthBarHeight,
+    wildSpriteX,
+    wildSpriteY,
+    scaledWildWidth,
+    scaledWildHeight,
     wildPokemon,
-    darkFont
+    activePool.type,
+    false
   );
 
   return new Promise((resolve, reject) => {
@@ -371,11 +402,204 @@ export async function generateBattleImage(
   });
 }
 
+async function getGifDuration(filePath, defaultDuration = 2) {
+  return new Promise((resolve) => {
+    exec(
+      `ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 "${filePath}"`,
+      (error, stdout, stderr) => {
+        if (
+          error ||
+          !stdout ||
+          isNaN(parseFloat(stdout)) ||
+          parseFloat(stdout) === 0
+        ) {
+          console.warn(
+            `Could not get duration for ${filePath}, assuming ${defaultDuration}s. Error: ${error?.message || stderr}`
+          );
+          return resolve(defaultDuration);
+        }
+        resolve(parseFloat(stdout));
+      }
+    );
+  });
+}
+
+export async function generateBattleGif(
+  trainerPokemon,
+  wildPokemon,
+  newPokemon
+) {
+  const tempId = uuidv4();
+  const tempDir = path.join(tmpdir(), `battle-${tempId}`);
+  await fs.mkdir(tempDir);
+
+  try {
+    const activePool = await getActivePool();
+    const backgroundPath = `./src/data/background/${activePool.type.toLowerCase()}.png`;
+    const missingSpritePath = './src/data/sprites/missing-sprite.png';
+
+    const trainerGifPath = trainerPokemon.volatiles.substitute
+      ? './src/data/sprites/sub-back.png'
+      : `./src/data/sprites/${trainerPokemon.species.name.toLowerCase()}/${trainerPokemon.set.shiny ? 'shiny' : 'default'}/back.gif`;
+
+    const wildGifPath = newPokemon
+      ? './src/data/sprites/poke-ball.png'
+      : wildPokemon.volatiles.substitute
+        ? './src/data/sprites/sub-default.png'
+        : `./src/data/sprites/${wildPokemon.species.name.toLowerCase()}/${wildPokemon.set.shiny ? 'shiny' : 'default'}/default.gif`;
+
+    const resolveImagePath = async (
+      imagePath,
+      fallback = missingSpritePath
+    ) => {
+      try {
+        await fs.access(imagePath);
+        return imagePath;
+      } catch {
+        return fallback;
+      }
+    };
+
+    const trainerImageResolvedPath = await resolveImagePath(trainerGifPath);
+    const wildImageResolvedPath = await resolveImagePath(wildGifPath);
+
+    const trainerSpriteOriginal = await loadImage(trainerImageResolvedPath);
+    const wildSpriteOriginal = await loadImage(wildImageResolvedPath);
+
+    const background = await loadImage(backgroundPath);
+    const width = background.width;
+    const height = background.height;
+
+    const TRAINER_SPRITE_SCALE = 2.5;
+    const WILD_SPRITE_SCALE = 1.8;
+
+    const scaledTrainerWidth =
+      trainerSpriteOriginal.width * TRAINER_SPRITE_SCALE;
+    const scaledTrainerHeight =
+      trainerSpriteOriginal.height * TRAINER_SPRITE_SCALE;
+    const scaledWildWidth = wildSpriteOriginal.width * WILD_SPRITE_SCALE;
+    const scaledWildHeight = wildSpriteOriginal.height * WILD_SPRITE_SCALE;
+
+    const TRAINER_GIF_ANCHOR_X = 175;
+    const TRAINER_GIF_ANCHOR_Y = 925;
+
+    const WILD_GIF_ANCHOR_X = 750;
+    const WILD_GIF_ANCHOR_Y = 750;
+
+    const trainerSpriteDrawX = TRAINER_GIF_ANCHOR_X;
+    const trainerSpriteDrawY = TRAINER_GIF_ANCHOR_Y - scaledTrainerHeight;
+
+    const wildSpriteDrawX = WILD_GIF_ANCHOR_X - scaledWildWidth;
+    const wildSpriteDrawY = WILD_GIF_ANCHOR_Y - scaledWildHeight;
+
+    const canvas = createCanvas(width, height);
+    const ctx = canvas.getContext('2d');
+    const overlayPath = path.join(tempDir, 'overlay.png');
+
+    const drawOverlay = (
+      trainerX,
+      trainerY,
+      trainerScaledWidth,
+      trainerScaledHeight,
+      wildX,
+      wildY,
+      wildScaledWidth,
+      wildScaledHeight,
+      currentActivePoolType,
+      isGif
+    ) => {
+      ctx.clearRect(0, 0, width, height);
+
+      drawHealthBar(
+        ctx,
+        trainerX,
+        trainerY,
+        trainerScaledWidth,
+        trainerScaledHeight,
+        trainerPokemon,
+        currentActivePoolType,
+        isGif
+      );
+      drawHealthBar(
+        ctx,
+        wildX,
+        wildY,
+        wildScaledWidth,
+        wildScaledHeight,
+        wildPokemon,
+        currentActivePoolType,
+        isGif
+      );
+    };
+
+    drawOverlay(
+      trainerSpriteDrawX,
+      trainerSpriteDrawY,
+      scaledTrainerWidth,
+      scaledTrainerHeight,
+      wildSpriteDrawX,
+      wildSpriteDrawY,
+      scaledWildWidth,
+      scaledWildHeight,
+      activePool.type,
+      true
+    );
+    await fs.writeFile(overlayPath, canvas.toBuffer('image/png'));
+
+    const finalGif = path.join(tempDir, 'final.gif');
+    const defaultSpriteDuration = 2;
+
+    const trainerDuration = await getGifDuration(
+      trainerImageResolvedPath,
+      defaultSpriteDuration
+    );
+    const wildDuration = await getGifDuration(
+      wildImageResolvedPath,
+      defaultSpriteDuration
+    );
+
+    const middleDuration = (trainerDuration + wildDuration) / 2;
+
+    const trainerSpeedFactor = trainerDuration / middleDuration;
+    const wildSpeedFactor = wildDuration / middleDuration;
+
+    await new Promise((resolve, reject) => {
+      ffmpeg()
+        .input(backgroundPath)
+        .input(trainerImageResolvedPath)
+        .input(wildImageResolvedPath)
+        .input(overlayPath)
+        .complexFilter([
+          `[1:v] setpts=PTS/${trainerSpeedFactor}, scale=iw*${TRAINER_SPRITE_SCALE}:ih*${TRAINER_SPRITE_SCALE} [trainer]`,
+          `[2:v] setpts=PTS/${wildSpeedFactor}, scale=iw*${WILD_SPRITE_SCALE}:ih*${WILD_SPRITE_SCALE} [wild]`,
+          `[0:v][trainer] overlay=${trainerSpriteDrawX}:${trainerSpriteDrawY} [tmp1]`,
+          `[tmp1][wild] overlay=${wildSpriteDrawX}:${wildSpriteDrawY} [tmp2]`,
+          `[tmp2][3:v] overlay=0:0 [output_video]`,
+          `[output_video] split [a][b]; [a] palettegen [p]; [b][p] paletteuse`,
+        ])
+        .outputOptions(['-y', '-loop', '0', `-t`, `${middleDuration}`])
+        .output(finalGif)
+        .on('end', resolve)
+        .on('error', (err) =>
+          reject(new Error(`FFmpeg GIF creation error: ${err.message}`))
+        )
+        .run();
+    });
+
+    const gifBuffer = await fs.readFile(finalGif);
+    return gifBuffer;
+  } catch (error) {
+    console.error('Error during GIF generation:', error);
+    throw error;
+  } finally {
+    await fs.rm(tempDir, { recursive: true, force: true });
+  }
+}
+
 export async function generateBadgeImage(badges) {
   const widthPerBadge = 40;
   const height = 40;
   const total = 8;
-
   const canvas = createCanvas(widthPerBadge * total, height);
   const ctx = canvas.getContext('2d');
 

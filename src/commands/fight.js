@@ -18,12 +18,14 @@ export async function execute(interaction) {
   await interaction.deferReply();
   const user = await getUserById(interaction.user.id);
 
-  const battle = await startNewBattle(user.discordId, interaction);
+  const battle = await startNewBattle(
+    user.discordId,
+    interaction,
+    user.encounters < maxEncounters
+  );
+
   if (!battle) {
-    await sendMessage(
-      'Es ist bereits ein Kampf gestartet, beende deinen aktiven Kampf zuerst.',
-      interaction
-    );
+    await sendMessage('Du bist bereits in einem Kampf!', interaction);
     return;
   }
 
