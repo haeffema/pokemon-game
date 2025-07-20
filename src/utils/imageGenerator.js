@@ -121,37 +121,16 @@ function drawHealthBar(
   scaledSpriteWidth,
   scaledSpriteHeight,
   pokemon,
-  activePoolType,
-  isGif = false
+  activePoolType
 ) {
-  let healthBarPadding;
-  let healthBarWidth;
-  let healthBarHeight;
-  let nameFontSize;
-  let percentFontSize;
-  let statusFontSize;
-  let statusBoxWidth;
-  let statusBoxHeight;
-
-  if (isGif) {
-    healthBarPadding = 15;
-    healthBarWidth = 250;
-    healthBarHeight = 35;
-    nameFontSize = 24;
-    percentFontSize = 20;
-    statusFontSize = 18;
-    statusBoxWidth = 70;
-    statusBoxHeight = 25;
-  } else {
-    healthBarPadding = 10;
-    healthBarWidth = 180;
-    healthBarHeight = 25;
-    nameFontSize = 18;
-    percentFontSize = 16;
-    statusFontSize = 14;
-    statusBoxWidth = 50;
-    statusBoxHeight = 20;
-  }
+  const healthBarPadding = 10;
+  const healthBarWidth = 180;
+  const healthBarHeight = 25;
+  const nameFontSize = 18;
+  const percentFontSize = 16;
+  const statusFontSize = 14;
+  const statusBoxWidth = 50;
+  const statusBoxHeight = 20;
 
   const barX = spriteX + scaledSpriteWidth / 2 - healthBarWidth / 2;
   const barY = spriteY - healthBarPadding - healthBarHeight;
@@ -360,8 +339,7 @@ export async function generateBattleImage(
     scaledTrainerWidth,
     scaledTrainerHeight,
     trainerPokemon,
-    activePool.type,
-    false
+    activePool.type
   );
 
   const wildScaleFactor = 1.45;
@@ -388,8 +366,7 @@ export async function generateBattleImage(
     scaledWildWidth,
     scaledWildHeight,
     wildPokemon,
-    activePool.type,
-    false
+    activePool.type
   );
 
   return new Promise((resolve, reject) => {
@@ -466,12 +443,11 @@ export async function generateBattleGif(
     const trainerSpriteOriginal = await loadImage(trainerImageResolvedPath);
     const wildSpriteOriginal = await loadImage(wildImageResolvedPath);
 
-    const background = await loadImage(backgroundPath);
-    const width = background.width;
-    const height = background.height;
+    const width = 800;
+    const height = 600;
 
-    const TRAINER_SPRITE_SCALE = 2.5;
-    const WILD_SPRITE_SCALE = 1.8;
+    const TRAINER_SPRITE_SCALE = 2.0;
+    const WILD_SPRITE_SCALE = 1.45;
 
     const scaledTrainerWidth =
       trainerSpriteOriginal.width * TRAINER_SPRITE_SCALE;
@@ -480,17 +456,17 @@ export async function generateBattleGif(
     const scaledWildWidth = wildSpriteOriginal.width * WILD_SPRITE_SCALE;
     const scaledWildHeight = wildSpriteOriginal.height * WILD_SPRITE_SCALE;
 
-    const TRAINER_GIF_ANCHOR_X = 175;
-    const TRAINER_GIF_ANCHOR_Y = 925;
+    const trainerSpriteBottomLeftX = 150;
+    const trainerSpriteBottomLeftY = height - 95;
 
-    const WILD_GIF_ANCHOR_X = 750;
-    const WILD_GIF_ANCHOR_Y = 750;
+    const wildSpriteBottomRightX = width - 170;
+    const wildSpriteBottomRightY = height - 180;
 
-    const trainerSpriteDrawX = TRAINER_GIF_ANCHOR_X;
-    const trainerSpriteDrawY = TRAINER_GIF_ANCHOR_Y - scaledTrainerHeight;
+    const trainerSpriteDrawX = trainerSpriteBottomLeftX;
+    const trainerSpriteDrawY = trainerSpriteBottomLeftY - scaledTrainerHeight;
 
-    const wildSpriteDrawX = WILD_GIF_ANCHOR_X - scaledWildWidth;
-    const wildSpriteDrawY = WILD_GIF_ANCHOR_Y - scaledWildHeight;
+    const wildSpriteDrawX = wildSpriteBottomRightX - scaledWildWidth;
+    const wildSpriteDrawY = wildSpriteBottomRightY - scaledWildHeight;
 
     const canvas = createCanvas(width, height);
     const ctx = canvas.getContext('2d');
@@ -505,11 +481,9 @@ export async function generateBattleGif(
       wildY,
       wildScaledWidth,
       wildScaledHeight,
-      currentActivePoolType,
-      isGif
+      currentActivePoolType
     ) => {
       ctx.clearRect(0, 0, width, height);
-
       drawHealthBar(
         ctx,
         trainerX,
@@ -517,8 +491,7 @@ export async function generateBattleGif(
         trainerScaledWidth,
         trainerScaledHeight,
         trainerPokemon,
-        currentActivePoolType,
-        isGif
+        currentActivePoolType
       );
       drawHealthBar(
         ctx,
@@ -527,8 +500,7 @@ export async function generateBattleGif(
         wildScaledWidth,
         wildScaledHeight,
         wildPokemon,
-        currentActivePoolType,
-        isGif
+        currentActivePoolType
       );
     };
 
@@ -541,8 +513,7 @@ export async function generateBattleGif(
       wildSpriteDrawY,
       scaledWildWidth,
       scaledWildHeight,
-      activePool.type,
-      true
+      activePool.type
     );
     await fs.writeFile(overlayPath, canvas.toBuffer('image/png'));
 
@@ -570,14 +541,23 @@ export async function generateBattleGif(
         .input(wildImageResolvedPath)
         .input(overlayPath)
         .complexFilter([
+          `[0:v] scale=${width}:${height} [background_scaled]`,
           `[1:v] setpts=PTS/${trainerSpeedFactor}, scale=iw*${TRAINER_SPRITE_SCALE}:ih*${TRAINER_SPRITE_SCALE} [trainer]`,
           `[2:v] setpts=PTS/${wildSpeedFactor}, scale=iw*${WILD_SPRITE_SCALE}:ih*${WILD_SPRITE_SCALE} [wild]`,
-          `[0:v][trainer] overlay=${trainerSpriteDrawX}:${trainerSpriteDrawY} [tmp1]`,
+          `[background_scaled][trainer] overlay=${trainerSpriteDrawX}:${trainerSpriteDrawY} [tmp1]`,
           `[tmp1][wild] overlay=${wildSpriteDrawX}:${wildSpriteDrawY} [tmp2]`,
           `[tmp2][3:v] overlay=0:0 [output_video]`,
           `[output_video] split [a][b]; [a] palettegen [p]; [b][p] paletteuse`,
         ])
-        .outputOptions(['-y', '-loop', '0', `-t`, `${middleDuration}`])
+        .outputOptions([
+          '-y',
+          '-loop',
+          '0',
+          `-t`,
+          `${middleDuration}`,
+          '-preset',
+          'ultrafast',
+        ])
         .output(finalGif)
         .on('end', resolve)
         .on('error', (err) =>
