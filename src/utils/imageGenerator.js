@@ -135,14 +135,7 @@ function drawHealthBar(
   const barX = spriteX + scaledSpriteWidth / 2 - healthBarWidth / 2;
   const barY = spriteY - healthBarPadding - healthBarHeight;
 
-  const darkFontBackgrounds = [
-    'Electric',
-    'Flying',
-    'Grass',
-    'Ice',
-    'Normal',
-    'Rock',
-  ];
+  const darkFontBackgrounds = ['Electric', 'Flying', 'Grass', 'Ice', 'Normal'];
   const darkFont = darkFontBackgrounds.includes(activePoolType);
 
   const percentage = pokemon.hp / pokemon.maxhp;

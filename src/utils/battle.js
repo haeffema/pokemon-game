@@ -380,8 +380,23 @@ function convertMoveLogToString(log) {
   if (log[1].startsWith('|-resisted')) {
     moveLog += 'It was not very effective.\n';
   }
-  if (log[4] && log[4].startsWith('|cant|')) {
-    moveLog += `${trainerNames[log[0].split('|')[4].split(': ')[0]]} ${log[0].split('|')[4].split(': ')[1]} flinched.`;
+  for (const logRow of log) {
+    if (logRow.startsWith('|cant|')) {
+      switch (logRow.split('|')[3]) {
+        case 'par': {
+          moveLog += `${trainerNames[logRow.split('|')[2].split(': ')[0]]} ${logRow.split('|')[2].split(': ')[1]} is paralyzed and can't move.`;
+          break;
+        }
+        case 'flinch': {
+          moveLog += `${trainerNames[log[0].split('|')[4].split(': ')[0]]} ${log[0].split('|')[4].split(': ')[1]} flinched.`;
+          break;
+        }
+        case 'slp': {
+          moveLog += `${trainerNames[logRow.split('|')[2].split(': ')[0]]} ${logRow.split('|')[2].split(': ')[1]} is asleep and can't move.`;
+          break;
+        }
+      }
+    }
   }
 
   if (log.lenght > 3 && log[log.length - 3].startsWith('|faint|')) {

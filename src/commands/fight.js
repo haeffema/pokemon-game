@@ -36,6 +36,7 @@ export async function execute(interaction) {
           title: 'Besonderes Ereignis!',
           description: `${user.name} hat gerade ein Shiny ${battle.set.species} gefangen!\nHerzlichen Glückwunsch!`,
           color: 'Green',
+          gif: `./src/data/sprites/${battle.set.species.toLowerCase()}/shiny/default.gif`,
         });
         await makeUserPokemonShiny(user.discordId, battle.set.species);
       }
@@ -81,6 +82,7 @@ export async function execute(interaction) {
         title: 'Besonderes Ereignis!',
         description: `${user.name} hat gerade ein Shiny ${battle.set.species} gefangen!\nHerzlichen Glückwunsch!`,
         color: 'Green',
+        gif: `./src/data/sprites/${battle.set.species.toLowerCase()}/shiny/default.gif`,
       });
     }
     let mega = false;
