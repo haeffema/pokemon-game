@@ -44,7 +44,7 @@ export async function execute(interaction) {
 
   if (user.badges === 8) {
     await sendMessage(
-      `Die Top 4 sind noch nicht implementiert, wende dich an Jan und Max.`,
+      `Du hast die Ultimative GBM Arena Challenge bereits geschafft.`,
       interaction
     );
     return;

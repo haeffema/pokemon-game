@@ -73,7 +73,7 @@ export async function execute(interaction) {
     const newGym = gymData[player.badges];
     player.money += currentGym.reward.money;
 
-    const adminMessage = `Die Herausforderung von ${player.name} war **erfolgreich**, der Arenaleiter musste sich (aufgrund von Hax) geschlagen geben, der Spieler bekommt seine Belohnungen und eine Sperre von drei Tagen.`;
+    const adminMessage = `Die Herausforderung von ${player.name} war **erfolgreich**, der Arenaleiter musste sich (aufgrund von Hax) geschlagen geben, der Spieler bekommt seine Belohnungen und eine Sperre von einem Tage.`;
     await sendMessage(adminMessage, interaction);
     for (const adminId of adminIds) {
       if (adminId === interaction.user.id) continue;
@@ -116,7 +116,7 @@ export async function execute(interaction) {
       );
     }
   } else {
-    const adminMessage = `Die Herausforderung von ${player.name} ist **gescheitert**, der Arenaleiter hat (wie vorauszusehen war) triumphiert. Der Spieler bekommt eine Sperre für drei Tage bevor er die Arena erneut herausfordern darf.`;
+    const adminMessage = `Die Herausforderung von ${player.name} ist **gescheitert**, der Arenaleiter hat (wie vorauszusehen war) triumphiert. Der Spieler bekommt eine Sperre für einen Tag bevor er die Arena erneut herausfordern darf.`;
     await sendMessage(adminMessage, interaction);
     for (const adminId of adminIds) {
       if (adminId === interaction.user.id) continue;
@@ -125,14 +125,14 @@ export async function execute(interaction) {
     await sendMessage(
       {
         title: `${currentGym.type} Arena nicht geschafft.`,
-        description: `Schade... leider hast du die **${currentGym.type}** Arena nicht bezwingen können! \nDer Arenaleiter hat dir wohl gezeigt wo der Bartel den Most holt, du musst nun drei Tage warten bevor du ihn erneut herausfordern darfst!`,
+        description: `Schade... leider hast du die **${currentGym.type}** Arena nicht bezwingen können! \nDer Arenaleiter hat dir wohl gezeigt wo der Bartel den Most holt, du musst nun einen Tag warten bevor du ihn erneut herausfordern darfst!`,
         sprite: currentGym.sprite,
         color: 'Red',
       },
       player.discordId
     );
   }
-  player.delay = 3;
+  player.delay = 1;
   await updateUser(player);
 }
 
