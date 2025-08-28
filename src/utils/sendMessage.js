@@ -62,10 +62,13 @@ async function _sendMessage(receiver, content, components) {
     }
 
     if (content.image) {
-      const attachment = new AttachmentBuilder(content.image, {
-        name: 'image.png',
-      });
-      embed.setImage('attachment://image.png');
+      const attachment = new AttachmentBuilder(
+        './src/data/sprites/ditto/shiny/back.gif',
+        {
+          name: 'image.gif',
+        }
+      );
+      embed.setImage('attachment://image.gif');
       sendableContent.files = [attachment];
     }
 
