@@ -72,6 +72,14 @@ async function _sendMessage(receiver, content, components) {
       sendableContent.files = [attachment];
     }
 
+    if (content.gif) {
+      const attachment = new AttachmentBuilder(content.gif, {
+        name: 'gif.gif',
+      });
+      embed.setImage('attachment://gif.gif');
+      sendableContent.files = [attachment];
+    }
+
     if (content.fields) {
       embed.addFields(...content.fields);
     }

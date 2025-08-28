@@ -1,7 +1,6 @@
 import connection from './databaseConnection.js';
 
 export async function checkIfTutorMoveIsLearned(userId, pokemonName, move) {
-  console.log(pokemonName, move);
   return new Promise((resolve, reject) => {
     const query = `
       SELECT * FROM tutorMoves

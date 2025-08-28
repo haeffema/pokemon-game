@@ -13,7 +13,7 @@ import showdown from 'pokemon-showdown';
 import tierData from '../data/tierAmounts.json' with { type: 'json' };
 import pokemonData from '../data/pokemon.json' with { type: 'json' };
 import droppableItems from '../data/items/dropItems.json' with { type: 'json' };
-import { generateBattleImage } from './imageGenerator.js';
+import { generateBattleGif, generateBattleImage } from './imageGenerator.js';
 import { sendMessage } from './sendMessage.js';
 import { ActionRowBuilder, ButtonBuilder, ButtonStyle } from 'discord.js';
 import { awaitInteraction } from './componentManager.js';
@@ -125,13 +125,16 @@ async function getRandomSetForPokemon(userId, pokemon) {
       'Papaplatte',
       'Supreme Leader Snoke',
       'Kylo Ren ohne Helm',
-      'Ren Skywalker',
+      'Rey Skywalker',
       'Gandalf',
       'Helmut',
       'Wuis',
       'TT',
       'larasopheinse',
       'Hier könnte ihre Werbung stehen!',
+      'Michi',
+      'SIGIIII',
+      'Sachsenadler',
     ];
     set['name'] = names[Math.floor(Math.random() * names.length)];
   }
@@ -377,6 +380,24 @@ function convertMoveLogToString(log) {
   if (log[1].startsWith('|-resisted')) {
     moveLog += 'It was not very effective.\n';
   }
+  for (const logRow of log) {
+    if (logRow.startsWith('|cant|')) {
+      switch (logRow.split('|')[3]) {
+        case 'par': {
+          moveLog += `${trainerNames[logRow.split('|')[2].split(': ')[0]]} ${logRow.split('|')[2].split(': ')[1]} is paralyzed and can't move.`;
+          break;
+        }
+        case 'flinch': {
+          moveLog += `${trainerNames[log[0].split('|')[4].split(': ')[0]]} ${log[0].split('|')[4].split(': ')[1]} flinched.`;
+          break;
+        }
+        case 'slp': {
+          moveLog += `${trainerNames[logRow.split('|')[2].split(': ')[0]]} ${logRow.split('|')[2].split(': ')[1]} is asleep and can't move.`;
+          break;
+        }
+      }
+    }
+  }
 
   if (log.lenght > 3 && log[log.length - 3].startsWith('|faint|')) {
     moveLog += `${trainerNames[log[log.length - 3].split('|')[2].split(': ')[0]]} ${log[log.length - 3].split('|')[2].split(': ')[1]} fainted.\n`;
@@ -385,7 +406,7 @@ function convertMoveLogToString(log) {
   return moveLog;
 }
 
-export async function startNewBattle(userId, interaction) {
+export async function startNewBattle(userId, interaction, shinyFight) {
   const user = await getUserById(userId);
   if (activeBattles[userId]) {
     return false;
@@ -417,10 +438,10 @@ export async function startNewBattle(userId, interaction) {
     encounter: encounter,
     battle: battle,
   };
-  return await runBattle(userId, interaction);
+  return await runBattle(userId, interaction, shinyFight);
 }
 
-async function runBattle(userId, interaction) {
+async function runBattle(userId, interaction, shinyFight) {
   if (!activeBattles[userId]) {
     return false;
   }
@@ -429,11 +450,20 @@ async function runBattle(userId, interaction) {
   const trainerPokemon = battle.p1.active[0];
   const wildPokemon = battle.p2.active[0];
 
-  const battleImageBuffer = await generateBattleImage(
-    trainerPokemon,
-    wildPokemon,
-    activeBattles[userId].encounter.new && battle.winner === 'Trainer'
-  );
+  let battleImageBuffer;
+  if (shinyFight) {
+    battleImageBuffer = await generateBattleGif(
+      trainerPokemon,
+      wildPokemon,
+      activeBattles[userId].encounter.new && battle.winner === 'Trainer'
+    );
+  } else {
+    battleImageBuffer = await generateBattleImage(
+      trainerPokemon,
+      wildPokemon,
+      activeBattles[userId].encounter.new && battle.winner === 'Trainer'
+    );
+  }
 
   const log = generateRoundLog(battle.log);
   let logString = `Item: ${trainerPokemon.set.item}`;
@@ -452,16 +482,31 @@ async function runBattle(userId, interaction) {
 
     const actionRow = new ActionRowBuilder().addComponents(moves);
 
-    const message = await sendMessage(
-      {
-        image: battleImageBuffer,
-        title: `${trainerPokemon.species.name}${trainerPokemon.set.shiny ? ' ⭐' : ''} vs. ${wildPokemon.species.name}${wildPokemon.set.shiny ? ' ⭐' : ''}`,
-        description: logString,
-        noSprite: true,
-      },
-      interaction,
-      [actionRow]
-    );
+    let message;
+
+    if (shinyFight) {
+      message = await sendMessage(
+        {
+          gif: battleImageBuffer,
+          title: `${trainerPokemon.species.name}${trainerPokemon.set.shiny ? ' ⭐' : ''} vs. ${wildPokemon.species.name}${wildPokemon.set.shiny ? ' ⭐' : ''}`,
+          description: logString,
+          noSprite: true,
+        },
+        interaction,
+        [actionRow]
+      );
+    } else {
+      message = await sendMessage(
+        {
+          image: battleImageBuffer,
+          title: `${trainerPokemon.species.name}${trainerPokemon.set.shiny ? ' ⭐' : ''} vs. ${wildPokemon.species.name}${wildPokemon.set.shiny ? ' ⭐' : ''}`,
+          description: logString,
+          noSprite: true,
+        },
+        interaction,
+        [actionRow]
+      );
+    }
 
     let response = await awaitInteraction(userId, message);
 
@@ -483,18 +528,31 @@ async function runBattle(userId, interaction) {
       `move ${response}${trainerPokemon.canMegaEvo ? ' mega' : ''}`
     );
     await botChooseHighestDamageMove(battle);
-    return await runBattle(userId, interaction);
+    return await runBattle(userId, interaction, shinyFight);
   }
 
-  await sendMessage(
-    {
-      image: battleImageBuffer,
-      title: `${trainerPokemon.species.name}${trainerPokemon.set.shiny ? ' ⭐' : ''} vs. ${wildPokemon.species.name}${wildPokemon.set.shiny ? ' ⭐' : ''}`,
-      description: logString,
-      noSprite: true,
-    },
-    interaction
-  );
+  if (shinyFight) {
+    await sendMessage(
+      {
+        gif: battleImageBuffer,
+        title: `${trainerPokemon.species.name}${trainerPokemon.set.shiny ? ' ⭐' : ''} vs. ${wildPokemon.species.name}${wildPokemon.set.shiny ? ' ⭐' : ''}`,
+        description: logString,
+        noSprite: true,
+      },
+      interaction
+    );
+  } else {
+    await sendMessage(
+      {
+        image: battleImageBuffer,
+        title: `${trainerPokemon.species.name}${trainerPokemon.set.shiny ? ' ⭐' : ''} vs. ${wildPokemon.species.name}${wildPokemon.set.shiny ? ' ⭐' : ''}`,
+        description: logString,
+        noSprite: true,
+      },
+      interaction
+    );
+  }
+
   const encounter = activeBattles[userId].encounter;
   encounter.winner = battle.winner === 'Trainer';
   delete activeBattles[userId];
